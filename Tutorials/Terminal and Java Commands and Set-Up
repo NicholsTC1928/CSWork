@@ -1,0 +1,28 @@
+Linux Terminal Commands (* Means Works in Windows):
+    mkdir <Name> - Creates a folder called <Name>
+    ls / dir* - Lists all files in a directory
+        ls -a - Lists all files in a directory, including hidden ones
+    pwd - Print Working Directory
+    cd* - Change Directory
+    rmdir <Path> (rmdir <Path /s /q)* - Removes directory at the end of <Path>
+    rm <Name> (del <Name>)* - Removes a file called <Name>
+    touch <Name>.<ext> - Creates an empty file called <Name> with extension <ext>
+    code <Name>.<ext> - Opens <Name> with a text editor
+
+Terminal Key Functions (Works on both Linux and Windows):
+    Up and Down Arrows - View Command History
+    Tab Key - Auto-complete Entry
+
+Compiling a Java Program (Works on both Linux and Windows):
+    1. Save your Java file as <Name>.Java
+    2. Type "javac <Name>.ext" into a command prompt to compile the program
+    3. Launch the program by typing "java <Name>.class" into a command prompt
+
+Installing Java on Windows:
+    1. Download and install the Java SE 10.0.2 JDK (NOT Server or other variants)
+    1a. Note the path that Java SE 10.0.2 JDK gets installed to (default is C:\Program Files\Java\jdk-10.0.2\bin)
+    2. Go to Control Panel > System and Security > System > Advanced System Settings
+    3. Go to the Advanced tab and click on Environment Variables
+    4. Select Path and Click Edit
+    5. Click New, enter the path specified in step 1a, and click OK
+    6. Restart the computer to finish the installation
