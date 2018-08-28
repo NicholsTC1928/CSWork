@@ -67,5 +67,53 @@ public class Loops
         {
             System.out.println(c + " squared is " + (c * c));
         }
+        System.out.println();
+        writeSquares6();
+    }
+
+    public static void writeSquares6()
+    {
+        System.out.println("Writing Even Squares...");
+        for(int count = 0; count <= 100; count += 2)
+        {
+            System.out.println(count + " squared is " + (count * count));
+        }
+        System.out.println();
+        writeSquares7();
+    }
+
+    public static void writeSquares7()
+    {
+        System.out.println("Writing Squares in Inverse Order...");
+        for(int n = 100; n >= 0; n--)
+        {
+            System.out.println(n + " squared is " + (n * n));
+        }
+        System.out.println();
+        helloThere();
+    }
+
+    public static void helloThere() //This is an example of a loop inside of a loop.
+    {
+        for(int i = 1; i < 10; i++){
+            for(int c = 1; c <= 4; c++){
+                System.out.println("Hello There");
+            }
+            System.out.println("[Insert Name Here]");
+        }
+        System.out.println();
+        nestedLoop();
+    }
+
+    public static void nestedLoop()
+    {
+        for(int i = 1; i <= 6; i++)
+        {
+            for(int j = 1; j <= 3; j++)
+            {
+                System.out.print(j + " ");
+            }
+        }
+        System.out.println();
     }
 }
