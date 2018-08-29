@@ -25,13 +25,22 @@ public class BMICalculator {
             System.out.println(bmi);
             System.out.println("Do you wish to make another calculation? (Y/N) ");
             boolean checkStop = true;
-            if (checkStop){
+            boolean keepGoing = true;
+            while(checkStop){
                 String input = reader.next().toLowerCase();
-                if(input.equals("n")) break;
+                if(input.equals("n")){
+                    checkStop = false;
+                    keepGoing = false;
+                }
                 else if(!input.equals("y")){
                     System.out.println("Please enter either a \"Y\" or an \"N.\"");
+                    System.out.println("Do you wish to make another calculation? (Y/N) ");
+                }
+                else if(input.equals("y")){
+                    checkStop = false;
                 }
             }
+            if(!keepGoing) break;
         }
     }
 }
