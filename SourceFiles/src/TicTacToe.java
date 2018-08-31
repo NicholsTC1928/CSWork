@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class TicTacToe
 {
@@ -37,11 +38,13 @@ public class TicTacToe
 
     }
 
-    public static String gameAI(String x, String y){
+    public static String gameAI(String x, String y){ //Make 2-Player Game First
 
     }
 
     public static String game(String x, String y){
+        Random rand = new Random();
+        int startP = rand.nextInt(2) + 1; //2 is the maximum random integer, and 1 is the minimum.
 
     }
 }
