@@ -1,0 +1,20 @@
+public static void
+
+Public vs. Private:
+-Public methods can be used anywhere.
+-Private methods can only be used in the class that it is specified in.
+
+When creating a non-static class, you are creating a new instance of the class.
+Example:
+class shape{
+    private drawShape(){
+        ...
+    }
+}
+
+This will only be used by typing:
+... = new shape myShape();
+
+When a static is void, it returns nothing. You can replace void with the type of value returned (i.e., int).
+
+final - A value declared as final can never change. (It is considered a constant.)

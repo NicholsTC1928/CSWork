@@ -37,8 +37,8 @@ public class TicTacToe
     public static void game(){
         Scanner reader = new Scanner(System.in);
         Random rand = new Random();
-        int startP = rand.nextInt(2) + 1; //2 is the maximum random integer, and 1 is the minimum.
-        String currentP;
+        final int startP = rand.nextInt(2) + 1; //2 is the maximum random integer, and 1 is the minimum.
+        int currentP;
         int move = 1; //Declares whose move it is - Update as moves are completed.
         int useX;
         int useO;
@@ -62,18 +62,37 @@ public class TicTacToe
         }
         System.out.println("To access the help information, type in \"help\" during a move.");
         System.out.println();
-        System.out.println("   1  2  3");
+        System.out.println("   A  B  C");
         System.out.println("1  -  -  -");
         System.out.println("2  -  -  -");
         System.out.println("3  -  -  -");
         System.out.println();
         boolean gameIsRunning = true;
         while(gameIsRunning){
-            if (currentP = useX){
-                
+            if(currentP == 1){
+                System.out.print(name1 + " (X) - Enter the name of the space that you wish to claim. ");
+                updateBoard(currentP);
+            }
+
+            else{
+                System.out.print(name2 + " (O) - Enter the name of the space that you wish to claim. ");
             }
         }
-        System.out.print(currentP + " (X) - Enter the name of the space that you wish to claim. ");
 
+
+    }
+    public static void updateBoard(int x){
+        String A1 = "-";
+        String A2 = "-";
+        String A3 = "-";
+        String B1 = "-";
+        String B2 = "-";
+        String B3 = "-";
+        String C1 = "-";
+        String C2 = "-";
+        String C3 = "-";
+        Scanner input = new Scanner(System.in);
+        String choice = input.next();
+        
     }
 }
