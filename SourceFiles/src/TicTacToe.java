@@ -82,17 +82,9 @@ public class TicTacToe
 
     }
     public static void updateBoard(int x){
-        String A1 = "-";
-        String A2 = "-";
-        String A3 = "-";
-        String B1 = "-";
-        String B2 = "-";
-        String B3 = "-";
-        String C1 = "-";
-        String C2 = "-";
-        String C3 = "-";
+        String[] slotsA = new String[5];
         Scanner input = new Scanner(System.in);
         String choice = input.next();
-        
+
     }
 }
