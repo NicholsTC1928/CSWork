@@ -42,10 +42,12 @@ public class TicTacToe
         int move = 1; //Declares whose move it is - Update as moves are completed.
         int useX;
         int useO;
-        System.out.print("Enter the Name of Player 1: ");
+        System.out.print("Enter the Name of Player 1 (X): ");
         String name1 = reader.next(); //Winner declared as "winP1"
-        System.out.print("Enter the Name of Player 2: ");
+        String name1Sign = name1 + "(X)";
+        System.out.print("Enter the Name of Player 2 (O): ");
         String name2 = reader.next(); //Winner declared as "winP2"
+        String name2Sign = name2 + "(O)";
         if(startP == 1){
             currentP = 1;
             //move = 1;
@@ -70,21 +72,43 @@ public class TicTacToe
         boolean gameIsRunning = true;
         while(gameIsRunning){
             if(currentP == 1){
-                System.out.print(name1 + " (X) - Enter the name of the space that you wish to claim. ");
-                updateBoard(currentP);
+                updateBoard(currentP,name1,name1Sign);
             }
 
             else{
-                System.out.print(name2 + " (O) - Enter the name of the space that you wish to claim. ");
+                updateBoard(currentP,name2,name2Sign);
             }
         }
 
 
     }
-    public static void updateBoard(int x){
-        String[] slotsA = new String[5];
+    public static void updateBoard(int pNum, String name, String nameDisplay){
+        String[] displayA = new String[]{"-","-","-"};
+        String[] displayB = new String[]{"-","-","-"};
+        String[] displayC = new String[]{"-","-","-"};
+        int[] slotsA = new int[]{0,0,0};
+        int[] slotsB = new int[]{0,0,0};
+        int[] slotsC = new int[]{0,0,0};
+        //boolean checkText = true;
         Scanner input = new Scanner(System.in);
-        String choice = input.next();
+        String choice;
+        for(;;){
+            System.out.print(nameDisplay + " - Enter the name of the space that you wish to claim. ");
+            choice = input.next();
+            int inputLength = choice.length();
+            if(inputLength == 2) break;
+            else System.out.println("Please enter only two characters: a letter (A, B, or C) and a number (1, 2, or 3).");
+        }
+        if (pNum == 1){
+            char letterChoice = choice.charAt(0);
+            char numberChar = choice.charAt(1);
+            int numberChoice = Character.
+            if(letterChoice == 'A'){
 
+            }
+        }
+        else{
+
+        }
     }
 }
