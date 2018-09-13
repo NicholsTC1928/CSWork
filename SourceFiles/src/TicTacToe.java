@@ -154,4 +154,25 @@ public class TicTacToe
         System.out.println("2  " + displayA[1] + "  " + displayB[1] + "  " + displayC[1]);
         System.out.println("3  " + displayA[2] + "  " + displayB[2] + "  " + displayC[2]);
     }
+
+    public static void checkWin(int[] slotsA,int[] slotsB,int[] slotsC,int pNum){
+        if(slotsA[0] == slotsA[1] && slotsA[0] == slotsA[2]){ //Vertical A Check
+
+        }
+        else if(slotsB[0] == slotsB[1] && slotsB[0] == slotsB[2]){ //Vertical B Check
+
+        }
+        else if(slotsC[0] == slotsC[1] && slotsC[0] == slotsC[2]){ //Vertical C Check
+
+        }
+        else if(slotsA[0] == slotsB[0] && slotsA[0] == slotsC[0]){ //Horizontal 1 Check
+
+        }
+        else if(slotsA[1] == slotsB[1] && slotsA[1] == slotsC[1]){ //Horizontal 2 Check
+
+        }
+        else if(slotsA[2] == slotsB[2] && slotsA[2] == slotsC[2]){ //Horizontal 3 Check
+
+        }
+    }
 }

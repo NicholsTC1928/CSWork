@@ -1,0 +1,35 @@
+A. Introduction to Parameters and Objects
+
+    1. Parameters (Parameterize) - Any of a set of characteristics that distinguish different members of a family of tasks.
+    To parameterize, a task is to identify a set of parameters.
+
+    2. The reason for parameters is to make methods more flexible and capable of solving a larger variety of problems.
+    There is no limit to the number of parameters allowed in a method.
+
+    3. An example of parameters being used can be found in parametersExamples.java.
+
+B. When you call the method, either a variable or a literal of the correct type can be used. However, it must match the
+method header.
+    Example:
+    myMethod("years",12); (Remember to make sure that the variable types are listed in the same order as the method
+    states. This will work, but "myMethod(12,"years");" will not.
+
+    public static void myMethod(String first,int second){
+        ...
+    }
+
+C. Types of Parameters
+    1. Formal Parameter - (Generalized Parameter) A variable that appears inside parentheses in the header of a method
+    that is used to generalize the method's behavior. For example, in the "myMethod" method, first and second are formal
+    parameters.
+
+    2. Actual Parameter - (Argument) A specific value or expression that appears inside parentheses in a method call.
+    For example, in the "myMethod" method, "years" and 12 are actual parameters.
+
+D. Java passes parameters by value. (Other languages, such as C++, allow passing by reference.) Passing by value creates
+a new method, while passing by reference will reflect changes if a variable is changed.
+
+E. The types of the variables should not be used when calling a method.
+    Example: writeSpaces(int myNumber); - This will produce an error.
+    writeSpaces(int myNumber = 6); - This will also produce an error.
+    writeSpaces(myNumber = 6); - This will work correctly.
