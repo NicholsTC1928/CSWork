@@ -44,10 +44,10 @@ public class TicTacToe
         int useO;
         System.out.print("Enter the Name of Player 1 (X): ");
         String name1 = reader.next(); //Winner declared as "winP1"
-        String name1Sign = name1 + "(X)";
+        String name1Sign = name1 + " (X)";
         System.out.print("Enter the Name of Player 2 (O): ");
         String name2 = reader.next(); //Winner declared as "winP2"
-        String name2Sign = name2 + "(O)";
+        String name2Sign = name2 + " (O)";
         if(startP == 1){
             currentP = 1;
             //move = 1;
@@ -73,10 +73,12 @@ public class TicTacToe
         while(gameIsRunning){
             if(currentP == 1){
                 updateBoard(currentP,name1,name1Sign);
+                gameIsRunning = false; //Used for testing
             }
 
             else{
                 updateBoard(currentP,name2,name2Sign);
+                gameIsRunning = false; //Used for testing
             }
         }
 
@@ -92,17 +94,28 @@ public class TicTacToe
         //boolean checkText = true;
         Scanner input = new Scanner(System.in);
         String choice;
+        char letterCheck;
         for(;;){
             System.out.print(nameDisplay + " - Enter the name of the space that you wish to claim. ");
             choice = input.next();
             int inputLength = choice.length();
-            if(inputLength == 2) break;
+            letterCheck = choice.charAt(0);
+            letterCheck = Character.toUpperCase(letterCheck);
+            if(inputLength == 2) {
+                if(letterCheck == 'A' || letterCheck == 'B' || letterCheck == 'C'){
+                    if(choice.charAt(1) == '1' || choice.charAt(1) == '2' || choice.charAt(1) == '3'){
+                        break;
+                    }
+                    else System.out.println("Please enter only two characters: a letter (A, B, or C) and a number (1, 2, or 3).");
+                }
+                else System.out.println("Please enter only two characters: a letter (A, B, or C) and a number (1, 2, or 3).");
+            }
             else System.out.println("Please enter only two characters: a letter (A, B, or C) and a number (1, 2, or 3).");
         }
         char letterChoice = choice.charAt(0);
         char numberChar = choice.charAt(1);
         int numberChoice = Character.getNumericValue(numberChar);
-        if(letterChoice == 'A'){
+        if(letterCheck == 'A'){
             if(pNum == 1){
                 editArray(displayA,slotsA,"X",1,numberChoice);
             }
@@ -110,7 +123,7 @@ public class TicTacToe
                 editArray(displayA,slotsA,"O",2,numberChoice);
             }
         }
-        else if(letterChoice == 'B'){
+        else if(letterCheck == 'B'){
             if(pNum == 1){
                 editArray(displayB,slotsB,"X",1,numberChoice);
             }
@@ -118,7 +131,7 @@ public class TicTacToe
                 editArray(displayB,slotsB,"O",2,numberChoice);
             }
         }
-        else{
+        else {
             if(pNum == 1){
                 editArray(displayC,slotsC,"X",1,numberChoice);
             }
@@ -126,6 +139,7 @@ public class TicTacToe
                 editArray(displayC,slotsC,"O",2,numberChoice);
             }
         }
+        System.out.println();
         System.out.println("   A  B  C");
         displayArray(displayA,displayB,displayC);
     }
@@ -136,8 +150,8 @@ public class TicTacToe
     }
 
     public static void displayArray(String[] displayA, String[] displayB, String[] displayC){
-        System.out.println("1  " + displayA[0] + "  " + displayA[1] + "  " + displayA[2]);
-        System.out.println("2  " + displayB[0] + "  " + displayB[1] + "  " + displayB[2]);
-        System.out.println("3  " + displayC[0] + "  " + displayC[1] + "  " + displayC[2]);
+        System.out.println("1  " + displayA[0] + "  " + displayB[0] + "  " + displayC[0]);
+        System.out.println("2  " + displayA[1] + "  " + displayB[1] + "  " + displayC[1]);
+        System.out.println("3  " + displayA[2] + "  " + displayB[2] + "  " + displayC[2]);
     }
 }
