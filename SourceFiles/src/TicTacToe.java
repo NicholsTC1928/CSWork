@@ -70,21 +70,30 @@ public class TicTacToe
         System.out.println("3  -  -  -");
         System.out.println();
         boolean gameIsRunning = true;
+        int result;
         while(gameIsRunning){
             if(currentP == 1){
-                updateBoard(currentP,name1,name1Sign);
-                gameIsRunning = false; //Used for testing
+                result = updateBoard(currentP,name1,name1Sign);
+                if(result == 0) break;
+                else{
+                    System.out.println(name1 + " is the winner! Congratulations!");
+                    gameIsRunning = false;
+                }
             }
 
             else{
-                updateBoard(currentP,name2,name2Sign);
-                gameIsRunning = false; //Used for testing
+                result = updateBoard(currentP,name2,name2Sign);
+                if(result == 0) break;
+                else{
+                    System.out.println(name2 + " is the winner! Congratulations!");
+                    gameIsRunning = false;
+                }
             }
         }
 
 
     }
-    public static void updateBoard(int pNum, String name, String nameDisplay){
+    public static int updateBoard(int pNum, String name, String nameDisplay){
         String[] displayA = new String[]{"-","-","-"};
         String[] displayB = new String[]{"-","-","-"};
         String[] displayC = new String[]{"-","-","-"};
@@ -142,6 +151,7 @@ public class TicTacToe
         System.out.println();
         System.out.println("   A  B  C");
         displayArray(displayA,displayB,displayC);
+        return checkWin(slotsA,slotsB,slotsC,pNum);
     }
 
     public static void editArray(String[] display,int[] slots,String sym,int check,int choice){
@@ -155,24 +165,39 @@ public class TicTacToe
         System.out.println("3  " + displayA[2] + "  " + displayB[2] + "  " + displayC[2]);
     }
 
-    public static void checkWin(int[] slotsA,int[] slotsB,int[] slotsC,int pNum){
+    public static int checkWin(int[] slotsA,int[] slotsB,int[] slotsC,int pNum){
         if(slotsA[0] == slotsA[1] && slotsA[0] == slotsA[2]){ //Vertical A Check
-
+            if(pNum == 1) return 1;
+            else return 2;
         }
         else if(slotsB[0] == slotsB[1] && slotsB[0] == slotsB[2]){ //Vertical B Check
-
+            if(pNum == 1) return 1;
+            else return 2;
         }
         else if(slotsC[0] == slotsC[1] && slotsC[0] == slotsC[2]){ //Vertical C Check
-
+            if(pNum == 1) return 1;
+            else return 2;
         }
         else if(slotsA[0] == slotsB[0] && slotsA[0] == slotsC[0]){ //Horizontal 1 Check
-
+            if(pNum == 1) return 1;
+            else return 2;
         }
         else if(slotsA[1] == slotsB[1] && slotsA[1] == slotsC[1]){ //Horizontal 2 Check
-
+            if(pNum == 1) return 1;
+            else return 2;
         }
         else if(slotsA[2] == slotsB[2] && slotsA[2] == slotsC[2]){ //Horizontal 3 Check
-
+            if(pNum == 1) return 1;
+            else return 2;
         }
+        else if(slotsA[0] == slotsB[1] && slotsA[0] == slotsC[2]){ //Diagonal \ Check
+            if(pNum == 1) return 1;
+            else return 2;
+        }
+        else if(slotsA[2] == slotsB[1] && slotsA[2] == slotsC[0]){ //Diagonal / Check
+            if(pNum == 1) return 1;
+            else return 2;
+        }
+        else return 0;
     }
 }
