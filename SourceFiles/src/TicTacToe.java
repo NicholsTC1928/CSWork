@@ -62,7 +62,7 @@ public class TicTacToe
             //useO = 1;
             System.out.println(name2 + " will make the first move.");
         }
-        System.out.println("To access the help information, type in \"help\" during a move.");
+        //System.out.println("To access the help information, type in \"help\" during a move.");
         System.out.println();
         System.out.println("   A  B  C");
         System.out.println("1  -  -  -");
@@ -71,21 +71,27 @@ public class TicTacToe
         System.out.println();
         boolean gameIsRunning = true;
         int result;
+        String[] displayA = new String[]{"-","-","-"};
+        String[] displayB = new String[]{"-","-","-"};
+        String[] displayC = new String[]{"-","-","-"};
+        int[] slotsA = new int[]{0,0,0};
+        int[] slotsB = new int[]{0,0,0};
+        int[] slotsC = new int[]{0,0,0};
         while(gameIsRunning){
             if(currentP == 1){
-                result = updateBoard(currentP,name1,name1Sign);
-                if(result == 0) break;
+                result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,name1,name1Sign);
+                if(result == 0) currentP = 2;
                 else{
-                    System.out.println(name1 + " is the winner! Congratulations!");
+                    checkWin2(result,name1);
                     gameIsRunning = false;
                 }
             }
 
             else{
-                result = updateBoard(currentP,name2,name2Sign);
-                if(result == 0) break;
+                result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,name2,name2Sign);
+                if(result == 0) currentP = 1;
                 else{
-                    System.out.println(name2 + " is the winner! Congratulations!");
+                    checkWin2(result,name2);
                     gameIsRunning = false;
                 }
             }
@@ -93,13 +99,13 @@ public class TicTacToe
 
 
     }
-    public static int updateBoard(int pNum, String name, String nameDisplay){
-        String[] displayA = new String[]{"-","-","-"};
-        String[] displayB = new String[]{"-","-","-"};
-        String[] displayC = new String[]{"-","-","-"};
-        int[] slotsA = new int[]{0,0,0};
-        int[] slotsB = new int[]{0,0,0};
-        int[] slotsC = new int[]{0,0,0};
+    public static int updateBoard(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC,int pNum, String name, String nameDisplay){
+        //String[] displayA = new String[]{"-","-","-"};
+        //String[] displayB = new String[]{"-","-","-"};
+        //String[] displayC = new String[]{"-","-","-"};
+        //int[] slotsA = new int[]{0,0,0};
+        //int[] slotsB = new int[]{0,0,0};
+        //int[] slotsC = new int[]{0,0,0};
         //boolean checkText = true;
         Scanner input = new Scanner(System.in);
         String choice;
@@ -110,9 +116,15 @@ public class TicTacToe
             int inputLength = choice.length();
             letterCheck = choice.charAt(0);
             letterCheck = Character.toUpperCase(letterCheck);
+            String slotChoice = "slots" + Character.toString(letterCheck);
+            char numberChar = choice.charAt(1);
+            int numberChoice = Character.getNumericValue(numberChar);
             if(inputLength == 2) {
                 if(letterCheck == 'A' || letterCheck == 'B' || letterCheck == 'C'){
-                    if(choice.charAt(1) == '1' || choice.charAt(1) == '2' || choice.charAt(1) == '3'){
+                    if(numberChoice == 1 || numberChoice == 2 || numberChoice == 3){
+                        switch (letterCheck){
+                            case 'A': 
+                        }
                         break;
                     }
                     else System.out.println("Please enter only two characters: a letter (A, B, or C) and a number (1, 2, or 3).");
@@ -121,9 +133,7 @@ public class TicTacToe
             }
             else System.out.println("Please enter only two characters: a letter (A, B, or C) and a number (1, 2, or 3).");
         }
-        char letterChoice = choice.charAt(0);
-        char numberChar = choice.charAt(1);
-        int numberChoice = Character.getNumericValue(numberChar);
+
         if(letterCheck == 'A'){
             if(pNum == 1){
                 editArray(displayA,slotsA,"X",1,numberChoice);
@@ -151,12 +161,18 @@ public class TicTacToe
         System.out.println();
         System.out.println("   A  B  C");
         displayArray(displayA,displayB,displayC);
+        System.out.println();
         return checkWin(slotsA,slotsB,slotsC,pNum);
     }
 
     public static void editArray(String[] display,int[] slots,String sym,int check,int choice){
-        display[choice - 1] = sym;
-        slots[choice - 1] = check;
+        if(slots[choice - 1] != 0){
+            display[choice - 1] = sym;
+            slots[choice - 1] = check;
+        }
+        else{
+            System.out.println("This slot has already been occupied. Please choose another slot.");
+        }
     }
 
     public static void displayArray(String[] displayA, String[] displayB, String[] displayC){
@@ -166,38 +182,60 @@ public class TicTacToe
     }
 
     public static int checkWin(int[] slotsA,int[] slotsB,int[] slotsC,int pNum){
-        if(slotsA[0] == slotsA[1] && slotsA[0] == slotsA[2]){ //Vertical A Check
+        if(slotsA[0] == slotsA[1] && slotsA[0] == slotsA[2] && slotsA[0] != 0){ //Vertical A Check
             if(pNum == 1) return 1;
             else return 2;
         }
-        else if(slotsB[0] == slotsB[1] && slotsB[0] == slotsB[2]){ //Vertical B Check
+        else if(slotsB[0] == slotsB[1] && slotsB[0] == slotsB[2] && slotsB[0] != 0){ //Vertical B Check
             if(pNum == 1) return 1;
             else return 2;
         }
-        else if(slotsC[0] == slotsC[1] && slotsC[0] == slotsC[2]){ //Vertical C Check
+        else if(slotsC[0] == slotsC[1] && slotsC[0] == slotsC[2] && slotsC[0] != 0){ //Vertical C Check
             if(pNum == 1) return 1;
             else return 2;
         }
-        else if(slotsA[0] == slotsB[0] && slotsA[0] == slotsC[0]){ //Horizontal 1 Check
+        else if(slotsA[0] == slotsB[0] && slotsA[0] == slotsC[0] && slotsA[0] != 0){ //Horizontal 1 Check
             if(pNum == 1) return 1;
             else return 2;
         }
-        else if(slotsA[1] == slotsB[1] && slotsA[1] == slotsC[1]){ //Horizontal 2 Check
+        else if(slotsA[1] == slotsB[1] && slotsA[1] == slotsC[1] && slotsA[1] != 0){ //Horizontal 2 Check
             if(pNum == 1) return 1;
             else return 2;
         }
-        else if(slotsA[2] == slotsB[2] && slotsA[2] == slotsC[2]){ //Horizontal 3 Check
+        else if(slotsA[2] == slotsB[2] && slotsA[2] == slotsC[2] && slotsA[2] != 0){ //Horizontal 3 Check
             if(pNum == 1) return 1;
             else return 2;
         }
-        else if(slotsA[0] == slotsB[1] && slotsA[0] == slotsC[2]){ //Diagonal \ Check
+        else if(slotsA[0] == slotsB[1] && slotsA[0] == slotsC[2] && slotsA[0] != 0){ //Diagonal \ Check
             if(pNum == 1) return 1;
             else return 2;
         }
-        else if(slotsA[2] == slotsB[1] && slotsA[2] == slotsC[0]){ //Diagonal / Check
+        else if(slotsA[2] == slotsB[1] && slotsA[2] == slotsC[0] && slotsA[2] != 0){ //Diagonal / Check
             if(pNum == 1) return 1;
             else return 2;
         }
-        else return 0;
+        else{
+            int count = 0;
+            for(int i = 0;i <= 2;i++){
+                if(slotsA[i] != 0 && slotsB[i] != 0 && slotsC[i] != 0){
+                    count++;
+                }
+            }
+            if(count == 3) return 3;
+            else return 0;
+        }
     }
+
+    public static void checkWin2(int result,String name){
+        if(result != 3){
+            System.out.println(name + " is the winner! Congratulations!");
+            //gameIsRunning = false;
+        }
+        else{
+            System.out.println("All of the slots have been filled, but there is no winning combination. This game is a draw.");
+            //gameIsRunning = false;
+        }
+    }
+
+    public static void checkInput(String nameDisplay,char letterCheck,)
 }
