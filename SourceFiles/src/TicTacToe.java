@@ -62,7 +62,7 @@ public class TicTacToe
             //useO = 1;
             System.out.println(name2 + " will make the first move.");
         }
-        //System.out.println("To access the help information, type in \"help\" during a move.");
+        System.out.println("To quit the game, type in \"quit\" on your turn.");
         System.out.println();
         System.out.println("   A  B  C");
         System.out.println("1  -  -  -");
