@@ -39,9 +39,9 @@ public class TicTacToe
         Random rand = new Random();
         final int startP = rand.nextInt(2) + 1; //2 is the maximum random integer, and 1 is the minimum.
         int currentP;
-        int move = 1; //Declares whose move it is - Update as moves are completed.
-        int useX;
-        int useO;
+        //int move = 1; //Declares whose move it is - Update as moves are completed.
+        //int useX;
+        //int useO;
         System.out.print("Enter the Name of Player 1 (X): ");
         String name1 = reader.next(); //Winner declared as "winP1"
         String name1Sign = name1 + " (X)";
@@ -51,14 +51,14 @@ public class TicTacToe
         if(startP == 1){
             currentP = 1;
             //move = 1;
-            useX = 1;
+            //useX = 1;
             //useO = 2;
             System.out.println(name1 + " will make the first move.");
         }
         else {
             currentP = 2;
             //move = 2;
-            useX = 2;
+            //useX = 2;
             //useO = 1;
             System.out.println(name2 + " will make the first move.");
         }
@@ -110,28 +110,47 @@ public class TicTacToe
         Scanner input = new Scanner(System.in);
         String choice;
         char letterCheck;
+        int numberChoice;
         for(;;){
             System.out.print(nameDisplay + " - Enter the name of the space that you wish to claim. ");
             choice = input.next();
             int inputLength = choice.length();
             letterCheck = choice.charAt(0);
             letterCheck = Character.toUpperCase(letterCheck);
-            String slotChoice = "slots" + Character.toString(letterCheck);
+            //String slotChoice = "slots" + Character.toString(letterCheck);
             char numberChar = choice.charAt(1);
-            int numberChoice = Character.getNumericValue(numberChar);
+            numberChoice = Character.getNumericValue(numberChar);
+            String choiceQuit = choice.toLowerCase();
+            String invalidInput = "Please enter only two characters: a letter (A, B, or C) and a number (1, 2, or 3).";
             if(inputLength == 2) {
-                if(letterCheck == 'A' || letterCheck == 'B' || letterCheck == 'C'){
-                    if(numberChoice == 1 || numberChoice == 2 || numberChoice == 3){
-                        switch (letterCheck){
-                            case 'A': 
-                        }
-                        break;
+                if(numberChoice == 1 || numberChoice == 2 || numberChoice == 3){
+                    boolean vacant = false;
+                    switch (letterCheck){
+                        case 'A':
+                            if(slotsA[numberChoice - 1] == 0) vacant = true;
+                            break;
+                        case 'B':
+                            if(slotsB[numberChoice - 1] == 0) vacant = true;
+                            break;
+                        case 'C':
+                            if(slotsC[numberChoice - 1] == 0) vacant = true;
+                            break;
+                        default:
+                            System.out.println(invalidInput);
+                            break;
                     }
-                    else System.out.println("Please enter only two characters: a letter (A, B, or C) and a number (1, 2, or 3).");
+                    if(!vacant){
+                        System.out.println("This slot has already been occupied; please choose another slot.");
+                        displayArray(displayA,displayB,displayC);
+                    }
+                    else break;
                 }
-                else System.out.println("Please enter only two characters: a letter (A, B, or C) and a number (1, 2, or 3).");
+                else System.out.println(invalidInput);
             }
-            else System.out.println("Please enter only two characters: a letter (A, B, or C) and a number (1, 2, or 3).");
+            else if(choiceQuit.equals("quit")){
+
+            }
+            else System.out.println(invalidInput);
         }
 
         if(letterCheck == 'A'){
@@ -166,13 +185,8 @@ public class TicTacToe
     }
 
     public static void editArray(String[] display,int[] slots,String sym,int check,int choice){
-        if(slots[choice - 1] != 0){
-            display[choice - 1] = sym;
-            slots[choice - 1] = check;
-        }
-        else{
-            System.out.println("This slot has already been occupied. Please choose another slot.");
-        }
+        display[choice - 1] = sym;
+        slots[choice - 1] = check;
     }
 
     public static void displayArray(String[] displayA, String[] displayB, String[] displayC){
@@ -236,6 +250,4 @@ public class TicTacToe
             //gameIsRunning = false;
         }
     }
-
-    public static void checkInput(String nameDisplay,char letterCheck,)
 }
