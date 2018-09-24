@@ -7,6 +7,7 @@ public class TicTacToe
         Scanner reader = new Scanner(System.in);
         boolean useAI = false;
         System.out.println("Welcome to Tic-Tac-Toe! This was programmed by Tyler Nichols.");
+        System.out.println();
         System.out.print("How many players will be participating? (Enter either a \"1\" or a \"2.\") ");
         boolean numCheck = true;
         int pCount = reader.nextInt();
@@ -19,6 +20,7 @@ public class TicTacToe
             }
             else numCheck = false;
         }
+        System.out.println();
         //String winner;
         if(pCount == 1){
             gameAI();
@@ -45,6 +47,7 @@ public class TicTacToe
         System.out.print("Enter the Name of Player 1 (X): ");
         String name1 = reader.next(); //Winner declared as "winP1"
         String name1Sign = name1 + " (X)";
+        System.out.println();
         System.out.print("Enter the Name of Player 2 (O): ");
         String name2 = reader.next(); //Winner declared as "winP2"
         String name2Sign = name2 + " (O)";
@@ -53,6 +56,7 @@ public class TicTacToe
             //move = 1;
             //useX = 1;
             //useO = 2;
+            System.out.println();
             System.out.println(name1 + " will make the first move.");
         }
         else {
@@ -60,6 +64,7 @@ public class TicTacToe
             //move = 2;
             //useX = 2;
             //useO = 1;
+            System.out.println();
             System.out.println(name2 + " will make the first move.");
         }
         System.out.println("To quit the game, type in \"quit\" on your turn.");
@@ -81,6 +86,9 @@ public class TicTacToe
             if(currentP == 1){
                 result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,name1,name1Sign);
                 if(result == 0) currentP = 2;
+                else if(result == 5){
+                    gameIsRunning = quitGame();
+                }
                 else{
                     checkWin2(result,name1);
                     gameIsRunning = false;
@@ -90,6 +98,9 @@ public class TicTacToe
             else{
                 result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,name2,name2Sign);
                 if(result == 0) currentP = 1;
+                else if(result == 5){
+                    gameIsRunning = quitGame();
+                }
                 else{
                     checkWin2(result,name2);
                     gameIsRunning = false;
@@ -111,6 +122,7 @@ public class TicTacToe
         String choice;
         char letterCheck;
         int numberChoice;
+        boolean didQuit = false;
         for(;;){
             System.out.print(nameDisplay + " - Enter the name of the space that you wish to claim. ");
             choice = input.next();
@@ -148,11 +160,12 @@ public class TicTacToe
                 else System.out.println(invalidInput);
             }
             else if(choiceQuit.equals("quit")){
-
+                didQuit = true;
+                break;
             }
             else System.out.println(invalidInput);
         }
-
+        if(didQuit) return 5;
         if(letterCheck == 'A'){
             if(pNum == 1){
                 editArray(displayA,slotsA,"X",1,numberChoice);
@@ -169,7 +182,7 @@ public class TicTacToe
                 editArray(displayB,slotsB,"O",2,numberChoice);
             }
         }
-        else {
+        else{
             if(pNum == 1){
                 editArray(displayC,slotsC,"X",1,numberChoice);
             }
@@ -178,7 +191,6 @@ public class TicTacToe
             }
         }
         System.out.println();
-        System.out.println("   A  B  C");
         displayArray(displayA,displayB,displayC);
         System.out.println();
         return checkWin(slotsA,slotsB,slotsC,pNum);
@@ -190,6 +202,7 @@ public class TicTacToe
     }
 
     public static void displayArray(String[] displayA, String[] displayB, String[] displayC){
+        System.out.println("   A  B  C");
         System.out.println("1  " + displayA[0] + "  " + displayB[0] + "  " + displayC[0]);
         System.out.println("2  " + displayA[1] + "  " + displayB[1] + "  " + displayC[1]);
         System.out.println("3  " + displayA[2] + "  " + displayB[2] + "  " + displayC[2]);
@@ -249,5 +262,11 @@ public class TicTacToe
             System.out.println("All of the slots have been filled, but there is no winning combination. This game is a draw.");
             //gameIsRunning = false;
         }
+    }
+
+    public static boolean quitGame(){
+        System.out.println();
+        System.out.println("The game has preemptively ended, and thus there is no winner. This game is a draw.");
+        return false;
     }
 }
