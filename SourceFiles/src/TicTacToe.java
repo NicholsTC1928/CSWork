@@ -21,15 +21,12 @@ public class TicTacToe
             else numCheck = false;
         }
         System.out.println();
-        //String winner;
         if(pCount == 1){
             gameAI();
         }
         else{
             game();
         }
-
-
     }
 
     public static void gameAI(){ //Make 2-Player Game First
@@ -41,9 +38,6 @@ public class TicTacToe
         Random rand = new Random();
         final int startP = rand.nextInt(2) + 1; //2 is the maximum random integer, and 1 is the minimum.
         int currentP;
-        //int move = 1; //Declares whose move it is - Update as moves are completed.
-        //int useX;
-        //int useO;
         System.out.print("Enter the Name of Player 1 (X): ");
         String name1 = reader.next(); //Winner declared as "winP1"
         String name1Sign = name1 + " (X)";
@@ -53,17 +47,11 @@ public class TicTacToe
         String name2Sign = name2 + " (O)";
         if(startP == 1){
             currentP = 1;
-            //move = 1;
-            //useX = 1;
-            //useO = 2;
             System.out.println();
             System.out.println(name1 + " will make the first move.");
         }
         else {
             currentP = 2;
-            //move = 2;
-            //useX = 2;
-            //useO = 1;
             System.out.println();
             System.out.println(name2 + " will make the first move.");
         }
@@ -94,7 +82,6 @@ public class TicTacToe
                     gameIsRunning = false;
                 }
             }
-
             else{
                 result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,name2,name2Sign);
                 if(result == 0) currentP = 1;
@@ -107,17 +94,8 @@ public class TicTacToe
                 }
             }
         }
-
-
     }
     public static int updateBoard(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC,int pNum, String name, String nameDisplay){
-        //String[] displayA = new String[]{"-","-","-"};
-        //String[] displayB = new String[]{"-","-","-"};
-        //String[] displayC = new String[]{"-","-","-"};
-        //int[] slotsA = new int[]{0,0,0};
-        //int[] slotsB = new int[]{0,0,0};
-        //int[] slotsC = new int[]{0,0,0};
-        //boolean checkText = true;
         Scanner input = new Scanner(System.in);
         String choice;
         char letterCheck;
@@ -129,7 +107,6 @@ public class TicTacToe
             int inputLength = choice.length();
             letterCheck = choice.charAt(0);
             letterCheck = Character.toUpperCase(letterCheck);
-            //String slotChoice = "slots" + Character.toString(letterCheck);
             char numberChar = choice.charAt(1);
             numberChoice = Character.getNumericValue(numberChar);
             String choiceQuit = choice.toLowerCase();
@@ -256,11 +233,9 @@ public class TicTacToe
     public static void checkWin2(int result,String name){
         if(result != 3){
             System.out.println(name + " is the winner! Congratulations!");
-            //gameIsRunning = false;
         }
         else{
             System.out.println("All of the slots have been filled, but there is no winning combination. This game is a draw.");
-            //gameIsRunning = false;
         }
     }
 
