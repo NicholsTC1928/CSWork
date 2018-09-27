@@ -30,7 +30,33 @@ public class TicTacToe
     }
 
     public static void gameAI(){ //Make 2-Player Game First
-        System.out.println("This mode has not been implemented yet. Sorry for the inconvenience! :)");
+        Scanner reader = new Scanner(System.in);
+        Random rand = new Random();
+        final int startP = rand.nextInt(2) + 1; //2 is the maximum random integer, and 1 is the minimum.
+        int currentP;
+        System.out.print("Enter the Name of Player 1 (X): ");
+        String pName = reader.next(); //Winner declared as "winP1"
+        String pNameSign = pName + " (X)";
+        System.out.println();
+        String cName = "CPU";
+        String cNameSign = cName + " (O)";
+        boolean gameIsRunning = true;
+        int result;
+        currentP = initializeGame(startP,pName,cName);
+        String[] displayA = new String[]{"-","-","-"};
+        String[] displayB = new String[]{"-","-","-"};
+        String[] displayC = new String[]{"-","-","-"};
+        int[] slotsA = new int[]{0,0,0};
+        int[] slotsB = new int[]{0,0,0};
+        int[] slotsC = new int[]{0,0,0};
+        while(gameIsRunning){
+            if(currentP == 1){
+                result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,pName,pNameSign);
+            }
+            else{
+               
+            }
+        }
     }
 
     public static void game(){
@@ -45,25 +71,9 @@ public class TicTacToe
         System.out.print("Enter the Name of Player 2 (O): ");
         String name2 = reader.next(); //Winner declared as "winP2"
         String name2Sign = name2 + " (O)";
-        if(startP == 1){
-            currentP = 1;
-            System.out.println();
-            System.out.println(name1 + " will make the first move.");
-        }
-        else {
-            currentP = 2;
-            System.out.println();
-            System.out.println(name2 + " will make the first move.");
-        }
-        System.out.println("To quit the game, type in \"quit\" on your turn.");
-        System.out.println();
-        System.out.println("   A  B  C");
-        System.out.println("1  -  -  -");
-        System.out.println("2  -  -  -");
-        System.out.println("3  -  -  -");
-        System.out.println();
         boolean gameIsRunning = true;
         int result;
+        currentP = initializeGame(startP,name1,name2);
         String[] displayA = new String[]{"-","-","-"};
         String[] displayB = new String[]{"-","-","-"};
         String[] displayC = new String[]{"-","-","-"};
@@ -243,5 +253,27 @@ public class TicTacToe
         System.out.println();
         System.out.println("The game has preemptively ended, and thus there is no winner. This game is a draw.");
         return false;
+    }
+
+    public static int initializeGame(int startP,String name1,String name2){
+        int currentP;
+        if(startP == 1){
+            currentP = 1;
+            System.out.println();
+            System.out.println(name1 + " will make the first move.");
+        }
+        else {
+            currentP = 2;
+            System.out.println();
+            System.out.println(name2 + " will make the first move.");
+        }
+        System.out.println("To quit the game, type in \"quit\" on your turn.");
+        System.out.println();
+        System.out.println("   A  B  C");
+        System.out.println("1  -  -  -");
+        System.out.println("2  -  -  -");
+        System.out.println("3  -  -  -");
+        System.out.println();
+        return currentP;
     }
 }
