@@ -34,7 +34,7 @@ public class TicTacToe
         Random rand = new Random();
         final int startP = rand.nextInt(2) + 1; //2 is the maximum random integer, and 1 is the minimum.
         int currentP;
-        System.out.print("Enter the Name of Player 1 (X): ");
+        System.out.print("Enter Your Name (X): ");
         String pName = reader.next(); //Winner declared as "winP1"
         String pNameSign = pName + " (X)";
         System.out.println();
@@ -52,9 +52,32 @@ public class TicTacToe
         while(gameIsRunning){
             if(currentP == 1){
                 result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,pName,pNameSign);
+                if(result == 0) currentP = 2;
+                else if(result == 5){
+                    gameIsRunning = quitGame();
+                }
+                else{
+                    checkWin2(result,pName);
+                    gameIsRunning = false;
+                }
             }
             else{
-               
+
+                //System.out.println(slotsA[0] + " " + slotsA[1] + " " + slotsA[2]);
+                //gameIsRunning = false;
+            }
+        }
+    }
+
+    public static void moveAI(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC){
+
+    }
+
+    public static void checkSlots(int[] slots){
+        int slotsOccupied = 0;
+        for(int i = 0;i <= 2; i++){
+            if(slots[i] == 1){
+                slotsOccupied += 1;
             }
         }
     }
@@ -275,5 +298,19 @@ public class TicTacToe
         System.out.println("3  -  -  -");
         System.out.println();
         return currentP;
+    }
+
+    public static boolean checkResult(int result,int currentP,int nextP,boolean gameIsRunning,String name){
+        if(result == 0){
+            currentP = nextP;
+            return true;
+        }
+        else if(result == 5){
+            return quitGame();
+        }
+        else{
+            checkWin2(result,name);
+            return false;
+        }
     }
 }
