@@ -62,24 +62,47 @@ public class TicTacToe
                 }
             }
             else{
-
+                result = moveAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
                 //System.out.println(slotsA[0] + " " + slotsA[1] + " " + slotsA[2]);
                 //gameIsRunning = false;
             }
         }
     }
 
-    public static void moveAI(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC){
-
+    public static int finishAI(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC){
+        System.out.println();
+        displayArray(displayA,displayB,displayC);
+        System.out.println();
+        return checkWin(slotsA,slotsB,slotsC,2);
     }
 
-    public static void checkSlots(int[] slots){
+    public static int moveAI(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC){
+        boolean dA = checkSlotsDefense(displayA,slotsA);
+        if(dA) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
+        boolean dB = checkSlotsDefense(displayB,slotsB);
+        if(dB) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
+        boolean dC = checkSlotsDefense(displayB,slotsB);
+        if(dB) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
+        
+    }
+
+    public static boolean checkSlotsDefense(String[] display,int[] slots){
         int slotsOccupied = 0;
         for(int i = 0;i <= 2; i++){
             if(slots[i] == 1){
                 slotsOccupied += 1;
             }
         }
+        if(slotsOccupied == 2){
+            for(int j = 0;j <= 2;j++){
+                if(slots[j] == 0){
+                    slots[j] = 2;
+                    display[j] = "O";
+                }
+            }
+            return true;
+        }
+        else return false;
     }
 
     public static void game(){
