@@ -42,7 +42,7 @@ public class TicTacToe
         String cNameSign = cName + " (O)";
         boolean gameIsRunning = true;
         int result;
-        currentP = initializeGame(startP,pName,cName);
+        currentP = initializeGame(startP,pName,cName,true);
         String[] displayA = new String[]{"-","-","-"};
         String[] displayB = new String[]{"-","-","-"};
         String[] displayC = new String[]{"-","-","-"};
@@ -51,7 +51,7 @@ public class TicTacToe
         int[] slotsC = new int[]{0,0,0};
         while(gameIsRunning){
             if(currentP == 1){
-                result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,pName,pNameSign);
+                result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,pName,pNameSign,false);
                 if(result == 0) currentP = 2;
                 else if(result == 5){
                     gameIsRunning = quitGame();
@@ -63,6 +63,11 @@ public class TicTacToe
             }
             else{
                 result = moveAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
+                if(result == 0) currentP = 1;
+                else{
+                    checkWin2(result,cName);
+                    gameIsRunning = false;
+                }
                 //System.out.println(slotsA[0] + " " + slotsA[1] + " " + slotsA[2]);
                 //gameIsRunning = false;
             }
@@ -81,12 +86,14 @@ public class TicTacToe
         if(dA) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         boolean dB = checkSlotsDefense(displayB,slotsB);
         if(dB) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
-        boolean dC = checkSlotsDefense(displayB,slotsB);
-        if(dB) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
-
+        boolean dC = checkSlotsDefense(displayC,slotsC);
+        if(dC) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
+        //Only occurs if all are false:
+        System.out.println("[Debug] AI has not made a move.");
+        return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
     }
 
-    public static boolean checkSlotsDefense(String[] display,int[] slots){
+    public static boolean checkSlotsDefense(String[] display,int[] slots){ //Finished
         int slotsOccupied = 0;
         for(int i = 0;i <= 2; i++){
             if(slots[i] == 1){
@@ -94,15 +101,23 @@ public class TicTacToe
             }
         }
         if(slotsOccupied == 2){
+            boolean didMove = false;
             for(int j = 0;j <= 2;j++){
                 if(slots[j] == 0){
                     slots[j] = 2;
                     display[j] = "O";
+                    didMove = true;
                 }
             }
-            return true;
+            if(didMove) return true;
+            else return false;
         }
         else return false;
+    }
+
+    public static void checkSlotsHorizontal(int[] slotsA,int[] slotsB,int[] slotsC){
+        int slotsOccupied = 0;
+        int[] row1 = new int[]{slotsA[0],slotsB[0],slotsC[0]};
     }
 
     public static void game(){
@@ -119,7 +134,7 @@ public class TicTacToe
         String name2Sign = name2 + " (O)";
         boolean gameIsRunning = true;
         int result;
-        currentP = initializeGame(startP,name1,name2);
+        currentP = initializeGame(startP,name1,name2,false);
         String[] displayA = new String[]{"-","-","-"};
         String[] displayB = new String[]{"-","-","-"};
         String[] displayC = new String[]{"-","-","-"};
@@ -128,7 +143,7 @@ public class TicTacToe
         int[] slotsC = new int[]{0,0,0};
         while(gameIsRunning){
             if(currentP == 1){
-                result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,name1,name1Sign);
+                result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,name1,name1Sign,true);
                 if(result == 0) currentP = 2;
                 else if(result == 5){
                     gameIsRunning = quitGame();
@@ -139,7 +154,7 @@ public class TicTacToe
                 }
             }
             else{
-                result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,name2,name2Sign);
+                result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,name2,name2Sign,true);
                 if(result == 0) currentP = 1;
                 else if(result == 5){
                     gameIsRunning = quitGame();
@@ -151,7 +166,7 @@ public class TicTacToe
             }
         }
     }
-    public static int updateBoard(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC,int pNum, String name, String nameDisplay){
+    public static int updateBoard(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC,int pNum, String name, String nameDisplay,boolean displayBoard){
         Scanner input = new Scanner(System.in);
         String choice;
         char letterCheck;
@@ -224,7 +239,7 @@ public class TicTacToe
             }
         }
         System.out.println();
-        displayArray(displayA,displayB,displayC);
+        if (displayBoard) displayArray(displayA,displayB,displayC);
         System.out.println();
         return checkWin(slotsA,slotsB,slotsC,pNum);
     }
@@ -301,7 +316,7 @@ public class TicTacToe
         return false;
     }
 
-    public static int initializeGame(int startP,String name1,String name2){
+    public static int initializeGame(int startP,String name1,String name2,boolean isAIGame){
         int currentP;
         if(startP == 1){
             currentP = 1;
@@ -315,11 +330,13 @@ public class TicTacToe
         }
         System.out.println("To quit the game, type in \"quit\" on your turn.");
         System.out.println();
-        System.out.println("   A  B  C");
-        System.out.println("1  -  -  -");
-        System.out.println("2  -  -  -");
-        System.out.println("3  -  -  -");
-        System.out.println();
+        if(!isAIGame || currentP == 1){
+            System.out.println("   A  B  C");
+            System.out.println("1  -  -  -");
+            System.out.println("2  -  -  -");
+            System.out.println("3  -  -  -");
+            System.out.println();
+        }
         return currentP;
     }
 
