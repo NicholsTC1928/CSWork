@@ -83,7 +83,7 @@ public class TicTacToe
         if(dB) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         boolean dC = checkSlotsDefense(displayB,slotsB);
         if(dB) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
-        
+
     }
 
     public static boolean checkSlotsDefense(String[] display,int[] slots){
