@@ -57,7 +57,7 @@ public class TicTacToe
                     gameIsRunning = quitGame();
                 }
                 else{
-                    checkWin2(result,pName);
+                    checkWin2AI(result,pName,1);
                     gameIsRunning = false;
                 }
             }
@@ -65,7 +65,7 @@ public class TicTacToe
                 result = moveAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
                 if(result == 0) currentP = 1;
                 else{
-                    checkWin2(result,cName);
+                    checkWin2AI(result,pName,2);
                     gameIsRunning = false;
                 }
                 //System.out.println(slotsA[0] + " " + slotsA[1] + " " + slotsA[2]);
@@ -88,6 +88,12 @@ public class TicTacToe
         if(dB) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         boolean dC = checkSlotsDefense(displayC,slotsC);
         if(dC) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
+        boolean d1 = checkSlotsDefenseHorizontal(slotsA,slotsB,slotsC,displayA,displayB,displayC,0);
+        if(d1) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
+        boolean d2 = checkSlotsDefenseHorizontal(slotsA,slotsB,slotsC,displayA,displayB,displayC,1);
+        if(d2) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
+        boolean d3 = checkSlotsDefenseHorizontal(slotsA,slotsB,slotsC,displayA,displayB,displayC,2);
+        if(d3) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         //Only occurs if all are false:
         System.out.println("[Debug] AI has not made a move.");
         return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
@@ -115,9 +121,91 @@ public class TicTacToe
         else return false;
     }
 
-    public static void checkSlotsHorizontal(int[] slotsA,int[] slotsB,int[] slotsC){
+    public static boolean checkSlotsDefenseHorizontal(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC,int index){
         int slotsOccupied = 0;
-        int[] row1 = new int[]{slotsA[0],slotsB[0],slotsC[0]};
+        int[] row = new int[]{slotsA[index],slotsB[index],slotsC[index]};
+        for(int i = 0;i <= 2;i++){
+            if(row[i] == 1){
+                slotsOccupied += 1;
+            }
+        }
+        if(slotsOccupied == 2){
+            boolean didMove = false;
+            for(int j = 0;j <= 2;j++){
+                switch(row[j]){
+                    case 0:
+                        switch(j){
+                            case 0:
+                                slotsA[index] = 2;
+                                displayA[index] = "O";
+                                didMove = true;
+                                break;
+                            case 1:
+                                slotsB[index] = 2;
+                                displayB[index] = "O";
+                                didMove = true;
+                                break;
+                            case 2:
+                                slotsC[index] = 2;
+                                displayC[index] = "O";
+                                didMove = true;
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if(didMove) return true;
+            else return false;
+        }
+        else return false;
+    }
+
+    public static boolean checkSlotsDefenseDiagonal(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){
+        int slotsOccupied1 = 0;
+        int slotsOccupied2 = 0;
+        int[] diag1 = new int[]{slotsA[0],slotsB[1],slotsC[2]};
+        int[] diag2 = new int[]{slotsA[2],slotsB[1],slotsC[0]};
+        for(int i = 0;i <=2;i++){
+            if(diag1[0] == 1) slotsOccupied1++;
+            if(diag2[0] == 1) slotsOccupied2++;
+        }
+        if(slotsOccupied1 == 2){
+            boolean didMove = false;
+            for(int k = 0;k <= 2;k++){
+                switch(diag1[j]){
+                    case 0:
+                        switch(k){
+                            case 0:
+                                slotsA[0] = 2;
+                                displayA[0] = "O";
+                                didMove = true;
+                                break;
+                            case 1:
+                                slotsB[1] = 2;
+                                displayB[1] = "O";
+                                didMove = true;
+                                break;
+                            case 2:
+                                slotsC[2] = 2;
+                                displayC[2] = "O";
+                                didMove = true;
+                                break;
+                            default:
+                                break;
+                    }
+                    default:
+                        break;
+                }
+            }
+            if(didMove) return true;
+        }
+        else if(slotsOccupied2 == 2){
+            
+        }
     }
 
     public static void game(){
@@ -304,6 +392,16 @@ public class TicTacToe
     public static void checkWin2(int result,String name){
         if(result != 3){
             System.out.println(name + " is the winner! Congratulations!");
+        }
+        else{
+            System.out.println("All of the slots have been filled, but there is no winning combination. This game is a draw.");
+        }
+    }
+
+    public static void checkWin2AI(int result,String pName,int currentP){
+        if(result != 3){
+            if(currentP == 1) System.out.println(pName + " is the winner! Congratulations!");
+            else System.out.println("The CPU has won the game. Better luck next time!");
         }
         else{
             System.out.println("All of the slots have been filled, but there is no winning combination. This game is a draw.");
