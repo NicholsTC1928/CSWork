@@ -204,7 +204,7 @@ public class TicTacToe
             if(didMove) return true;
         }
         else if(slotsOccupied2 == 2){
-            
+            boolean didMove = false;
         }
     }
 

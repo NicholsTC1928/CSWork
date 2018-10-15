@@ -1,0 +1,32 @@
+Relational Operators (Gives True or False):
+    - == - Equal to
+    - != - Not Equal to
+    - < - Less Than
+    - > - Greater Than
+    - <= - Less Than or Equal to
+    - >= - Greater Than or Equal to
+
+-Relational operators happen after arithmetic equations. For example, "(2 + 2) == 4" would return true.
+
+If Statement Format:
+    if([test]){
+    [statement];
+    [statement];
+    ...
+    [statement];
+    }
+
+-The if statement is a control structure. Here is a diagram representing the flow of one:
+[Is the test true?]
+    Yes: Execute the controlled statement(s), and then execute the statement(s) after the if statement.
+    No: Execute the statement(s) after the if statement.
+
+-Here are some examples of if statements:
+    -[z is odd] if(z % 2 != 0)
+    -[z is not greater than y's square root] if(z <= (Math.sqrt(y)))
+    -[y is positive] if(y >= 0)
+    -[y is a multiple of z] if(y % z == 0)
+    -[y is a non-negative one-digit number] if(y >= 0 && y <= 9)
+
+-If/else statements allow the testing and execution of any number of control statements. One way to do this is by
+nesting them.
