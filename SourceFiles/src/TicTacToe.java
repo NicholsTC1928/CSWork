@@ -1,3 +1,9 @@
+/*
+Things to Do:
+    -Finish offensive tactics for the AI.
+    -Make the graphics (specifically the spacing between the lines) look cleaner.
+ */
+
 import java.util.Scanner;
 import java.util.Random;
 
@@ -81,7 +87,7 @@ public class TicTacToe
         return checkWin(slotsA,slotsB,slotsC,2);
     }
 
-    public static int moveAI(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC){
+    public static int moveAI(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC){ //Defense Finished - Create Offense
         boolean dA = checkSlotsDefense(displayA,slotsA);
         if(dA) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         boolean dB = checkSlotsDefense(displayB,slotsB);
@@ -94,6 +100,8 @@ public class TicTacToe
         if(d2) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         boolean d3 = checkSlotsDefenseHorizontal(slotsA,slotsB,slotsC,displayA,displayB,displayC,2);
         if(d3) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
+        boolean dHorizontal = checkSlotsDefenseDiagonal(slotsA,slotsB,slotsC,displayA,displayB,displayC);
+        if(dHorizontal) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         //Only occurs if all are false:
         System.out.println("[Debug] AI has not made a move.");
         return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
@@ -121,7 +129,7 @@ public class TicTacToe
         else return false;
     }
 
-    public static boolean checkSlotsDefenseHorizontal(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC,int index){
+    public static boolean checkSlotsDefenseHorizontal(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC,int index){ //Finished
         int slotsOccupied = 0;
         int[] row = new int[]{slotsA[index],slotsB[index],slotsC[index]};
         for(int i = 0;i <= 2;i++){
@@ -164,48 +172,73 @@ public class TicTacToe
         else return false;
     }
 
-    public static boolean checkSlotsDefenseDiagonal(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){
+    public static boolean checkSlotsDefenseDiagonal(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){ //Finished
         int slotsOccupied1 = 0;
         int slotsOccupied2 = 0;
         int[] diag1 = new int[]{slotsA[0],slotsB[1],slotsC[2]};
         int[] diag2 = new int[]{slotsA[2],slotsB[1],slotsC[0]};
         for(int i = 0;i <=2;i++){
-            if(diag1[0] == 1) slotsOccupied1++;
-            if(diag2[0] == 1) slotsOccupied2++;
+            if(diag1[i] == 1) slotsOccupied1++;
+            if(diag2[i] == 1) slotsOccupied2++;
         }
         if(slotsOccupied1 == 2){
-            boolean didMove = false;
+            //boolean didMove = false;
             for(int k = 0;k <= 2;k++){
-                switch(diag1[j]){
-                    case 0:
-                        switch(k){
-                            case 0:
-                                slotsA[0] = 2;
-                                displayA[0] = "O";
-                                didMove = true;
-                                break;
-                            case 1:
-                                slotsB[1] = 2;
-                                displayB[1] = "O";
-                                didMove = true;
-                                break;
-                            case 2:
-                                slotsC[2] = 2;
-                                displayC[2] = "O";
-                                didMove = true;
-                                break;
-                            default:
-                                break;
+                if(diag1[k] == 0) {
+                    switch (k){
+                        case 0:
+                            slotsA[0] = 2;
+                            displayA[0] = "O";
+                            return true;
+                            //break;
+                        case 1:
+                            slotsB[1] = 2;
+                            displayB[1] = "O";
+                            return true;
+                            //break;
+                        case 2:
+                            slotsC[2] = 2;
+                            displayC[2] = "O";
+                            return true;
+                            //break;
+                        default:
+                            break;
                     }
-                    default:
-                        break;
                 }
             }
-            if(didMove) return true;
         }
         else if(slotsOccupied2 == 2){
-            boolean didMove = false;
+            //boolean didMove = false;
+            for(int k = 0;k <= 2;k++){
+                if(diag2[k] == 0) {
+                    switch (k){
+                        case 0:
+                            slotsA[2] = 2;
+                            displayA[2] = "O";
+                            return true;
+                            //break;
+                        case 1:
+                            slotsB[1] = 2;
+                            displayB[1] = "O";
+                            return true;
+                            //break;
+                        case 2:
+                            slotsC[0] = 2;
+                            displayC[0] = "O";
+                            return true;
+                            //break;
+                        default:
+                            break;
+                    }
+                }
+            }
         }
+        return false;
+    }
+
+    public static boolean checkSlotsOffense(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){
+        //Make finishing rows, columns, and diagonals a priority for the CPU.
+        
     }
 
     public static void game(){
