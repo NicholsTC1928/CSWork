@@ -103,7 +103,8 @@ public class TicTacToe
         boolean dHorizontal = checkSlotsDefenseDiagonal(slotsA,slotsB,slotsC,displayA,displayB,displayC);
         if(dHorizontal) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         //Only occurs if all are false:
-        System.out.println("[Debug] AI has not made a move.");
+        checkSlotsOffense(slotsA,slotsB,slotsC,displayA,displayB,displayC);
+        //System.out.println("[Debug] AI has not made a move.");
         return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
     }
 
@@ -236,9 +237,28 @@ public class TicTacToe
         return false;
     }
 
-    public static boolean checkSlotsOffense(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){
+    public static void checkSlotsOffense(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){
         //Make finishing rows, columns, and diagonals a priority for the CPU.
-        
+        if(slotsB[1] == 0){ //Give CPU B2 if they start first, because that is the best spot.
+            slotsB[1] = 2;
+            displayB[1] = "O";
+            return;
+        }
+        int aOccupied = 0;
+        int bOccupied = 0;
+        int cOccupied = 0;
+        for(int i = 0;i <= 2;i++){
+            if(slotsA[i] == 2) aOccupied++;
+        }
+        for(int j = 0;j <= 2;j++){
+            if(slotsB[j] == 2) bOccupied++;
+        }
+        for(int k = 0;k <= 2;k++){
+            if(slotsC[k] == 2) cOccupied++;
+        }
+        if(aOccupied == 2){ //Begin the vertical A check here.
+            
+        }
     }
 
     public static void game(){
