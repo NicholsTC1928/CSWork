@@ -257,7 +257,16 @@ public class TicTacToe
             if(slotsC[k] == 2) cOccupied++;
         }
         if(aOccupied == 2){ //Begin the vertical A check here.
-            
+            for(int a = 0;a <= 2;a++){
+                switch(slotsA[a]){
+                    case 0:
+                        slotsA[a] = 2;
+                        displayA[a] = "O";
+                        return;
+                    default:
+                        break;
+                }
+            }
         }
     }
 
