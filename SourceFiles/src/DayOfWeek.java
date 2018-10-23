@@ -25,17 +25,21 @@ public class DayOfWeek
     }
 
     public static void dayOfTheWeek(int month,int day,int year){
-        boolean leapYear = false;
-        if(year % 4 == 0){
-            if(month >= 3)
-            leapYear = true;
+        if(month == 1) month = 11;
+        else if(month == 2) month = 12;
+        else month -= 2;
+        int yearCalc = (year % 100);
+        if(month >= 11){
+            yearCalc -= 1;
+            if(yearCalc < 0) yearCalc = 99;
         }
-        int leapYearsPassed;
-        if(leapYear) leapYearsPassed = (Math.abs(year - 1600) / 4);
-        else leapYearsPassed = ((Math.abs(year - 1600) / 4) - 1);
-        System.out.println(leapYearsPassed + " leap years have passed."); //Debug
-        String[] daysOf1600 = new String[]{"Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"};
-        String dayOfTheWeek = daysOf1600[((day - 1) % 7) + ((leapYearsPassed - 1) % 7)];
+        int leapYearsPassed = yearCalc / 4;
+        double monthCalc = (2.6 * month) - 0.2;
+        int monthCalc2 = (int) Math.round(monthCalc);
+        int centuriesPassed = year / 100;
+        //if(year % 1000 == 0) centuriesPassed--;
+        String[] daysOf1600 = new String[]{"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+        String dayOfTheWeek = daysOf1600[(day + monthCalc2 - (2 * (year / 100)) + yearCalc + leapYearsPassed + centuriesPassed) % 7];
         System.out.println("The day of the week for this date is " + dayOfTheWeek + ".");
     }
 }
