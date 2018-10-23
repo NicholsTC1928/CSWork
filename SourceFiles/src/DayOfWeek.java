@@ -39,7 +39,7 @@ public class DayOfWeek
         int centuriesPassed = year / 100;
         //if(year % 1000 == 0) centuriesPassed--;
         String[] daysOf1600 = new String[]{"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
-        String dayOfTheWeek = daysOf1600[(day + monthCalc2 - (2 * (year / 100)) + yearCalc + leapYearsPassed + centuriesPassed) % 7];
+        String dayOfTheWeek = daysOf1600[(day + monthCalc2 - (2 * (year / 100)) + yearCalc + leapYearsPassed + centuriesPassed / 4) % 7];
         System.out.println("The day of the week for this date is " + dayOfTheWeek + ".");
     }
 }
