@@ -239,30 +239,151 @@ public class TicTacToe
 
     public static void checkSlotsOffense(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){
         //Make finishing rows, columns, and diagonals a priority for the CPU.
-        if(slotsB[1] == 0){ //Give CPU B2 if they start first, because that is the best spot.
+        if (slotsB[1] == 0){ //Give CPU B2 if they start first, because that is the best spot.
             slotsB[1] = 2;
             displayB[1] = "O";
             return;
         }
+        int[] row1 = new int[]{slotsA[0],slotsB[0],slotsC[0]};
+        int[] row2 = new int[]{slotsA[1],slotsB[1],slotsC[1]};
+        int[] row3 = new int[]{slotsA[2],slotsB[2],slotsC[2]};
+        int[] d1 = new int[]{slotsA[0],slotsB[1],slotsC[2]};
+        int[] d2 = new int[]{slotsA[2],slotsB[1],slotsC[0]};
         int aOccupied = 0;
         int bOccupied = 0;
         int cOccupied = 0;
-        for(int i = 0;i <= 2;i++){
-            if(slotsA[i] == 2) aOccupied++;
+        int r1Occupied = 0;
+        int r2Occupied = 0;
+        int r3Occupied = 0;
+        int d1Occupied = 0;
+        int d2Occupied = 0;
+        for (int i = 0; i <= 2; i++){
+            if (slotsA[i] == 2) aOccupied++;
+            if (slotsB[i] == 2) bOccupied++;
+            if (slotsC[i] == 2) cOccupied++;
+            if(row1[i] == 2) r1Occupied++;
+            if(row2[i] == 2) r2Occupied++;
+            if(row3[i] == 2) r3Occupied++;
+            if(d1[i] == 2) d1Occupied++;
+            if(d2[i] == 2) d2Occupied++;
         }
-        for(int j = 0;j <= 2;j++){
-            if(slotsB[j] == 2) bOccupied++;
-        }
-        for(int k = 0;k <= 2;k++){
-            if(slotsC[k] == 2) cOccupied++;
-        }
-        if(aOccupied == 2){ //Begin the vertical A check here.
-            for(int a = 0;a <= 2;a++){
-                switch(slotsA[a]){
+        if (aOccupied == 2){ //Begin the vertical A check here.
+            for (int a = 0; a <= 2; a++){
+                switch (slotsA[a]){
                     case 0:
                         slotsA[a] = 2;
                         displayA[a] = "O";
                         return;
+                    default:
+                        break;
+                }
+            }
+        }
+        if (bOccupied == 2){ //Begin the vertical B check here.
+            for (int b = 0; b <= 2; b++){
+                switch (slotsB[b]){
+                    case 0:
+                        slotsB[b] = 2;
+                        displayB[b] = "0";
+                        return;
+                    default:
+                        break;
+                }
+            }
+        }
+        if(cOccupied == 2){ //Begin the vertical C check here.
+            for(int c = 0;c <= 2;c++){
+                switch(slotsC[c]){
+                    case 0:
+                        slotsC[c] = 2;
+                        displayC[c] = "0";
+                        return;
+                    default:
+                        break;
+                }
+            }
+        }
+        if(r1Occupied == 2){ //Begin the horizontal 1 check here.
+            for(int i = 0;i <= 2;i++){
+                switch(row1[i]){
+                    case 0:
+                        switch(i){
+                            case 0:
+                                slotsA[0] = 2;
+                                displayA[0] = "O";
+                                return;
+                            case 1:
+                                slotsB[0] = 2;
+                                displayB[0] = "O";
+                                return;
+                            case 2:
+                                slotsC[0] = 2;
+                                displayC[0] = "O";
+                                return;
+                            default:
+                                break;
+                        }
+                    default:
+                        break;
+                }
+            }
+        }
+        if(r2Occupied == 2){ //Begin the horizontal 2 check here.
+            for(int i = 0;i <= 2;i++){
+                switch(row2[i]){
+                    case 0:
+                        switch(i){
+                            case 0:
+                                slotsA[1] = 2;
+                                displayA[1] = "O";
+                                return;
+                            case 1:
+                                slotsB[1] = 2;
+                                displayB[1] = "O";
+                                return;
+                            case 2:
+                                slotsC[1] = 2;
+                                displayC[1] = "O";
+                                return;
+                        }
+                    default:
+                        break;
+                }
+            }
+        }
+        if(r3Occupied == 2){ //Begin the horizontal 3 check here.
+            for(int i = 0;i <= 2;i++){
+                switch(row3[i]){
+                    case 0:
+                        switch(i){
+                            case 0:
+                                slotsA[2] = 2;
+                                displayA[2] = "O";
+                                return;
+                            case 1:
+                                slotsB[2] = 2;
+                                displayB[2] = "O";
+                                return;
+                            case 2:
+                                slotsC[2] = 2;
+                                displayC[2] = "O";
+                                return;
+                        }
+                    default:
+                        break;
+                }
+            }
+        }
+        if(d1Occupied == 2){ //Begin the diagonal A1/B2/C3 check here.
+            for(int i = 0;i <= 2;i++){
+                switch(d1[i]){
+                    case 0:
+                        switch(i){
+                            case 0:
+                                slotsA[0] = 2;
+                                displayA[0] = "O";
+                                return;
+                        }
                     default:
                         break;
                 }
