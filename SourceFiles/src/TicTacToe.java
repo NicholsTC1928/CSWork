@@ -383,12 +383,51 @@ public class TicTacToe
                                 slotsA[0] = 2;
                                 displayA[0] = "O";
                                 return;
+                            case 1:
+                                slotsB[1] = 2;
+                                displayB[1] = "O";
+                                return;
+                            case 2:
+                                slotsC[2] = 2;
+                                displayC[2] = "O";
+                                return;
+                            default:
+                                break;
                         }
                     default:
                         break;
                 }
             }
         }
+        if(d2Occupied == 2){ //Begin the diagonal A3/B2/C1 check here.
+            for(int i = 0;i <= 2;i++){
+                switch(d2[i]){
+                    case 0:
+                        switch(i){
+                            case 0:
+                                slotsA[2] = 2;
+                                displayA[2] = "O";
+                                return;
+                            case 1:
+                                slotsB[1] = 2;
+                                displayB[1] = "O";
+                                return;
+                            case 2:
+                                slotsC[0] = 2;
+                                displayC[0] = "O";
+                                return;
+                            default:
+                                break;
+                        }
+                    default:
+                        break;
+                }
+            }
+        }
+        //Pick a random spot to move if no other qualifications are met.
+        Random rand = new Random();
+        int randomChoice = rand.nextInt(9) + 1; //Understand that rand.nextInt(9) would choose a number from 0 to 8,
+        //inclusive. Adding 1 changes the range of numbers to 1 to 9.
     }
 
     public static void game(){
