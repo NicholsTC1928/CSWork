@@ -426,8 +426,39 @@ public class TicTacToe
         }
         //Pick a random spot to move if no other qualifications are met.
         Random rand = new Random();
-        int randomChoice = rand.nextInt(9) + 1; //Understand that rand.nextInt(9) would choose a number from 0 to 8,
+        int randomChoice = rand.nextInt(9); //Understand that rand.nextInt(9) would choose a number from 0 to 8,
         //inclusive. Adding 1 changes the range of numbers to 1 to 9.
+        switch(randomChoice){
+            case 0:
+                slotsA[0] = 2;
+                displayA[0] = "O";
+            case 1:
+                slotsA[1] = 2;
+                displayA[1] = "O";
+            case 2:
+                slotsA[2] = 2;
+                displayA[2] = "O";
+            case 3:
+                slotsB[0] = 2;
+                displayB[0] = "O";
+            case 4:
+                slotsB[1] = 2;
+                displayB[1] = "O";
+            case 5:
+                slotsB[2] = 2;
+                displayB[2] = "O";
+            case 6:
+                slotsC[0] = 2;
+                displayC[0] = "O";
+            case 7:
+                slotsC[1] = 2;
+                displayC[1] = "O";
+            case 8:
+                slotsC[2] = 2;
+                displayC[2] = "O";
+            default:
+                break;
+        }
     }
 
     public static void game(){
