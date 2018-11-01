@@ -65,19 +65,62 @@ public class RPSGame {
         String name1 = input.next();
         System.out.print("Enter the name of the second person here. ");
         String name2 = input.next();
-        System.out.print("How many times has " + name1 + " played Rock Paper Scissors? ");
-        int play1 = check();
-
+        int play1 = -1;
+        int play2 = -1;
+        int win1 = -1;
+        int win2 = -1;
+        int moves1 = -1;
+        int moves2 = -1;
+        while(play1 < 0){
+            //The check for < 0 for two if-statements works, because it is impossible to play a negative number of
+            //games or have a negative number of wins.
+            System.out.print("How many times has " + name1 + " played Rock Paper Scissors? ");
+            play1 = check();
+        }
+        while(play2 < 0){
+            System.out.print("How many times has " + name2 + " played Rock Paper Scissors? ");
+            play2 = check();
+        }
+        while(win1 < 0){
+            System.out.print("How many times has " + name1 + " won? ");
+            win1 = check();
+        }
+        while(win2 < 0){
+            System.out.print("How many times has " + name2 + " won? ");
+            win2 = check();
+        }
+        while(moves1 <= 0){
+            //It is impossible to win a game with <= 0 turns.
+            System.out.print("What was the lowest number of turns required for " + name1 + " to win a round? ");
+            moves1 = check();
+        }
+        while(moves2 <= 0){
+            System.out.print("What was the lowest number of turns required for " + name2 + " to win a round? ");
+            moves2 = check();
+        }
+        if(play1 > play2) System.out.println(name1 + " has played the most rounds.");
+        else if(play1 < play2) System.out.println(name2 + " has played the most rounds.");
+        else System.out.println("Both players have an equal amount of total rounds played.");
+        if(win1 > win2) System.out.println(name1 + " has won the most rounds.");
+        else if(win1 < win2) System.out.println(name2 + " has won the most rounds.");
+        else System.out.println("Both players have an equal amount of wins.");
+        if(moves1 < moves2) System.out.println(name1 + " won a round with the lowest amount of turns.");
+        else if(moves1 > moves2) System.out.println(name2 + " won a round with the lowest amount of turns.");
+        else System.out.println("Both players won their quickest round in the same amount of turns.");
     }
 
     public static int check(){
+        //This method is dedicated to making sure that the values entered for Exercise 3 are integers greater than 0.
         Scanner input = new Scanner(System.in);
         int a;
-        for(;;){
-           a = input.nextInt();
-           if(input.hasNextInt()) break;
-           else System.out.print("Invalid Input");
-       }
-       return a;
+        try{
+            a = input.nextInt();
+        }
+        catch(InputMismatchException e){
+            System.out.println("Invalid Input");
+            a = -1;
+        }
+        if(a < 0) System.out.println("Invalid Input");
+        return a;
     }
 }
