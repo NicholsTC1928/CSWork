@@ -104,7 +104,7 @@ public class TicTacToe
         if(dHorizontal) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         //Only occurs if all are false:
         checkSlotsOffense(slotsA,slotsB,slotsC,displayA,displayB,displayC);
-        //System.out.println("[Debug] AI has not made a move.");
+        System.out.println("[Debug] AI has not made a defensive move.");
         return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
     }
 
@@ -184,6 +184,22 @@ public class TicTacToe
         }
         if(slotsOccupied1 == 2){
             //boolean didMove = false;
+            if(slotsA[0] == 0){
+                slotsA[0] = 2;
+                displayA[0] = "O";
+                return true;
+            }
+            else if(slotsB[1] == 0){
+                slotsB[1] = 2;
+                displayB[1] = "O";
+                return true;
+            }
+            else if(slotsC[2] == 0){
+                slotsC[2] = 2;
+                displayC[2] = "O";
+                return true;
+            }
+            /*
             for(int k = 0;k <= 2;k++){
                 if(diag1[k] == 0) {
                     switch (k){
@@ -205,10 +221,30 @@ public class TicTacToe
                         default:
                             break;
                     }
+
                 }
+
+
             }
+            */
         }
         else if(slotsOccupied2 == 2){
+            if(slotsA[2] == 0){
+                slotsA[2] = 2;
+                displayA[2] = "O";
+                return true;
+            }
+            else if(slotsB[1] == 0){
+                slotsB[1] = 2;
+                displayB[1] = "O";
+                return true;
+            }
+            else if(slotsC[0] == 0){
+                slotsC[0] = 2;
+                displayC[0] = "O";
+                return true;
+            }
+            /*
             //boolean didMove = false;
             for(int k = 0;k <= 2;k++){
                 if(diag2[k] == 0) {
@@ -233,6 +269,7 @@ public class TicTacToe
                     }
                 }
             }
+            */
         }
         return false;
     }
@@ -271,6 +308,7 @@ public class TicTacToe
             for (int a = 0; a <= 2; a++){
                 switch (slotsA[a]){
                     case 0:
+                        System.out.println("[Debug] A Vertical");
                         slotsA[a] = 2;
                         displayA[a] = "O";
                         return;
@@ -279,10 +317,11 @@ public class TicTacToe
                 }
             }
         }
-        if (bOccupied == 2){ //Begin the vertical B check here.
+        else if (bOccupied == 2){ //Begin the vertical B check here.
             for (int b = 0; b <= 2; b++){
                 switch (slotsB[b]){
                     case 0:
+                        System.out.println("[Debug] B Vertical");
                         slotsB[b] = 2;
                         displayB[b] = "0";
                         return;
@@ -291,10 +330,11 @@ public class TicTacToe
                 }
             }
         }
-        if(cOccupied == 2){ //Begin the vertical C check here.
+        else if(cOccupied == 2){ //Begin the vertical C check here.
             for(int c = 0;c <= 2;c++){
                 switch(slotsC[c]){
                     case 0:
+                        System.out.println("[Debug] C Vertical");
                         slotsC[c] = 2;
                         displayC[c] = "0";
                         return;
@@ -303,20 +343,23 @@ public class TicTacToe
                 }
             }
         }
-        if(r1Occupied == 2){ //Begin the horizontal 1 check here.
+        else if(r1Occupied == 2){ //Begin the horizontal 1 check here.
             for(int i = 0;i <= 2;i++){
                 switch(row1[i]){
                     case 0:
                         switch(i){
                             case 0:
+                                System.out.println("[Debug] 1 Horizontal");
                                 slotsA[0] = 2;
                                 displayA[0] = "O";
                                 return;
                             case 1:
+                                System.out.println("[Debug] 1 Horizontal");
                                 slotsB[0] = 2;
                                 displayB[0] = "O";
                                 return;
                             case 2:
+                                System.out.println("[Debug] 1 Horizontal");
                                 slotsC[0] = 2;
                                 displayC[0] = "O";
                                 return;
@@ -328,20 +371,23 @@ public class TicTacToe
                 }
             }
         }
-        if(r2Occupied == 2){ //Begin the horizontal 2 check here.
+        else if(r2Occupied == 2){ //Begin the horizontal 2 check here.
             for(int i = 0;i <= 2;i++){
                 switch(row2[i]){
                     case 0:
                         switch(i){
                             case 0:
+                                System.out.println("[Debug] 2 Horizontal");
                                 slotsA[1] = 2;
                                 displayA[1] = "O";
                                 return;
                             case 1:
+                                System.out.println("[Debug] 2 Horizontal");
                                 slotsB[1] = 2;
                                 displayB[1] = "O";
                                 return;
                             case 2:
+                                System.out.println("[Debug] 2 Horizontal");
                                 slotsC[1] = 2;
                                 displayC[1] = "O";
                                 return;
@@ -351,20 +397,23 @@ public class TicTacToe
                 }
             }
         }
-        if(r3Occupied == 2){ //Begin the horizontal 3 check here.
+        else if(r3Occupied == 2){ //Begin the horizontal 3 check here.
             for(int i = 0;i <= 2;i++){
                 switch(row3[i]){
                     case 0:
                         switch(i){
                             case 0:
+                                System.out.println("[Debug] 3 Horizontal");
                                 slotsA[2] = 2;
                                 displayA[2] = "O";
                                 return;
                             case 1:
+                                System.out.println("[Debug] 3 Horizontal");
                                 slotsB[2] = 2;
                                 displayB[2] = "O";
                                 return;
                             case 2:
+                                System.out.println("[Debug] 3 Horizontal");
                                 slotsC[2] = 2;
                                 displayC[2] = "O";
                                 return;
@@ -380,14 +429,17 @@ public class TicTacToe
                     case 0:
                         switch(i){
                             case 0:
+                                System.out.println("[Debug] D1 Diagonal (A1/B2/C3)");
                                 slotsA[0] = 2;
                                 displayA[0] = "O";
                                 return;
                             case 1:
+                                System.out.println("[Debug] D1 Diagonal (A1/B2/C3)");
                                 slotsB[1] = 2;
                                 displayB[1] = "O";
                                 return;
                             case 2:
+                                System.out.println("[Debug] D1 Diagonal (A1/B2/C3)");
                                 slotsC[2] = 2;
                                 displayC[2] = "O";
                                 return;
@@ -405,14 +457,17 @@ public class TicTacToe
                     case 0:
                         switch(i){
                             case 0:
+                                System.out.println("[Debug] D2 Diagonal (A3/B2/C1)");
                                 slotsA[2] = 2;
                                 displayA[2] = "O";
                                 return;
                             case 1:
+                                System.out.println("[Debug] D2 Diagonal (A3/B2/C1)");
                                 slotsB[1] = 2;
                                 displayB[1] = "O";
                                 return;
                             case 2:
+                                System.out.println("[Debug] D2 Diagonal (A3/B2/C1)");
                                 slotsC[0] = 2;
                                 displayC[0] = "O";
                                 return;
@@ -428,37 +483,61 @@ public class TicTacToe
         Random rand = new Random();
         int randomChoice = rand.nextInt(9); //Understand that rand.nextInt(9) would choose a number from 0 to 8,
         //inclusive. Adding 1 changes the range of numbers to 1 to 9.
-        switch(randomChoice){
+        int[] allSlots = new int[]{slotsA[0],slotsA[1],slotsA[2],slotsB[0],slotsB[1],slotsB[2],slotsC[0],slotsC[1],slotsC[2]};
+        for(;;){
+            if(allSlots[randomChoice] == 0) break;
+            else randomChoice = rand.nextInt(9);
+        }
+        switch (randomChoice) {
             case 0:
+                System.out.println("[Debug] Random A1");
                 slotsA[0] = 2;
                 displayA[0] = "O";
+                return;
             case 1:
+                System.out.println("[Debug] Random A2");
                 slotsA[1] = 2;
                 displayA[1] = "O";
+                return;
             case 2:
+                System.out.println("[Debug] Random A3");
                 slotsA[2] = 2;
                 displayA[2] = "O";
+                return;
             case 3:
+                System.out.println("[Debug] Random B1");
                 slotsB[0] = 2;
                 displayB[0] = "O";
+                return;
             case 4:
+                System.out.println("[Debug] Random B2");
                 slotsB[1] = 2;
                 displayB[1] = "O";
+                return;
             case 5:
+                System.out.println("[Debug] Random B3");
                 slotsB[2] = 2;
                 displayB[2] = "O";
+                return;
             case 6:
+                System.out.println("[Debug] Random C1");
                 slotsC[0] = 2;
                 displayC[0] = "O";
+                return;
             case 7:
+                System.out.println("[Debug] Random C2");
                 slotsC[1] = 2;
                 displayC[1] = "O";
+                return;
             case 8:
+                System.out.println("[Debug] Random C3");
                 slotsC[2] = 2;
                 displayC[2] = "O";
+                return;
             default:
                 break;
         }
+        System.out.println("[Debug] AI has not made an offensive move.");
     }
 
     public static void game(){
