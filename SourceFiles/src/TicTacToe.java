@@ -88,6 +88,8 @@ public class TicTacToe
     }
 
     public static int moveAI(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC){ //Defense Finished - Create Offense
+        boolean oF = offenseFinisher(slotsA,slotsB,slotsC,displayA,displayB,displayC);
+        if(oF) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         boolean dA = checkSlotsDefense(displayA,slotsA);
         if(dA) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         boolean dB = checkSlotsDefense(displayB,slotsB);
@@ -199,36 +201,8 @@ public class TicTacToe
                 displayC[2] = "O";
                 return true;
             }
-            /*
-            for(int k = 0;k <= 2;k++){
-                if(diag1[k] == 0) {
-                    switch (k){
-                        case 0:
-                            slotsA[0] = 2;
-                            displayA[0] = "O";
-                            return true;
-                            //break;
-                        case 1:
-                            slotsB[1] = 2;
-                            displayB[1] = "O";
-                            return true;
-                            //break;
-                        case 2:
-                            slotsC[2] = 2;
-                            displayC[2] = "O";
-                            return true;
-                            //break;
-                        default:
-                            break;
-                    }
-
-                }
-
-
-            }
-            */
         }
-        else if(slotsOccupied2 == 2){
+        if(slotsOccupied2 == 2){
             if(slotsA[2] == 0){
                 slotsA[2] = 2;
                 displayA[2] = "O";
@@ -244,42 +218,16 @@ public class TicTacToe
                 displayC[0] = "O";
                 return true;
             }
-            /*
-            //boolean didMove = false;
-            for(int k = 0;k <= 2;k++){
-                if(diag2[k] == 0) {
-                    switch (k){
-                        case 0:
-                            slotsA[2] = 2;
-                            displayA[2] = "O";
-                            return true;
-                            //break;
-                        case 1:
-                            slotsB[1] = 2;
-                            displayB[1] = "O";
-                            return true;
-                            //break;
-                        case 2:
-                            slotsC[0] = 2;
-                            displayC[0] = "O";
-                            return true;
-                            //break;
-                        default:
-                            break;
-                    }
-                }
-            }
-            */
         }
         return false;
     }
 
-    public static void checkSlotsOffense(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){
+    public static boolean offenseFinisher(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){
         //Make finishing rows, columns, and diagonals a priority for the CPU.
         if (slotsB[1] == 0){ //Give CPU B2 if they start first, because that is the best spot.
             slotsB[1] = 2;
             displayB[1] = "O";
-            return;
+            return true;
         }
         int[] row1 = new int[]{slotsA[0],slotsB[0],slotsC[0]};
         int[] row2 = new int[]{slotsA[1],slotsB[1],slotsC[1]};
@@ -311,7 +259,7 @@ public class TicTacToe
                         System.out.println("[Debug] A Vertical");
                         slotsA[a] = 2;
                         displayA[a] = "O";
-                        return;
+                        return true;
                     default:
                         break;
                 }
@@ -323,8 +271,8 @@ public class TicTacToe
                     case 0:
                         System.out.println("[Debug] B Vertical");
                         slotsB[b] = 2;
-                        displayB[b] = "0";
-                        return;
+                        displayB[b] = "O";
+                        return true;
                     default:
                         break;
                 }
@@ -336,8 +284,8 @@ public class TicTacToe
                     case 0:
                         System.out.println("[Debug] C Vertical");
                         slotsC[c] = 2;
-                        displayC[c] = "0";
-                        return;
+                        displayC[c] = "O";
+                        return true;
                     default:
                         break;
                 }
@@ -352,17 +300,17 @@ public class TicTacToe
                                 System.out.println("[Debug] 1 Horizontal");
                                 slotsA[0] = 2;
                                 displayA[0] = "O";
-                                return;
+                                return true;
                             case 1:
                                 System.out.println("[Debug] 1 Horizontal");
                                 slotsB[0] = 2;
                                 displayB[0] = "O";
-                                return;
+                                return true;
                             case 2:
                                 System.out.println("[Debug] 1 Horizontal");
                                 slotsC[0] = 2;
                                 displayC[0] = "O";
-                                return;
+                                return true;
                             default:
                                 break;
                         }
@@ -380,17 +328,17 @@ public class TicTacToe
                                 System.out.println("[Debug] 2 Horizontal");
                                 slotsA[1] = 2;
                                 displayA[1] = "O";
-                                return;
+                                return true;
                             case 1:
                                 System.out.println("[Debug] 2 Horizontal");
                                 slotsB[1] = 2;
                                 displayB[1] = "O";
-                                return;
+                                return true;
                             case 2:
                                 System.out.println("[Debug] 2 Horizontal");
                                 slotsC[1] = 2;
                                 displayC[1] = "O";
-                                return;
+                                return true;
                         }
                     default:
                         break;
@@ -406,17 +354,17 @@ public class TicTacToe
                                 System.out.println("[Debug] 3 Horizontal");
                                 slotsA[2] = 2;
                                 displayA[2] = "O";
-                                return;
+                                return true;
                             case 1:
                                 System.out.println("[Debug] 3 Horizontal");
                                 slotsB[2] = 2;
                                 displayB[2] = "O";
-                                return;
+                                return true;
                             case 2:
                                 System.out.println("[Debug] 3 Horizontal");
                                 slotsC[2] = 2;
                                 displayC[2] = "O";
-                                return;
+                                return true;
                         }
                     default:
                         break;
@@ -432,17 +380,17 @@ public class TicTacToe
                                 System.out.println("[Debug] D1 Diagonal (A1/B2/C3)");
                                 slotsA[0] = 2;
                                 displayA[0] = "O";
-                                return;
+                                return true;
                             case 1:
                                 System.out.println("[Debug] D1 Diagonal (A1/B2/C3)");
                                 slotsB[1] = 2;
                                 displayB[1] = "O";
-                                return;
+                                return true;
                             case 2:
                                 System.out.println("[Debug] D1 Diagonal (A1/B2/C3)");
                                 slotsC[2] = 2;
                                 displayC[2] = "O";
-                                return;
+                                return true;
                             default:
                                 break;
                         }
@@ -460,17 +408,17 @@ public class TicTacToe
                                 System.out.println("[Debug] D2 Diagonal (A3/B2/C1)");
                                 slotsA[2] = 2;
                                 displayA[2] = "O";
-                                return;
+                                return true;
                             case 1:
                                 System.out.println("[Debug] D2 Diagonal (A3/B2/C1)");
                                 slotsB[1] = 2;
                                 displayB[1] = "O";
-                                return;
+                                return true;
                             case 2:
                                 System.out.println("[Debug] D2 Diagonal (A3/B2/C1)");
                                 slotsC[0] = 2;
                                 displayC[0] = "O";
-                                return;
+                                return true;
                             default:
                                 break;
                         }
@@ -479,6 +427,10 @@ public class TicTacToe
                 }
             }
         }
+        return false;
+    }
+
+    public static void checkSlotsOffense(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){
         //Pick a random spot to move if no other qualifications are met.
         Random rand = new Random();
         int randomChoice = rand.nextInt(9); //Understand that rand.nextInt(9) would choose a number from 0 to 8,
