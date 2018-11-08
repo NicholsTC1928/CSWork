@@ -1,9 +1,3 @@
-/*
-Things to Do:
-    -Finish offensive tactics for the AI.
-    -Make the graphics (specifically the spacing between the lines) look cleaner.
- */
-
 import java.util.Scanner;
 import java.util.Random;
 
@@ -11,7 +5,6 @@ public class TicTacToe
 {
     public static void main(String[] args){
         Scanner reader = new Scanner(System.in);
-        boolean useAI = false;
         System.out.println("Welcome to Tic-Tac-Toe! This was programmed by Tyler Nichols.");
         System.out.println();
         System.out.print("How many players will be participating? (Enter either a \"1\" or a \"2.\") ");
@@ -21,8 +14,7 @@ public class TicTacToe
             if(pCount != 1 && pCount != 2){
                 System.out.println("Invalid Input");
                 System.out.print("How many players will be participating? (Enter either a \"1\" or a \"2.\") ");
-                int pCountEdit = reader.nextInt();
-                pCount = pCountEdit;
+                pCount = reader.nextInt();
             }
             else numCheck = false;
         }
@@ -35,7 +27,7 @@ public class TicTacToe
         }
     }
 
-    public static void gameAI(){ //Make 2-Player Game First
+    public static void gameAI(){
         Scanner reader = new Scanner(System.in);
         Random rand = new Random();
         final int startP = rand.nextInt(2) + 1; //2 is the maximum random integer, and 1 is the minimum.
@@ -43,9 +35,7 @@ public class TicTacToe
         System.out.print("Enter Your Name (X): ");
         String pName = reader.next(); //Winner declared as "winP1"
         String pNameSign = pName + " (X)";
-        System.out.println();
         String cName = "CPU";
-        String cNameSign = cName + " (O)";
         boolean gameIsRunning = true;
         int result;
         currentP = initializeGame(startP,pName,cName,true);
@@ -57,7 +47,7 @@ public class TicTacToe
         int[] slotsC = new int[]{0,0,0};
         while(gameIsRunning){
             if(currentP == 1){
-                result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,pName,pNameSign,false);
+                result = updateBoard(displayA,displayB,displayC,slotsA,slotsB,slotsC,currentP,pName,pNameSign,true);
                 if(result == 0) currentP = 2;
                 else if(result == 5){
                     gameIsRunning = quitGame();
@@ -74,8 +64,6 @@ public class TicTacToe
                     checkWin2AI(result,pName,2);
                     gameIsRunning = false;
                 }
-                //System.out.println(slotsA[0] + " " + slotsA[1] + " " + slotsA[2]);
-                //gameIsRunning = false;
             }
         }
     }
@@ -87,14 +75,14 @@ public class TicTacToe
         return checkWin(slotsA,slotsB,slotsC,2);
     }
 
-    public static int moveAI(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC){ //Defense Finished - Create Offense
+    public static int moveAI(String[] displayA,String[] displayB,String[] displayC,int[] slotsA,int[] slotsB,int[] slotsC){
         boolean oF = offenseFinisher(slotsA,slotsB,slotsC,displayA,displayB,displayC);
         if(oF) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
-        boolean dA = checkSlotsDefense(displayA,slotsA);
+        boolean dA = checkSlotsDefense(displayA,slotsA,"A");
         if(dA) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
-        boolean dB = checkSlotsDefense(displayB,slotsB);
+        boolean dB = checkSlotsDefense(displayB,slotsB,"B");
         if(dB) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
-        boolean dC = checkSlotsDefense(displayC,slotsC);
+        boolean dC = checkSlotsDefense(displayC,slotsC,"C");
         if(dC) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         boolean d1 = checkSlotsDefenseHorizontal(slotsA,slotsB,slotsC,displayA,displayB,displayC,0);
         if(d1) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
@@ -106,11 +94,10 @@ public class TicTacToe
         if(dHorizontal) return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
         //Only occurs if all are false:
         checkSlotsOffense(slotsA,slotsB,slotsC,displayA,displayB,displayC);
-        System.out.println("[Debug] AI has not made a defensive move.");
         return finishAI(displayA,displayB,displayC,slotsA,slotsB,slotsC);
     }
 
-    public static boolean checkSlotsDefense(String[] display,int[] slots){ //Finished
+    public static boolean checkSlotsDefense(String[] display,int[] slots,String type){
         int slotsOccupied = 0;
         for(int i = 0;i <= 2; i++){
             if(slots[i] == 1){
@@ -121,6 +108,7 @@ public class TicTacToe
             boolean didMove = false;
             for(int j = 0;j <= 2;j++){
                 if(slots[j] == 0){
+                    System.out.println("The CPU has chosen " + type + (j + 1) + ".");
                     slots[j] = 2;
                     display[j] = "O";
                     didMove = true;
@@ -132,7 +120,7 @@ public class TicTacToe
         else return false;
     }
 
-    public static boolean checkSlotsDefenseHorizontal(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC,int index){ //Finished
+    public static boolean checkSlotsDefenseHorizontal(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC,int index){
         int slotsOccupied = 0;
         int[] row = new int[]{slotsA[index],slotsB[index],slotsC[index]};
         for(int i = 0;i <= 2;i++){
@@ -147,16 +135,19 @@ public class TicTacToe
                     case 0:
                         switch(j){
                             case 0:
+                                System.out.println("The CPU has chosen A" + (index + 1) + ".");
                                 slotsA[index] = 2;
                                 displayA[index] = "O";
                                 didMove = true;
                                 break;
                             case 1:
+                                System.out.println("The CPU has chosen B" + (index + 1) + ".");
                                 slotsB[index] = 2;
                                 displayB[index] = "O";
                                 didMove = true;
                                 break;
                             case 2:
+                                System.out.println("The CPU has chosen C" + (index + 1) + ".");
                                 slotsC[index] = 2;
                                 displayC[index] = "O";
                                 didMove = true;
@@ -175,7 +166,7 @@ public class TicTacToe
         else return false;
     }
 
-    public static boolean checkSlotsDefenseDiagonal(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){ //Finished
+    public static boolean checkSlotsDefenseDiagonal(int[] slotsA,int[] slotsB,int[] slotsC,String[] displayA,String[] displayB,String[] displayC){
         int slotsOccupied1 = 0;
         int slotsOccupied2 = 0;
         int[] diag1 = new int[]{slotsA[0],slotsB[1],slotsC[2]};
@@ -185,18 +176,20 @@ public class TicTacToe
             if(diag2[i] == 1) slotsOccupied2++;
         }
         if(slotsOccupied1 == 2){
-            //boolean didMove = false;
             if(slotsA[0] == 0){
+                System.out.println("The CPU has chosen A1.");
                 slotsA[0] = 2;
                 displayA[0] = "O";
                 return true;
             }
             else if(slotsB[1] == 0){
+                System.out.println("The CPU has chosen B2.");
                 slotsB[1] = 2;
                 displayB[1] = "O";
                 return true;
             }
             else if(slotsC[2] == 0){
+                System.out.println("The CPU has chosen C3.");
                 slotsC[2] = 2;
                 displayC[2] = "O";
                 return true;
@@ -204,16 +197,19 @@ public class TicTacToe
         }
         if(slotsOccupied2 == 2){
             if(slotsA[2] == 0){
+                System.out.println("The CPU has chosen A3.");
                 slotsA[2] = 2;
                 displayA[2] = "O";
                 return true;
             }
             else if(slotsB[1] == 0){
+                System.out.println("The CPU has chosen B2.");
                 slotsB[1] = 2;
                 displayB[1] = "O";
                 return true;
             }
             else if(slotsC[0] == 0){
+                System.out.println("The CPU has chosen C1.");
                 slotsC[0] = 2;
                 displayC[0] = "O";
                 return true;
@@ -256,7 +252,7 @@ public class TicTacToe
             for (int a = 0; a <= 2; a++){
                 switch (slotsA[a]){
                     case 0:
-                        System.out.println("[Debug] A Vertical");
+                        System.out.println("The CPU has chosen A" + (a + 1) + ".");
                         slotsA[a] = 2;
                         displayA[a] = "O";
                         return true;
@@ -269,7 +265,7 @@ public class TicTacToe
             for (int b = 0; b <= 2; b++){
                 switch (slotsB[b]){
                     case 0:
-                        System.out.println("[Debug] B Vertical");
+                        System.out.println("The CPU has chosen B" + (b + 1) + ".");
                         slotsB[b] = 2;
                         displayB[b] = "O";
                         return true;
@@ -282,7 +278,7 @@ public class TicTacToe
             for(int c = 0;c <= 2;c++){
                 switch(slotsC[c]){
                     case 0:
-                        System.out.println("[Debug] C Vertical");
+                        System.out.println("The CPU has chosen C" + (c + 1) + ".");
                         slotsC[c] = 2;
                         displayC[c] = "O";
                         return true;
@@ -297,17 +293,17 @@ public class TicTacToe
                     case 0:
                         switch(i){
                             case 0:
-                                System.out.println("[Debug] 1 Horizontal");
+                                System.out.println("The CPU has chosen A1.");
                                 slotsA[0] = 2;
                                 displayA[0] = "O";
                                 return true;
                             case 1:
-                                System.out.println("[Debug] 1 Horizontal");
+                                System.out.println("The CPU has chosen B1.");
                                 slotsB[0] = 2;
                                 displayB[0] = "O";
                                 return true;
                             case 2:
-                                System.out.println("[Debug] 1 Horizontal");
+                                System.out.println("The CPU has chosen C1.");
                                 slotsC[0] = 2;
                                 displayC[0] = "O";
                                 return true;
@@ -325,17 +321,17 @@ public class TicTacToe
                     case 0:
                         switch(i){
                             case 0:
-                                System.out.println("[Debug] 2 Horizontal");
+                                System.out.println("The CPU has chosen A2.");
                                 slotsA[1] = 2;
                                 displayA[1] = "O";
                                 return true;
                             case 1:
-                                System.out.println("[Debug] 2 Horizontal");
+                                System.out.println("The CPU has chosen B2.");
                                 slotsB[1] = 2;
                                 displayB[1] = "O";
                                 return true;
                             case 2:
-                                System.out.println("[Debug] 2 Horizontal");
+                                System.out.println("The CPU has chosen C2.");
                                 slotsC[1] = 2;
                                 displayC[1] = "O";
                                 return true;
@@ -351,17 +347,17 @@ public class TicTacToe
                     case 0:
                         switch(i){
                             case 0:
-                                System.out.println("[Debug] 3 Horizontal");
+                                System.out.println("The CPU has chosen A3.");
                                 slotsA[2] = 2;
                                 displayA[2] = "O";
                                 return true;
                             case 1:
-                                System.out.println("[Debug] 3 Horizontal");
+                                System.out.println("The CPU has chosen B3.");
                                 slotsB[2] = 2;
                                 displayB[2] = "O";
                                 return true;
                             case 2:
-                                System.out.println("[Debug] 3 Horizontal");
+                                System.out.println("The CPU has chosen C3.");
                                 slotsC[2] = 2;
                                 displayC[2] = "O";
                                 return true;
@@ -377,17 +373,17 @@ public class TicTacToe
                     case 0:
                         switch(i){
                             case 0:
-                                System.out.println("[Debug] D1 Diagonal (A1/B2/C3)");
+                                System.out.println("The CPU has chosen A1.");
                                 slotsA[0] = 2;
                                 displayA[0] = "O";
                                 return true;
                             case 1:
-                                System.out.println("[Debug] D1 Diagonal (A1/B2/C3)");
+                                System.out.println("The CPU has chosen B2.");
                                 slotsB[1] = 2;
                                 displayB[1] = "O";
                                 return true;
                             case 2:
-                                System.out.println("[Debug] D1 Diagonal (A1/B2/C3)");
+                                System.out.println("The CPU has chosen C3.");
                                 slotsC[2] = 2;
                                 displayC[2] = "O";
                                 return true;
@@ -405,17 +401,17 @@ public class TicTacToe
                     case 0:
                         switch(i){
                             case 0:
-                                System.out.println("[Debug] D2 Diagonal (A3/B2/C1)");
+                                System.out.println("The CPU has chosen A3.");
                                 slotsA[2] = 2;
                                 displayA[2] = "O";
                                 return true;
                             case 1:
-                                System.out.println("[Debug] D2 Diagonal (A3/B2/C1)");
+                                System.out.println("The CPU has chosen B2.");
                                 slotsB[1] = 2;
                                 displayB[1] = "O";
                                 return true;
                             case 2:
-                                System.out.println("[Debug] D2 Diagonal (A3/B2/C1)");
+                                System.out.println("The CPU has chosen C1.");
                                 slotsC[0] = 2;
                                 displayC[0] = "O";
                                 return true;
@@ -442,54 +438,53 @@ public class TicTacToe
         }
         switch (randomChoice) {
             case 0:
-                System.out.println("[Debug] Random A1");
+                System.out.println("The CPU has chosen A1.");
                 slotsA[0] = 2;
                 displayA[0] = "O";
                 return;
             case 1:
-                System.out.println("[Debug] Random A2");
+                System.out.println("The CPU has chosen A2.");
                 slotsA[1] = 2;
                 displayA[1] = "O";
                 return;
             case 2:
-                System.out.println("[Debug] Random A3");
+                System.out.println("The CPU has chosen A3.");
                 slotsA[2] = 2;
                 displayA[2] = "O";
                 return;
             case 3:
-                System.out.println("[Debug] Random B1");
+                System.out.println("The CPU has chosen B1.");
                 slotsB[0] = 2;
                 displayB[0] = "O";
                 return;
             case 4:
-                System.out.println("[Debug] Random B2");
+                System.out.println("The CPU has chosen B2.");
                 slotsB[1] = 2;
                 displayB[1] = "O";
                 return;
             case 5:
-                System.out.println("[Debug] Random B3");
+                System.out.println("The CPU has chosen B3.");
                 slotsB[2] = 2;
                 displayB[2] = "O";
                 return;
             case 6:
-                System.out.println("[Debug] Random C1");
+                System.out.println("The CPU has chosen C1.");
                 slotsC[0] = 2;
                 displayC[0] = "O";
                 return;
             case 7:
-                System.out.println("[Debug] Random C2");
+                System.out.println("The CPU has chosen C2.");
                 slotsC[1] = 2;
                 displayC[1] = "O";
                 return;
             case 8:
-                System.out.println("[Debug] Random C3");
+                System.out.println("The CPU has chosen C3.");
                 slotsC[2] = 2;
                 displayC[2] = "O";
                 return;
             default:
                 break;
         }
-        System.out.println("[Debug] AI has not made an offensive move.");
     }
 
     public static void game(){
@@ -545,7 +540,7 @@ public class TicTacToe
         int numberChoice;
         boolean didQuit = false;
         for(;;){
-            System.out.print(nameDisplay + " - Enter the name of the space that you wish to claim. ");
+            System.out.print(nameDisplay + " - Enter the name of the space that you wish to claim, or type in \"quit\" to quit the game. ");
             choice = input.next();
             int inputLength = choice.length();
             letterCheck = choice.charAt(0);
@@ -683,12 +678,21 @@ public class TicTacToe
     }
 
     public static void checkWin2AI(int result,String pName,int currentP){
+        Scanner input = new Scanner(System.in);
         if(result != 3){
-            if(currentP == 1) System.out.println(pName + " is the winner! Congratulations!");
+            if(currentP == 1){
+                System.out.println(pName + " is the winner! Congratulations!");
+            }
             else System.out.println("The CPU has won the game. Better luck next time!");
         }
         else{
             System.out.println("All of the slots have been filled, but there is no winning combination. This game is a draw.");
+        }
+        System.out.print("Would you like to play again? (Enter a \"y\" to play again, or any other key to exit the program.) ");
+        String again = input.next();
+        if(again.equals("y")){
+            System.out.println();
+            gameAI();
         }
     }
 
@@ -720,19 +724,5 @@ public class TicTacToe
             System.out.println();
         }
         return currentP;
-    }
-
-    public static boolean checkResult(int result,int currentP,int nextP,boolean gameIsRunning,String name){
-        if(result == 0){
-            currentP = nextP;
-            return true;
-        }
-        else if(result == 5){
-            return quitGame();
-        }
-        else{
-            checkWin2(result,name);
-            return false;
-        }
     }
 }
