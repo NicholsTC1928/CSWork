@@ -1,0 +1,44 @@
+Array: object that stores many values of the same type
+    -Element: one value in an array
+    -Index: a 0-based (starts at 0 and increments by 1 from there; index 0 gives the 1st element, index 1 gives the 2nd
+    element, and so on) integer used to access an element from an array
+
+Array Declaration: type[] arrayName = new type[length]
+    -Example: int[] numbers = new int[10] //Creates an integer array called numbers with 10 elements
+    -Alternative: int[] numbers = {a,b,...c}, where a, b, c, and all values in between are integers - Makes a the 1st
+    element, b the 2nd element, and c the last element
+
+Accessing Elements:
+    -numbers[0] = 27; //Changes the 1st element to 27
+    -numbers[3] = -6; //Changes the 4th element to -6
+    -System.out.println(numbers[0]); //Prints the 1st element
+
+Arrays of Other Types:
+    -double[] results = new double[5]; //Default value of an element is 0.0
+    -boolean[] options = new boolean[5]; //Default value is false
+
+Out-of-Bounds:
+    -Legal Indexes: index between 0 and (array's length - 1)
+    -Going outside of the array's bounds will throw an exception
+
+Arrays and Scanners:
+    -Scanner input = new Scanner(System.in);
+    int[] numbers = new int[8];
+    for(int i = 0;i < numbers.length;i++){
+        numbers[i] = i * 2;
+    }
+    -Know that array.length can be used to represent the length of an array as an integer. Do NOT use array.length().
+
+For-Each Loops:
+    -For-each loops make accessing array elements much easier.
+    -Example:
+    for(int i = 0;i < temps.length;i++){
+        if(temps[i] > average) above++;
+    }
+
+    This can be rewritten as...
+
+    for(int n : temps){ //n is any variable without an assigned value
+        if(n > average) above++;
+    }
+    -A for-each loop (for([type] [name] : [arrayName])) is read as "for each [type] [name] in [arrayName]."
