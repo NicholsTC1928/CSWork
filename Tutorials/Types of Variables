@@ -1,0 +1,12 @@
+In Java, there are two types of variables:
+    -Reference Variables (objects, arrays, etc.)
+    -Value Variables (primitives (int, double, String, etc.))
+
+-If you were to type "int a = 5," then the value of a (5) would be stored in the memory.
+
+-If you were to type "int[] b," then it would point to a location in memory (pointer). This means that
+"int[] myArray2 = myArray" would simply make it so that myArray2 would become a reference to myArray1. As a result,
+typing "myArray2[x] = y" would also change the (x + 1)th element of myArray to y.
+
+-To make a copy of an array, use the clone method. (For example, if you want to make a copy of integer array a called b,
+you would type "int[] b = a.clone().")

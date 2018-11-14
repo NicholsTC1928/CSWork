@@ -105,17 +105,15 @@ public class TicTacToe
             }
         }
         if(slotsOccupied == 2){
-            boolean didMove = false;
             for(int j = 0;j <= 2;j++){
                 if(slots[j] == 0){
                     System.out.println("The CPU has chosen " + type + (j + 1) + ".");
                     slots[j] = 2;
                     display[j] = "O";
-                    didMove = true;
+                    return true;
                 }
             }
-            if(didMove) return true;
-            else return false;
+            return false;
         }
         else return false;
     }
