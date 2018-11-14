@@ -42,3 +42,30 @@ For-Each Loops:
         if(n > average) above++;
     }
     -A for-each loop (for([type] [name] : [arrayName])) is read as "for each [type] [name] in [arrayName]."
+
+Printing an Array:
+    -There is a built-in method called toString, which changes many data types to strings. For example, if there is an
+    array called list, then System.out.println(Arrays.toString(list)); would print [a, b, ..., c].
+    -This can also be done with a for-each loop:
+    for(int n : list){
+        System.out.println(n);
+    }
+
+Searching and Replacing:
+    -Suppose we have an array called list. If we want to find the first occurrence of a value in the array, we could try:
+    public static int indexOf(int[] list, int target){
+        for(int i = 0;i < list.length;i++){
+            if(list[i] == target) return i;
+        }
+        return -1;
+    }
+    -We can also replace the values in an array:
+    public static void replaceAll(String[] list,String target,String replacement){
+        for(int i = 0;i < list.length;i++){
+            if(list[i].equals(target)) list[i] = replacement;
+        }
+    }
+    -To test for equality, use the built-in equals method.
+    if(Arrays.equals(array1, array2) System.out.println("The arrays are equal.");
+    -You are able to reverse an array without making a new array. To see how, refer to reverseArray.java in the SourceFiles
+    directory.
