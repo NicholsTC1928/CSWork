@@ -18,7 +18,7 @@ public class argumentSimulator {
         String initial1 = "What do you want?";
         String[] choices1 = {"To hang out...","May I please turn off your fan?","I just wanted to talk."};
         int decision1 = displayChoices(initial1,choices1,1);
-        if(decision1 == -1) quitGameChoice();
+        if(decision1 == -1) exitGameChoice();
     }
 
     public static int displayChoices(String initial,String[] choices,int branch){
@@ -47,7 +47,7 @@ public class argumentSimulator {
 
     }
 
-    public static void quitGameChoice(){
+    public static void exitGameChoice(){
         System.out.println();
         System.out.println("Realizing the futility in arguing with such a skilled debater, you promptly exit Lauren's domain with your head held low. The only thing that you hear as you leave is the sound of her music. At the very least, you take solace in knowing that you did not freeze to death.");
         System.out.println();
@@ -55,11 +55,23 @@ public class argumentSimulator {
         System.out.println("You left Lauren's domain on your own free will.");
     }
 
-    public static void quitGameDead(){
+    public static void exitGameDead(){
         System.out.println();
         System.out.println("The futile efforts that you have made in arguing with Lauren in her freezing domain have finally taken their toll. Before you know it, you can no longer feel any part of your body. Soon after, you cannot feel anything at all...");
         System.out.println();
         System.out.println("Game Over");
         System.out.println("You froze to death within Lauren's domain.");
+    }
+  
+    public static void exitGameInsult(){
+        System.out.println();
+        System.out.println("With that final roast, your self-esteem was finally demolished. You quickly rush out of Lauren's domain in order to spare the rest of your dignity; its heartless ruler laughs as you retreat. As you rush to safer territory, you realize that your life will never be the same again.");
+        System.out.println();
+        System.out.println("Game Over");
+        System.out.println("You fleed from Lauren's domain in order to protect your feeling of self-worth.");
+    }
+  
+    public static void displayBranch(){
+      
     }
 }
