@@ -49,7 +49,7 @@ public class argumentSimulator {
 
     public static void quitGameChoice(){
         System.out.println();
-        System.out.println("Realizing the futility in arguing with such a skilled debater, you promptly exit Lauren's domain with your head held low. The only thing that you hear as you leave is the sound of her music, patiently waiting for the opportunity to be played once more. At the very least, you take solace in knowing that you did not freeze to death.");
+        System.out.println("Realizing the futility in arguing with such a skilled debater, you promptly exit Lauren's domain with your head held low. The only thing that you hear as you leave is the sound of her music. At the very least, you take solace in knowing that you did not freeze to death.");
         System.out.println();
         System.out.println("Game Over");
         System.out.println("You left Lauren's domain on your own free will.");
@@ -57,7 +57,7 @@ public class argumentSimulator {
 
     public static void quitGameDead(){
         System.out.println();
-        System.out.println("The large amount of time that you spent arguing with Lauren has finally taken its toll. Before you know it, you can no longer feel any part of your body. Soon after, you cannot feel anything at all...");
+        System.out.println("The futile efforts that you have made in arguing with Lauren in her freezing domain have finally taken their toll. Before you know it, you can no longer feel any part of your body. Soon after, you cannot feel anything at all...");
         System.out.println();
         System.out.println("Game Over");
         System.out.println("You froze to death within Lauren's domain.");
