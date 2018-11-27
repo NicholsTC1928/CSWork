@@ -33,7 +33,7 @@ public class argumentSimulator {
         System.out.println("3: " + choices[2]);
         System.out.println("4: [Choosing this will end the game with a loss.]");
         System.out.println();
-        String decision = "";
+        String decision;
         for(;;){
             System.out.print("Please enter the number corresponding to your desired response. (Enter only an integer between 1 and 4.) ");
             decision = input.next();
