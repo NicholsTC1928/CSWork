@@ -18,7 +18,7 @@ public class argumentSimulator {
         String initial1 = "What do you want?";
         String[] choices1 = {"To hang out...","May I please turn off your fan?","I just wanted to talk."};
         int decision1 = displayChoices(initial1,choices1,1);
-        if(decision1 == -1) exitGameChoice();
+
     }
 
     public static int displayChoices(String initial,String[] choices,int branch){
@@ -37,14 +37,12 @@ public class argumentSimulator {
         for(;;){
             System.out.print("Please enter the number corresponding to your desired response. (Enter only an integer between 1 and 4.) ");
             decision = input.next();
-            if(decision.equals("1") || decision.equals("2") || decision.equals("3")) return Integer.parseInt(decision);
-            else if(decision.equals("4")) return -1;
+            if(decision.equals("1") || decision.equals("2") || decision.equals("3") || decision.equals("4")) return Integer.parseInt(decision);
             else{
                 System.out.println("Invalid Input");
                 System.out.println();
             }
         }
-
     }
 
     public static void exitGameChoice(){
@@ -70,8 +68,32 @@ public class argumentSimulator {
         System.out.println("Game Over");
         System.out.println("You fled from Lauren's Domain in order to protect your feeling of self-worth.");
     }
+
+    public static void exitGameDismissal(){
+        System.out.println();
+        System.out.println("As you begin to exit Lauren's Domain, you feel a strange sensation: hope. Realizing that you were not banished, you quickly begin to plan your next venture into that hostile territory. By the time you are ready to enter once more, another sensation overwhelms you: fear. Worried that your next trip might be your last, you never return to Lauren's Domain.");
+        System.out.println();
+        System.out.println("Game Over");
+        System.out.println("You were dismissed from Lauren's Domain.");
+    }
+
+    public static void exitGameBanished(){
+        System.out.println();
+        System.out.println("By the time you understood the consequences of your actions, it was too late. Exiled from Lauren's Domain, you leave knowing that you will never be able to enter again. However, there is a bright side: you will never have to subject yourself to such shame and ridicule ever again.");
+        System.out.println();
+        System.out.println("Game Over");
+        System.out.println("You were banished from Lauren's Domain.");
+    }
+
+    public static void exitGameCountdown(){
+        System.out.println();
+        System.out.println("As soon as Lauren had reached the end of her countdown, something awful happened to you. Nobody quite knows what she did, and theories of your unfortunate fate spread like wildfire. However, one thing is for certain: whatever happened to you must certainly have been unpleasant.");
+        System.out.println();
+        System.out.println("Game Over");
+        System.out.println("You faced the consequences of neglecting Lauren's countdown.");
+    }
   
-    public static void displayBranch(){
-      
+    public static void route(int decision,){
+
     }
 }
