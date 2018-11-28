@@ -1,6 +1,8 @@
+package argumentSimulator;
+
 import java.util.Scanner;
 
-public class argumentSimulator {
+public class game {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to Argument Simulator!");
@@ -14,14 +16,11 @@ public class argumentSimulator {
         System.out.println("You arrive at Lauren's Domain, a hostile territory that reflects the cold-hearted nature of its ruler. As soon as you enter, you feel an awful breeze, cold enough to kill even the most resilient of creatures. The first thought that comes to your mind is how anybody could live here.");
         System.out.println();
         System.out.println("Upon entering, Lauren barely glances in your direction; she obviously does not care about your discomfort caused by the cool breeze. With a loud sigh, she finally acknowledges your existence.");
-        //Branch 1:
-        String initial1 = "What do you want?";
-        String[] choices1 = {"To hang out...","May I please turn off your fan?","I just wanted to talk."};
-        int decision1 = displayChoices(initial1,choices1,1);
+
 
     }
 
-    public static int displayChoices(String initial,String[] choices,int branch){
+    public static int displayChoices(String initial,String[] choices){
         Scanner input = new Scanner(System.in);
         System.out.println();
         System.out.println("Lauren: " + initial);
@@ -92,8 +91,12 @@ public class argumentSimulator {
         System.out.println("Game Over");
         System.out.println("You faced the consequences of neglecting Lauren's countdown.");
     }
-  
-    public static void route(int decision,){
 
+    public static void exitGameAscension(){
+        System.out.println();
+        System.out.println("While performing the sacred ritual, you feel yourself gradually fading away. The end of Lauren's countdown did not matter, since you had already ascended into godhood. As a human, you could never win an argument against Lauren; as a deity, you will never need to.");
+        System.out.println();
+        System.out.println("Game Over");
+        System.out.println("You have achieved ascension by doing the Mario.");
     }
 }
