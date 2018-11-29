@@ -1,6 +1,8 @@
 package argumentSimulator;
 
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class game {
     public static void main(String[] args){
@@ -16,20 +18,52 @@ public class game {
         System.out.println("You arrive at Lauren's Domain, a hostile territory that reflects the cold-hearted nature of its ruler. As soon as you enter, you feel an awful breeze, cold enough to kill even the most resilient of creatures. The first thought that comes to your mind is how anybody could live here.");
         System.out.println();
         System.out.println("Upon entering, Lauren barely glances in your direction; she obviously does not care about your discomfort caused by the cool breeze. With a loud sigh, she finally acknowledges your existence.");
-
-
+        branches b = new branches();
+        String[][] branchArr = b.getBranches();
+        int cBranch = 0;
+        int cDecision;
+        boolean gameGo = true;
+        int timerFreeze = 0;
+        while(gameGo){
+            if(timerFreeze >= 10){
+                exitGameDead();
+                gameGo = false;
+            }
+            cDecision = displayChoices(branchArr,cBranch);
+            if(cDecision == 4){
+                exitGameChoice();
+                gameGo = false;
+            }
+            switch(cBranch){
+                case 0:
+                    switch(cDecision){
+                        case 1:
+                            cBranch = 1;
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        default:
+                            break;
+                    }
+                default:
+                    break;
+            }
+            timerFreeze++;
+        }
     }
 
-    public static int displayChoices(String initial,String[] choices){
+    public static int displayChoices(String[][] branchArr,int cBranch){
         Scanner input = new Scanner(System.in);
         System.out.println();
-        System.out.println("Lauren: " + initial);
+        System.out.println("Lauren: " + branchArr[cBranch][0]);
         System.out.println();
         System.out.println("[Below is a list of possible responses for your rebuttal.]");
         System.out.println();
-        System.out.println("1: " + choices[0]);
-        System.out.println("2: " + choices[1]);
-        System.out.println("3: " + choices[2]);
+        System.out.println("1: " + branchArr[cBranch][1]);
+        System.out.println("2: " + branchArr[cBranch][2]);
+        System.out.println("3: " + branchArr[cBranch][3]);
         System.out.println("4: [Choosing this will end the game with a loss.]");
         System.out.println();
         String decision;
