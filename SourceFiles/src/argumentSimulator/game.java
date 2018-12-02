@@ -1,6 +1,7 @@
 package argumentSimulator;
 
 import java.util.Scanner;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -14,6 +15,7 @@ public class game {
         String pName = input.next();
         System.out.println();
         System.out.println("Good luck, " + pName + "! (You are going to need a lot of it.)");
+        section();
         System.out.println();
         System.out.println("You arrive at Lauren's Domain, a hostile territory that reflects the cold-hearted nature of its ruler. As soon as you enter, you feel an awful breeze, cold enough to kill even the most resilient of creatures. The first thought that comes to your mind is how anybody could live here.");
         System.out.println();
@@ -29,29 +31,88 @@ public class game {
                 exitGameDead();
                 gameGo = false;
             }
-            cDecision = displayChoices(branchArr,cBranch);
-            if(cDecision == 4){
-                exitGameChoice();
-                gameGo = false;
+            if(cBranch <= 12){
+                cDecision = displayChoices(branchArr,cBranch);
+                if(cDecision == 4){
+                    exitGameChoice();
+                    gameGo = false;
+                }
+                switch(cBranch){
+                    case 0: //Choice 1: Branch 1 / Choice 2: Branch 5 / Choice 3: Branch 10
+                        cBranch = bSwitch(0,cDecision,1,5,10);
+                        break;
+                    case 1: //Choice 1: Branch 2 / Choice 2: Branch 13 / Choice 3: Branch 14
+                        cBranch = bSwitch(1,cDecision,2,13,14);
+                        break;
+                    case 2: //All Choices: Branch 3
+                        cBranch = bSwitch(2,cDecision,3,3,3);
+                        break;
+                    case 3: //Choice 1: Branch 15 / Choice 2: Branch 16 / Choice 3: Branch 4
+                        cBranch = bSwitch(3,cDecision,15,16,4);
+                        break;
+                    default:
+                        System.out.println("[Debug] Not finished yet"); //Debug
+                        gameGo = false; //Debug
+                        break;
+                }
             }
-            switch(cBranch){
-                case 0:
-                    switch(cDecision){
-                        case 1:
-                            cBranch = 1;
-                            break;
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                        default:
-                            break;
-                    }
-                default:
-                    break;
+            else{
+                switch(cBranch){ //Any branches > 12 must go here to prevent index from going out of bounds
+                    case 13: //Lauren-Style Loop 1 [Branch 1, Choice 2]
+                        trapLaurenStyle(timerFreeze,"You never have anything to do.","That's not true!","Yes, it is.","No, it's not.","Yes, it is");
+                        exitGameDead();
+                        gameGo = false;
+                        break;
+                    case 14: //Lauren-Style Loop 2 [Branch 1, Choice 3]
+                        trapLaurenStyle(timerFreeze,"Why should I even try? It's not like you will ever do anything that I want.","Sure, I will!","No, you won't.","Yes, I will.","No, you won't");
+                        exitGameDead();
+                        gameGo = false;
+                        break;
+                    case 15: //Insult 1 [Branch 3, Choice 1]
+                        System.out.println();
+                        System.out.println("Lauren: That's pretty funny, considering that you never have any good ideas yourself.");
+                        System.out.println();
+                        exitGameInsult();
+                        gameGo = false;
+                        break;
+                    case 16://Hypocrite Loop 1 [Branch 3, Choice 2]
+                        trapHypocrite("I did not allow you to be in my presence just so you could spread those Communist lies of yours, you hypocrite!");
+                        exitGameDead();
+                        gameGo = false;
+                        break;
+                    default:
+                        System.out.println("[Debug]: Not finished yet"); //Debug
+                        gameGo = false; //Debug
+                        break;
+                }
             }
             timerFreeze++;
         }
+    }
+
+    public static void section(){
+        System.out.println();
+        for(int i = 0; i < 20; i++){
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
+    public static int bSwitch(int cBranch,int cDecision,int d1Result,int d2Result,int d3Result){
+        switch(cDecision){
+            case 1:
+                cBranch = d1Result;
+                break;
+            case 2:
+                cBranch = d2Result;
+                break;
+            case 3:
+                cBranch = d3Result;
+                break;
+            default:
+                break;
+        }
+        return cBranch;
     }
 
     public static int displayChoices(String[][] branchArr,int cBranch){
@@ -70,10 +131,84 @@ public class game {
         for(;;){
             System.out.print("Please enter the number corresponding to your desired response. (Enter only an integer between 1 and 4.) ");
             decision = input.next();
-            if(decision.equals("1") || decision.equals("2") || decision.equals("3") || decision.equals("4")) return Integer.parseInt(decision);
+            if(decision.equals("1") || decision.equals("2") || decision.equals("3") || decision.equals("4")){
+                section();
+                return Integer.parseInt(decision);
+            }
             else{
                 System.out.println("Invalid Input");
                 System.out.println();
+            }
+        }
+    }
+
+    public static void trapLaurenStyle(int timerFreeze,String initial,String choice,String initial2,String choice2,String last){
+        Scanner input = new Scanner(System.in);
+        Random r = new Random();
+        int limit = r.nextInt(4) + 1; //Range is from 1 to 5
+        for(int i = 0;i < limit;i++){
+            System.out.println();
+            System.out.println("Lauren: " + initial);
+            System.out.println();
+            System.out.println("[Below is a list of possible responses for your rebuttal.]");
+            System.out.println();
+            System.out.println("1: " + choice);
+            System.out.println("2: " + choice);
+            System.out.println("3: " + choice);
+            System.out.println("4: [Choosing this will end the game with a loss.]");
+            System.out.println();
+            String decision;
+            for(;;){
+                System.out.print("Please enter the number corresponding to your desired response. (Enter only an integer between 1 and 4.) ");
+                decision = input.next();
+                if(decision.equals("1") || decision.equals("2") || decision.equals("3") || decision.equals("4")){
+                    section();
+                    break;
+                }
+                else{
+                    System.out.println("Invalid Input");
+                    System.out.println();
+                }
+            }
+            initial = initial2;
+            choice = choice2;
+        }
+        System.out.println();
+        System.out.println("Lauren: " + last + "; end of discussion, Lauren-style!");
+    }
+
+    public static void trapHypocrite(String lInitial){
+        Scanner input = new Scanner(System.in);
+        String[] lDialogue = {"Communist!","Thank you!","*disgruntled mocking noise*"};
+        String[] pDialogue = {"Hypocrite!","Capitalist!","You're welcome!","*disgruntled mocking noise"};
+        System.out.println();
+        System.out.println("Lauren: " + lInitial);
+        System.out.println();
+        for(int i = 0; i < 4;i++){
+            if(i > 0){
+                System.out.println();
+                System.out.println("Lauren: " + lDialogue[i - 1]);
+                System.out.println();
+            }
+            System.out.println("[Below is a list of possible responses for your rebuttal.]");
+            System.out.println();
+            System.out.println("1: " + pDialogue[i]);
+            System.out.println("2: " + pDialogue[i]);
+            System.out.println("3: " + pDialogue[i]);
+            System.out.println("4: [Choosing this will end the game with a loss.]");
+            System.out.println();
+            String decision;
+            for(;;){
+                System.out.print("Please enter the number corresponding to your desired response. (Enter only an integer between 1 and 4.) ");
+                decision = input.next();
+                if(decision.equals("1") || decision.equals("2") || decision.equals("3") || decision.equals("4")){
+                    section();
+                    break;
+                }
+                else{
+                    System.out.println("Invalid Input");
+                    System.out.println();
+                }
             }
         }
     }
