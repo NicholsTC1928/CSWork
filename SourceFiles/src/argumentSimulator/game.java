@@ -50,6 +50,9 @@ public class game {
                     case 3: //Choice 1: Branch 15 / Choice 2: Branch 16 / Choice 3: Branch 4
                         cBranch = bSwitch(3,cDecision,15,16,4);
                         break;
+                    case 4: //Choice 1: Branch 10 / Choice 2: [Banished 1] / Choice 3: [Insult 2]
+                        cBranch = bSwitch(4,cDecision,10,17,18);
+                        break;
                     default:
                         System.out.println("[Debug] Not finished yet"); //Debug
                         gameGo = false; //Debug
