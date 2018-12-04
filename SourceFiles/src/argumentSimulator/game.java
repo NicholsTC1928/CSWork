@@ -37,8 +37,9 @@ public class game {
                     exitGameChoice();
                     gameGo = false;
                 }
+                //Make sure that none of the branch numbers in the comments have brackets, since that means that the branch is unfinished.
                 switch(cBranch){
-                    case 0: //Choice 1: Branch 1 / Choice 2: Branch 5 / Choice 3: Branch 10
+                    case 0: //Choice 1: Branch 1 / Choice 2: Branch 5 / Choice 3: [Branch 10]
                         cBranch = bSwitch(0,cDecision,1,5,10);
                         break;
                     case 1: //Choice 1: Branch 2 / Choice 2: Branch 13 / Choice 3: Branch 14
@@ -50,8 +51,26 @@ public class game {
                     case 3: //Choice 1: Branch 15 / Choice 2: Branch 16 / Choice 3: Branch 4
                         cBranch = bSwitch(3,cDecision,15,16,4);
                         break;
-                    case 4: //Choice 1: Branch 10 / Choice 2: [Banished 1] / Choice 3: [Insult 2]
+                    case 4: //Choice 1: [Branch 10] / Choice 2: Branch 17 / Choice 3: Branch 18
                         cBranch = bSwitch(4,cDecision,10,17,18);
+                        break;
+                    case 5: //Choices 1 & 2: Branch 6 / Choice 3: Branch 0
+                        cBranch = bSwitch(5,cDecision,6,6,0);
+                        break;
+                    case 6: //Choice 1: Branch 17 / Choice 2: Branch 7 / Choice 3: Branch 0
+                        cBranch = bSwitch(6,cDecision,17,7,0);
+                        break;
+                    case 7: //Choice 1: [Branch 9] / Choice 2: Branch 19 / Choice 3: Branch 8
+                        cBranch = bSwitch(7,cDecision,9,19,8);
+                        break;
+                    case 8: //Choice 1: Branch 17 / Choice 2: Branch 20 / Choice 3: Branch 0
+                        cBranch = bSwitch(8,cDecision,17,20,0);
+                        break;
+                    case 9: //Choice 1: Branch 21 / Choice 2: Branch 22 / Choice 3: Branch 23
+                        cBranch = bSwitch(9,cDecision,21,22,23);
+                        break;
+                    case 10: //Choice 1: [Lauren-Style Loop 6] / Choice 2: Branch 11 / Choice 3: [Branch 12]
+                        cBranch = bSwitch(10,cDecision,24,11,12);
                         break;
                     default:
                         System.out.println("[Debug] Not finished yet"); //Debug
@@ -60,34 +79,54 @@ public class game {
                 }
             }
             else{
-                switch(cBranch){ //Any branches > 12 must go here to prevent index from going out of bounds
+                switch(cBranch){ //This switch must be placed here in order to prevent an ArrayIndexOutOfBoundsException error. Also, all of these cases lead to the game ending.
                     case 13: //Lauren-Style Loop 1 [Branch 1, Choice 2]
-                        trapLaurenStyle(timerFreeze,"You never have anything to do.","That's not true!","Yes, it is.","No, it's not.","Yes, it is");
+                        trapLaurenStyle(timerFreeze,"You never have anything to do.","That's not true!","Yes, it is.","No, it's not!","Yes, it is");
                         exitGameDead();
-                        gameGo = false;
                         break;
                     case 14: //Lauren-Style Loop 2 [Branch 1, Choice 3]
-                        trapLaurenStyle(timerFreeze,"Why should I even try? It's not like you will ever do anything that I want.","Sure, I will!","No, you won't.","Yes, I will.","No, you won't");
+                        trapLaurenStyle(timerFreeze,"Why should I even try? It's not like you will ever do anything that I want.","Sure, I will!","No, you won't.","Yes, I will!","No, you won't");
                         exitGameDead();
-                        gameGo = false;
                         break;
                     case 15: //Insult 1 [Branch 3, Choice 1]
-                        System.out.println();
-                        System.out.println("Lauren: That's pretty funny, considering that you never have any good ideas yourself.");
-                        System.out.println();
-                        exitGameInsult();
-                        gameGo = false;
+                        exitGameInsult("That's pretty funny, considering that you never have any good ideas yourself.");
                         break;
                     case 16://Hypocrite Loop 1 [Branch 3, Choice 2]
                         trapHypocrite("I did not allow you to be in my presence just so you could spread those Communist lies of yours, you hypocrite!");
                         exitGameDead();
-                        gameGo = false;
                         break;
+                    case 17: //Banished [Branch 4, Choice 2 / Branch 6, Choice 1 / Branch 8, Choice 1]
+                        exitGameBanished();
+                        break;
+                    case 18: //Insult 2 [Branch 4, Choice 3]
+                        exitGameInsult("Well, I'm busier right now than you'll ever be.");
+                        break;
+                    case 19: //Insult 3 [Branch 7, Choice 2]
+                        exitGameInsult("It's easy for any human being to live here. The problem that you have is that you aren't human; you're more like a monkey.");
+                        break;
+                    case 20: //Hypocrite Loop 2 [Branch 8, Choice 2]
+                        trapHypocrite("Hypocrite!");
+                        exitGameDead();
+                        break;
+                    case 21: //Lauren-Style Loop 3 [Branch 9, Choice 1]
+                        trapLaurenStyle(timerFreeze,"I am only being realistic.","Realistic?! I'm freezing to death right now!","No, you aren't.","Yes, I am!","No, you aren't");
+                        exitGameDead();
+                        break;
+                    case 22: //Lauren-Style Loop 4 [Branch 9, Choice 2]
+                        trapLaurenStyle(timerFreeze,"Well, maybe if you weren't so ridiculous, I would treat you more kindly.","So, it's my fault that you treat me so poorly?","Yes, it is.","No, it isn't!","Yes, it is");
+                        exitGameDead();
+                        break;
+                    case 23: //Lauren-Style Loop 5 [Branch 9, Choice 3]
+                        trapLaurenStyle(timerFreeze,"You're just being overdramatic.","I'm telling the truth!","No, you aren't.","Yes, I am!","No, you aren't");
+                        exitGameDead();
+                        break;
+                    case 24: //Lauren-Style Loop 6 [Branch 10, Choice 1]
+                        trapLaurenStyle(timerFreeze,"You and I both know that there won't be any that I will enjoy.",)
                     default:
                         System.out.println("[Debug]: Not finished yet"); //Debug
-                        gameGo = false; //Debug
                         break;
                 }
+                gameGo = false;
             }
             timerFreeze++;
         }
@@ -232,7 +271,9 @@ public class game {
         System.out.println("You froze to death within Lauren's Domain.");
     }
   
-    public static void exitGameInsult(){
+    public static void exitGameInsult(String insult){
+        System.out.println();
+        System.out.println("Lauren: " + insult);
         System.out.println();
         System.out.println("With that last roast, your self-esteem was finally demolished. You quickly rush out of Lauren's Domain in order to spare the rest of your dignity; its heartless ruler laughs as you retreat. As you rush to safer territory, you realize that your life will never be the same again.");
         System.out.println();
@@ -249,6 +290,7 @@ public class game {
     }
 
     public static void exitGameBanished(){
+        System.out.println("BANISHED!");
         System.out.println();
         System.out.println("By the time you understood the consequences of your actions, it was too late. Exiled from Lauren's Domain, you leave knowing that you will never be able to enter again. However, there is a bright side: you will never have to subject yourself to such shame and ridicule ever again.");
         System.out.println();
