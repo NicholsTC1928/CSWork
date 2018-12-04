@@ -69,9 +69,13 @@ public class game {
                     case 9: //Choice 1: Branch 21 / Choice 2: Branch 22 / Choice 3: Branch 23
                         cBranch = bSwitch(9,cDecision,21,22,23);
                         break;
-                    case 10: //Choice 1: [Lauren-Style Loop 6] / Choice 2: Branch 11 / Choice 3: [Branch 12]
+                    case 10: //Choice 1: Branch 24 / Choice 2: Branch 11 / Choice 3: [Branch 12]
                         cBranch = bSwitch(10,cDecision,24,11,12);
                         break;
+                    case 11: //All Choices: [Dismissal]
+                        cBranch = bSwitch(11,cDecision,25,25,25);
+                        break;
+                    case 12: //Choice 1: [Modified] Branch 0 / Choice 2: [Death by Countdown] / Choice 3: [Ascension]
                     default:
                         System.out.println("[Debug] Not finished yet"); //Debug
                         gameGo = false; //Debug
@@ -121,7 +125,12 @@ public class game {
                         exitGameDead();
                         break;
                     case 24: //Lauren-Style Loop 6 [Branch 10, Choice 1]
-                        trapLaurenStyle(timerFreeze,"You and I both know that there won't be any that I will enjoy.",)
+                        trapLaurenStyle(timerFreeze,"You and I both know that we won't find anything.","You don't know that!","Yes, I do.","No, you don't!","Yes, I do");
+                        exitGameDead();
+                        break;
+                    case 25: //Dismissal [Branch 11, All Choices]
+                        exitGameDismissal();
+                        break;
                     default:
                         System.out.println("[Debug]: Not finished yet"); //Debug
                         break;
@@ -157,8 +166,14 @@ public class game {
         return cBranch;
     }
 
-    public static int displayChoices(String[][] branchArr,int cBranch){
+    public static int displayChoices(String[][] branchArr,int cBranch,boolean useCountdown){
         Scanner input = new Scanner(System.in);
+        Timer t = new Timer();
+        TimerTask task = new TimerTask(){
+            @Override public void run(){
+                t.cancel();
+            }
+        };
         System.out.println();
         System.out.println("Lauren: " + branchArr[cBranch][0]);
         System.out.println();
@@ -282,6 +297,8 @@ public class game {
     }
 
     public static void exitGameDismissal(){
+        System.out.println();
+        System.out.println("Lauren: Yes.");
         System.out.println();
         System.out.println("As you begin to exit Lauren's Domain, you feel a strange sensation: hope. Realizing that you were not banished, you quickly begin to plan your next venture into that hostile territory. By the time you are ready to enter once more, another sensation overwhelms you: fear. Worried that your next trip might be your last, you never return to Lauren's Domain.");
         System.out.println();
