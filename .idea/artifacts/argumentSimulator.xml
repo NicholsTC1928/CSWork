@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="argumentSimulator">
+    <output-path>$PROJECT_DIR$/CompiledPrograms/artifacts/argumentSimulator</output-path>
+    <root id="archive" name="argumentSimulator.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/Manifest.mf" output-file-name="MANIFEST.MF" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/classes/game$1.class" />
+      <element id="file-copy" path="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/classes/game.class" />
+      <element id="file-copy" path="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/classes/branches.class" />
+    </root>
+  </artifact>
+</component>
