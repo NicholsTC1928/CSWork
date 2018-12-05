@@ -20,10 +20,10 @@ public class branches {
         branches[2][2]=branches[2][1];
         branches[2][3]=branches[2][1];
         //Branch 3 [Branch 2, Any Choice]:
-        branches[3][0]="Why do you even come here if you have nothing to do?";
+        branches[3][0]="Why do you even come in here if you have nothing to do?";
         branches[3][1]="I always hope that one day, you will have an idea as to what we could do."; //Lose - Insult
         branches[3][2]="So that I may spread my attractive Communist ideals to your domain, which has been blighted by capitalism!"; //Potential Loss - Hypocrite Loop
-        branches[3][3]="I am just bored right now.";
+        branches[3][3]="I'm just bored.";
         //Branch 4 [Branch 3, Choice 3]:
         branches[4][0]="Well, I am pretty busy right now, so if you have nothing to do...";
         branches[4][1]="We can talk."; //Go to Branch 10
@@ -57,18 +57,18 @@ public class branches {
         //Branch 10 [Branch 0, Choice 3 / Branch 4, Choice 1]:
         branches[10][0]="Fine... what do you want to talk about?";
         branches[10][1]="We can talk about new games that you might like."; //Lose - Lauren-Style Loop
-        branches[10][2]="I am fine with talking about what ever you want.";
+        branches[10][2]="I am fine with talking about whatever you want.";
         branches[10][3]="I don't know...";
         //Branch 11 [Branch 10, Choice 2]:
-        branches[11][0]="How about we talk about how nice it would be if you leave me alone?";
+        branches[11][0]="How about we talk about how nice it would be if you left me alone?";
         branches[11][1]="Is that a dismissal?"; //Lose - Dismissed
         branches[11][2]=branches[11][1]; //Lose - Dismissed
         branches[11][3]=branches[11][1]; //Lose - Dismissed
         //Branch 12 [Branch 10, Choice 3]:
         branches[12][0]="If you do not have anything useful to say, then I will make you useful. Go refill my water bottle. NOW!";
-        branches[12][1]="[Proceed to rush to the water machine and bring Lauren her water in time]"; //Go to Branch 0, but with a modified initial statement
-        branches[12][2]="[Remain still, refusing to get Lauren her water]"; //Lose - Countdown
-        branches[12][3]="[Proceed to do the Mario]"; //Win/Lose - Ascension
+        branches[12][1]="[You proceed to rush to the water machine and bring Lauren her water in time.]"; //Go to Branch 0, but with a modified initial statement
+        branches[12][2]="[You remain still, refusing to get Lauren her water.]"; //Lose - Countdown
+        branches[12][3]="[You proceed to do the Mario.]"; //Win/Lose - Ascension
         return branches.clone();
     }
 }

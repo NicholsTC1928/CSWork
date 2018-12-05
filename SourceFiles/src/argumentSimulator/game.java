@@ -8,6 +8,7 @@ import java.util.TimerTask;
 public class game {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
+        System.out.println();
         System.out.println("Welcome to Argument Simulator!");
         System.out.println("In this game, your goal is to outsmart the impossibly clever debater, Lauren.");
         System.out.println();
@@ -26,21 +27,29 @@ public class game {
         int cDecision;
         boolean gameGo = true;
         int timerFreeze = 0;
+        final String ORIGINAL_BRANCH_0_INITIAL = branchArr[0][0];
         while(gameGo){
-            if(timerFreeze >= 10){
+            if(timerFreeze == 4){
+                System.out.print("As you continue to bicker with Lauren, you realize something: you can no longer feel anything from the waist down. Thus, you fear that if you stay in Lauren's Domain for much longer, then the consequences will be fatal.");
+                section();
+            }
+            if(timerFreeze >= 7){
                 exitGameDead();
-                gameGo = false;
+                //gameGo = false;
+                break;
             }
             if(cBranch <= 12){
-                cDecision = displayChoices(branchArr,cBranch);
+                if(cBranch != 12) cDecision = displayChoices(branchArr,cBranch); //This if condition may be modified for future countdown branches.
+                else cDecision = displayChoicesCountdown(branchArr,cBranch,10);
                 if(cDecision == 4){
                     exitGameChoice();
                     gameGo = false;
                 }
                 //Make sure that none of the branch numbers in the comments have brackets, since that means that the branch is unfinished.
                 switch(cBranch){
-                    case 0: //Choice 1: Branch 1 / Choice 2: Branch 5 / Choice 3: [Branch 10]
+                    case 0: //Choice 1: Branch 1 / Choice 2: Branch 5 / Choice 3: Branch 10
                         cBranch = bSwitch(0,cDecision,1,5,10);
+                        branchArr[0][0] = ORIGINAL_BRANCH_0_INITIAL;
                         break;
                     case 1: //Choice 1: Branch 2 / Choice 2: Branch 13 / Choice 3: Branch 14
                         cBranch = bSwitch(1,cDecision,2,13,14);
@@ -51,16 +60,16 @@ public class game {
                     case 3: //Choice 1: Branch 15 / Choice 2: Branch 16 / Choice 3: Branch 4
                         cBranch = bSwitch(3,cDecision,15,16,4);
                         break;
-                    case 4: //Choice 1: [Branch 10] / Choice 2: Branch 17 / Choice 3: Branch 18
+                    case 4: //Choice 1: Branch 10 / Choice 2: Branch 17 / Choice 3: Branch 18
                         cBranch = bSwitch(4,cDecision,10,17,18);
                         break;
-                    case 5: //Choices 1 & 2: Branch 6 / Choice 3: Branch 0
-                        cBranch = bSwitch(5,cDecision,6,6,0);
+                    case 5: //Choices 1 & 2: Branch 6 / Choice 3: Branch 9
+                        cBranch = bSwitch(5,cDecision,6,6,9);
                         break;
                     case 6: //Choice 1: Branch 17 / Choice 2: Branch 7 / Choice 3: Branch 0
                         cBranch = bSwitch(6,cDecision,17,7,0);
                         break;
-                    case 7: //Choice 1: [Branch 9] / Choice 2: Branch 19 / Choice 3: Branch 8
+                    case 7: //Choice 1: Branch 9 / Choice 2: Branch 19 / Choice 3: Branch 8
                         cBranch = bSwitch(7,cDecision,9,19,8);
                         break;
                     case 8: //Choice 1: Branch 17 / Choice 2: Branch 20 / Choice 3: Branch 0
@@ -69,13 +78,19 @@ public class game {
                     case 9: //Choice 1: Branch 21 / Choice 2: Branch 22 / Choice 3: Branch 23
                         cBranch = bSwitch(9,cDecision,21,22,23);
                         break;
-                    case 10: //Choice 1: Branch 24 / Choice 2: Branch 11 / Choice 3: [Branch 12]
+                    case 10: //Choice 1: Branch 24 / Choice 2: Branch 11 / Choice 3: Branch 12
                         cBranch = bSwitch(10,cDecision,24,11,12);
                         break;
                     case 11: //All Choices: [Dismissal]
                         cBranch = bSwitch(11,cDecision,25,25,25);
                         break;
-                    case 12: //Choice 1: [Modified] Branch 0 / Choice 2: [Death by Countdown] / Choice 3: [Ascension]
+                    case 12: //Choice 1: [Modified] Branch 0 / Choice 2: Branch 26 / Choice 3: [Branch 27
+                        //Countdown Branch
+                        cBranch = bSwitch(12,cDecision,0,26,27);
+                        if(cBranch == 0){ //This modifies the initial statement for Branch 0; its overall functionality remains the same.
+                            branchArr[0][0] = "Good boy. Why exactly did you come here again?";
+                        }
+                        break;
                     default:
                         System.out.println("[Debug] Not finished yet"); //Debug
                         gameGo = false; //Debug
@@ -131,6 +146,12 @@ public class game {
                     case 25: //Dismissal [Branch 11, All Choices]
                         exitGameDismissal();
                         break;
+                    case 26: //Death by Countdown [Branch 12, Choice 2]
+                        exitGameCountdown();
+                        break;
+                    case 27: //Ascension [Branch 12, Choice 3]
+                        exitGameAscension();
+                        break;
                     default:
                         System.out.println("[Debug]: Not finished yet"); //Debug
                         break;
@@ -166,14 +187,50 @@ public class game {
         return cBranch;
     }
 
-    public static int displayChoices(String[][] branchArr,int cBranch,boolean useCountdown){
+    public static int displayChoicesCountdown(String[][] branchArr,int cBranch,int seconds){
         Scanner input = new Scanner(System.in);
         Timer t = new Timer();
         TimerTask task = new TimerTask(){
             @Override public void run(){
+                System.out.println();
+                section();
+                System.out.print("YOU HAVE RUN OUT OF TIME");
+                section();
+                exitGameCountdown();
                 t.cancel();
             }
         };
+        t.schedule(task,(seconds * 1000));
+        System.out.println();
+        System.out.println("Lauren: " + branchArr[cBranch][0]);
+        System.out.println();
+        System.out.println("COUNTDOWN INITIATED - YOU HAVE " + seconds + " SECONDS TO COMPLETE YOUR ASSIGNED TASK");
+        System.out.println();
+        System.out.println("[Below is a list of possible responses for your rebuttal.]");
+        System.out.println();
+        System.out.println("1: " + branchArr[cBranch][1]);
+        System.out.println("2: " + branchArr[cBranch][2]);
+        System.out.println("3: " + branchArr[cBranch][3]);
+        System.out.println("4: [Choosing this will end the game with a loss.]");
+        System.out.println();
+        String decision;
+        for(;;){
+            System.out.print("Please enter the number corresponding to your desired response. (Enter only an integer between 1 and 4.) ");
+            decision = input.next();
+            if(decision.equals("1") || decision.equals("2") || decision.equals("3") || decision.equals("4")){
+                section();
+                t.cancel();
+                return Integer.parseInt(decision);
+            }
+            else{
+                System.out.println("Invalid Input");
+                System.out.println();
+            }
+        }
+    }
+
+    public static int displayChoices(String[][] branchArr,int cBranch){
+        Scanner input = new Scanner(System.in);
         System.out.println();
         System.out.println("Lauren: " + branchArr[cBranch][0]);
         System.out.println();
@@ -237,7 +294,7 @@ public class game {
     public static void trapHypocrite(String lInitial){
         Scanner input = new Scanner(System.in);
         String[] lDialogue = {"Communist!","Thank you!","*disgruntled mocking noise*"};
-        String[] pDialogue = {"Hypocrite!","Capitalist!","You're welcome!","*disgruntled mocking noise"};
+        String[] pDialogue = {"Hypocrite!","Capitalist!","You're welcome!","*disgruntled mocking noise*"};
         System.out.println();
         System.out.println("Lauren: " + lInitial);
         System.out.println();
@@ -280,7 +337,7 @@ public class game {
 
     public static void exitGameDead(){
         System.out.println();
-        System.out.println("The futile efforts that you have made in arguing with Lauren in her freezing domain have finally taken their toll. Before you know it, you can no longer feel any part of your body. Soon after, you cannot feel anything at all...");
+        System.out.println("You attempt to make your rebuttal, but no sound comes out of your mouth. The futile efforts that you have made in arguing with Lauren in her freezing domain have finally taken their toll. Before you know it, you can no longer feel any part of your body. Soon after, you cannot feel anything at all...");
         System.out.println();
         System.out.println("Game Over");
         System.out.println("You froze to death within Lauren's Domain.");
@@ -307,7 +364,7 @@ public class game {
     }
 
     public static void exitGameBanished(){
-        System.out.println("BANISHED!");
+        System.out.println("Lauren: BANISHED!");
         System.out.println();
         System.out.println("By the time you understood the consequences of your actions, it was too late. Exiled from Lauren's Domain, you leave knowing that you will never be able to enter again. However, there is a bright side: you will never have to subject yourself to such shame and ridicule ever again.");
         System.out.println();
@@ -317,10 +374,11 @@ public class game {
 
     public static void exitGameCountdown(){
         System.out.println();
-        System.out.println("As soon as Lauren had reached the end of her countdown, something awful happened to you. Nobody quite knows what she did, and theories of your unfortunate fate spread like wildfire. However, one thing is for certain: whatever happened to you must certainly have been unpleasant.");
+        System.out.println("As soon as Lauren had reached the end of her countdown, something awful happened to you. Nobody quite knows what she did, but theories regarding your unfortunate fate spread like wildfire. However, one thing is for certain: whatever happened to you must certainly have been unpleasant.");
         System.out.println();
         System.out.println("Game Over");
         System.out.println("You faced the consequences of neglecting Lauren's countdown.");
+        System.exit(0); //This causes the program to end preemptively.
     }
 
     public static void exitGameAscension(){
