@@ -22,7 +22,7 @@ public class game {
         System.out.println();
         System.out.println("Upon entering, Lauren barely glances in your direction; she obviously does not care about your discomfort caused by the cool breeze. With a loud sigh, she finally acknowledges your existence.");
         branches b = new branches();
-        String[][] branchArr = b.getBranches();
+        String[][] branchArr = b.getBranchesMain();
         int cBranch = 0;
         int cDecision;
         boolean gameGo = true;
@@ -34,6 +34,8 @@ public class game {
                 section();
             }
             if(timerFreeze >= 7){
+                System.out.print("YOU HAVE RUN OUT OF MOVES");
+                section();
                 exitGameDead();
                 //gameGo = false;
                 break;
@@ -81,10 +83,10 @@ public class game {
                     case 10: //Choice 1: Branch 24 / Choice 2: Branch 11 / Choice 3: Branch 12
                         cBranch = bSwitch(10,cDecision,24,11,12);
                         break;
-                    case 11: //All Choices: [Dismissal]
+                    case 11: //All Choices: Branch 25
                         cBranch = bSwitch(11,cDecision,25,25,25);
                         break;
-                    case 12: //Choice 1: [Modified] Branch 0 / Choice 2: Branch 26 / Choice 3: [Branch 27
+                    case 12: //Choice 1: Modified Branch 0 / Choice 2: Branch 26 / Choice 3: Branch 27
                         //Countdown Branch
                         cBranch = bSwitch(12,cDecision,0,26,27);
                         if(cBranch == 0){ //This modifies the initial statement for Branch 0; its overall functionality remains the same.
@@ -100,11 +102,11 @@ public class game {
             else{
                 switch(cBranch){ //This switch must be placed here in order to prevent an ArrayIndexOutOfBoundsException error. Also, all of these cases lead to the game ending.
                     case 13: //Lauren-Style Loop 1 [Branch 1, Choice 2]
-                        trapLaurenStyle(timerFreeze,"You never have anything to do.","That's not true!","Yes, it is.","No, it's not!","Yes, it is");
+                        trapLaurenStyle("You never have anything to do.","That's not true!","Yes, it is.","No, it's not!","Yes, it is");
                         exitGameDead();
                         break;
                     case 14: //Lauren-Style Loop 2 [Branch 1, Choice 3]
-                        trapLaurenStyle(timerFreeze,"Why should I even try? It's not like you will ever do anything that I want.","Sure, I will!","No, you won't.","Yes, I will!","No, you won't");
+                        trapLaurenStyle("Why should I even try? It's not like you will ever do anything that I want.","Sure, I will!","No, you won't.","Yes, I will!","No, you won't");
                         exitGameDead();
                         break;
                     case 15: //Insult 1 [Branch 3, Choice 1]
@@ -128,19 +130,19 @@ public class game {
                         exitGameDead();
                         break;
                     case 21: //Lauren-Style Loop 3 [Branch 9, Choice 1]
-                        trapLaurenStyle(timerFreeze,"I am only being realistic.","Realistic?! I'm freezing to death right now!","No, you aren't.","Yes, I am!","No, you aren't");
+                        trapLaurenStyle("I am only being realistic.","Realistic?! I'm freezing to death right now!","No, you aren't.","Yes, I am!","No, you aren't");
                         exitGameDead();
                         break;
                     case 22: //Lauren-Style Loop 4 [Branch 9, Choice 2]
-                        trapLaurenStyle(timerFreeze,"Well, maybe if you weren't so ridiculous, I would treat you more kindly.","So, it's my fault that you treat me so poorly?","Yes, it is.","No, it isn't!","Yes, it is");
+                        trapLaurenStyle("Well, maybe if you weren't so ridiculous, I would treat you more kindly.","So, it's my fault that you treat me so poorly?","Yes, it is.","No, it isn't!","Yes, it is");
                         exitGameDead();
                         break;
                     case 23: //Lauren-Style Loop 5 [Branch 9, Choice 3]
-                        trapLaurenStyle(timerFreeze,"You're just being overdramatic.","I'm telling the truth!","No, you aren't.","Yes, I am!","No, you aren't");
+                        trapLaurenStyle("You're just being overdramatic.","I'm telling the truth!","No, you aren't.","Yes, I am!","No, you aren't");
                         exitGameDead();
                         break;
                     case 24: //Lauren-Style Loop 6 [Branch 10, Choice 1]
-                        trapLaurenStyle(timerFreeze,"You and I both know that we won't find anything.","You don't know that!","Yes, I do.","No, you don't!","Yes, I do");
+                        trapLaurenStyle("You and I both know that we won't find anything.","You don't know that!","Yes, I do.","No, you don't!","Yes, I do");
                         exitGameDead();
                         break;
                     case 25: //Dismissal [Branch 11, All Choices]
@@ -160,6 +162,11 @@ public class game {
             }
             timerFreeze++;
         }
+        System.out.println();
+        System.out.print("Do you wish to play again? (Enter a \"y\" to play again, or any other key to quit.) ");
+        String play = input.next().toLowerCase();
+        if(play.equals("y")) System.exit(0); //I need to adjust this, so that it restarts the program. Perhaps I could call a new method from branches.java that allows the user to choose branch packs?
+        else System.exit(0);
     }
 
     public static void section(){
@@ -256,7 +263,7 @@ public class game {
         }
     }
 
-    public static void trapLaurenStyle(int timerFreeze,String initial,String choice,String initial2,String choice2,String last){
+    public static void trapLaurenStyle(String initial,String choice,String initial2,String choice2,String last){
         Scanner input = new Scanner(System.in);
         Random r = new Random();
         int limit = r.nextInt(4) + 1; //Range is from 1 to 5

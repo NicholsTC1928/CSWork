@@ -3,7 +3,7 @@ package argumentSimulator;
 public class branches {
     String[][] branches = new String[13][4];
 
-    public String[][] getBranches(){
+    public String[][] getBranchesMain(){
         //Branch 0 [Intro / Branch 6, Choice 3 / Branch 8, Choice 3 / [Modified Initial] Branch 12, Choice 1]:
         branches[0][0]="What do you want?";
         branches[0][1]="To hang out...";
