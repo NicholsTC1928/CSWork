@@ -1,7 +1,33 @@
 package argumentSimulator;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class branches {
     String[][] branches = new String[13][4];
+    int totalPacks = 1; //Change this when adding extra packs.
+    String[] packs = new String[totalPacks];
+
+    public int chooseBranchPack(String name){
+        Scanner input = new Scanner(System.in);
+        //You can add new branch packs here.
+        packs[0] = "Argument Simulator";
+        System.out.println();
+        if(totalPacks == 1) return 1;
+        boolean valueFound = false;
+        while(!valueFound){
+            try{
+                System.out.println("The following games are available to play:");
+                for(int i = 0;i < totalPacks;i++){
+                    System.out.println((i + 1) + " - " + packs[i]);
+                }
+                System.out.println();
+                System.out.print("Please enter the number corresponding to your desired game. ");
+                int packChoice = input.nextInt();
+            }
+            catch(InputMismatchException notInt,)
+        }
+    }
 
     public String[][] getBranchesMain(){
         //Branch 0 [Intro / Branch 6, Choice 3 / Branch 8, Choice 3 / [Modified Initial] Branch 12, Choice 1]:
