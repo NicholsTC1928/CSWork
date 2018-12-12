@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="28" column="122" selection-start-line="28" selection-start-column="122" selection-end-line="28" selection-end-column="122" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceFiles/src/arrayLists.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="736">
+              <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceFiles/src/timerPractice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="21" column="116" selection-start-line="21" selection-start-column="116" selection-end-line="21" selection-end-column="116" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>updateBo</find>
+      <find>pCountE</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem3/Problem3.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem4/Problem4.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem5/Problem5.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/methodsReturn.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/objectsMethods.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem6/Problem6.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem7/Problem7.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem8/Problem8.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem9/Problem9.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem10/Problem10.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem11/Problem11.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem12/Problem12.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem13/Problem13.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem14/Problem14.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem15/Problem15.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/EV.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/pokemonBattle.java" />
+        <option value="$PROJECT_DIR$/Tutorials/Rational Operators and If and Else Statements" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter4Exercises/Problem1/Problem1.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter4Exercises/Problem2/Problem2.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter4Exercises/SelfCheck7/SelfCheck7.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter4Exercises/SelfCheck8/SelfCheck8.java" />
+        <option value="$PROJECT_DIR$/Exercises/Chapter4Exercises/SelfCheck9/SelfCheck9.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/IFElse.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/competitionTemp.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/ProcessingNumbers.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/DayOfWeek.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/whileLoops.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/ranNumbers.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/Fencepost.java" />
+        <option value="$PROJECT_DIR$/Tutorials/Boolean Operators" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/RPSGame.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/PigGame.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/factors.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/arrayNotes.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/forEachLoops.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/reverseArray.java" />
+        <option value="$PROJECT_DIR$/Tutorials/Array Basics" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/referenceVsValue.java" />
+        <option value="$PROJECT_DIR$/Tutorials/Types of Variables" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/TicTacToe.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/snake.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/arraysOfObjects.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/argumentSimulator.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator.java" />
+        <option value="$PROJECT_DIR$/Tutorials/multidimensionalArrays" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/multidimensionalArrays.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/timerPractice.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/arrayLists.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1034" />
+    <option name="y" value="107" />
+    <option name="width" value="1467" />
+    <option name="height" value="898" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>AOP</id>
+          </State>
+          <State>
+            <id>Android</id>
+          </State>
+          <State>
+            <id>Ant</id>
+          </State>
+          <State>
+            <id>Application Servers</id>
+          </State>
+          <State>
+            <id>Assignment issuesJavaScript</id>
+          </State>
+          <State>
+            <id>CDI (Contexts and Dependency Injection)</id>
+          </State>
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>Code maturityJava</id>
+          </State>
+          <State>
+            <id>Code style issuesCSS</id>
+          </State>
+          <State>
+            <id>Code style issuesJava</id>
+          </State>
+          <State>
+            <id>CodeSpring CoreSpring</id>
+          </State>
+          <State>
+            <id>Control flow issuesGroovy</id>
+          </State>
+          <State>
+            <id>Control flow issuesJava</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>CorrectnessLintAndroid</id>
+          </State>
+          <State>
+            <id>Data flowJava</id>
+          </State>
+          <State>
+            <id>Data flowJavaScript</id>
+          </State>
+          <State>
+            <id>Declaration redundancyGroovy</id>
+          </State>
+          <State>
+            <id>Declaration redundancyJava</id>
+          </State>
+          <State>
+            <id>ECMAScript 6 migration aidsJavaScript</id>
+          </State>
+          <State>
+            <id>Faces Model</id>
+          </State>
+          <State>
+            <id>FinalizationJava</id>
+          </State>
+          <State>
+            <id>FlexUnit</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>GeneralJava</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>Google Web Toolkit</id>
+          </State>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>Guice</id>
+          </State>
+          <State>
+            <id>HTML</id>
+          </State>
+          <State>
+            <id>Hibernate</id>
+          </State>
+          <State>
+            <id>IconsUsabilityLintAndroid</id>
+          </State>
+          <State>
+            <id>Inheritance issuesJava</id>
+          </State>
+          <State>
+            <id>InitializationJava</id>
+          </State>
+          <State>
+            <id>InternationalizationJava</id>
+          </State>
+          <State>
+            <id>InternationalizationLintAndroid</id>
+          </State>
+          <State>
+            <id>JBoss Seam</id>
+          </State>
+          <State>
+            <id>JPA</id>
+          </State>
+          <State>
+            <id>JSON and JSON5</id>
+          </State>
+          <State>
+            <id>JUnitJava</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java 12Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Java 9Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Java EE</id>
+          </State>
+          <State>
+            <id>Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>JavaFX</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Kotlin</id>
+          </State>
+          <State>
+            <id>LintAndroid</id>
+          </State>
+          <State>
+            <id>Maven</id>
+          </State>
+          <State>
+            <id>Modularization issuesJava</id>
+          </State>
+          <State>
+            <id>Naming conventionsJava</id>
+          </State>
+          <State>
+            <id>Numeric issuesJava</id>
+          </State>
+          <State>
+            <id>Other problemsKotlin</id>
+          </State>
+          <State>
+            <id>Packaging issuesJava</id>
+          </State>
+          <State>
+            <id>PerformanceJava</id>
+          </State>
+          <State>
+            <id>PerformanceLintAndroid</id>
+          </State>
+          <State>
+            <id>Plugin DevKit</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugsGroovy</id>
+          </State>
+          <State>
+            <id>Probable bugsJava</id>
+          </State>
+          <State>
+            <id>Probable bugsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugsKotlin</id>
+          </State>
+          <State>
+            <id>Properties Files</id>
+          </State>
+          <State>
+            <id>Redundant constructsKotlin</id>
+          </State>
+          <State>
+            <id>Reflective accessJava</id>
+          </State>
+          <State>
+            <id>RegExp</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+          <State>
+            <id>SecurityLintAndroid</id>
+          </State>
+          <State>
+            <id>Serialization issuesJava</id>
+          </State>
+          <State>
+            <id>Spring</id>
+          </State>
+          <State>
+            <id>Spring CoreSpring</id>
+          </State>
+          <State>
+            <id>Struts</id>
+          </State>
+          <State>
+            <id>Struts 1Struts</id>
+          </State>
+          <State>
+            <id>Style issuesKotlin</id>
+          </State>
+          <State>
+            <id>TestNGJava</id>
+          </State>
+          <State>
+            <id>Threading issuesJava</id>
+          </State>
+          <State>
+            <id>UI Form</id>
+          </State>
+          <State>
+            <id>UsabilityLintAndroid</id>
+          </State>
+          <State>
+            <id>Validity issuesGroovy</id>
+          </State>
+          <State>
+            <id>Verbose or redundant code constructsJava</id>
+          </State>
+          <State>
+            <id>VisibilityJava</id>
+          </State>
+          <State>
+            <id>XML</id>
+          </State>
+          <State>
+            <id>XMLSpring CoreSpring</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+          <State>
+            <id>XSLT</id>
+          </State>
+          <State>
+            <id>YAML</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Duplicates</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CSWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSWork" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSWork" type="462c0819:PsiDirectoryNode" />
+              <item name="SourceFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSWork" type="462c0819:PsiDirectoryNode" />
+              <item name="SourceFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSWork" type="462c0819:PsiDirectoryNode" />
+              <item name="SourceFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="argumentSimulator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSWork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSWork" type="462c0819:PsiDirectoryNode" />
+              <item name="Tutorials" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544198897823" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Exercises/Chapter4Exercises/SelfCheck9" />
+      <recent name="$PROJECT_DIR$/Exercises/Chapter4Exercises/SelfCheck8" />
+      <recent name="$PROJECT_DIR$/Exercises/Chapter4Exercises/SelfCheck7" />
+      <recent name="$PROJECT_DIR$/Exercises/Chapter4Exercises/Problem2" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="" />
+      <created>1535470435882</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1535470435882</updated>
+      <workItem from="1535470437166" duration="867000" />
+      <workItem from="1535472664975" duration="211000" />
+      <workItem from="1535472996139" duration="14736000" />
+      <workItem from="1536853027471" duration="2117000" />
+      <workItem from="1536855171777" duration="92986000" />
+      <workItem from="1542214170113" duration="31161000" />
+      <workItem from="1544111193532" duration="4564000" />
+      <workItem from="1544457251099" duration="4574000" />
+    </task>
+    <task id="LOCAL-00012" summary="Added notes on parameters. (9/17)">
+      <created>1536861304218</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1536861304218</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Finished the Chapter 3 Exercises. (9/19)">
+      <created>1536865290784</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1536865290784</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Updated the Tic-Tac-Toe program. (9/20)">
+      <created>1537380145227</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1537380145227</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Updated the Tic-Tac-Toe program. (9/21)">
+      <created>1537545867219</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1537545867219</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Updated the Tic-Tac-Toe program. (9/21)">
+      <created>1537545949306</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1537545949306</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added program and finished 2-player Tic-Tac-Toe. (9/24)">
+      <created>1537805134934</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1537805134934</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added objectsMethods program and cleaned the Tic-Tac-Toe program. (9/25)">
+      <created>1537891251036</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1537891251036</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added Exercises 3.6 - 3.15. (9/27)">
+      <created>1538062859394</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1538062859394</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Updated the Tic-Tac-Toe program. (9/27)">
+      <created>1538064278727</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1538064278727</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Updated the Tic-Tac-Toe program. (9/28)">
+      <created>1538152984765</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1538152984765</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Updated the Tic-Tac-Toe program and added a new program. (10/1)">
+      <created>1538409554834</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1538409554834</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added the Pokemon Battle Project. (10/4)">
+      <created>1538666676557</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1538666676557</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Updated the Tic-Tac-Toe program. (10/4)">
+      <created>1538669232050</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1538669232050</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Updated the Tic-Tac-Toe program. (10/5)">
+      <created>1538755567743</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1538755567743</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added notes. (10/15)">
+      <created>1539619655665</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1539619655665</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added an example program and finished the defense for the Tic-Tac-Toe program. (10/16)">
+      <created>1539705954902</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1539705954902</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Updated the Tic-Tac-Toe program. (10/17)">
+      <created>1539796059366</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1539796059366</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added the cooperative program. (10/18)">
+      <created>1539878668664</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1539878668664</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added the date program. (10/19)">
+      <created>1539965234471</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1539965234471</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Updated the date program. (10/19)">
+      <created>1540310816646</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1540310816646</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Updated the date program. (10/19)">
+      <created>1540310858803</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1540310858803</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Updated the date program. (10/24)">
+      <created>1540400975728</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1540400975728</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added the while loops tutorial. (10/25)">
+      <created>1540481747799</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1540481747799</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Added the random numbers tutorial. (10/26)">
+      <created>1540569731765</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1540569731766</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Added the fencepost tutorial. (10/29)">
+      <created>1540828430516</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1540828430516</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Added the boolean operators tutorial and the RPS game. (10/30)">
+      <created>1540915735714</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1540915735714</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Updated the RPS game. (10/31)">
+      <created>1541005701275</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1541005701275</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Updated the RPS game. (11/1)">
+      <created>1541088431067</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1541088431067</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Updated the Ti-Tac-Toe game. (11/2)">
+      <created>1541174812030</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1541174812030</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Updated the Tic-Tac-Toe game. (11/6)">
+      <created>1541434745524</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1541434745524</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Finished(!) the Tic-Tac-Toe game. (11/8)">
+      <created>1541693507000</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1541693507000</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Added the Array Notes Program. (11/9)">
+      <created>1541779568484</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1541779568484</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Added the Array Basics notes and the For-each Loop program. (11/13)">
+      <created>1541781080214</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1541781080214</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Updated the Array Basics notes and added the Reverse Array program. (11/14)">
+      <created>1542215285377</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1542215285377</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Added the Types of Variables notes and its corresponding program. (11/15)">
+      <created>1542217202327</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1542217202327</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Added the Snake program. (11/16)">
+      <created>1542384417384</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1542384417384</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Updated the Snake program. (11/20)">
+      <created>1542726488913</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1542726488913</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Updated the Snake program. (11/20)">
+      <created>1542726879099</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1542726879099</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Updated the Snake program. (11/20)">
+      <created>1542727070176</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1542727070177</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Updated the Snake program. (11/20)">
+      <created>1542728938965</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1542728938965</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Added the Argument Simulator. (11/26)">
+      <created>1543248485909</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1543248485909</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Added notes for shifting arrays. (11/27)">
+      <created>1543333388362</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1543333388363</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Updated the Argument Simulator. (11/28)">
+      <created>1543424961784</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1543424961784</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Updated the Argument Simulator. (11/29)">
+      <created>1543507602275</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1543507602275</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Updated the Argument Simulator. (11/30)">
+      <created>1543593987263</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1543593987263</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Added multidimensional arrays notes and updated the Argument Simulator. (12/3)">
+      <created>1543851319983</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1543851319983</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Added timer notes and updated the Argument Simulator. (12/4)">
+      <created>1543939619754</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1543939619754</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Updated the Argument Simulator. (12/6)">
+      <created>1544112362880</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1544112362880</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Updated the Argument Simulator. (12/12)">
+      <created>1544632884741</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1544632884741</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="151216000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1034" y="107" width="1467" height="898" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26319492" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49824068" visible="true" weight="0.33159947" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50175935" side_tool="true" visible="true" weight="0.33159947" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.498893" weight="0.32903227" />
+      <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.32904884" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Maven" order="9" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Added the fencepost tutorial. (10/29)" />
+    <MESSAGE value="Added the boolean operators tutorial and the RPS game. (10/30)" />
+    <MESSAGE value="Updated the RPS game. (10/31)" />
+    <MESSAGE value="Updated the RPS game. (11/1)" />
+    <MESSAGE value="Updated the Ti-Tac-Toe game. (11/2)" />
+    <MESSAGE value="Updated the Tic-Tac-Toe game. (11/6)" />
+    <MESSAGE value="Finished(!) the Tic-Tac-Toe game. (11/8)" />
+    <MESSAGE value="Added the Array Notes Program. (11/9)" />
+    <MESSAGE value="Added the Array Basics notes and the For-each Loop program. (11/13)" />
+    <MESSAGE value="Updated the Array Basics notes and added the Reverse Array program. (11/14)" />
+    <MESSAGE value="Added the Types of Variables notes and its corresponding program. (11/15)" />
+    <MESSAGE value="Added the Snake program. (11/16)" />
+    <MESSAGE value="Updated the Snake program. (11/20)" />
+    <MESSAGE value="Added the Argument Simulator. (11/26)" />
+    <MESSAGE value="Added notes for shifting arrays. (11/27)" />
+    <MESSAGE value="Updated the Argument Simulator. (11/28)" />
+    <MESSAGE value="Updated the Argument Simulator. (11/29)" />
+    <MESSAGE value="Updated the Argument Simulator. (11/30)" />
+    <MESSAGE value="Added multidimensional arrays notes and updated the Argument Simulator. (12/3)" />
+    <MESSAGE value="Added timer notes and updated the Argument Simulator. (12/4)" />
+    <MESSAGE value="Updated the Argument Simulator. (12/6)" />
+    <MESSAGE value="Updated the Argument Simulator. (12/10)" />
+    <MESSAGE value="Updated the Argument Simulator. (12/11)" />
+    <MESSAGE value="Updated the Argument Simulator. (12/12)" />
+    <MESSAGE value="Added the Array Lists notes and updated the Argument Simulator. (12/12)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the Array Lists notes and updated the Argument Simulator. (12/12)" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/BMICalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/objectsMethods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="58" column="69" lean-forward="true" selection-start-line="58" selection-start-column="69" selection-end-line="58" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem6/Problem6.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem7/Problem7.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem8/Problem8.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem9/Problem9.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem10/Problem10.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem11/Problem11.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem12/Problem12.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem13/Problem13.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem14/Problem14.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="57" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem15/Problem15.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/methodsReturn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="32" column="114" selection-start-line="32" selection-start-column="114" selection-end-line="32" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/pokemonBattle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="86" column="50" selection-start-line="86" selection-start-column="50" selection-end-line="86" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem1/Problem1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tutorials/Rational Operators and If and Else Statements">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter4Exercises/Problem1/Problem1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter4Exercises/Problem2/Problem2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter4Exercises/SelfCheck7/SelfCheck7.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter4Exercises/SelfCheck8/SelfCheck8.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercises/Chapter4Exercises/SelfCheck9/SelfCheck9.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/competitionTemp.java" />
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProcessingNumbers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/IFElse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="23" column="59" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/EV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="43" column="75" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/DayOfWeek.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/whileLoops.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="27" column="109" selection-start-line="27" selection-start-column="109" selection-end-line="27" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ranNumbers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="73" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/Fencepost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tutorials/Boolean Operators">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/RPSGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1706">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/PigGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-142">
+          <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/factors.java" />
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/forEachLoops.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/arrayNotes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="24" column="68" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/referenceVsValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="17" column="109" selection-start-line="17" selection-start-column="109" selection-end-line="17" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/reverseArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tutorials/Types of Variables">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tutorials/Array Basics">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1610">
+          <caret line="70" column="14" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/TicTacToe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12167">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/arraysOfObjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator.java" />
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator.java" />
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/multidimensionalArrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tutorials/multidimensionalArrays">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/timerPractice$1.class" />
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/arrayLists.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/timerPractice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="21" column="116" selection-start-line="21" selection-start-column="116" selection-end-line="21" selection-end-column="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="28" column="122" selection-start-line="28" selection-start-column="122" selection-end-line="28" selection-end-column="122" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

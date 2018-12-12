@@ -1,0 +1,33 @@
+Primitive Data Types:
+1. int - Integer Value (32 bits)
+2. double - Floating Point Decimal / Decimal Number
+3. char - Character in Single Quotes (ex.: 'A')
+4. boolean - True or False
+----------------------------------------------------------------
+5. byte - 8-bit Integer Value - Made obsolete by large memory amounts
+6. float - Floating Point Decimal (Half of "double") - Made obsolete by large memory amounts
+7. long - 64-bit Integer Value
+8. short - 16-bit Integer Value
+
+Expressions:
+1. Operators
+    - * - Multiply
+    - + - Add
+    - % - Modulo (Remainder) Division (Takes the remainder value as an answer (ex.: 6 % 4 = 2))
+    - - - Subtraction
+    - / - Division
+
+Precedence:
+    -Computers always use P.E.M.D.A.S. to determine the order of operations, except there are no exponents.
+        -Ex.: 6 + 8 * 3 -> 6 + 24 = 30
+        -Ex.: 13 * 2 + 239 / 10 % 5 - 2 * 2 -> 1st. 13 * 2 \ 2nd. 239 / 10 \ 3rd. [2nd.] % 5...
+            -The 239 / 10 will give a 23, because these are integer numbers being solved. Decimals are never rounded, and the remainder is completely disregarded.
+            -Using 239.0 / 10 will give 23.9, as 239.0 is a float value.
+
+Mixing Types and Casting:
+    -If the expression contains a double, then the answer will be converted to a double.
+    -Alternatively, casting will also do the same.
+        -Ex.: Typing "(int)4.75" will give a value of 4.
+    -When casting, make sure to do the same to the entire expression.
+        -Ex.: Typing "(int)2.5 / 0.15" will give an incorrect value of 13.33....
+            -Typing "(int)(2.5 / 0.15)" will give the correct value of 16.

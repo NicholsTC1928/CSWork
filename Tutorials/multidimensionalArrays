@@ -1,0 +1,10 @@
+Multidimensional Arrays:
+    -An array of arrays
+    -Example: int[][] numArray = new int[5][4]; would give the following array:
+    0 | 0 | 0 | 0
+    0 | 0 | 0 | 0
+    0 | 0 | 0 | 0
+    0 | 0 | 0 | 0
+    0 | 0 | 0 | 0
+    -As can be seen, the first number in int[5][4] is the number of rows, while the second number is the number of
+    columns.

@@ -1,0 +1,21 @@
+There are three types of boolean operators:
+    1. && (Logical AND)
+    2. || (Logical OR)
+    3. ! (Not/Negation)
+
+Here is a table regarding what values are returned for variables p ane q in different tests:
+
+(Please note that "T" stands for "True," while "F" stands for "False.")
+
+p/q   p || q   p && q   !(p || q)   !p   !q   !p && !q
+F/F     F        F          T       T    T        T
+F/T     T        F          T       T    F        T
+T/F     T        F          T       F    T        T
+T/T     T        T          F       F    F        F
+
+Note how !(p || q) and !p && !q have the same value. This is known as "De Morgan's Law," and states that these two
+will always be equal to each other. Here is a table for De Morgan's Law:
+
+Original Expression / Negated Expression / Simplified Negation
+p || q / !(p || q) / !p && !q
+p && q / !(p && q) / !p || !q

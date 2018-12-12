@@ -1,0 +1,83 @@
+Scope: The part of a program in which a particular declaration is valid.
+
+Local Variable: A variable declared inside a method that is accessible only in that method.
+
+The following is an example of scope. The program will create an error because myNumber is declared inside the doesNothing
+method and we are trying to use it in the main method.
+
+public static Scope {
+    public static void main(String[] args)
+    {
+        System.out.print(myNumber);
+    }
+    public static void doesNothing()
+    {
+        int myNumber = 1;
+    }
+}
+
+Localizing Variables: Declaring variables in the innermost (most local) scope possible.
+
+Scope also applies to loops, conditionals, etc. The {} act as blocks meaning that the variable can only be used in the
+same block it was created.
+
+Here is an example. The integer j is fine, but a is in the loop, so it will not work.
+
+public static void main(String[] args) {
+    System.out.println(myNumber);
+
+    for (int a = 3; a <= 100; a++)
+    {
+        int j = 12 + a;
+    }
+    int j = 12+ 1;
+    System.out.println(j);
+}
+
+If the above method were written as
+    ...
+    int a = 3;
+    for (; a <= 100; a++)
+    {
+
+    }
+    ...
+then the program would work.
+
+Be careful with nested loops. This one fails because a is declared twice in the same scope. You can only declare a
+variable once in the same scope.
+
+for (int a = 0; a <= 10; a++)
+{
+    for (int a = 0; a <= 12; a++)
+    {
+    System.out.print("Hello");
+    }
+}
+
+This one is fine, but do not use the same name for nested loops because logic errors can happen and can be very hard to
+detect.
+
+int a = 0;
+for (a = 0; a <= 3; a++)
+{
+    for (a = 0; a <= 4; a++)
+    {
+        System.out.print("Hello");
+    }
+}
+
+This will cause the program to incorrectly stop after 5 runs, rather than after the intended amount of runs.
+
+This next example is an infinite loop, which is a loop that never terminates.
+
+int a = 0;
+for (a = 0; a <= 4; a++)
+{
+    for (a = 0; a <= 2; a++)
+    {
+        System.out.print("Hello");
+    }
+}
+
+This will cause the value of a to become 0 every time after is becomes 2, resulting in an infinite loop.
