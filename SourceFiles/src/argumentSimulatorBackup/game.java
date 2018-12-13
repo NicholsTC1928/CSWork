@@ -27,6 +27,7 @@ public class game {
         Scanner input = new Scanner(System.in);
         section();
         //Depending on how the extra branches play out, I may want to move these printed statements to the branches class.
+        section();
         System.out.println();
         System.out.println("You arrive at Lauren's Domain, a hostile territory that reflects the cold-hearted nature of its ruler. As soon as you enter, you feel an awful breeze, cold enough to kill even the most resilient of creatures. The first thought that comes to your mind is how anybody could live here.");
         System.out.println();
@@ -175,8 +176,7 @@ public class game {
         System.out.println();
         System.out.print("Do you wish to play again? (Enter a \"y\" to play again, or any other key to quit.) ");
         String play = input.next().toLowerCase();
-        if(play.equals("y")) return true; //I need to adjust this, so that it restarts the program. Perhaps I could call a new method from branches.java that allows the user to choose branch packs?
-        else return false;
+        return play.equals("y");
     }
 
     public static void section(){

@@ -9,7 +9,6 @@ public class branches {
     String[] packs = new String[totalPacks];
 
     public String[][] chooseBranchPack(){
-        Scanner input = new Scanner(System.in);
         //You can add new branch packs here.
         packs[0] = "Argument Simulator";
         System.out.println();
@@ -18,7 +17,7 @@ public class branches {
         int packChoice = 0;
         while(!valueFound){
             try{
-                Scanner packInput = new Scanner(System.in); //This prevents an infinite loop.
+                Scanner packInput = new Scanner(System.in);
                 System.out.println("The following games are available to play:");
                 System.out.println();
                 for(int i = 0;i < totalPacks;i++){

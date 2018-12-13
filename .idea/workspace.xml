@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="" />
+    <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="Reformatted the .git folder and updated the Argument Simulator. (12/13)">
+      <change afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/Back-up/branches.java.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/Back-up/game.java.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/Back-up/branches.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/Back-up/game$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/Back-up/game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator.jar" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/branches.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/branches.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/game.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
+            <state relative-caret-position="16">
+              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -22,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="28" column="122" selection-start-line="28" selection-start-column="122" selection-end-line="28" selection-end-column="122" />
+            <state relative-caret-position="144">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,14 +135,14 @@
         <option value="$PROJECT_DIR$/SourceFiles/src/multidimensionalArrays.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/timerPractice.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/arrayLists.java" />
-        <option value="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1034" />
-    <option name="y" value="107" />
+    <option name="x" value="1041" />
+    <option name="y" value="105" />
     <option name="width" value="1467" />
     <option name="height" value="898" />
   </component>
@@ -411,7 +424,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
@@ -460,7 +473,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544198897823" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544715158579" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -506,7 +519,7 @@
       <workItem from="1536855171777" duration="92986000" />
       <workItem from="1542214170113" duration="31161000" />
       <workItem from="1544111193532" duration="4564000" />
-      <workItem from="1544457251099" duration="4574000" />
+      <workItem from="1544457251099" duration="6023000" />
     </task>
     <task id="LOCAL-00012" summary="Added notes on parameters. (9/17)">
       <created>1536861304218</created>
@@ -855,10 +868,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151216000" />
+    <option name="totallyTimeSpent" value="152665000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1034" y="107" width="1467" height="898" extended-state="0" />
+    <frame x="420" y="111" width="1467" height="898" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26319492" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -938,7 +951,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added the fencepost tutorial. (10/29)" />
     <MESSAGE value="Added the boolean operators tutorial and the RPS game. (10/30)" />
     <MESSAGE value="Updated the RPS game. (10/31)" />
     <MESSAGE value="Updated the RPS game. (11/1)" />
@@ -963,30 +975,10 @@
     <MESSAGE value="Updated the Argument Simulator. (12/11)" />
     <MESSAGE value="Updated the Argument Simulator. (12/12)" />
     <MESSAGE value="Added the Array Lists notes and updated the Argument Simulator. (12/12)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the Array Lists notes and updated the Argument Simulator. (12/12)" />
+    <MESSAGE value="Reformatted the .git folder and updated the Argument Simulator. (12/13)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformatted the .git folder and updated the Argument Simulator. (12/13)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/BMICalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/objectsMethods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="58" column="69" lean-forward="true" selection-start-line="58" selection-start-column="69" selection-end-line="58" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem6/Problem6.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem7/Problem7.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -1294,10 +1286,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/branches.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-276" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/game$1.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/game.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4071" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="28" column="122" selection-start-line="28" selection-start-column="122" selection-end-line="28" selection-end-column="122" />
+        <state relative-caret-position="144">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1306,8 +1311,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
+        <state relative-caret-position="16">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
         </state>
       </provider>
     </entry>
