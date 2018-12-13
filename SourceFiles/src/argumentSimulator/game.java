@@ -26,14 +26,9 @@ public class game {
     public static boolean initializeGame(String name){
         Scanner input = new Scanner(System.in);
         section();
-        //Depending on how the extra branches play out, I may want to move these printed statements to the branches class.
-        section();
-        System.out.println();
-        System.out.println("You arrive at Lauren's Domain, a hostile territory that reflects the cold-hearted nature of its ruler. As soon as you enter, you feel an awful breeze, cold enough to kill even the most resilient of creatures. The first thought that comes to your mind is how anybody could live here.");
-        System.out.println();
-        System.out.println("Upon entering, Lauren barely glances in your direction; she obviously does not care about your discomfort caused by the cool breeze. With a loud sigh, she finally acknowledges your existence.");
         branches b = new branches();
         String[][] branchArr = b.chooseBranchPack();
+        //Depending on how the extra branches play out, I may want to move these printed statements to the branches class.
         int cBranch = 0;
         int cDecision;
         boolean gameGo = true;

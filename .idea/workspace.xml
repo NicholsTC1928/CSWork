@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="Reformatted the .git folder and updated the Argument Simulator. (12/13)">
-      <change afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/Back-up/branches.java.bak" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/Back-up/game.java.bak" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/Back-up/branches.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/Back-up/game$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/Back-up/game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator.jar" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/branches.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/branches.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/game$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/game.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/argumentSimulator/game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java" afterDir="false" />
     </list>
@@ -23,32 +14,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+            <state relative-caret-position="299">
+              <caret line="47" column="55" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceFiles/src/arrayLists.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+            <state relative-caret-position="276">
+              <caret line="30" column="122" selection-start-line="30" selection-start-column="122" selection-end-line="30" selection-end-column="122" />
             </state>
           </provider>
         </entry>
@@ -61,6 +40,15 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceFiles/src/arrayLists.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -141,8 +129,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1041" />
-    <option name="y" value="105" />
+    <option name="x" value="337" />
+    <option name="y" value="67" />
     <option name="width" value="1467" />
     <option name="height" value="898" />
   </component>
@@ -473,7 +461,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544715158579" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544716482755" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -519,14 +507,7 @@
       <workItem from="1536855171777" duration="92986000" />
       <workItem from="1542214170113" duration="31161000" />
       <workItem from="1544111193532" duration="4564000" />
-      <workItem from="1544457251099" duration="6023000" />
-    </task>
-    <task id="LOCAL-00012" summary="Added notes on parameters. (9/17)">
-      <created>1536861304218</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1536861304218</updated>
+      <workItem from="1544457251099" duration="7377000" />
     </task>
     <task id="LOCAL-00013" summary="Finished the Chapter 3 Exercises. (9/19)">
       <created>1536865290784</created>
@@ -864,14 +845,22 @@
       <option name="project" value="LOCAL" />
       <updated>1544632884741</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Reformatted the .git folder and updated the Argument Simulator. (12/13)">
+      <created>1544715513820</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1544715513820</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152665000" />
+    <option name="totallyTimeSpent" value="154019000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="420" y="111" width="1467" height="898" extended-state="0" />
+    <frame x="337" y="67" width="1467" height="898" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26319492" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1269,13 +1258,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/timerPractice$1.class" />
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/arrayLists.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/timerPractice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -1299,20 +1281,24 @@
         <state relative-caret-position="-4071" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java">
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/arrayLists.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="416">
+          <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        <state relative-caret-position="299">
+          <caret line="47" column="55" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="30" column="122" selection-start-line="30" selection-start-column="122" selection-end-line="30" selection-end-column="122" />
         </state>
       </provider>
     </entry>

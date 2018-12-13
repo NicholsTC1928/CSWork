@@ -38,8 +38,15 @@ public class branches {
                 System.out.println();
             }
         }
+        String[] contextMain = new String[2];
+        contextMain[0] = "You arrive at Lauren's Domain, a hostile territory that reflects the cold-hearted nature of its ruler. As soon as you enter, you feel an awful breeze, cold enough to kill even the most resilient of creatures. The first thought that comes to your mind is how anybody could live here.";
+        contextMain[1] = "Upon entering, Lauren barely glances in your direction; she obviously does not care about your discomfort caused by the cool breeze. With a loud sigh, she finally acknowledges your existence.";
         switch(packChoice){
             case 1:
+                for(int i = 0;i < contextMain.length;i++){
+                    System.out.println();
+                    System.out.println(contextMain[i]);
+                }
                 return getBranchesMain();
             default:
                 System.out.println("[Debug] Something went wrong with choosing the branch; defaulting to main branch...");
@@ -47,6 +54,10 @@ public class branches {
         }
     }
 
+    public String[] contextMain(){
+        String[] context = new String[2];
+        return context;
+    }
 
     public String[][] getBranchesMain(){
         //Branch 0 [Intro / Branch 6, Choice 3 / Branch 8, Choice 3 / [Modified Initial] Branch 12, Choice 1]:
