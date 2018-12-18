@@ -12,6 +12,7 @@ public class Main {
             try{
                 Scanner nameInput = new Scanner(System.in);
                 System.out.println("This program is dedicated to the following people:");
+                System.out.println();
                 System.out.println("1 - Mom (Bergen Nichols)");
                 System.out.println("2 - Dad (Joseph Nichols)");
                 System.out.println("3 - Lil' Yum Yum (Lauren Nichols)");
@@ -76,6 +77,8 @@ public class Main {
             }
         }
         TicTacToe t = new TicTacToe();
+        hangman h = new hangman();
         if(gChoiceInt == 1) t.gameTicTacToe();
+        else h.hangmanGame();
     }
 }

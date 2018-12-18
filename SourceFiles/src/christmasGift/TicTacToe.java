@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class TicTacToe
 {
-    public static void gameTicTacToe(String[] args){
+    public void gameTicTacToe(){
         Scanner reader = new Scanner(System.in);
         System.out.println("Welcome to Tic-Tac-Toe! This was programmed by Tyler Nichols.");
         System.out.println();
