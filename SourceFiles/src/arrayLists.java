@@ -6,7 +6,7 @@ import java.util.ArrayList;  // import for the ArrayList class
 public class arrayLists{
     public static void main (String[] args){
         //The first thing that should be done is to create the array list.
-        ArrayList<String> listNames = new ArrayList<String>(); //This creates an array list of String values.
+        ArrayList<String> listNames = new ArrayList<>(); //This creates an array list of String values.
         //NOTE: Array lists do not support primitive data types (int, double, boolean, etc.).
         listNames.add("A");
         listNames.add("B");

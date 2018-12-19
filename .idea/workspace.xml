@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/christmasGift/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/christmasGift/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/christmasGift/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/christmasGift/TicTacToe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/arrayLists.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/arrayLists.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift.jar" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift/hangman.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift/hangman.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/christmasGift/hangman.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/christmasGift/hangman.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,11 +31,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/christmasGift/hangman.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="67" column="77" selection-start-line="67" selection-start-column="77" selection-end-line="67" selection-end-column="77" />
+            <state relative-caret-position="94">
+              <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceFiles/src/arrayLists.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -141,12 +150,12 @@
         <option value="$PROJECT_DIR$/Tutorials/multidimensionalArrays" />
         <option value="$PROJECT_DIR$/SourceFiles/src/multidimensionalArrays.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/timerPractice.java" />
-        <option value="$PROJECT_DIR$/SourceFiles/src/arrayLists.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/christmasGift/intros.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/christmasGift/TicTacToe.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/christmasGift/Main.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/arrayLists.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/christmasGift/hangman.java" />
       </list>
     </option>
@@ -484,7 +493,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545149220213" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545234472327" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -530,14 +539,7 @@
       <workItem from="1536855171777" duration="92986000" />
       <workItem from="1542214170113" duration="31161000" />
       <workItem from="1544111193532" duration="4564000" />
-      <workItem from="1544457251099" duration="13981000" />
-    </task>
-    <task id="LOCAL-00015" summary="Updated the Tic-Tac-Toe program. (9/21)">
-      <created>1537545867219</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1537545867219</updated>
+      <workItem from="1544457251099" duration="16619000" />
     </task>
     <task id="LOCAL-00016" summary="Updated the Tic-Tac-Toe program. (9/21)">
       <created>1537545949306</created>
@@ -875,11 +877,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545062803911</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Updated the Christmas Gift. (12/18)">
+      <created>1545149236505</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1545149236506</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160623000" />
+    <option name="totallyTimeSpent" value="163261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="337" y="67" width="1467" height="898" extended-state="0" />
@@ -963,7 +972,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Updated the RPS game. (10/31)" />
     <MESSAGE value="Updated the RPS game. (11/1)" />
     <MESSAGE value="Updated the Ti-Tac-Toe game. (11/2)" />
     <MESSAGE value="Updated the Tic-Tac-Toe game. (11/6)" />
@@ -988,7 +996,8 @@
     <MESSAGE value="Added the Array Lists notes and updated the Argument Simulator. (12/12)" />
     <MESSAGE value="Reformatted the .git folder and updated the Argument Simulator. (12/13)" />
     <MESSAGE value="Added the Christmas Gift. (12/17)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the Christmas Gift. (12/17)" />
+    <MESSAGE value="Updated the Christmas Gift. (12/18)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated the Christmas Gift. (12/18)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem11/Problem11.java">
@@ -1276,13 +1285,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/arrayLists.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/branches.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="920">
@@ -1321,10 +1323,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/arrayLists.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/christmasGift/hangman.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="67" column="77" selection-start-line="67" selection-start-column="77" selection-end-line="67" selection-end-column="77" />
+        <state relative-caret-position="94">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
