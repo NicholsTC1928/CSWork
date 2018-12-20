@@ -8,7 +8,7 @@ public class intros {
         //Dad
         allIntros[1] = "The lessons that you have taught me will always be valued, and I will never forget the things that you have done for me. I know that there have been mistakes that I should not have made, but that is just a part of growing up. Thank you for your eternal patience, and for being the best father that any son could ask for. I hope you enjoy this gift as much as I enjoyed making it!";
         //Lauren
-        allIntros[2] = "Listen, gangsta: we've been through a lot together. I know that not everything I do meets your standards, \"dawg,\" but I'm glad that you still want to be my friend. If I can give you my old computer, then I hope it serves you well, \"G.;\" if not, then at least I tried. You know where it's at, girl! [P.S.: Feel the Wrath - 1/1/19]";
+        allIntros[2] = "Listen, gangsta: we've been through a lot together. I know that not everything I do meets your standards, \"dawg,\" but I'm glad that you still want to be my friend. If I can give you my old computer, then I hope it serves you well, \"G;\" if not, then at least I tried. You know where it's at, girl!";
         return allIntros[pChoice - 1];
     }
 }

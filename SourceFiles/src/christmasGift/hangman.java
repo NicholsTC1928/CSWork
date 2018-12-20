@@ -22,7 +22,6 @@ public class hangman {
         boolean gameContinues = true;
         int guesses = 5;
         while(gameContinues){
-            //System.out.println();
             System.out.println(wordChoiceDisplay);
             System.out.println("Number of Incorrect Guesses Remaining: " + guesses);
             System.out.println();
@@ -37,7 +36,9 @@ public class hangman {
             }
             wordChoiceDisplay = printWord(wordChoice,wordChoiceDisplay);
             if(wordChoiceDisplay.equals(wordChoice)){
-                System.out.println("You have won the game! Congratulations!");
+                System.out.println("You have won the game! Here is the answer: ");
+                System.out.println();
+                System.out.println(wordChoice);
                 gameContinues = false;
             }
             if(wordChoiceDisplay.equals(temp) && tempSize != this.guessedChars.size()){
@@ -45,6 +46,7 @@ public class hangman {
             }
             if(guesses == 0){
                 System.out.println("You have exhausted all of your available incorrect guesses, and thus you have lost. Here is the actual answer: ");
+                System.out.println();
                 System.out.println(wordChoice);
                 gameContinues = false;
             }
@@ -54,13 +56,30 @@ public class hangman {
     public String printWord(String word,String displayed){
         Scanner input = new Scanner(System.in);
         String guessWord = "";
-        while(guessWord.length() != 1){
-            System.out.print("Enter the character that you wish to guess: ");
+        while(guessWord.length() != 1 && !guessWord.equals("ANS") && !guessWord.equals("QUIT")){
+            System.out.print("Enter the character that you wish to guess, \"ans\" if you know the answer and wish to make your guess, or \"quit\" to exit the program: ");
             guessWord = input.next().toUpperCase();
-            if(guessWord.length() != 1){
+            if(guessWord.length() != 1 && !guessWord.equals("ANS") && !guessWord.equals("QUIT")){
                 System.out.println();
                 System.out.println("Invalid Input - Please enter only one alphanumeric character into the field.");
                 System.out.println();
+            }
+        }
+        if(guessWord.equals("QUIT")) System.exit(0);
+        if(guessWord.equals("ANS")){
+            Scanner inputGuess = new Scanner(System.in);
+            System.out.println();
+            System.out.println("Enter the answer here (make sure to include spaces): ");
+            String guessAns = inputGuess.nextLine();
+            inputGuess.close();
+            String guessAnsCheck = guessAns.toUpperCase();
+            System.out.println("[Debug] " + guessAnsCheck);
+            if(guessAnsCheck.equals(word)) return word;
+            else{
+                System.out.println("This guess is incorrect.");
+                this.guessedChars.add("[Guess Attempt: " + guessAns + "]");
+                section();
+                return displayed;
             }
         }
         boolean isPresent = false;
@@ -71,19 +90,19 @@ public class hangman {
         else{
             System.out.println();
             System.out.println("You have already guessed this character.");
+            System.out.println();
             return displayed;
         }
         try{
             int debugNum = Integer.parseInt(guessWord);
             System.out.println();
             System.out.println("Did you actually guess a number? Why would you even do that? Who guesses a number in Hangman?");
-            System.out.println();
+            section();
             return displayed;
         }
         catch(NumberFormatException e){
 
         }
-        //boolean isCorrect = false;
         String newDisplayed = "";
         int numCorrect = 0;
         for(int i = 0;i < displayed.length();i++){
@@ -97,14 +116,21 @@ public class hangman {
         if(newDisplayed.equals(displayed)){
             System.out.println();
             System.out.println("There are no \"" + guessWord + "s\" in the answer.");
-            System.out.println();
+            section();
         }
         else{
             System.out.println();
             if(numCorrect == 1) System.out.println("There is 1 \"" + guessWord + "\" in the answer.");
             else System.out.println("There are " + numCorrect + " \"" + guessWord + "s\" in the answer.");
-            System.out.println();
+            section();
         }
         return newDisplayed;
+    }
+
+    public static void section(){
+        for(int i = 0; i < 30; i++){
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
