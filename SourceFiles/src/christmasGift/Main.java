@@ -24,7 +24,7 @@ public class Main {
                 if(pChoice < 1 || pChoice > 3) throw new InputMismatchException();
                 valueFound = true;
             }
-            catch(InputMismatchException e){
+            catch(InputMismatchException | NumberFormatException e){
                 System.out.println();
                 System.out.println("Invalid Input");
                 System.out.println();

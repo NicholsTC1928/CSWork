@@ -71,7 +71,7 @@ public class hangman {
             System.out.println();
             System.out.println("Enter the answer here (make sure to include spaces): ");
             String guessAns = inputGuess.nextLine();
-            inputGuess.close();
+            //inputGuess.close();
             String guessAnsCheck = guessAns.toUpperCase();
             System.out.println("[Debug] " + guessAnsCheck);
             if(guessAnsCheck.equals(word)) return word;
