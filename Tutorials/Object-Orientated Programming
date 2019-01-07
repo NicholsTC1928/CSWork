@@ -1,0 +1,5 @@
+-Object oriented programming (O.O.P.) has two parts:
+    -Attributes (variables)
+    -Actions (methods)
+
+-O.O.P. consists of instance variables (also known as "fields") amd constructors.
