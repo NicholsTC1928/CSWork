@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="">
+    <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="Added the O.O.P. notes. (1/7)">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift.jar" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift/hangman.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift/hangman.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift/intros.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/christmasGift/christmasGift/intros.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/christmasGift/hangman.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/christmasGift/hangman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/christmasGift/intros.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/christmasGift/intros.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,21 +12,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceFiles/src/christmasGift/hangman.java">
+        <entry file="file://$PROJECT_DIR$/Tutorials/Classes">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1988">
-              <caret line="73" column="14" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
+            <state relative-caret-position="138">
+              <caret line="6" column="96" selection-start-line="6" selection-start-column="96" selection-end-line="6" selection-end-column="96" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceFiles/src/pointExample/Point.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SourceFiles/src/christmasGift/Main.java">
+        <entry file="file://$PROJECT_DIR$/SourceFiles/src/pointExample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="276">
+              <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -57,10 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SourceFiles/src/objectsMethods.java" />
-        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem6/Problem6.java" />
-        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem7/Problem7.java" />
-        <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem8/Problem8.java" />
         <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem9/Problem9.java" />
         <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem10/Problem10.java" />
         <option value="$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem11/Problem11.java" />
@@ -108,12 +109,16 @@
         <option value="$PROJECT_DIR$/SourceFiles/src/christmasGift/intros.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/christmasGift/hangman.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/christmasGift/Main.java" />
+        <option value="$PROJECT_DIR$/Tutorials/Classes" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/Point.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/pointExample/Point.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/pointExample/Main.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="156" />
+    <option name="y" value="57" />
     <option name="width" value="1467" />
     <option name="height" value="898" />
   </component>
@@ -427,7 +432,7 @@
               <item name="CSWork" type="462c0819:PsiDirectoryNode" />
               <item name="SourceFiles" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="christmasGift" type="462c0819:PsiDirectoryNode" />
+              <item name="pointExample" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CSWork" type="b2602c69:ProjectViewProjectNode" />
@@ -444,7 +449,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545435076435" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546962302808" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -491,13 +496,7 @@
       <workItem from="1542214170113" duration="31161000" />
       <workItem from="1544111193532" duration="4564000" />
       <workItem from="1544457251099" duration="18693000" />
-    </task>
-    <task id="LOCAL-00017" summary="Added program and finished 2-player Tic-Tac-Toe. (9/24)">
-      <created>1537805134934</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1537805134934</updated>
+      <workItem from="1546960354381" duration="1884000" />
     </task>
     <task id="LOCAL-00018" summary="Added objectsMethods program and cleaned the Tic-Tac-Toe program. (9/25)">
       <created>1537891251036</created>
@@ -835,17 +834,24 @@
       <option name="project" value="LOCAL" />
       <updated>1545234486300</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Added the O.O.P. notes. (1/7)">
+      <created>1546877139151</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1546877139151</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165335000" />
+    <option name="totallyTimeSpent" value="167317000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="156" y="57" width="1467" height="898" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20042644" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2674173" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -853,15 +859,15 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49964812" weight="0.32899868" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4968017" visible="true" weight="0.27410617" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50319827" side_tool="true" visible="true" weight="0.27410617" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49612948" visible="true" weight="0.33159947" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5038705" side_tool="true" weight="0.33159947" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.498893" weight="0.32903227" />
       <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.32904884" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
@@ -923,7 +929,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Updated the Ti-Tac-Toe game. (11/2)" />
     <MESSAGE value="Updated the Tic-Tac-Toe game. (11/6)" />
     <MESSAGE value="Finished(!) the Tic-Tac-Toe game. (11/8)" />
     <MESSAGE value="Added the Array Notes Program. (11/9)" />
@@ -948,44 +953,10 @@
     <MESSAGE value="Added the Christmas Gift. (12/17)" />
     <MESSAGE value="Updated the Christmas Gift. (12/18)" />
     <MESSAGE value="Finished the Christmas Gift. (12/19)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the Christmas Gift. (12/19)" />
+    <MESSAGE value="Added the O.O.P. notes. (1/7)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the O.O.P. notes. (1/7)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem11/Problem11.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem12/Problem12.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem13/Problem13.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem14/Problem14.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="57" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exercises/Chapter3Exercises/Problem15/Problem15.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/methodsReturn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -1138,13 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/referenceVsValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="17" column="109" selection-start-line="17" selection-start-column="109" selection-end-line="17" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/reverseArray.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1163,16 +1127,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1610">
           <caret line="70" column="14" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/TicTacToe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12167">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1245,14 +1199,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/arrayLists.java" />
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/christmasGift/TicTacToe.java" />
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/christmasGift/intros.java" />
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="193" column="29" selection-start-line="193" selection-start-column="29" selection-end-line="193" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/christmasGift/hangman.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1988">
@@ -1264,6 +1210,68 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/christmasGift/intros.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="260" selection-start-line="10" selection-start-column="260" selection-end-line="10" selection-end-column="260" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/TicTacToe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/argumentSimulator/game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1890">
+          <caret line="187" column="22" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/referenceVsValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="109" selection-start-line="17" selection-start-column="109" selection-end-line="17" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tutorials/Classes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="96" selection-start-line="6" selection-start-column="96" selection-end-line="6" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/pointExample/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/pointExample/Main.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/pointExample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
         </state>
       </provider>
     </entry>
