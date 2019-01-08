@@ -1,6 +1,6 @@
 -Object-Orientated Programming: reasoning about a program as a set of objects, rather than as a set of actions
 
--Object: a programming entity that contains state (data) and behavior (methods)
+-Object: programming entity that contains state (data) and behavior (methods)
 
 -State: set of values (internal data) stored in an object
 
