@@ -1,0 +1,9 @@
+-Instance Method - method inside an object that operates on that object
+
+-Implicit Parameter - object that is referenced during an instance method call
+
+-Mutator - instance method that modifies the object's internal state
+
+-Accessor - instance method that provides information about the state of an object without modifying it
+
+-toString() (Method) - creating a method called toString() allows you to print information about the class
