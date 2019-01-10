@@ -1,9 +1,10 @@
-import java.util.*;
-import java.awt.*;
+package snake;
 
-public class snake {
+import java.util.*;
+
+public class initialize {
     public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
+        //Scanner input = new Scanner(System.in);
         System.out.println("Welcome to (yet another game of) Snake! This was programmed by Tyler Nichols.");
         int dChoice = -1;
         while(dChoice == -1) dChoice = difficultyChoice();
@@ -11,7 +12,8 @@ public class snake {
     }
 
     public static void game(){
-
+        startGraphics gWindow = new startGraphics();
+        gWindow.createWindow();
     }
 
     public static int checkInput(){
@@ -37,13 +39,20 @@ public class snake {
         }
         String[] diffList = {"Easy","Normal","Hard","Mania"};
         if(dChoice == 4){
-            System.out.println("Wait, you actually chose Mania?! Are you sure that you want to play on this difficulty? It is not even remotely fair!");
-            System.out.print("Enter a \"Y\" to continue, or any other key to choose a new difficulty.");
+            System.out.println("Wait, you actually chose Mania?! Are you sure you want to play on this difficulty? It is not even remotely fair!");
+            System.out.print("Enter a \"Y\" to continue, or any other key to choose a new difficulty. ");
             String mConfirm = dInput.next().toLowerCase();
-            if(mConfirm.equals("y")) return dChoice;
-            else return -1;
+            if(mConfirm.equals("y")){
+                System.out.println("You have chosen " + diffList[dChoice - 1] + " as your difficulty.");
+                //dInput.close();
+                return dChoice;
+            }
+            else{
+                //dInput.close();
+                return -1;
+            }
         }
-        System.out.println("You have chosen " + diffList[dChoice - 1] + " as your difficulty.");
+        //dInput.close();
         return dChoice;
     }
 }
