@@ -2,8 +2,8 @@ package pointExample;
 
 //A Point object represents a pair (x, y) coordinates.
 public class Point {
-    int x;
-    int y;
+    private int x; //Setting fields to private requires the creation of getters for other classes.
+    private int y;
 
     //The following method is called a constructor. It defines how an object of the same name as the class is created.
     public Point(int x,int y){
@@ -18,6 +18,24 @@ public class Point {
     public Point(){
         this.x = 0;
         this.y = 0;
+    }
+
+    //Here are the getter methods for the private fields.
+    public int getX(){
+        return this.x;
+    }
+
+    public int getY(){
+        return this.y;
+    }
+
+    public double distanceFromOrigin(){
+        return Math.sqrt((this.x * this.x) + (this.y * this.y));
+    }
+
+    public void setLocation(int x,int y){
+        this.x = x;
+        this.y = y;
     }
 
     public void translate(int dx,int dy){
