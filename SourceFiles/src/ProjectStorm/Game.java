@@ -4,40 +4,57 @@ import java.awt.EventQueue;
 import java.awt.*; //Used for Dimension value type and Toolkit (Screen Resolution)
 import javax.swing.*;
 
-public class Game extends JFrame implements Runnable {
-    Thread runner;
+public class Game extends JPanel implements Runnable {
+    Thread runnerAnim;
     volatile boolean running = true;
+    private final int DELAY = 25;
 
     public Game(){
-        initUI();
+        initGameBoard();
     }
 
-    private void startThread(){
-        if(runner == null){
-            runner = new Thread(this);
-            runner.start();
+    @Override public void addNotify(){
+        super.addNotify();
+        runnerAnim = new Thread(this);
+        runnerAnim.start();
+    }
+
+    @Override public void paintComponent(Graphics g){
+        super.paintComponent(g);
+    }
+
+    private void startThreadForAnimation(){
+        if(runnerAnim == null){
+            runnerAnim = new Thread(this);
+            runnerAnim.start();
         }
     }
 
     private void stopThread(){
-        running = false;
+        runnerAnim = null;
     }
 
-    private void initUI(){
-        add(new Window());
+    @Override public void run(){
+        long beforeTime, timeDiff, sleep;
+        beforeTime = System.currentTimeMillis();
+        while(runnerAnim != null){
+            repaint();
+            timeDiff = System.currentTimeMillis() - beforeTime;
+            sleep = DELAY - timeDiff;
+            if(sleep < 0) sleep = 2;
+            try{
+                Thread.sleep(sleep);
+            }
+            catch(InterruptedException e){}
+            beforeTime = System.currentTimeMillis();
+        }
+    }
+
+    private void initGameBoard(){
+        setBackground(Color.BLACK);
         Dimension resolution = Toolkit.getDefaultToolkit().getScreenSize();
         double width = resolution.getWidth();
         double height = resolution.getHeight();
         setSize((int) width,(int) height);
-        setTitle("Project Storm - Debug v0.0.0");
-        setBackground(Color.black);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Perhaps I could change this, so that it asks to save the game.
-    }
-
-    public static void main(String[] args){
-        EventQueue.invokeLater(() -> {
-            Game game = new Game();
-            game.setVisible(true);
-        });
     }
 }

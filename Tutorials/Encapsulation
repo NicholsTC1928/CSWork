@@ -1,0 +1,5 @@
+-Encapsulation - hiding the implementation details of an object from the clients of the object
+
+-Abstraction - focusing on essential properties, rather than inner details
+
+-Class Invariant - assertion about an object's state that is true for the lifetime of that object
