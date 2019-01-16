@@ -21,7 +21,7 @@ public class Game extends JPanel implements Runnable {
 
     @Override public void paintComponent(Graphics g){
         super.paintComponent(g);
-        Tookit.getDefaultToolkit().sync();
+        Toolkit.getDefaultToolkit().sync();
     }
 
     private void startThreadForAnimation(){
