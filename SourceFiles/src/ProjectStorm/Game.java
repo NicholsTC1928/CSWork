@@ -3,6 +3,7 @@ package ProjectStorm;
 import java.awt.EventQueue;
 import java.awt.*; //Used for Dimension value type and Toolkit (Screen Resolution)
 import javax.swing.*;
+import java.awt.event.*;
 
 public class Game extends JPanel implements Runnable {
     Thread runnerAnim;
@@ -60,8 +61,8 @@ public class Game extends JPanel implements Runnable {
     private void initGameBoard(){
         setBackground(Color.BLACK);
         Dimension resolution = Toolkit.getDefaultToolkit().getScreenSize();
-        double width = resolution.getWidth();
-        double height = resolution.getHeight();
-        setPreferredSize((int) width,(int) height);
+        //double width = resolution.getWidth();
+        //double height = resolution.getHeight();
+        setPreferredSize(resolution);
     }
 }
