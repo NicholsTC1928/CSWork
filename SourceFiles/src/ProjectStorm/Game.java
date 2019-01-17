@@ -11,6 +11,12 @@ public class Game extends JPanel implements Runnable {
 
     public Game(){
         initGameBoard();
+        //Debug Methods - Mouse click prints mouse location to the console
+        addMouseListener(new MouseAdapter(){
+            public void mousePressed(MouseEvent e){
+                System.out.println("Mouse Location: (" + e.getX() + ", " + e.getY() + ")");
+            }
+        });
     }
 
     @Override public void addNotify(){
