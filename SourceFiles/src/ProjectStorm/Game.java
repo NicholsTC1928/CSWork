@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 import java.awt.*; //Used for Dimension value type and Toolkit (Screen Resolution)
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.Timer;
+import java.util.TimerTask;
+//FPS Counter Link: https://stackoverflow.com/questions/20769767/calculate-fps-in-java-game
 
 public class Game extends JPanel implements Runnable {
     Thread runnerAnim;
