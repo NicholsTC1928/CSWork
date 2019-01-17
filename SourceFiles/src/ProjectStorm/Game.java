@@ -56,6 +56,6 @@ public class Game extends JPanel implements Runnable {
         Dimension resolution = Toolkit.getDefaultToolkit().getScreenSize();
         double width = resolution.getWidth();
         double height = resolution.getHeight();
-        setSize((int) width,(int) height);
+        setPreferredSize((int) width,(int) height);
     }
 }
