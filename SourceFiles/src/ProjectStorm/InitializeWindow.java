@@ -20,6 +20,8 @@ public class InitializeWindow extends JFrame{
     public static void main(String[] args){
         EventQueue.invokeLater(() -> {
             JFrame window = new InitializeWindow();
+            window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            window.setUndecorated(true);
             window.setVisible(true);
         });
     }
