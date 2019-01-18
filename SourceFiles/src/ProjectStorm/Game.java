@@ -17,11 +17,13 @@ public class Game extends JPanel implements Runnable {
     TimerTask updateFPS = new TimerTask(){
         public void run(){
             repaint(0,0,40,10); //This paints only the part of the screen displaying the frame rate counter.
+            totalFramesCount = 0;
         }
     }
 
     public Game(){
         initGameBoard();
+        timerForFPS.scheduleAtFixedRate(updateFPS,1000,1000);
         //Debug Methods - Mouse click prints mouse location to the console
         addMouseListener(new MouseAdapter(){
             public void mousePressed(MouseEvent e){
