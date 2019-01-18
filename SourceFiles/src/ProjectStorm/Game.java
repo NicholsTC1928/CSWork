@@ -19,7 +19,7 @@ public class Game extends JPanel implements Runnable {
             repaint(0,0,40,10); //This paints only the part of the screen displaying the frame rate counter.
             totalFramesCount = 0;
         }
-    }
+    };
 
     public Game(){
         initGameBoard();
@@ -50,7 +50,7 @@ public class Game extends JPanel implements Runnable {
         g.setColor(FPSRectangle);
         g.fillRect(0,0,40,10);
         g.setColor(Color.GREEN);
-        g.drawString(totalFramesCount.toString(),0,0);
+        g.drawString(Integer.toString(totalFramesCount),0,0);
     }
 
     private void startThreadForAnimation(){
@@ -82,11 +82,14 @@ public class Game extends JPanel implements Runnable {
         }
     }
 
+
+
     private void initGameBoard(){
         setBackground(Color.BLACK);
-        Dimension resolution = Toolkit.getDefaultToolkit().getScreenSize();
-        //double width = resolution.getWidth();
-        //double height = resolution.getHeight();
-        setPreferredSize(resolution);
+        //Dimension resolution = Toolkit.getDefaultToolkit().getScreenSize();
+        //int width = 1920;
+        //int height = 975;
+        //Dimension tempDimension = new Dimension(1920,975);
+        //setPreferredSize(resolution);
     }
 }
