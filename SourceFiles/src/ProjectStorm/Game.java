@@ -15,7 +15,7 @@ public class Game extends JPanel implements Runnable {
     int totalFramesCount = 0;
     Timer timerForFPS = new Timer();
     TimerTask updateFPS = new TimerTask(){
-        public void run(){
+        @Override public void run(){
             repaint(0,0,40,10); //This paints only the part of the screen displaying the frame rate counter.
             totalFramesCount = 0;
         }
@@ -50,7 +50,7 @@ public class Game extends JPanel implements Runnable {
         g.setColor(FPSRectangle);
         g.fillRect(0,0,40,10);
         g.setColor(Color.GREEN);
-        g.drawString(Integer.toString(totalFramesCount),0,0);
+        g.drawString(totalFramesCount + " FPS",0,0);
     }
 
     private void startThreadForAnimation(){
