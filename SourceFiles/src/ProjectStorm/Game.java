@@ -40,8 +40,8 @@ public class Game extends JPanel implements Runnable {
 
     @Override public void paintComponent(Graphics g){
         super.paintComponent(g);
+        
         drawFPS(totalFramesCount,g);
-        Toolkit.getDefaultToolkit().sync();
     }
     
     private void drawFPS(int totalFramesCount, Graphics g){
@@ -49,8 +49,10 @@ public class Game extends JPanel implements Runnable {
         Color FPSRectangle = new Color(0,0,0,alpha); //This creates a black color with 50% transparency.
         g.setColor(FPSRectangle);
         g.fillRect(0,0,40,10);
+        Toolkit.getDefaultToolkit().sync();
         g.setColor(Color.GREEN);
         g.drawString(totalFramesCount + " FPS",0,0);
+        Toolkit.getDefaultToolkit().sync();
     }
 
     private void startThreadForAnimation(){
@@ -81,8 +83,6 @@ public class Game extends JPanel implements Runnable {
             totalFramesCount++;
         }
     }
-
-
 
     private void initGameBoard(){
         setBackground(Color.BLACK);
