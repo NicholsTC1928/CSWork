@@ -13,7 +13,7 @@ The following PC port necessities HAVE BEEN properly implemented:
 
 The following PC port necessities NEED TO BE properly implemented:
     -Key Bindings
-    -FPS Cap
+    -FPS Cap (Potentially Implemented - Testing Required)
 */
 public class Game extends JPanel implements Runnable {
     private Thread runnerAnim;
@@ -21,6 +21,7 @@ public class Game extends JPanel implements Runnable {
     private final int DELAY = 25;
     private int totalFramesCount = 0;
     private int framesToDisplay = 0;
+    private int fpsCap = 60;
     private Timer timerForFPS = new Timer();
     private TimerTask updateFPS = new TimerTask(){
         @Override public void run(){
@@ -93,7 +94,7 @@ public class Game extends JPanel implements Runnable {
             sleep = DELAY - timeDiff;
             if(sleep < 0) sleep = 2;
             try{
-                Thread.sleep(2000);
+                if(fpsCap != 0) Thread.sleep((2 / fpsCap) * 1000); //This may be a successful implementation of an FPS cap.
                 /*
                 FPS Tips:
                     -Time is proportional to (1 / FPS)
@@ -101,6 +102,7 @@ public class Game extends JPanel implements Runnable {
                     -.5 seconds (500 ms) gives 4 FPS
                     -.25 seconds (250 ms) gives 8 FPS
                 */
+                else Thread.sleep(sleep); //For an uncapped frame rate, should it be "Thread.sleep(0)" instead?
             }
             catch(InterruptedException e){}
             beforeTime = System.currentTimeMillis();
