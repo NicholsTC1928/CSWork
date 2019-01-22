@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/Chapter8Project/Chapter8Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/Chapter8Project/Chapter8Project.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/Chapter8Project/Chapter8Project/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/Chapter8Project/Chapter8Project/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/Chapter8Project/Chapter8Project/RationalNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/Chapter8Project/Chapter8Project/RationalNumber.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/InitializeWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/InitializeWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm.jar" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/InitializeWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/InitializeWindow.class" afterDir="false" />
     </list>
     <ignored path="CompiledPrograms/production/SourceFiles/argumentSimulator/Back-up/branches.java.bak" />
     <ignored path="CompiledPrograms/production/SourceFiles/argumentSimulator/Back-up/game.java.bak" />
@@ -26,19 +23,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
+            <state relative-caret-position="180">
+              <caret line="98" column="54" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#615#915#0" expanded="true" />
+                <element signature="e#914#915#0" expanded="true" />
+                <element signature="e#1121#1308#0" expanded="true" />
+                <element signature="e#1307#1308#0" expanded="true" />
+                <element signature="e#2570#2571#0" expanded="true" />
+                <element signature="e#2603#2604#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/InitializeWindow.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="92">
@@ -130,14 +133,14 @@
         <option value="$PROJECT_DIR$/SourceFiles/src/Chapter8Project/Main.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/Chapter8Project/Manifest.mf" />
         <option value="$PROJECT_DIR$/SourceFiles/src/Chapter8Project/RationalNumber.java" />
-        <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/InitializeWindow.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="343" />
-    <option name="y" value="111" />
+    <option name="x" value="214" />
+    <option name="y" value="43" />
     <option name="width" value="1467" />
     <option name="height" value="898" />
   </component>
@@ -475,7 +478,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547827606112" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548172954845" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -548,14 +551,7 @@
       <workItem from="1544111193532" duration="4564000" />
       <workItem from="1544457251099" duration="18693000" />
       <workItem from="1546960354381" duration="5938000" />
-      <workItem from="1547134321591" duration="18986000" />
-    </task>
-    <task id="LOCAL-00027" summary="Added an example program and finished the defense for the Tic-Tac-Toe program. (10/16)">
-      <created>1539705954902</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1539705954902</updated>
+      <workItem from="1547134321591" duration="22440000" />
     </task>
     <task id="LOCAL-00028" summary="Updated the Tic-Tac-Toe program. (10/17)">
       <created>1539796059366</created>
@@ -893,14 +889,21 @@
       <option name="project" value="LOCAL" />
       <updated>1547741217537</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Updated Project Storm. (1/18)">
+      <created>1547827634076</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1547827634076</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190357000" />
+    <option name="totallyTimeSpent" value="193811000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="343" y="111" width="1467" height="898" extended-state="0" />
+    <frame x="214" y="43" width="1467" height="898" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2716397" />
@@ -982,7 +985,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added the Argument Simulator. (11/26)" />
     <MESSAGE value="Added notes for shifting arrays. (11/27)" />
     <MESSAGE value="Updated the Argument Simulator. (11/28)" />
     <MESSAGE value="Updated the Argument Simulator. (11/29)" />
@@ -1007,7 +1009,8 @@
     <MESSAGE value="Added the Encapsulation notes. (1/16)" />
     <MESSAGE value="Updated Project Storm. (1/17)" />
     <MESSAGE value="Added Chapter 8 Project. (1/17)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Chapter 8 Project. (1/17)" />
+    <MESSAGE value="Updated Project Storm. (1/18)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Project Storm. (1/18)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/PigGame.java">
@@ -1311,22 +1314,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/InitializeWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="98" column="54" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#615#915#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+            <element signature="e#1121#1308#0" expanded="true" />
+            <element signature="e#1307#1308#0" expanded="true" />
+            <element signature="e#2570#2571#0" expanded="true" />
+            <element signature="e#2603#2604#0" expanded="true" />
           </folding>
         </state>
       </provider>
