@@ -21,7 +21,9 @@ public class Game extends JPanel implements Runnable {
     private final int DELAY = 25;
     private int totalFramesCount = 0;
     private int framesToDisplay = 0;
-    private int fpsCap = 60;
+    private final int FPS_CAP = 60;
+    private final long OPTIMAL_TIME = (1000000000 / FPS_CAP);
+    private boolean gameIsRunning = true;
     private Timer timerForFPS = new Timer();
     private TimerTask updateFPS = new TimerTask(){
         @Override public void run(){
@@ -85,16 +87,24 @@ public class Game extends JPanel implements Runnable {
     }
 
     @Override public void run(){
-        long beforeTime, timeDiff, sleep;
-        beforeTime = System.currentTimeMillis();
+        long beforeTime = System.nanoTime();
         //Animation Loop (Main Game Loop?)
-        while(true){
+        while(gameIsRunning){
+            long now = System.nanoTime();
+            long updateLength = now - beforeTime;
+            beforeTime = now;
+            double dt = (updateLength / (double)OPTIMAL_TIME);
+            totalFramesCount++;
+            
+            //Update the game logic here, using dt to determine the change in time.
+            
             repaint();
-            timeDiff = System.currentTimeMillis() - beforeTime;
-            sleep = DELAY - timeDiff;
-            if(sleep < 0) sleep = 2;
+            //timeDiff = System.currentTimeMillis() - beforeTime;
+            //sleep = DELAY - timeDiff;
+            //if(sleep < 0) sleep = 2;
             try{
-                if(fpsCap != 0) Thread.sleep((2 / fpsCap) * 1000); //This may be a successful implementation of an FPS cap.
+                Thread.sleep((beforeTime - System.nanoTime() + OPTIMAL_TIME) / 1000000);
+                //if(fpsCap != 0) Thread.sleep((2 / fpsCap) * 1000); //This may be a successful implementation of an FPS cap.
                 /*
                 FPS Tips:
                     -Time is proportional to (1 / FPS)
@@ -102,11 +112,10 @@ public class Game extends JPanel implements Runnable {
                     -.5 seconds (500 ms) gives 4 FPS
                     -.25 seconds (250 ms) gives 8 FPS
                 */
-                else Thread.sleep(sleep); //For an uncapped frame rate, should it be "Thread.sleep(0)" instead?
+                //else Thread.sleep(sleep); //For an uncapped frame rate, should it be "Thread.sleep(0)" instead?
             }
             catch(InterruptedException e){}
-            beforeTime = System.currentTimeMillis();
-            totalFramesCount++;
+            //beforeTime = System.currentTimeMillis();
         }
     }
 
@@ -117,5 +126,13 @@ public class Game extends JPanel implements Runnable {
         //int height = 975;
         //Dimension tempDimension = new Dimension(1920,975);
         //setPreferredSize(resolution);
+    }
+    
+    public void gameLoop(){
+        long lastLoopTime = System.nanoTime();
+        while(gameIsRunning){
+            //I must find how long it has been since the last update.
+            
+        }
     }
 }
