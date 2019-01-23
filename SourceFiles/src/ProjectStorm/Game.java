@@ -28,16 +28,14 @@ public class Game extends JPanel implements Runnable {
     private final int FPS_CAP = 60;
     private final long OPTIMAL_TIME = (1000000000 / FPS_CAP);
     private boolean gameIsRunning = true;
+    /*
     private Timer timerForFPS = new Timer();
     private TimerTask updateFPS = new TimerTask(){
         @Override public void run(){
-            if(!displayFPSCount) return;
-            framesToDisplay = totalFramesCount; //Setting a variable to display the current frame count every second
-            //makes sure that the counter is only printed once every second.
-            repaint(0,0,70,20); //This paints only the part of the screen displaying the frame rate counter rectangle.
-            totalFramesCount = 0;
+            
         }
     };
+    */
 
     public Game(){
         initGameBoard();
@@ -55,7 +53,7 @@ public class Game extends JPanel implements Runnable {
             });
             //End Method 1
         }
-        timerForFPS.scheduleAtFixedRate(updateFPS,0,1000);
+        //timerForFPS.scheduleAtFixedRate(updateFPS,0,1000);
     }
 
     @Override public void addNotify(){
@@ -103,19 +101,28 @@ public class Game extends JPanel implements Runnable {
 
     @Override public void run(){
         long beforeTime = System.nanoTime();
+        long lastFPSTime = 0;
         //Animation Loop (Main Game Loop?)
         while(gameIsRunning){
             long now = System.nanoTime();
             long updateLength = now - beforeTime;
             beforeTime = now;
             double dt = (updateLength / (double)OPTIMAL_TIME);
-
+            lastFPSTime += updateLength;
+            totalFramesCount++;
+            
+            if(lastFPSTime >= 1000000000){
+                if(!displayFPSCount) return;
+                framesToDisplay = totalFramesCount; //Setting a variable to display the current frame count every second
+                //makes sure that the counter is only printed once every second.
+                repaint(0,0,70,20); //This paints only the part of the screen displaying the frame rate counter rectangle.
+                totalFramesCount = 0;
+            }
             
             //Update the game logic here, using dt to determine the change in time.
             updateGameLogic(dt);
-            
             repaint();
-            totalFramesCount++;
+            
             //timeDiff = System.currentTimeMillis() - beforeTime;
             //sleep = DELAY - timeDiff;
             //if(sleep < 0) sleep = 2;
