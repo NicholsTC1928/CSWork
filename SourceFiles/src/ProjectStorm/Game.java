@@ -42,6 +42,7 @@ public class Game extends JPanel implements Runnable {
     public Game(){
         initGameBoard();
         this.isDebugModeOn = InitializeWindow.getDebugModeState();
+        this.displayFPSCount = InitializeWindow.getFPSCountState();
         if(this.isDebugModeOn){
             this.isInGame = true;
             System.out.println("Debug Mode has been successfully activated.");
