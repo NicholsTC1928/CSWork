@@ -3,3 +3,15 @@
     -Actions (methods)
 
 -O.O.P. consists of instance variables (also known as "fields") amd constructors.
+
+-Code Reuse - practice of writing program code once and using it in many contexts
+
+-Is-a Relationship - hierarchical connection between two categories in which one type is a specialized version of the other
+
+-Inheritance (Inherit) - programming technique that allows a derived class to extend the functionality of a base class,
+inheriting all of its state and behavior
+    -Derived Class (subclass)
+    -Parent Class (superclass)
+
+-Override - implement a new version of a method to replace code that would otherwise have been inherited from a
+superclass

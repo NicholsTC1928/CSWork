@@ -19,7 +19,7 @@ The following PC port necessities NEED TO BE properly implemented:
 public class Game extends JPanel implements Runnable {
     private boolean isInGame = false;
     private boolean isDebugModeOn;
-    private boolean displayFPSCount = true;
+    private boolean displayFPSCount;
     private Thread runnerAnim;
     volatile boolean running = true;
     private final int DELAY = 25;
@@ -31,7 +31,7 @@ public class Game extends JPanel implements Runnable {
     private Timer timerForFPS = new Timer();
     private TimerTask updateFPS = new TimerTask(){
         @Override public void run(){
-            if(!this.displayFPSCount) return;
+            if(!displayFPSCount) return;
             framesToDisplay = totalFramesCount; //Setting a variable to display the current frame count every second
             //makes sure that the counter is only printed once every second.
             repaint(0,0,70,20); //This paints only the part of the screen displaying the frame rate counter rectangle.
@@ -103,19 +103,19 @@ public class Game extends JPanel implements Runnable {
 
     @Override public void run(){
         long beforeTime = System.nanoTime();
-        
         //Animation Loop (Main Game Loop?)
         while(gameIsRunning){
             long now = System.nanoTime();
             long updateLength = now - beforeTime;
             beforeTime = now;
             double dt = (updateLength / (double)OPTIMAL_TIME);
-            totalFramesCount++;
+
             
             //Update the game logic here, using dt to determine the change in time.
             updateGameLogic(dt);
             
             repaint();
+            totalFramesCount++;
             //timeDiff = System.currentTimeMillis() - beforeTime;
             //sleep = DELAY - timeDiff;
             //if(sleep < 0) sleep = 2;
