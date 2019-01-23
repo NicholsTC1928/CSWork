@@ -6,6 +6,7 @@ import java.awt.*;
 
 public class InitializeWindow extends JFrame{
     boolean isFullscreen = false; //Make sure to change this, so that it does not override user configuration value.
+    boolean isDebugModeOn = false;
 
     public InitializeWindow(){
         initUI();
@@ -52,8 +53,15 @@ public class InitializeWindow extends JFrame{
             repaint();
         }
     }
+    
+    public static boolean getDebugModeState(){
+        return this.isDebugModeOn;
+    }
 
     public static void main(String[] args){
+        for(String arg : args){
+            if(arg.equals("--debug") || arg.equals("-d")) this.isDebugModeOn = true;
+        }
         EventQueue.invokeLater(() -> {
             JFrame window = new InitializeWindow();
             //setFullscreen(isFullscreen);
