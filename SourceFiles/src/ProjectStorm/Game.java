@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.Timer;
 import java.util.TimerTask;
+import ProjectStorm.InitializeWindow;
 /*
 The following PC port necessities HAVE BEEN properly implemented:
     -FPS Counter
@@ -16,6 +17,9 @@ The following PC port necessities NEED TO BE properly implemented:
     -FPS Cap (Potentially Implemented - Testing Required)
 */
 public class Game extends JPanel implements Runnable {
+    private boolean isInGame = false;
+    private boolean isDebugModeOn;
+    private boolean displayFPSCount = true;
     private Thread runnerAnim;
     volatile boolean running = true;
     private final int DELAY = 25;
@@ -27,6 +31,7 @@ public class Game extends JPanel implements Runnable {
     private Timer timerForFPS = new Timer();
     private TimerTask updateFPS = new TimerTask(){
         @Override public void run(){
+            if(!this.displayFPSCount) return;
             framesToDisplay = totalFramesCount; //Setting a variable to display the current frame count every second
             //makes sure that the counter is only printed once every second.
             repaint(0,0,70,20); //This paints only the part of the screen displaying the frame rate counter rectangle.
@@ -36,13 +41,20 @@ public class Game extends JPanel implements Runnable {
 
     public Game(){
         initGameBoard();
-        timerForFPS.scheduleAtFixedRate(updateFPS,0,1000);
-        //Debug Methods - Mouse click prints mouse location to the console
-        addMouseListener(new MouseAdapter(){
+        this.isDebugModeOn = InitializeWindow.getDebugModeState();
+        if(this.isDebugModeOn){
+            this.isInGame = true;
+            System.out.println("Debug Mode has been successfully activated.");
+            //Debug Methods
+            //Method 1: Mouse click prints mouse location to the console
+            addMouseListener(new MouseAdapter(){
             public void mousePressed(MouseEvent e){
                 System.out.println("Mouse Location: (" + e.getX() + ", " + e.getY() + ")");
             }
-        });
+            });
+            //End Method 1
+        }
+        timerForFPS.scheduleAtFixedRate(updateFPS,0,1000);
     }
 
     @Override public void addNotify(){
@@ -53,8 +65,10 @@ public class Game extends JPanel implements Runnable {
 
     @Override public void paintComponent(Graphics g){
         super.paintComponent(g);
-        drawFPSRect(g);
+        if(this.displayFPSCount){
+        //drawFPSRect(g); - Is the rectangle really necessary with such a high-contrast FPS counter?
         drawFPSCount(g);
+        }
     }
     
     private void drawFPSRect(Graphics g){
@@ -88,6 +102,7 @@ public class Game extends JPanel implements Runnable {
 
     @Override public void run(){
         long beforeTime = System.nanoTime();
+        
         //Animation Loop (Main Game Loop?)
         while(gameIsRunning){
             long now = System.nanoTime();
@@ -97,6 +112,7 @@ public class Game extends JPanel implements Runnable {
             totalFramesCount++;
             
             //Update the game logic here, using dt to determine the change in time.
+            updateGameLogic(dt);
             
             repaint();
             //timeDiff = System.currentTimeMillis() - beforeTime;
@@ -119,6 +135,14 @@ public class Game extends JPanel implements Runnable {
         }
     }
 
+    private void updateGameLogic(double dt){
+        /*
+        In this method, change the physics (speed of objects, etc.) by multiplying each physics-related variable by dt.
+        This would mean having to make sure that each physics-related variable is a double (recommended), or that dt is
+        cast as a type that is compatible with each physics-related variable.
+        */
+    }
+    
     private void initGameBoard(){
         setBackground(Color.BLACK);
         //Dimension resolution = Toolkit.getDefaultToolkit().getScreenSize();
@@ -126,13 +150,5 @@ public class Game extends JPanel implements Runnable {
         //int height = 975;
         //Dimension tempDimension = new Dimension(1920,975);
         //setPreferredSize(resolution);
-    }
-    
-    public void gameLoop(){
-        long lastLoopTime = System.nanoTime();
-        while(gameIsRunning){
-            //I must find how long it has been since the last update.
-            
-        }
     }
 }
