@@ -7,6 +7,7 @@ import java.awt.*;
 public class InitializeWindow extends JFrame{
     boolean isFullscreen = false; //Make sure to change this, so that it does not override user configuration value.
     boolean isDebugModeOn = false;
+    boolean displayFPSCount = true;
 
     public InitializeWindow(){
         initUI();
@@ -57,10 +58,15 @@ public class InitializeWindow extends JFrame{
     public static boolean getDebugModeState(){
         return this.isDebugModeOn;
     }
+    
+    public static boolean getFPSCountState(){
+        return this.displayFPSCount;
+    }
 
     public static void main(String[] args){
         for(String arg : args){
             if(arg.equals("--debug") || arg.equals("-d")) this.isDebugModeOn = true;
+            if(arg.equals("--disable_FPS")) this.displayFPSCount = false;
         }
         EventQueue.invokeLater(() -> {
             JFrame window = new InitializeWindow();
