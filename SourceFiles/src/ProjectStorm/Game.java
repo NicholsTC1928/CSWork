@@ -116,6 +116,7 @@ public class Game extends JPanel implements Runnable {
                 framesToDisplay = totalFramesCount; //Setting a variable to display the current frame count every second
                 //makes sure that the counter is only printed once every second.
                 repaint(0,0,70,20); //This paints only the part of the screen displaying the frame rate counter rectangle.
+                lastFPSTime = 0;
                 totalFramesCount = 0;
             }
             
