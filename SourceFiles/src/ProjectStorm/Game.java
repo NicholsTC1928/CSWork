@@ -47,6 +47,16 @@ public class Game extends JPanel implements Runnable {
     public Game(){
         initGameBoard();
         //startThreadForAnimation();
+        //Could this thread fix the FPS fluctuations by forcing Java to use a high-resolution timer?
+        Thread consistencyCheck = new Thread(){
+            public void run(){
+                try{
+                    Thread.sleep(Long.MAX_VALUE);
+                }
+                catch(Exception e){}
+            }
+        };
+        consistencyCheck.start();
         this.isDebugModeOn = InitializeWindow.getDebugModeState();
         this.displayFPSCount = InitializeWindow.getFPSCountState();
         this.SCALE_X = InitializeWindow.getScaleX();
