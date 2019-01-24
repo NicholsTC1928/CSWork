@@ -8,6 +8,8 @@ public class InitializeWindow extends JFrame{
     boolean isFullscreen = false; //Make sure to change this, so that it does not override user configuration value.
     static boolean isDebugModeOn = false;
     static boolean displayFPSCount = true;
+    static double scaleX = 1.0;
+    static double scaleY = 1.0;
 
     public InitializeWindow(){
         initUI();
@@ -40,6 +42,8 @@ public class InitializeWindow extends JFrame{
                 setLocationRelativeTo(null);
                 setResizable(true);
                 setVisible(true);
+                this.scaleX = dispModeOld.getWidth() / 1920.0;
+                this.scaleY = dispModeOld.getHeight() / 1080.0;
             }
             else{
                 setVisible(false);
@@ -50,6 +54,8 @@ public class InitializeWindow extends JFrame{
                 setResizable(false);
                 setAlwaysOnTop(false); //Theoretically, this should allow for better alt-tab support.
                 setVisible(true);
+                this.scaleX = dispMode.getWidth() / 1920.0;
+                this.scaleY = dispMode.getHeight() / 1080.0;
             }
             repaint();
         }
@@ -61,6 +67,14 @@ public class InitializeWindow extends JFrame{
     
     public static boolean getFPSCountState(){
         return displayFPSCount;
+    }
+    
+    public static double getScaleX(){
+        return scaleX;
+    }
+    
+    public static double getScaleY(){
+        return scaleY;
     }
 
     public static void main(String[] args){
