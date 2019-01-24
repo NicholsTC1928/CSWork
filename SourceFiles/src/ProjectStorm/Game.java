@@ -15,11 +15,16 @@ The following PC port necessities HAVE BEEN properly implemented:
 The following PC port necessities NEED TO BE properly implemented:
     -Key Bindings
     -FPS Cap (Potentially Implemented - Testing Required)
+    -Resolution Scaling
 */
 public class Game extends JPanel implements Runnable {
     private boolean isInGame = false;
     private boolean isDebugModeOn;
     private boolean displayFPSCount;
+    private final double SCALE_X;
+    private final double SCALE_Y;
+    private final double INV_SCALE_X;
+    private final double INV_SCALE_Y;
     private Thread runnerAnim;
     volatile boolean running = true;
     private final int DELAY = 25;
@@ -41,6 +46,10 @@ public class Game extends JPanel implements Runnable {
         initGameBoard();
         this.isDebugModeOn = InitializeWindow.getDebugModeState();
         this.displayFPSCount = InitializeWindow.getFPSCountState();
+        this.SCALE_X = InitializeWindow.getScaleX();
+        this.INV_SCALE_X = (1.0 / SCALE_X);
+        this.SCALE_Y = InitializeWindow.getScaleY();
+        this.INV_SCALE_Y = (1.0 / SCALE_Y);
         if(this.isDebugModeOn){
             this.isInGame = true;
             System.out.println("Debug Mode has been successfully activated.");
@@ -68,6 +77,11 @@ public class Game extends JPanel implements Runnable {
         //drawFPSRect(g); - Is the rectangle really necessary with such a high-contrast FPS counter?
         drawFPSCount(g);
         }
+        g.scale(SCALE_X,SCALE_Y); //The graphics scaling uses 1920 x 1080 as the default resolution. Keep this in
+        //mind when determining how to scale certain objects.
+        
+        //Supposedly, scaling by the inverse of the normal scales fixes mouse coordinates.
+        //g.scale(INV_SCALE_X,INV_SCALE_Y); //Remove the comment marks in order to test the aforementioned theory.
     }
     
     private void drawFPSRect(Graphics g){
