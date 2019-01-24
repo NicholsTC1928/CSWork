@@ -1,0 +1,13 @@
+-Every class in Java is derived from the Object superclass.
+
+-List of Inherited Methods:
+    -clone()
+    -equals(obj)
+    -finalize()
+    -getClass()
+    -hashCode()
+    -toString()
+    [The following three methods are used for threads.]
+    -notify()
+    -notifyAll()
+    -wait()

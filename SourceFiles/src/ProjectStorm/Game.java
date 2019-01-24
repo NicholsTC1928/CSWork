@@ -4,9 +4,11 @@ import java.awt.EventQueue;
 import java.awt.*; //Used for Dimension value type and Toolkit (Screen Resolution)
 import javax.swing.*;
 import java.awt.event.*;
+//import java.lang.Math;
 import java.util.Timer;
 import java.util.TimerTask;
 import ProjectStorm.InitializeWindow;
+
 /*
 The following PC port necessities HAVE BEEN properly implemented:
     -FPS Counter
@@ -44,6 +46,7 @@ public class Game extends JPanel implements Runnable {
 
     public Game(){
         initGameBoard();
+        //startThreadForAnimation();
         this.isDebugModeOn = InitializeWindow.getDebugModeState();
         this.displayFPSCount = InitializeWindow.getFPSCountState();
         this.SCALE_X = InitializeWindow.getScaleX();
@@ -77,7 +80,8 @@ public class Game extends JPanel implements Runnable {
         //drawFPSRect(g); - Is the rectangle really necessary with such a high-contrast FPS counter?
         drawFPSCount(g);
         }
-        g.scale(SCALE_X,SCALE_Y); //The graphics scaling uses 1920 x 1080 as the default resolution. Keep this in
+        Graphics2D g2 = (Graphics2D) g;
+        g2.scale(SCALE_X,SCALE_Y); //The graphics scaling uses 1920 x 1080 as the default resolution. Keep this in
         //mind when determining how to scale certain objects.
         
         //Supposedly, scaling by the inverse of the normal scales fixes mouse coordinates.
@@ -142,7 +146,7 @@ public class Game extends JPanel implements Runnable {
             //sleep = DELAY - timeDiff;
             //if(sleep < 0) sleep = 2;
             try{
-                Thread.sleep((beforeTime - System.nanoTime() + OPTIMAL_TIME) / 1000000);
+                Thread.sleep((System.nanoTime() - beforeTime + OPTIMAL_TIME) / 1000000);
                 //if(fpsCap != 0) Thread.sleep((2 / fpsCap) * 1000); //This may be a successful implementation of an FPS cap.
                 /*
                 FPS Tips:

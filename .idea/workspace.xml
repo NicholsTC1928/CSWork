@@ -3,14 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/GameObjectTutorial/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/GameObjectTutorial/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/InitializeWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/InitializeWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm.jar" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/InitializeWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/InitializeWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tutorials/Object-Orientated Programming" beforeDir="false" afterPath="$PROJECT_DIR$/Tutorials/Object-Orientated Programming" afterDir="false" />
     </list>
     <ignored path="CompiledPrograms/production/SourceFiles/argumentSimulator/Back-up/branches.java.bak" />
     <ignored path="CompiledPrograms/production/SourceFiles/argumentSimulator/Back-up/game.java.bak" />
@@ -29,17 +28,46 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+            <state relative-caret-position="322">
+              <caret line="134" column="80" selection-start-line="134" selection-start-column="80" selection-end-line="134" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1093#1555#0" expanded="true" />
-                <element signature="e#1554#1555#0" expanded="true" />
-                <element signature="e#2012#2203#0" expanded="true" />
-                <element signature="e#2202#2203#0" expanded="true" />
-                <element signature="e#3645#3646#0" expanded="true" />
-                <element signature="e#3678#3679#0" expanded="true" />
+                <element signature="e#2001#2192#0" expanded="true" />
+                <element signature="e#2191#2192#0" expanded="true" />
+                <element signature="e#4027#4028#0" expanded="true" />
+                <element signature="e#4060#4061#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/InitializeWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="85" column="51" selection-start-line="85" selection-start-column="51" selection-end-line="85" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#540#541#0" expanded="true" />
+                <element signature="e#564#565#0" expanded="true" />
+                <element signature="e#2448#2449#0" expanded="true" />
+                <element signature="e#2484#2485#0" expanded="true" />
+                <element signature="e#2535#2536#0" expanded="true" />
+                <element signature="e#2573#2574#0" expanded="true" />
+                <element signature="e#2616#2617#0" expanded="true" />
+                <element signature="e#2645#2646#0" expanded="true" />
+                <element signature="e#2688#2689#0" expanded="true" />
+                <element signature="e#2717#2718#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tutorials/Inheritance Notes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -47,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/GameObjectTutorial/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+            <state relative-caret-position="-23">
+              <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -57,54 +85,12 @@
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/GameObjectTutorial/GameObject.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="92">
-              <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
               <folding>
                 <element signature="e#399#400#0" expanded="true" />
                 <element signature="e#425#426#0" expanded="true" />
                 <element signature="e#456#457#0" expanded="true" />
                 <element signature="e#485#486#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceFiles/src/GameObjectTutorial/MovableObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-              <folding>
-                <element signature="e#385#386#0" expanded="true" />
-                <element signature="e#416#417#0" expanded="true" />
-                <element signature="e#466#467#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tutorials/Object-Orientated Programming">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/InitializeWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="71" column="51" lean-forward="true" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#462#463#0" expanded="true" />
-                <element signature="e#486#487#0" expanded="true" />
-                <element signature="e#2122#2123#0" expanded="true" />
-                <element signature="e#2163#2164#0" expanded="true" />
-                <element signature="e#2214#2215#0" expanded="true" />
-                <element signature="e#2257#2258#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,7 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SourceFiles/src/ranNumbers.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/Fencepost.java" />
         <option value="$PROJECT_DIR$/Tutorials/Boolean Operators" />
         <option value="$PROJECT_DIR$/SourceFiles/src/RPSGame.java" />
@@ -190,14 +175,15 @@
         <option value="$PROJECT_DIR$/Tutorials/Object-Orientated Programming" />
         <option value="$PROJECT_DIR$/SourceFiles/src/GameObjectTutorial/GameObject.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/GameObjectTutorial/MovableObject.java" />
+        <option value="$PROJECT_DIR$/Tutorials/Inheritance Notes" />
         <option value="$PROJECT_DIR$/SourceFiles/src/GameObjectTutorial/Main.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="728" />
-    <option name="y" value="55" />
+    <option name="x" value="360" />
+    <option name="y" value="51" />
     <option name="width" value="1467" />
     <option name="height" value="898" />
   </component>
@@ -542,7 +528,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548263308404" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548345988466" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -615,14 +601,7 @@
       <workItem from="1544111193532" duration="4564000" />
       <workItem from="1544457251099" duration="18693000" />
       <workItem from="1546960354381" duration="5938000" />
-      <workItem from="1547134321591" duration="24735000" />
-    </task>
-    <task id="LOCAL-00029" summary="Added the cooperative program. (10/18)">
-      <created>1539878668664</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1539878668664</updated>
+      <workItem from="1547134321591" duration="28057000" />
     </task>
     <task id="LOCAL-00030" summary="Added the date program. (10/19)">
       <created>1539965234471</created>
@@ -960,14 +939,22 @@
       <option name="project" value="LOCAL" />
       <updated>1548173270246</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Added Game Object Notes. (1/23)">
+      <created>1548263329758</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1548263329758</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196106000" />
+    <option name="totallyTimeSpent" value="199428000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="728" y="55" width="1467" height="898" extended-state="0" />
+    <frame x="360" y="51" width="1467" height="898" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2716397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1048,7 +1035,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Updated the Argument Simulator. (11/28)" />
     <MESSAGE value="Updated the Argument Simulator. (11/29)" />
     <MESSAGE value="Updated the Argument Simulator. (11/30)" />
     <MESSAGE value="Added multidimensional arrays notes and updated the Argument Simulator. (12/3)" />
@@ -1073,16 +1059,10 @@
     <MESSAGE value="Added Chapter 8 Project. (1/17)" />
     <MESSAGE value="Updated Project Storm. (1/18)" />
     <MESSAGE value="Updated Project Storm. (1/22)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Project Storm. (1/22)" />
+    <MESSAGE value="Added Game Object Notes. (1/23)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Game Object Notes. (1/23)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/reverseArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tutorials/Types of Variables">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -1319,13 +1299,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Manifest.mf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/Chapter8Project/Manifest.mf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -1348,29 +1321,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/Chapter8Project/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/InitializeWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="71" column="51" lean-forward="true" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#462#463#0" expanded="true" />
-            <element signature="e#486#487#0" expanded="true" />
-            <element signature="e#2122#2123#0" expanded="true" />
-            <element signature="e#2163#2164#0" expanded="true" />
-            <element signature="e#2214#2215#0" expanded="true" />
-            <element signature="e#2257#2258#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tutorials/Object-Orientated Programming">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -1381,7 +1331,7 @@
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/GameObjectTutorial/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
-          <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
           <folding>
             <element signature="e#399#400#0" expanded="true" />
             <element signature="e#425#426#0" expanded="true" />
@@ -1404,25 +1354,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Manifest.mf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/Chapter8Project/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tutorials/Inheritance Notes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/GameObjectTutorial/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+        <state relative-caret-position="-23">
+          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/InitializeWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="85" column="51" selection-start-line="85" selection-start-column="51" selection-end-line="85" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#2448#2449#0" expanded="true" />
+            <element signature="e#2484#2485#0" expanded="true" />
+            <element signature="e#2535#2536#0" expanded="true" />
+            <element signature="e#2573#2574#0" expanded="true" />
+            <element signature="e#2616#2617#0" expanded="true" />
+            <element signature="e#2645#2646#0" expanded="true" />
+            <element signature="e#2688#2689#0" expanded="true" />
+            <element signature="e#2717#2718#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+        <state relative-caret-position="322">
+          <caret line="134" column="80" selection-start-line="134" selection-start-column="80" selection-end-line="134" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1093#1555#0" expanded="true" />
-            <element signature="e#1554#1555#0" expanded="true" />
-            <element signature="e#2012#2203#0" expanded="true" />
-            <element signature="e#2202#2203#0" expanded="true" />
-            <element signature="e#3645#3646#0" expanded="true" />
-            <element signature="e#3678#3679#0" expanded="true" />
+            <element signature="e#2001#2192#0" expanded="true" />
+            <element signature="e#2191#2192#0" expanded="true" />
+            <element signature="e#4027#4028#0" expanded="true" />
+            <element signature="e#4060#4061#0" expanded="true" />
           </folding>
         </state>
       </provider>
