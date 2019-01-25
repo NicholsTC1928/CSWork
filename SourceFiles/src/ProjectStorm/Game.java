@@ -190,7 +190,7 @@ public class Game extends JPanel implements Runnable {
         //setPreferredSize(resolution);
     }
     
-    private initializeGameSpawn(){
+    private void initializeGameSpawn(){
         //Load an image of the background if the player is not currently in debug mode.
         
     }
