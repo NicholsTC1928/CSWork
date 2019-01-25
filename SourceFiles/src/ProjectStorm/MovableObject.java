@@ -1,10 +1,12 @@
 public class MovableObject{
-    private int speedX;
-    private int speedY;
+    private double currentXPos;
+    private double currentYPos;
+    private double speedX;
+    private double speedY;
     private int health;
     private boolean isInvincible;
     
-    public MovableObject(int speedX,int speedY,int health,boolean isInvincible){
+    public MovableObject(double speedX,double speedY,int health,boolean isInvincible){
         this.speedX = speedX;
         this.speedY = speedY;
         this.health = health;
@@ -12,7 +14,7 @@ public class MovableObject{
     }
     
     public MovableObject(){
-        this(0,0,100,false);
+        this(0.0,0.0,100,false);
         /*
         If no parameters are provided, then a new movable object is created with...
         - 0 speed in the x- and y-directions
@@ -21,19 +23,43 @@ public class MovableObject{
         */
     }
     
-    public int getSpeedX(){
+    public double getCurrentXPos(){
+        return this.currentXPos;
+    }
+    
+    public void changeCurrentXPosBy(double speedX){
+        this.currentXPos += speedX;
+    }
+    
+    public void goToXPos(double newX){
+        this.currentXPos = newX;
+    }
+    
+    public double getCurrentYPos(){
+        return this.currentYPos;
+    }
+    
+    public void changeCurrentYPosBy(double speedY){
+        this.currentYPos += speedY;
+    }
+    
+    public void goToYPos(double newY){
+        this.currentYPos = newY;
+    }
+    
+    public double getSpeedX(){
         return this.speedX;
     }
     
-    public void setSpeedX(int newSpeedX){
+    public void setSpeedX(double newSpeedX){
         this.speedX = newSpeedX;
     }
     
-    public int getSpeedY(){
+    public double getSpeedY(){
         return this.speedY;
     }
     
-    public void setSpeedY(int newSpeedY){
+    public void setSpeedY(double newSpeedY){
         this.speedY = newSpeedY;
     }
     
