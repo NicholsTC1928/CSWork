@@ -50,6 +50,7 @@ public class MovableObject{
     }
     
     public void damageByAmount(int damageTaken){
+        if(this.isInvincible) return;
         this.health -= damageTaken;
     }
     
@@ -57,7 +58,8 @@ public class MovableObject{
         return this.isInvincible;
     }
     
-    public void changeInvincibilityStateTo(boolean newState){
-        this.isInvincible = newState;
+    public void changeInvincibilityState(){
+        if(this.isInvisible) this.isInvincible = false;
+        else this.isInvincible = true;
     }
 }
