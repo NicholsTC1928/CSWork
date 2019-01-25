@@ -24,6 +24,7 @@ public class Game extends JPanel implements Runnable {
     private boolean isInGame = false;
     private boolean isDebugModeOn;
     private boolean displayFPSCount;
+    private boolean gameIsPaused;
     private final double SCALE_X;
     private final double SCALE_Y;
     private final double INV_SCALE_X;
@@ -153,22 +154,15 @@ public class Game extends JPanel implements Runnable {
 
     @Override public void run(){
         long beforeTime = System.nanoTime();
-        long lastFPSTime = 0;
         //Animation Loop (Main Game Loop?)
         while(gameIsRunning){
             long now = System.nanoTime();
             long updateLength = now - beforeTime;
             beforeTime = now;
             double dt = (updateLength / (double)OPTIMAL_TIME);
-            lastFPSTime += updateLength;
 
-            
-            if(lastFPSTime >= 1000000000){
-
-            }
-            
             //Update the game logic here, using dt to determine the change in time.
-            updateGameLogic(dt);
+            if(!gameIsPaused) updateGameLogic(dt);
             repaint();
             totalFramesCount++;
             
