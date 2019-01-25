@@ -1,3 +1,5 @@
+package ProjectStorm;
+
 public class MovableObject{
     private double currentXPos;
     private double currentYPos;
@@ -85,7 +87,7 @@ public class MovableObject{
     }
     
     public void changeInvincibilityState(){
-        if(this.isInvisible) this.isInvincible = false;
+        if(this.isInvincible) this.isInvincible = false;
         else this.isInvincible = true;
     }
 }

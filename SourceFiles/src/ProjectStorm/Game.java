@@ -5,6 +5,7 @@ import java.awt.*; //Used for Dimension value type and Toolkit (Screen Resolutio
 import javax.swing.*;
 import java.awt.event.*;
 //import java.lang.Math;
+import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 import ProjectStorm.InitializeWindow;
@@ -33,17 +34,24 @@ public class Game extends JPanel implements Runnable {
     private int totalFramesCount = 0;
     private int framesToDisplay = 0;
     private final int FPS_CAP = 60;
+    private boolean isBlack = true;
     private final long OPTIMAL_TIME = (1000000000 / FPS_CAP);
     private boolean gameIsRunning = true;
     public LinkedList<Object> currentEntities = new LinkedList<Object>();
-    /*
+
     private Timer timerForFPS = new Timer();
     private TimerTask updateFPS = new TimerTask(){
         @Override public void run(){
-            
+            if(!displayFPSCount) return;
+            framesToDisplay = (totalFramesCount / 2);
+            //I don't know why, but dividing the totalFramesCount by 2 fixes the FPS display.
+            //Setting a variable to display the current frame count every second makes sure that the counter is only
+            //printed once every second.
+            repaint(0,0,70,20); //This paints only the part of the screen displaying the frame rate counter rectangle.
+            totalFramesCount = 0;
         }
     };
-    */
+
 
     public Game(){
         initGameBoard();
@@ -76,7 +84,7 @@ public class Game extends JPanel implements Runnable {
             });
             //End Method 1
         }
-        //timerForFPS.scheduleAtFixedRate(updateFPS,0,1000);
+        timerForFPS.scheduleAtFixedRate(updateFPS,1000,1000);
     }
 
     @Override public void addNotify(){
@@ -87,10 +95,12 @@ public class Game extends JPanel implements Runnable {
 
     @Override public void paintComponent(Graphics g){
         super.paintComponent(g);
+        //FPSCheckDebug(g,this.isBlack);
         if(this.displayFPSCount){
         //drawFPSRect(g); - Is the rectangle really necessary with such a high-contrast FPS counter?
         drawFPSCount(g);
         }
+
         Graphics2D g2 = (Graphics2D) g;
         g2.scale(SCALE_X,SCALE_Y); //The graphics scaling uses 1920 x 1080 as the default resolution. Keep this in
         //mind when determining how to scale certain objects.
@@ -105,6 +115,19 @@ public class Game extends JPanel implements Runnable {
         //g.setColor(FPSRectangle);
         g.setColor(Color.RED);
         g.fillRect(0,0,70,20);
+        Toolkit.getDefaultToolkit().sync();
+    }
+
+    private void FPSCheckDebug(Graphics g,boolean isBlack){
+        if(isBlack){
+            g.setColor(Color.RED);
+            this.isBlack = false;
+        }
+        else{
+            g.setColor(Color.BLACK);
+            this.isBlack = true;
+        }
+        g.fillRect(0,0,1920,975);
         Toolkit.getDefaultToolkit().sync();
     }
 
@@ -138,20 +161,16 @@ public class Game extends JPanel implements Runnable {
             beforeTime = now;
             double dt = (updateLength / (double)OPTIMAL_TIME);
             lastFPSTime += updateLength;
-            totalFramesCount++;
+
             
             if(lastFPSTime >= 1000000000){
-                if(!displayFPSCount) return;
-                framesToDisplay = totalFramesCount; //Setting a variable to display the current frame count every second
-                //makes sure that the counter is only printed once every second.
-                repaint(0,0,70,20); //This paints only the part of the screen displaying the frame rate counter rectangle.
-                lastFPSTime = 0;
-                totalFramesCount = 0;
+
             }
             
             //Update the game logic here, using dt to determine the change in time.
             updateGameLogic(dt);
             repaint();
+            totalFramesCount++;
             
             //timeDiff = System.currentTimeMillis() - beforeTime;
             //sleep = DELAY - timeDiff;
