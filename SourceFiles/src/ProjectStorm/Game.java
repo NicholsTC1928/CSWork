@@ -35,6 +35,7 @@ public class Game extends JPanel implements Runnable {
     private final int FPS_CAP = 60;
     private final long OPTIMAL_TIME = (1000000000 / FPS_CAP);
     private boolean gameIsRunning = true;
+    public LinkedList<Object> currentEntities = new LinkedList<Object>();
     /*
     private Timer timerForFPS = new Timer();
     private TimerTask updateFPS = new TimerTask(){
@@ -187,5 +188,10 @@ public class Game extends JPanel implements Runnable {
         //int height = 975;
         //Dimension tempDimension = new Dimension(1920,975);
         //setPreferredSize(resolution);
+    }
+    
+    private initializeGameSpawn(){
+        //Load an image of the background if the player is not currently in debug mode.
+        
     }
 }
