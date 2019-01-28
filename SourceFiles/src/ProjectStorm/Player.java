@@ -1,12 +1,27 @@
 package ProjectStorm;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Player extends MovableObject{
     private int armor;
     private int perkLimit;
     private int currentPerkCount;
     private int maxHealth;
+    final String[] PERKS_LIST = new String[]{
+            "Quick Revive",
+            "Double Tap 2.0 Root Beer",
+            "Juggernog",
+            "Speed Cola",
+            "Stamin-Up",
+            "Ph.D. Flopper",
+            "Mule Kick",
+            "Electric Cherry",
+            "Who's Who",
+            "Vulture's Aid",
+            "Widow's Wine",
+            "Deadshot Daiquiri"
+    };
     private ArrayList<String> currentPerks = new ArrayList<String>();
     /*
     The following boolean values will save whether or not the player has the respective perk-a-colas.
@@ -28,6 +43,7 @@ public class Player extends MovableObject{
     private boolean hasVulturesAid;
     private boolean hasWidowsWine;
     private boolean hasDeadshot;
+    private ArrayList<String> availablePerks = new ArrayList<String>();
     
     public Player(){
         this.setHealth(100);
@@ -35,6 +51,10 @@ public class Player extends MovableObject{
         //The following two variables assume that the play space is 400 x 400 units squared.
         this.goToXPos(200.0);
         this.goToYPos(200.0);
+    }
+
+    private void initializeAvailablePerksList(){
+        availablePerks.addAll(Arrays.asList(PERKS_LIST));
     }
     
     public int getArmor(){
@@ -53,11 +73,12 @@ public class Player extends MovableObject{
         return this.currentPerkCount;
     }
 
-    public String getPerkAt(int index){
+    public String getCurrentPerkAt(int index){
         return currentPerks.get(index);
     }
 
-    public void increaseCurrentPerkCount(){
+    public void addPerk(String perk){
+
         this.currentPerkCount++;
     }
 
