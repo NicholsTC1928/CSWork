@@ -20,6 +20,7 @@ The following PC port necessities NEED TO BE properly implemented:
     -FPS Cap (Potentially Implemented - Testing Required)
     -Resolution Scaling
 */
+
 public class Game extends JPanel implements Runnable {
     private boolean isInGame = false;
     private boolean isDebugModeOn;
