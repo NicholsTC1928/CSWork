@@ -36,17 +36,17 @@ public class Player extends MovableObject{
     
     private final String[] PERKS_LIST = new String[]{
             "Quick Revive",
-            "Double Tap 2.0 Root Beer",
-            "Juggernog",
-            "Speed Cola",
-            "Stamin-Up",
+            "Double Tap 2.0 Root Beer",//Partially Finished (Needs Implementation of Multipliers)
+            "Juggernog", //Finished
+            "Speed Cola", //Partially Finished (Needs Implementation of Multipliers)
+            "Stamin-Up", //Partially Finished (Needs Implementation of Multipliers)
             "Ph.D. Flopper",
             "Mule Kick",
             "Electric Cherry",
             "Who's Who",
             "Vulture's Aid Elixir",
             "Widow's Wine",
-            "Deadshot Daiquiri"
+            "Deadshot Daiquiri" //Partially Finished (Needs Implementation of Multipliers)
     };
     private ArrayList<String> currentPerks = new ArrayList<String>();
     /*
