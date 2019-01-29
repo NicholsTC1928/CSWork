@@ -8,7 +8,7 @@ public class Player extends MovableObject{
     private int perkLimit;
     private int currentPerkCount;
     private int maxHealth;
-    final String[] PERKS_LIST = new String[]{
+    private final String[] PERKS_LIST = new String[]{
             "Quick Revive",
             "Double Tap 2.0 Root Beer",
             "Juggernog",
@@ -43,7 +43,7 @@ public class Player extends MovableObject{
     private boolean hasVulturesAid;
     private boolean hasWidowsWine;
     private boolean hasDeadshot;
-    private ArrayList<String> availablePerks = new ArrayList<String>();
+    public ArrayList<String> availablePerks = new ArrayList<String>();
     
     public Player(){
         this.setHealth(100);
@@ -78,7 +78,9 @@ public class Player extends MovableObject{
     }
 
     public void addPerk(String perk){
-
+        availablePerks.remove(perk);
+        currentPerks.add(perk); //Use the index of the perk in the list in order to print the perk icons on screen
+        //in the order in which they are received.
         this.currentPerkCount++;
     }
 

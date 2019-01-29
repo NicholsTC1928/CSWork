@@ -60,7 +60,7 @@ public class Game extends JPanel implements Runnable {
     private final String PREVIOUS_WEAPON = "Previous Weapon";
     private final String NEXT_WEAPON = "Next Weapon";
     private final String WEAPON_1 = "Weapon 1";
-    private final String WEAPON_2 = "Weapon 2"
+    private final String WEAPON_2 = "Weapon 2";
     private final String WEAPON_MULE_KICK = "Weapon 3 (Mule Kick Weapon)";
     private final String CONSOLE = "Developer Console";
     //------------------------------------------------------------------//
@@ -247,7 +247,20 @@ public class Game extends JPanel implements Runnable {
     }
     
     private void initializeGameSpawn(){
-        //Load an image of the background if the player is not currently in debug mode.
+        //The first thing that should be done is to scale the in-game measurement units with the screen resolution.
+        double worldTopLeftX = 0.0;
+        double worldTopLeftY = 0.0;
+        double worldBottomRightX = 400.0;
+        double worldBottomRightY = 400.0;
+        double scaleWorldXToScreen = ((this.SCALE_X * 1920.0) / worldBottomRightX);
+        double scaleWorldYToScreen = ((this.SCALE_Y * 1080.0) / worldBottomRightY);
+        Player player = new Player();
+        if (!isDebugModeOn) {
+            //Load an image of the background if the player is not currently in debug mode.
+        }
+        else{
+            //For debugging, use a white rectangle to represent the player.
+        }
         
     }
     
@@ -255,7 +268,7 @@ public class Game extends JPanel implements Runnable {
         input.getInputMap(IFW).put(KeyStroke.getKeyStroke(key),action);
     }
     
-    private void setActionMap(String action,Object actionObject){
+    private void setActionMap(String action,AbstractAction actionObject){
         input.getActionMap().put(action,actionObject);
     }
     
