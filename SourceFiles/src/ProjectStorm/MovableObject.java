@@ -16,10 +16,10 @@ public class MovableObject{
     }
     
     public MovableObject(){
-        this(0.0,0.0,100,false);
+        this(4.0,4.0,100,false);
         /*
         If no parameters are provided, then a new movable object is created with...
-        - 0 speed in the x- and y-directions
+        - 4.0 speed in the x- and y-directions
         - 100 HP
         - No invincibility
         */
