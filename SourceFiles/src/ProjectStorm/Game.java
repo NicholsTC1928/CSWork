@@ -22,6 +22,9 @@ The following PC port necessities NEED TO BE properly implemented:
 */
 
 public class Game extends JPanel implements Runnable {
+    //The following two variables are used for key bindings.
+    private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
+    private static JLabel input = new JLabel();
     private boolean isInGame = false;
     private boolean isDebugModeOn;
     private boolean displayFPSCount;
@@ -40,6 +43,44 @@ public class Game extends JPanel implements Runnable {
     private final long OPTIMAL_TIME = (1000000000 / FPS_CAP);
     private boolean gameIsRunning = true;
     public LinkedList<Object> currentEntities = new LinkedList<Object>();
+    
+    //The following consists of key binding variables. The non-final variables could be changed by reading a 
+    //configuration value.
+    private final String MOVE_UP = "Move Up";
+    private final String MOVE_DOWN = "Move Down";
+    private final String MOVE_LEFT = "Move Left";
+    private final String MOVE_RIGHT = "Move Right";
+    private final String SHOOT_UP = "Shoot Up";
+    private final String SHOOT_DOWN = "Shoot Down";
+    private final String SHOOT_LEFT = "Shoot Left";
+    private final String SHOOT_RIGHT = "Shoot Right";
+    private final String INTERACT = "Interact/Use";
+    private final String HEAL = "Heal";
+    private final String MELEE = "Melee";
+    private final String PREVIOUS_WEAPON = "Previous Weapon";
+    private final String NEXT_WEAPON = "Next Weapon";
+    private final String WEAPON_1 = "Weapon 1";
+    private final String WEAPON_2 = "Weapon 2"
+    private final String WEAPON_MULE_KICK = "Weapon 3 (Mule Kick Weapon)";
+    private final String CONSOLE = "Developer Console";
+    //------------------------------------------------------------------//
+    private String moveUpKey = "W";
+    private String moveDownKey = "S";
+    private String moveLeftKey = "A";
+    private String moveRightKey = "D";
+    private String shootUpKey = "UP";
+    private String shootDownKey = "DOWN";
+    private String shootLeftKey = "LEFT";
+    private String shootRightKey = "RIGHT";
+    private String interactKey = "F"; //More often than not, people will use "E" for this. Hence, key bindings are essential.
+    private String healKey = "E";
+    private String meleeKey = "V";
+    private String previousWeaponKey = "X";
+    private String nextWeaponKey = "C";
+    private String weapon1Key = "1";
+    private String weapon2Key = "2";
+    private final String weaponMuleKickKey = "3";
+    private String consoleKey = "`";
 
     private Timer timerForFPS = new Timer();
     private TimerTask updateFPS = new TimerTask(){
@@ -68,6 +109,7 @@ public class Game extends JPanel implements Runnable {
             }
         };
         consistencyCheck.start();
+        
         this.isDebugModeOn = InitializeWindow.getDebugModeState();
         this.displayFPSCount = InitializeWindow.getFPSCountState();
         this.SCALE_X = InitializeWindow.getScaleX();
@@ -207,5 +249,18 @@ public class Game extends JPanel implements Runnable {
     private void initializeGameSpawn(){
         //Load an image of the background if the player is not currently in debug mode.
         
+    }
+    
+    private void setInputMap(String key,String action){
+        input.getInputMap(IFW).put(KeyStroke.getKeyStroke(key),action);
+    }
+    
+    private void setActionMap(String action,Object actionObject){
+        input.getActionMap().put(action,actionObject);
+    }
+    
+    private void rebindKey(KeyEvent ke,String oldKey){
+        input.getInputMap(IFW).remove(KeyStroke.getKeyStroke(oldKey));
+        input.getInputMap(IFW).put(KeyStroke.getKeyStrokeForEvent(ke),input.getInputMap(IFW).get(KeyStroke.getKeyStroke(oldKey)));
     }
 }
