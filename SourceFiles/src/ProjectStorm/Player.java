@@ -7,7 +7,33 @@ public class Player extends MovableObject{
     private int armor;
     private int perkLimit;
     private int currentPerkCount;
+    
+    //Stats Affected by Quick Revive
+    private boolean hasQuickRevive = false;
+    //Stats Affected by Double Tap
+    private double fireRateMultiplier = 1.0;
+    private double damageMultiplier = 1.0;
+    //Stats Affected by Juggernog
     private int maxHealth;
+    //Stats Affected by Speed Cola
+    private double reloadSpeedMultiplier = 1.0;
+    //Stats Affected by Stamin-Up
+    private double speedMultiplier = 1.0;
+    //Stats Affected by Ph.D. Flopper
+    private boolean hasFlopper;
+    //Stats Affected by Mule Kick
+    private boolean hasMuleKick;
+    //Stats Affected by Electric Cherry
+    private boolean hasElectricCherry;
+    //Stats Affected by Who's Who
+    private boolean hasWhosWho; //Apostrophes are not allowed in variable names.
+    //Stats Affected by Vulture's Aid
+    private boolean hasVulturesAid;
+    //Stats Affected by Widow's Wine
+    private boolean hasWidowsWine;
+    //Stats Affected by Deadshot Daiquiri
+    private double criticalHitDamageMultiplier = 1.0;
+    
     private final String[] PERKS_LIST = new String[]{
             "Quick Revive",
             "Double Tap 2.0 Root Beer",
@@ -24,29 +50,15 @@ public class Player extends MovableObject{
     };
     private ArrayList<String> currentPerks = new ArrayList<String>();
     /*
-    The following boolean values will save whether or not the player has the respective perk-a-colas.
-    The actual perks should be programmed in a separate class file.
-    
     The following perks have no use in this game (with their default functionality):
     - Deadshot Daiquiri (Note: It could increase the chance of landing a critical hit.
     - Tombstone Soda (Note: This could be used if a multiplayer game is implemented.)
     */
-    private boolean hasQuickRevive;
-    private boolean hasDoubleTap;
-    private boolean hasJuggernog;
-    private boolean hasSpeedCola;
-    private boolean hasStaminUp;
-    private boolean hasFlopper;
-    private boolean hasMuleKick;
-    private boolean hasElectricCherry;
-    private boolean hasWhosWho; //Apostrophes are not allowed in variable names.
-    private boolean hasVulturesAid;
-    private boolean hasWidowsWine;
-    private boolean hasDeadshot;
     public ArrayList<String> availablePerks = new ArrayList<String>();
     
     public Player(){
         this.setHealth(100);
+        this.maxHealth = 100;
         this.armor = 0;
         //The following two variables assume that the play space is 400 x 400 units squared.
         this.goToXPos(200.0);
@@ -68,6 +80,26 @@ public class Player extends MovableObject{
     public int getMaxHealth(){
         return this.maxHealth;
     }
+    
+    public double getFireRateMultiplier(){
+        return this.fireRateMultiplier;
+    }
+    
+    public double getDamageMultiplier(){
+        return this.damageMultiplier;
+    }
+    
+    public double getReloadSpeedMultiplier(){
+        return this.reloadSpeedMultiplier;
+    }
+    
+    public double getSpeedMultiplier(){
+        return this.speedMultiplier;
+    }
+    
+    public double getCriticalHitDamageMultiplier(){
+        return this.criticalHitDamageMultiplier;
+    }
 
     public int getCurrentPerkCount(){
         return this.currentPerkCount;
@@ -86,6 +118,26 @@ public class Player extends MovableObject{
 
     public void setMaxHealth(int newMaxHealth){
         this.maxHealth = newMaxHealth;
+    }
+    
+    public void setFireRateMultiplier(double newMultiplier){
+        this.fireRateMultiplier = newMultiplier;
+    }
+    
+    public void setDamageMultiplier(double newMultiplier){
+        this.damageMultiplier = newMultiplier;
+    }
+    
+    public void setReloadSpeedMultiplier(double newMultiplier){
+        this.reloadSpeedMultiplier = newMultiplier;
+    }
+    
+    public void setSpeedMultiplier(double newMultiplier){
+        this.speedMultiplier = newMultiplier;
+    }
+    
+    public void setCriticalHitDamageMultiplier(double newMultiplier){
+        this.criticalHitDamageMultiplier = newMultiplier;
     }
     
     public void increasePerkLimit(){
