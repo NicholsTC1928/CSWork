@@ -54,6 +54,8 @@ public class Game extends JPanel implements Runnable {
     private final String SHOOT_DOWN = "Shoot Down";
     private final String SHOOT_LEFT = "Shoot Left";
     private final String SHOOT_RIGHT = "Shoot Right";
+    private final String SLIDE = "Slide";
+    private final String DOLPHIN_DIVE = "Dolphin Dive (Ph.D. Flopper)";
     private final String INTERACT = "Interact/Use";
     private final String HEAL = "Heal";
     private final String MELEE = "Melee";
@@ -72,6 +74,8 @@ public class Game extends JPanel implements Runnable {
     private String shootDownKey = "DOWN";
     private String shootLeftKey = "LEFT";
     private String shootRightKey = "RIGHT";
+    private String slideKey = "shift SHIFT";
+    private String dolphinDiveKey = "control CONTROL";
     private String interactKey = "F"; //More often than not, people will use "E" for this. Hence, key bindings are essential.
     private String healKey = "E";
     private String meleeKey = "V";
