@@ -44,14 +44,14 @@ public class Player extends MovableObject{
             "Mule Kick",
             "Electric Cherry",
             "Who's Who",
-            "Vulture's Aid",
+            "Vulture's Aid Elixir",
             "Widow's Wine",
             "Deadshot Daiquiri"
     };
     private ArrayList<String> currentPerks = new ArrayList<String>();
     /*
     The following perks have no use in this game (with their default functionality):
-    - Deadshot Daiquiri (Note: It could increase the chance of landing a critical hit.
+    - Deadshot Daiquiri (Note: It could increase the chance of landing a critical hit.)
     - Tombstone Soda (Note: This could be used if a multiplayer game is implemented.)
     */
     public ArrayList<String> availablePerks = new ArrayList<String>();
@@ -67,6 +67,34 @@ public class Player extends MovableObject{
 
     private void initializeAvailablePerksList(){
         availablePerks.addAll(Arrays.asList(PERKS_LIST));
+    }
+    
+    public void changeQuickReviveState(boolean activated){
+        this.hasQuickRevive = activated;
+    }
+    
+    public void changeFlopperState(boolean activated){
+        this.hasFlopper = activated;
+    }
+    
+    public void changeMuleKickState(boolean activated){
+        this.hasMuleKick = activated;
+    }
+    
+    public void changeElectricCherryState(boolean activated){
+        this.hasElectricCherry = activated;
+    }
+    
+    public void changeWhosWhoState(boolean activated){
+        this.hasWhosWho = activated;
+    }
+    
+    public void changeVulturesAidState(boolean activated){
+        this.hasVulturesAid = activated;
+    }
+    
+    public void changeWidowsWineState(boolean activated){
+        this.hasWidowsWine = activated;
     }
     
     public int getArmor(){
@@ -144,10 +172,26 @@ public class Player extends MovableObject{
         this.perkLimit++;
     }
     
+    public void checkIfDead(){
+        //Who's Who needs to override Quick Revive.
+        if(hasWhosWho){
+            
+        }
+        else if(hasQuickRevive){
+            
+        }
+        else{
+            
+        }
+    }
+    
     public void damageByAmount(int damageTaken){
         if(this.getInvincibilityState()) return;
         if(this.armor == 0){
-            if(this.getHealth() <= damageTaken) this.setHealth(0);
+            if(this.getHealth() <= damageTaken){
+                this.setHealth(0);
+                checkIfDead();
+            }
             else this.setHealth(this.getHealth() - damageTaken);
         }
         else{
@@ -171,7 +215,10 @@ public class Player extends MovableObject{
                 this.armor -= damageToArmor;
                 
             }
-            if(this.getHealth() <= calcHD) this.setHealth(0);
+            if(this.getHealth() <= calcHD){
+                this.setHealth(0);
+                checkIfDead();
+            }
             else this.setHealth(this.getHealth() - calcHD);
         }
     }
