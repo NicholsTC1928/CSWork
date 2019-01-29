@@ -261,7 +261,7 @@ public class Game extends JPanel implements Runnable {
         else{
             //For debugging, use a white rectangle to represent the player.
         }
-        
+
     }
     
     private void setInputMap(String key,String action){
