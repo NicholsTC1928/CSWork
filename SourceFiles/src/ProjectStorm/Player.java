@@ -39,7 +39,7 @@ public class Player extends MovableObject{
             "Double Tap 2.0 Root Beer",//Partially Finished (Needs Implementation of Multipliers)
             "Juggernog", //Finished
             "Speed Cola", //Partially Finished (Needs Implementation of Multipliers)
-            "Stamin-Up", //Partially Finished (Needs Implementation of Multipliers)
+            "Stamin-Up", //Finished
             "Ph.D. Flopper",
             "Mule Kick",
             "Electric Cherry",
