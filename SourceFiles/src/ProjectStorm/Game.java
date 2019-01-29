@@ -43,6 +43,7 @@ public class Game extends JPanel implements Runnable {
     private final long OPTIMAL_TIME = (1000000000 / FPS_CAP);
     private boolean gameIsRunning = true;
     public LinkedList<Object> currentEntities = new LinkedList<Object>();
+    Player player = new Player();
     
     //The following consists of key binding variables. The non-final variables could be changed by reading a 
     //configuration value.
@@ -239,6 +240,8 @@ public class Game extends JPanel implements Runnable {
         This would mean having to make sure that each physics-related variable is a double (recommended), or that dt is
         cast as a type that is compatible with each physics-related variable.
         */
+        player.setSpeedX(player.getSpeedX() * player.getSpeedMultiplier() * dt);
+        player.setSpeedY(player.getSpeedY() * player.getSpeedMultiplier() * dt);
     }
     
     private void initGameBoard(){
@@ -256,16 +259,16 @@ public class Game extends JPanel implements Runnable {
         double worldTopLeftY = 0.0;
         double worldBottomRightX = 400.0;
         double worldBottomRightY = 400.0;
-        double scaleWorldXToScreen = ((this.SCALE_X * 1920.0) / worldBottomRightX);
-        double scaleWorldYToScreen = ((this.SCALE_Y * 1080.0) / worldBottomRightY);
-        Player player = new Player();
+        double scaleWorldXToScreen = (worldBottomRightX / (this.SCALE_X * 1920.0));
+        double scaleWorldYToScreen = (worldBottomRightY / (this.SCALE_Y * 1080.0));
         if (!isDebugModeOn) {
             //Load an image of the background if the player is not currently in debug mode.
         }
         else{
             //For debugging, use a white rectangle to represent the player.
         }
-
+        //The default player speed should allow the player to travel 200.0 units in 1 second.
+        
     }
     
     private void setInputMap(String key,String action){
