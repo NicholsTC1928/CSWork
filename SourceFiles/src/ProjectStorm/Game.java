@@ -44,6 +44,7 @@ public class Game extends JPanel implements Runnable {
     private final int FPS_CAP = 60;
     private boolean isBlack = true;
     private final long OPTIMAL_TIME = (1000000000 / FPS_CAP);
+    private final long OPTIMAL_TIME_FOR_PHYSICS = (1000000000 / 60);
     private boolean gameIsRunning = true;
     public LinkedList<Object> currentEntities = new LinkedList<Object>();
     Player player = new Player();
@@ -102,6 +103,7 @@ public class Game extends JPanel implements Runnable {
             totalFramesCount = 0;
         }
     };
+   
 
 
     public Game(){
@@ -117,9 +119,34 @@ public class Game extends JPanel implements Runnable {
             }
         };
         consistencyCheck.start();
-        input.getInputMap(IFW).put(KeyStroke.getKeyStroke("W"),MOVE_UP);
-        input.getActionMap().put(MOVE_UP,new MoveUpAction());
+        
+        //The following is a list of inputs that are assigned as the game starts.
+        setInputMap(moveUpKey,MOVE_UP); //input.getInputMap(IFW).put(moveUpKey,MOVE_UP);
+        setActionMap(MOVE_UP,new MoveYAction(-1.0)); //input.getActionMap().put(MOVE_UP,new MoveUpAction());
+        setInputMap(moveDownKey,MOVE_DOWN);
+        setActionMap(MOVE_DOWN,new MoveYAction(1.0));
+        setInputMap(moveLeftKey,MOVE_LEFT);
+        setActionMap(MOVE_LEFT,new MoveXAction(-1.0));
+        setInputMap(moveRightKey,MOVE_RIGHT);
+        setActionMap(MOVE_RIGHT,new MoveXAction(1.0));
+        
+        /*
+        The following inputs still need to be assigned:
+            -Shoot Up/Down/Left/Right
+            -Slide
+            -Dolphin Dive
+            -Interact
+            -Heal
+            -Melee
+            -Previous Weapon
+            -Next Weapon
+            -Weapon 1
+            -Weapon 2
+            -Weapon 3 (Mule Kick Weapon)
+            -Developer Console
+        */
         add(input);
+        
         setActionMap(MOVE_UP,new MoveUpAction());
         this.isDebugModeOn = InitializeWindow.getDebugModeState();
         this.displayFPSCount = InitializeWindow.getFPSCountState();
@@ -228,7 +255,7 @@ public class Game extends JPanel implements Runnable {
             long updateLength = now - beforeTime;
             //System.out.println(updateLength);
             beforeTime = now;
-            long dt = (updateLength / OPTIMAL_TIME);
+            long dt = (updateLength / OPTIMAL_TIME_FOR_PHYSICS);
             if(dt == 0) dt = 1; //This line prevents the physics from stalling if the game is running too fast (i.e.,
             //now - beforeTime ~= 0).
             //Update the game logic here, using dt to determine the change in time.
@@ -306,27 +333,45 @@ public class Game extends JPanel implements Runnable {
         else{
             //For debugging, use a white rectangle to represent the player.
         }
-        //The default player speed should allow the player to travel 200.0 units in 1 second.
+        //The default player speed should allow the player to travel 200.0 units in 1 second. (?)
         
     }
     
     private void setInputMap(String key,String action){
-        input.getInputMap(IFW).put(KeyStroke.getKeyStroke(key),action);
+        this.input.getInputMap(IFW).put(KeyStroke.getKeyStroke(key),action);
     }
     
     private void setActionMap(String action,AbstractAction actionObject){
-        input.getActionMap().put(action,actionObject);
+        this.input.getActionMap().put(action,actionObject);
     }
     
     private void rebindKey(KeyEvent ke,String oldKey){
-        input.getInputMap(IFW).remove(KeyStroke.getKeyStroke(oldKey));
-        input.getInputMap(IFW).put(KeyStroke.getKeyStrokeForEvent(ke),input.getInputMap(IFW).get(KeyStroke.getKeyStroke(oldKey)));
+        this.input.getInputMap(IFW).remove(KeyStroke.getKeyStroke(oldKey));
+        this.input.getInputMap(IFW).put(KeyStroke.getKeyStrokeForEvent(ke),input.getInputMap(IFW).get(KeyStroke.getKeyStroke(oldKey)));
     }
 
-    private class MoveUpAction extends AbstractAction{
-        @Override public void actionPerformed(ActionEvent e){
-            player.changeCurrentYPosBy(player.getSpeedY() * -1.0);
-            System.out.println("Current Position: " + player.getCurrentYPos());
+    private class MoveYAction extends AbstractAction{
+        private double direction;
+        
+        public MoveYAction(double direction){
+            this.direction = direction;
         }
+        
+        @Override public void actionPerformed(ActionEvent e){
+            player.changeCurrentYPosBy(player.getSpeedY() * direction);
+            if(Game.this.isDebugModeOn) player.printCurrentPositionInWorld();
+        }
+    }
+    
+    private class MoveXAction extends AbstractAction{
+        private double direction;
+        
+        public MoveXAction(double direction){
+            this.direction = direction;
+        }
+        
+        @Override public void actionPerformed(ActionEvent e){
+            player.changeCurrentXPosBy(player.getSpeedX() * direction);
+            if(Game.this.isDebugModeOn) player.printCurrentPositionInWorld();
     }
 }
