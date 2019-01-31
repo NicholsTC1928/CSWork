@@ -48,10 +48,15 @@ public class Game extends JPanel implements Runnable {
     private boolean gameIsRunning = true;
     public LinkedList<Object> currentEntities = new LinkedList<Object>();
     Player player = new Player();
+    private boolean isMovingUp = false;
+    private boolean isMovingDown = false;
+    private boolean isMovingLeft = false;
+    private boolean isMovingRight = false;
     
     //The following consists of key binding variables. The non-final variables could be changed by reading a 
     //configuration value.
     private final String MOVE_UP = "Move Up";
+    private final String MOVE_UP_STOP = "Stop Move Up";
     private final String MOVE_DOWN = "Move Down";
     private final String MOVE_LEFT = "Move Left";
     private final String MOVE_RIGHT = "Move Right";
@@ -79,8 +84,8 @@ public class Game extends JPanel implements Runnable {
     private String shootDownKey = "DOWN";
     private String shootLeftKey = "LEFT";
     private String shootRightKey = "RIGHT";
-    private String slideKey = "shift SHIFT";
-    private String dolphinDiveKey = "control CONTROL";
+    private String slideKey = "SHIFT";
+    private String dolphinDiveKey = "CONTROL";
     private String interactKey = "F"; //More often than not, people will use "E" for this. Hence, key bindings are essential.
     private String healKey = "E";
     private String meleeKey = "V";
@@ -89,7 +94,7 @@ public class Game extends JPanel implements Runnable {
     private String weapon1Key = "1";
     private String weapon2Key = "2";
     private final String weaponMuleKickKey = "3";
-    private String consoleKey = "`";
+    private String consoleKey = "BACK_QUOTE"; //Supposedly, BACK_QUOTE represents `.
 
     private Timer timerForFPS = new Timer();
     private TimerTask updateFPS = new TimerTask(){
@@ -121,8 +126,10 @@ public class Game extends JPanel implements Runnable {
         consistencyCheck.start();
         
         //The following is a list of inputs that are assigned as the game starts.
-        setInputMap(moveUpKey,MOVE_UP); //input.getInputMap(IFW).put(moveUpKey,MOVE_UP);
-        setActionMap(MOVE_UP,new MoveYAction(-1.0)); //input.getActionMap().put(MOVE_UP,new MoveUpAction());
+        setInputMap(moveUpKey,false,MOVE_UP); //input.getInputMap(IFW).put(moveUpKey,MOVE_UP);
+        setActionMap(MOVE_UP,new MoveUpAction()); //input.getActionMap().put(MOVE_UP,new MoveUpAction());
+        setInputMap(moveUpKey,true,MOVE_UP_STOP);
+        setActionMap(MOVE_UP_STOP,new MoveUpRelease());
         setInputMap(moveDownKey,MOVE_DOWN);
         setActionMap(MOVE_DOWN,new MoveYAction(1.0));
         setInputMap(moveLeftKey,MOVE_LEFT);
@@ -291,7 +298,19 @@ public class Game extends JPanel implements Runnable {
         */
         player.setSpeedX(player.getSpeedX() * player.getSpeedMultiplier() * dt);
         player.setSpeedY(player.getSpeedY() * player.getSpeedMultiplier() * dt);
-        System.out.println("dt: " + dt);
+        if(this.isDebugModeOn) System.out.println("dt: " + dt);
+        if(this.isMovingUp && !this.isMovingDown){
+            player.changeCurrentYPosBy(player.getSpeedY() * -1.0);
+        }
+        else if(this.isMovingDown && !this.isMovingUp){
+            player.changeCurrentYPosBy(player.getSpeedY());
+        }
+        if(this.isMovingLeft && !this.isMovingRight){
+            player.changeCurrentXPosBy(player.getSpeedX() * -1.0);
+        }
+        else if(this.isMovingRight && !this.isMovingLeft){
+            player.changeCurrentXPosBy(player.getSpeedX());
+        }
     }
     
     private void initGameBoard(){
@@ -337,28 +356,35 @@ public class Game extends JPanel implements Runnable {
         
     }
     
-    private void setInputMap(String key,String action){
-        this.input.getInputMap(IFW).put(KeyStroke.getKeyStroke(key),action);
+    private void setInputMap(String key,boolean isReleaseAction,String action){
+        this.input.getInputMap(IFW).put(KeyStroke.getKeyStroke(getKeyCodeFromString(key),0,isReleaseAction),action);
     }
     
     private void setActionMap(String action,AbstractAction actionObject){
         this.input.getActionMap().put(action,actionObject);
     }
     
+    /*
     private void rebindKey(KeyEvent ke,String oldKey){
         this.input.getInputMap(IFW).remove(KeyStroke.getKeyStroke(oldKey));
         this.input.getInputMap(IFW).put(KeyStroke.getKeyStrokeForEvent(ke),input.getInputMap(IFW).get(KeyStroke.getKeyStroke(oldKey)));
     }
+    */
+    
+    private int getKeyCodeFromString(String key){
+        return ((int)KeyEvent.class.getField("VK_" + key).getInt(null));
+    }
 
-    private class MoveYAction extends AbstractAction{
-        private double direction;
-        
-        public MoveYAction(double direction){
-            this.direction = direction;
-        }
-        
+    private class MoveUpAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
-            player.changeCurrentYPosBy(player.getSpeedY() * direction);
+            Game.this.isMovingUp = true;
+            //player.changeCurrentYPosBy(player.getSpeedY() * direction);
+        }
+    }
+    
+    private class MoveUpRelease extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            Game.this.isMovingUp = false;
             if(Game.this.isDebugModeOn) player.printCurrentPositionInWorld();
         }
     }
