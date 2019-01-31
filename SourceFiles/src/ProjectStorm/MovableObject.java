@@ -16,7 +16,7 @@ public class MovableObject{
     }
     
     public MovableObject(){
-        this(4.0,4.0,100,false);
+        this(1.5,1.5,100,false);
         /*
         If no parameters are provided, then a new movable object is created with...
         - 4.0 speed in the x- and y-directions

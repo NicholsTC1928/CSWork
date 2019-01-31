@@ -11,12 +11,12 @@ public class Perks extends Player{
     }
     
     public void addQuickRevive(){
-        hasQuickRevive++;
+        changeQuickReviveState(true);
         addPerk("Quick Revive");
     }
     
     public void addDoubleTap(){
-        setFireRateMultiplier(4/3); //This may not be the actual multiplier.
+        setFireRateMultiplier(4.0/3.0); //This may not be the actual multiplier.
         setDamageMultiplier(2.0);
         addPerk("Double Tap 2.0 Root Beer");
     }
@@ -53,7 +53,7 @@ public class Perks extends Player{
     
     public void addWhosWho(){
         changeWhosWhoState(true);
-        addPerk("Who's Who);
+        addPerk("Who's Who");
     }
     
     public void addVulturesAid(){

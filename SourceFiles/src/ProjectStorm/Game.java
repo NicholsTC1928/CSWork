@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 import ProjectStorm.InitializeWindow;
+import java.lang.*;
 
 /*
 The following PC port necessities HAVE BEEN properly implemented:
@@ -33,6 +34,8 @@ public class Game extends JPanel implements Runnable {
     private final double SCALE_Y;
     private final double INV_SCALE_X;
     private final double INV_SCALE_Y;
+    private final double SCALE_WORLD_X_TO_PIXELS;
+    private final double SCALE_WORLD_Y_TO_PIXELS;
     private Thread runnerAnim;
     volatile boolean running = true;
     private final int DELAY = 25;
@@ -114,13 +117,18 @@ public class Game extends JPanel implements Runnable {
             }
         };
         consistencyCheck.start();
-        
+        input.getInputMap(IFW).put(KeyStroke.getKeyStroke("W"),MOVE_UP);
+        input.getActionMap().put(MOVE_UP,new MoveUpAction());
+        add(input);
+        setActionMap(MOVE_UP,new MoveUpAction());
         this.isDebugModeOn = InitializeWindow.getDebugModeState();
         this.displayFPSCount = InitializeWindow.getFPSCountState();
         this.SCALE_X = InitializeWindow.getScaleX();
         this.INV_SCALE_X = (1.0 / SCALE_X);
         this.SCALE_Y = InitializeWindow.getScaleY();
         this.INV_SCALE_Y = (1.0 / SCALE_Y);
+        this.SCALE_WORLD_X_TO_PIXELS = (SCALE_X * 1920.0) / 400.0;
+        this.SCALE_WORLD_Y_TO_PIXELS = (SCALE_Y * 1080.0) / 400.0;
         if(this.isDebugModeOn){
             this.isInGame = true;
             System.out.println("Debug Mode has been successfully activated.");
@@ -144,18 +152,30 @@ public class Game extends JPanel implements Runnable {
 
     @Override public void paintComponent(Graphics g){
         super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.scale(SCALE_X,SCALE_Y); //The graphics scaling uses 1920 x 1080 as the default resolution. Keep this in
+        //mind when determining how to scale certain objects.
+
+        //Supposedly, scaling by the inverse of the normal scales fixes mouse coordinates.
+        //g.scale(INV_SCALE_X,INV_SCALE_Y); //Remove the comment marks in order to test the aforementioned theory.
         //FPSCheckDebug(g,this.isBlack);
         if(this.displayFPSCount){
         //drawFPSRect(g); - Is the rectangle really necessary with such a high-contrast FPS counter?
         drawFPSCount(g);
         }
+        if(this.isInGame){
+            drawPlayer(g);
+        }
 
-        Graphics2D g2 = (Graphics2D) g;
-        g2.scale(SCALE_X,SCALE_Y); //The graphics scaling uses 1920 x 1080 as the default resolution. Keep this in
-        //mind when determining how to scale certain objects.
-        
-        //Supposedly, scaling by the inverse of the normal scales fixes mouse coordinates.
-        //g.scale(INV_SCALE_X,INV_SCALE_Y); //Remove the comment marks in order to test the aforementioned theory.
+    }
+
+    private void drawPlayer(Graphics g){
+        //Replace the rectangle with the image of the player when it is ready.
+        g.setColor(Color.BLACK);
+
+        g.setColor(Color.WHITE);
+        g.fillRect(scaleWorldToPixelsX(player.getCurrentXPos()),scaleWorldToPixelsY(player.getCurrentYPos()),50,70);
+        Toolkit.getDefaultToolkit().sync();
     }
     
     private void drawFPSRect(Graphics g){
@@ -206,9 +226,11 @@ public class Game extends JPanel implements Runnable {
         while(gameIsRunning){
             long now = System.nanoTime();
             long updateLength = now - beforeTime;
+            //System.out.println(updateLength);
             beforeTime = now;
-            double dt = (updateLength / (double)OPTIMAL_TIME);
-
+            long dt = (updateLength / OPTIMAL_TIME);
+            if(dt == 0) dt = 1; //This line prevents the physics from stalling if the game is running too fast (i.e.,
+            //now - beforeTime ~= 0).
             //Update the game logic here, using dt to determine the change in time.
             if(!gameIsPaused) updateGameLogic(dt);
             repaint();
@@ -234,7 +256,7 @@ public class Game extends JPanel implements Runnable {
         }
     }
 
-    private void updateGameLogic(double dt){
+    private void updateGameLogic(long dt){
         /*
         In this method, change the physics (speed of objects, etc.) by multiplying each physics-related variable by dt.
         This would mean having to make sure that each physics-related variable is a double (recommended), or that dt is
@@ -242,6 +264,7 @@ public class Game extends JPanel implements Runnable {
         */
         player.setSpeedX(player.getSpeedX() * player.getSpeedMultiplier() * dt);
         player.setSpeedY(player.getSpeedY() * player.getSpeedMultiplier() * dt);
+        System.out.println("dt: " + dt);
     }
     
     private void initGameBoard(){
@@ -252,7 +275,23 @@ public class Game extends JPanel implements Runnable {
         //Dimension tempDimension = new Dimension(1920,975);
         //setPreferredSize(resolution);
     }
-    
+
+    private int scaleWorldToPixelsX(double worldValue){
+        return (int)(worldValue * SCALE_WORLD_X_TO_PIXELS);
+    }
+
+    private int scaleWorldToPixelsY(double worldValue){
+        return (int)(worldValue * SCALE_WORLD_Y_TO_PIXELS);
+    }
+
+    private double scalePixelsToWorldX(double pixelValue){
+        return (pixelValue * SCALE_X);
+    }
+
+    private double scalePixelsToWorldY(double pixelValue){
+        return (pixelValue * SCALE_Y);
+    }
+
     private void initializeGameSpawn(){
         //The first thing that should be done is to scale the in-game measurement units with the screen resolution.
         double worldTopLeftX = 0.0;
@@ -282,5 +321,12 @@ public class Game extends JPanel implements Runnable {
     private void rebindKey(KeyEvent ke,String oldKey){
         input.getInputMap(IFW).remove(KeyStroke.getKeyStroke(oldKey));
         input.getInputMap(IFW).put(KeyStroke.getKeyStrokeForEvent(ke),input.getInputMap(IFW).get(KeyStroke.getKeyStroke(oldKey)));
+    }
+
+    private class MoveUpAction extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            player.changeCurrentYPosBy(player.getSpeedY() * -1.0);
+            System.out.println("Current Position: " + player.getCurrentYPos());
+        }
     }
 }
