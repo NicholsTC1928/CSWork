@@ -222,4 +222,8 @@ public class Player extends MovableObject{
             else this.setHealth(this.getHealth() - calcHD);
         }
     }
+    
+    public void printCurrentPositionInWorld(){
+        System.out.println("Current Position: (" + this.getCurrentXPos() + ", " + this.getCurrentYPos() + ")");
+    }
 }
