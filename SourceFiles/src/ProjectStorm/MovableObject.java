@@ -4,13 +4,17 @@ public class MovableObject{
     private double currentXPos;
     private double currentYPos;
     private double speedX;
+    private final double initialSpeedX;
     private double speedY;
+    private final double initialSpeedY;
     private int health;
     private boolean isInvincible;
     
     public MovableObject(double speedX,double speedY,int health,boolean isInvincible){
         this.speedX = speedX;
+        this.initialSpeedX = speedX;
         this.speedY = speedY;
+        this.initialSpeedY = speedY;
         this.health = health;
         this.isInvincible = isInvincible;
     }
@@ -52,6 +56,10 @@ public class MovableObject{
     public double getSpeedX(){
         return this.speedX;
     }
+
+    public double getInitialSpeedX(){
+        return this.initialSpeedX;
+    }
     
     public void setSpeedX(double newSpeedX){
         this.speedX = newSpeedX;
@@ -59,6 +67,10 @@ public class MovableObject{
     
     public double getSpeedY(){
         return this.speedY;
+    }
+
+    public double getInitialSpeedY(){
+        return this.initialSpeedY;
     }
     
     public void setSpeedY(double newSpeedY){

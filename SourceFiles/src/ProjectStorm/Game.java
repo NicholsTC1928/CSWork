@@ -9,16 +9,17 @@ import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 import ProjectStorm.InitializeWindow;
-import java.lang.*;
+import java.lang.reflect.*;
 
 /*
 The following PC port necessities HAVE BEEN properly implemented:
     -FPS Counter
     -Fullscreen Mode
+    -FPS Cap (The physics remain constant, regardless of the frame rate! (Just be sure to add methods to the
+    updateGameLogic(dt) methods that modify all physics-related variables.)
 
 The following PC port necessities NEED TO BE properly implemented:
     -Key Bindings
-    -FPS Cap (Potentially Implemented - Testing Required)
     -Resolution Scaling
 */
 
@@ -41,10 +42,10 @@ public class Game extends JPanel implements Runnable {
     private final int DELAY = 25;
     private int totalFramesCount = 0;
     private int framesToDisplay = 0;
-    private final int FPS_CAP = 60;
+    private final int FPS_CAP = 1;
     private boolean isBlack = true;
     private final long OPTIMAL_TIME = (1000000000 / FPS_CAP);
-    private final long OPTIMAL_TIME_FOR_PHYSICS = (1000000000 / 60); //This means that the base physics should 
+    private final double OPTIMAL_TIME_FOR_PHYSICS = (1000000000.0 / 60.0); //This means that the base physics should
     //be programmed with 60 FPS in mind, although testing with varying frame rates will be required.
     private boolean gameIsRunning = true;
     public LinkedList<Object> currentEntities = new LinkedList<Object>();
@@ -104,7 +105,7 @@ public class Game extends JPanel implements Runnable {
     private TimerTask updateFPS = new TimerTask(){
         @Override public void run(){
             if(!displayFPSCount) return;
-            framesToDisplay = (totalFramesCount / 2);
+            framesToDisplay = (totalFramesCount);
             //I don't know why, but dividing the totalFramesCount by 2 fixes the FPS display.
             //Setting a variable to display the current frame count every second makes sure that the counter is only
             //printed once every second.
@@ -276,9 +277,10 @@ public class Game extends JPanel implements Runnable {
             long updateLength = now - beforeTime;
             //System.out.println(updateLength);
             beforeTime = now;
-            long dt = (updateLength / OPTIMAL_TIME_FOR_PHYSICS);
-            if(dt == 0) dt = 1; //This line prevents the physics from stalling if the game is running too fast (i.e.,
-            //now - beforeTime ~= 0).
+            double dt = (updateLength / OPTIMAL_TIME_FOR_PHYSICS);
+            if(dt == 0) dt = (60.0 / FPS_CAP); //This line prevents the physics from stalling if the game is running too fast (i.e.,
+            //now - beforeTime ~= 0). In order for this to happen, the frame rate must be the same as the cap (hence
+            //the calculation of FPS_CAP / 60).
             //Update the game logic here, using dt to determine the change in time.
             if(!gameIsPaused) updateGameLogic(dt);
             repaint();
@@ -304,7 +306,7 @@ public class Game extends JPanel implements Runnable {
         }
     }
 
-    private void updateGameLogic(long dt){
+    private void updateGameLogic(double dt){
         /*
         In this method, change the physics (speed of objects, etc.) by multiplying each physics-related variable by dt.
         This would mean having to make sure that each physics-related variable is a double (recommended), or that dt is
@@ -312,7 +314,10 @@ public class Game extends JPanel implements Runnable {
         */
         player.setSpeedX(player.getSpeedX() * player.getSpeedMultiplier() * dt);
         player.setSpeedY(player.getSpeedY() * player.getSpeedMultiplier() * dt);
-        if(this.isDebugModeOn) System.out.println("dt: " + dt);
+        if(this.isDebugModeOn){
+            System.out.println("dt: " + dt);
+            //System.out.println(player.getSpeedX() + " / " + player.getSpeedY());
+        }
         if(this.isMovingUp && !this.isMovingDown){
             player.changeCurrentYPosBy(player.getSpeedY() * -1.0);
         }
@@ -325,6 +330,14 @@ public class Game extends JPanel implements Runnable {
         else if(this.isMovingRight && !this.isMovingLeft){
             player.changeCurrentXPosBy(player.getSpeedX());
         }
+        //The following two methods are required so that on the next loop of the updateGameLogic() method, the
+        //preceding setSpeedX() and setSpeedY() methods set the speed based on its original value, rather than
+        //what the loop set it to. (In other words, without these next two methods, the speed of the player
+        //object would continue to decrease, approaching 0.)
+        player.setSpeedX(player.getInitialSpeedX());
+        player.setSpeedY(player.getInitialSpeedY());
+        //Similar methods must be added for EVERY physics-related object; otherwise, the aforementioned problem will
+        //occur.
     }
     
     private void initGameBoard(){
@@ -386,7 +399,20 @@ public class Game extends JPanel implements Runnable {
     */
     
     private int getKeyCodeFromString(String key){
-        return ((int)KeyEvent.class.getField("VK_" + key).getInt(null));
+        try{
+            Field field = KeyEvent.class.getDeclaredField("VK_" + key);
+            return field.getInt(null);
+        }
+        catch(NoSuchFieldException e){
+            System.out.println("ERROR: The KeyEvent field specified does not exist. Did you type in the correct" +
+                    "letter/name for the key? (See the moveUpKey, moveDownKey, etc. fields for correct examples.)");
+            return -1;
+        }
+        catch(IllegalAccessException e){
+            System.out.println("ERROR: Access to the field's integer value has been denied. If you are seeing this" +
+                    "error, then you may need to implement a new method for defining keys.");
+            return -1;
+        }
     }
 
     private class MoveUpAction extends AbstractAction{
