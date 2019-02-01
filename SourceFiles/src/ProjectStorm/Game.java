@@ -44,7 +44,8 @@ public class Game extends JPanel implements Runnable {
     private final int FPS_CAP = 60;
     private boolean isBlack = true;
     private final long OPTIMAL_TIME = (1000000000 / FPS_CAP);
-    private final long OPTIMAL_TIME_FOR_PHYSICS = (1000000000 / 60);
+    private final long OPTIMAL_TIME_FOR_PHYSICS = (1000000000 / 60); //This means that the base physics should 
+    //be programmed with 60 FPS in mind, although testing with varying frame rates will be required.
     private boolean gameIsRunning = true;
     public LinkedList<Object> currentEntities = new LinkedList<Object>();
     Player player = new Player();
@@ -58,8 +59,11 @@ public class Game extends JPanel implements Runnable {
     private final String MOVE_UP = "Move Up";
     private final String MOVE_UP_STOP = "Stop Move Up";
     private final String MOVE_DOWN = "Move Down";
+    private final String MOVE_DOWN_STOP = "Stop Move Down";
     private final String MOVE_LEFT = "Move Left";
+    private final String MOVE_LEFT_STOP = "Stop Move Left";
     private final String MOVE_RIGHT = "Move Right";
+    private final String MOVE_RIGHT_STOP = "Stop Move Right";
     private final String SHOOT_UP = "Shoot Up";
     private final String SHOOT_DOWN = "Shoot Down";
     private final String SHOOT_LEFT = "Shoot Left";
@@ -126,16 +130,26 @@ public class Game extends JPanel implements Runnable {
         consistencyCheck.start();
         
         //The following is a list of inputs that are assigned as the game starts.
+        //Move Up
         setInputMap(moveUpKey,false,MOVE_UP); //input.getInputMap(IFW).put(moveUpKey,MOVE_UP);
         setActionMap(MOVE_UP,new MoveUpAction()); //input.getActionMap().put(MOVE_UP,new MoveUpAction());
         setInputMap(moveUpKey,true,MOVE_UP_STOP);
         setActionMap(MOVE_UP_STOP,new MoveUpRelease());
-        setInputMap(moveDownKey,MOVE_DOWN);
-        setActionMap(MOVE_DOWN,new MoveYAction(1.0));
-        setInputMap(moveLeftKey,MOVE_LEFT);
-        setActionMap(MOVE_LEFT,new MoveXAction(-1.0));
-        setInputMap(moveRightKey,MOVE_RIGHT);
-        setActionMap(MOVE_RIGHT,new MoveXAction(1.0));
+        //Move Down
+        setInputMap(moveDownKey,false,MOVE_DOWN);
+        setActionMap(MOVE_DOWN,new MoveDownAction());
+        setInputMap(moveDownKey,true,MOVE_DOWN_STOP);
+        setActionMap(MOVE_DOWN_STOP,new MoveDownRelease());
+        //Move Left
+        setInputMap(moveLeftKey,false,MOVE_LEFT);
+        setActionMap(MOVE_LEFT,new MoveLeftAction());
+        setInputMap(moveLeftKey,true,MOVE_LEFT_STOP);
+        setActionMap(MOVE_LEFT_STOP,new MoveLeftRelease());
+        //Move Right
+        setInputMap(moveRightKey,false,MOVE_RIGHT);
+        setActionMap(MOVE_RIGHT,new MoveRightAction());
+        setInputMap(moveRightKey,true,MOVE_RIGHT_STOP);
+        setActionMap(MOVE_RIGHT_STOP,new MoveRightRelease());
         
         /*
         The following inputs still need to be assigned:
@@ -389,6 +403,46 @@ public class Game extends JPanel implements Runnable {
         }
     }
     
+    private class MoveDownAction extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            Game.this.isMovingDown = true;
+        }
+    }
+    
+    private class MoveDownRelease extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            Game.this.isMovingDown = false;
+            if(Game.this.isDebugModeOn) player.printCurrentPositionInWorld();
+        }
+    }
+    
+    private class MoveLeftAction extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            Game.this.isMovingLeft = true;
+        }
+    }
+    
+    private class MoveLeftRelease extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            Game.this.isMovingLeft = false;
+            if(Game.this.isDebugModeOn) player.printCurrentPositionInWorld();
+        }
+    }
+    
+    private class MoveRightAction extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            Game.this.isMovingRight = true;
+        }
+    }
+    
+    private class MoveRightRelease extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            Game.this.isMovingRight = false;
+            if(Game.this.isDebugModeOn) player.printCurrentPositionInWorld();
+        }
+    }
+    
+    /*
     private class MoveXAction extends AbstractAction{
         private double direction;
         
@@ -400,4 +454,5 @@ public class Game extends JPanel implements Runnable {
             player.changeCurrentXPosBy(player.getSpeedX() * direction);
             if(Game.this.isDebugModeOn) player.printCurrentPositionInWorld();
     }
+    */
 }
