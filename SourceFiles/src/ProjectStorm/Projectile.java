@@ -8,15 +8,24 @@ public class Projectile{
     private double currentXPos;
     private double currentYPos;
     private boolean isExplosive;
+    private final boolean initialIsExplosive,
+    private int damage;
+    private double explosiveDamageRadius;
     
-    public Projectile(double speedX,double speedY,double currentPosX,double currentPosY,boolean isExplosive){
+    public Projectile(boolean isExplosive,double speedX,double speedY,double currentXPos,double currentYPos,int damage,double radius){
+        this.isExplosive = isExplosive;
+        this.initialIsExplosive = isExplosive;
+        this.explosiveDamageRadius = radius;
         this.speedX = speedX;
         this.initialSpeedX = speedX;
         this.speedY = speedY;
         this.initialSpeedY = speedY;
         this.currentXPos = currentXPos;
         this.currentYPos = currentYPos;
-        this.isExplosive = isExplosive;
+    }
+    
+    public Projectile(double speedX,double speedY,double currentXPos,double currentYPos,int damage){
+        this(false,speedX,speedY,currentXPos,currentYPos,damage,-1.0);
     }
     
     public double getSpeedX(){
@@ -27,7 +36,7 @@ public class Projectile{
         this.speedX *= multiplier;
     }
     
-    public double setSpeedX(new speed){
+    public double setSpeedX(double speed){
         this.speedX = speed;
     }
     
@@ -43,7 +52,7 @@ public class Projectile{
         this.speedY *= multiplier;
     }
     
-    public double setSpeedY(new speed){
+    public double setSpeedY(double speed){
         this.speedY = speed;
     }
     
@@ -59,5 +68,39 @@ public class Projectile{
         this.currentXPos += speed;
     }
     
-    public void setCurrentXPos(
+    public void setCurrentXPos(double pos){
+        this.currentXPos = pos;
+    }
+    
+    public double getCurrentYPos(){
+        return this.currentYPos;
+    }
+    
+    public void changeCurrentYPosBy(double speed){
+        this.currentYPos += speed;
+    }
+    
+    public void setCurrentYPos(double pos){
+        this.currentYPos = pos;
+    }
+    
+    public boolean getIsExplosive(){
+        return this.isExplosive;
+    }
+    
+    public void setIsExplosive(boolean isExplosive){
+        this.isExplosive = isExplosive;
+    }
+    
+    public boolean getInitialIsExplosive(){
+        return this.initialIsExplosive;
+    }
+    
+    public double getExplosiveDamageRadius(){
+        return this.explosiveDamageRadius;
+    }
+    
+    public void multiplyExplosiveDamageRadiusBy(double multiplier){
+        this.explosiveDamageRadius *= multiplier;
+    }
 }
