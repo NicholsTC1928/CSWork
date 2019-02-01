@@ -16,7 +16,7 @@ The following PC port necessities HAVE BEEN properly implemented:
     -FPS Counter
     -Fullscreen Mode
     -FPS Cap (The physics remain constant, regardless of the frame rate! (Just be sure to add methods to the
-    updateGameLogic(dt) methods that modify all physics-related variables.)
+    updateGameLogic(dt) methods that modify all physics-related variables.))
 
 The following PC port necessities NEED TO BE properly implemented:
     -Key Bindings
