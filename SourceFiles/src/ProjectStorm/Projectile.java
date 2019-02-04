@@ -8,7 +8,7 @@ public class Projectile{
     private double currentXPos;
     private double currentYPos;
     private boolean isExplosive;
-    private final boolean initialIsExplosive,
+    private final boolean initialIsExplosive;
     private int damage;
     private double explosiveDamageRadius;
     
@@ -36,7 +36,7 @@ public class Projectile{
         this.speedX *= multiplier;
     }
     
-    public double setSpeedX(double speed){
+    public void setSpeedX(double speed){
         this.speedX = speed;
     }
     
@@ -52,7 +52,7 @@ public class Projectile{
         this.speedY *= multiplier;
     }
     
-    public double setSpeedY(double speed){
+    public void setSpeedY(double speed){
         this.speedY = speed;
     }
     

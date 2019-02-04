@@ -55,6 +55,8 @@ public class Player extends MovableObject{
     - Tombstone Soda (Note: This could be used if a multiplayer game is implemented.)
     */
     public ArrayList<String> availablePerks = new ArrayList<String>();
+    private String[] currentWeapons = new String[3];
+    private int equippedWeaponIndex = 0;
     
     public Player(){
         this.setHealth(100);
@@ -63,6 +65,9 @@ public class Player extends MovableObject{
         //The following two variables assume that the play space is 400 x 400 units squared.
         this.goToXPos(200.0);
         this.goToYPos(200.0);
+        this.currentWeapons[0] = "M1911";
+        this.currentWeapons[1] = null;
+        this.currentWeapons[2] = null;
     }
 
     private void initializeAvailablePerksList(){
@@ -225,5 +230,17 @@ public class Player extends MovableObject{
     
     public void printCurrentPositionInWorld(){
         System.out.println("Current Position: (" + this.getCurrentXPos() + ", " + this.getCurrentYPos() + ")");
+    }
+
+    public void addWeaponToInventory(String newWeapon,int slotIndex){
+        if(this.currentWeapons[1] == null) this.currentWeapons[1] = newWeapon;
+        else if(this.currentWeapons[2] == null && this.hasMuleKick) this.currentWeapons[2] = newWeapon;
+        else this.currentWeapons[slotIndex] = newWeapon;
+    }
+
+    public void swapEquippedWeapon(int newIndex){
+        if((newIndex == 2 && !this.hasMuleKick) || this.currentWeapons[newIndex] == null || newIndex == this.equippedWeaponIndex) return;
+        this.equippedWeaponIndex = newIndex;
+        System.out.println("Equipped Weapon: " + this.currentWeapons[this.equippedWeaponIndex]);
     }
 }

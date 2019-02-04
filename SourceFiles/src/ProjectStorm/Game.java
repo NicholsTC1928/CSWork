@@ -42,9 +42,10 @@ public class Game extends JPanel implements Runnable {
     private final int DELAY = 25;
     private int totalFramesCount = 0;
     private int framesToDisplay = 0;
-    private final int FPS_CAP = 1;
+    private final int FPS_CAP = 60;
     private boolean isBlack = true;
-    private final long OPTIMAL_TIME = (1000000000 / FPS_CAP);
+    private final long OPTIMAL_TIME = (1000000000 / (FPS_CAP / 2)); //I don't know why, but dividing FPS_CAP by 2 caps
+    //the game at the specified frame rate cap.
     private final double OPTIMAL_TIME_FOR_PHYSICS = (1000000000.0 / 60.0); //This means that the base physics should
     //be programmed with 60 FPS in mind, although testing with varying frame rates will be required.
     private boolean gameIsRunning = true;
@@ -54,6 +55,10 @@ public class Game extends JPanel implements Runnable {
     private boolean isMovingDown = false;
     private boolean isMovingLeft = false;
     private boolean isMovingRight = false;
+    private boolean isFacingUp = false;
+    private boolean isFacingDown = true;
+    private boolean isFacingLeft = false;
+    private boolean isFacingRight = false;
     
     //The following consists of key binding variables. The non-final variables could be changed by reading a 
     //configuration value.
@@ -151,6 +156,15 @@ public class Game extends JPanel implements Runnable {
         setActionMap(MOVE_RIGHT,new MoveRightAction());
         setInputMap(moveRightKey,true,MOVE_RIGHT_STOP);
         setActionMap(MOVE_RIGHT_STOP,new MoveRightRelease());
+        //Weapon 1
+        setInputMap(weapon1Key,false,WEAPON_1);
+        setActionMap(WEAPON_1,new SwapEquippedWeapon(0));
+        //Weapon 2
+        setInputMap(weapon2Key,false,WEAPON_2);
+        setActionMap(WEAPON_2,new SwapEquippedWeapon(1));
+        //Weapon 3 (Mule Kick Weapon)
+        setInputMap(weaponMuleKickKey,false,WEAPON_MULE_KICK);
+        setActionMap(WEAPON_MULE_KICK,new SwapEquippedWeapon(2));
         
         /*
         The following inputs still need to be assigned:
@@ -162,9 +176,6 @@ public class Game extends JPanel implements Runnable {
             -Melee
             -Previous Weapon
             -Next Weapon
-            -Weapon 1
-            -Weapon 2
-            -Weapon 3 (Mule Kick Weapon)
             -Developer Console
         */
         add(input);
@@ -320,15 +331,19 @@ public class Game extends JPanel implements Runnable {
         }
         if(this.isMovingUp && !this.isMovingDown){
             player.changeCurrentYPosBy(player.getSpeedY() * -1.0);
+            changeFacingDirection("Up");
         }
         else if(this.isMovingDown && !this.isMovingUp){
             player.changeCurrentYPosBy(player.getSpeedY());
+            changeFacingDirection("Down");
         }
         if(this.isMovingLeft && !this.isMovingRight){
             player.changeCurrentXPosBy(player.getSpeedX() * -1.0);
+            changeFacingDirection("Left");
         }
         else if(this.isMovingRight && !this.isMovingLeft){
             player.changeCurrentXPosBy(player.getSpeedX());
+            changeFacingDirection("Right");
         }
         //The following two methods are required so that on the next loop of the updateGameLogic() method, the
         //preceding setSpeedX() and setSpeedY() methods set the speed based on its original value, rather than
@@ -415,6 +430,42 @@ public class Game extends JPanel implements Runnable {
         }
     }
 
+    private void changeFacingDirection(String direction){
+        if(direction.equals("Up")){
+            this.isFacingUp = true;
+            this.isFacingDown = false;
+            this.isFacingLeft = false;
+            this.isFacingRight = false;
+        }
+        else if(direction.equals("Down")){
+            this.isFacingUp = false;
+            this.isFacingDown = true;
+            this.isFacingLeft = false;
+            this.isFacingRight = false;
+        }
+        else if(direction.equals("Left")){
+            this.isFacingUp = false;
+            this.isFacingDown = false;
+            this.isFacingLeft = true;
+            this.isFacingRight = false;
+        }
+        else{
+            this.isFacingUp = false;
+            this.isFacingDown = false;
+            this.isFacingLeft = false;
+            this.isFacingRight = true;
+        }
+    }
+
+    private Projectile createProjectile(String weaponName){
+        switch(weaponName){
+            case "M1911":
+                return new Projectile(false,4.0,4.0,player.getCurrentXPos(),player.getCurrentYPos(),15,-1.0);
+            default:
+                return new Projectile(false,0.0,0.0,-10.0,-10.0,0,-1.0); //This should never happen.
+        }
+    }
+
     private class MoveUpAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
             Game.this.isMovingUp = true;
@@ -465,6 +516,24 @@ public class Game extends JPanel implements Runnable {
         @Override public void actionPerformed(ActionEvent e){
             Game.this.isMovingRight = false;
             if(Game.this.isDebugModeOn) player.printCurrentPositionInWorld();
+        }
+    }
+
+    private class ShootUpAction extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+
+        }
+    }
+
+    private class SwapEquippedWeapon extends AbstractAction{
+        private int newIndex;
+
+        public SwapEquippedWeapon(int newIndex){
+            this.newIndex = newIndex;
+        }
+
+        @Override public void actionPerformed(ActionEvent e){
+            player.swapEquippedWeapon(newIndex);
         }
     }
     
