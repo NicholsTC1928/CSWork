@@ -16,7 +16,7 @@ The following PC port necessities HAVE BEEN properly implemented:
     -FPS Counter
     -Fullscreen Mode
     -FPS Cap (The physics remain constant, regardless of the frame rate! (Just be sure to add methods to the
-    updateGameLogic(dt) methods that modify all physics-related variables.))
+    updateGameLogic(dt) method that modify all physics-related variables.))
 
 The following PC port necessities NEED TO BE properly implemented:
     -Key Bindings
@@ -49,7 +49,8 @@ public class Game extends JPanel implements Runnable {
     private final double OPTIMAL_TIME_FOR_PHYSICS = (1000000000.0 / 60.0); //This means that the base physics should
     //be programmed with 60 FPS in mind, although testing with varying frame rates will be required.
     private boolean gameIsRunning = true;
-    public LinkedList<Object> currentEntities = new LinkedList<Object>();
+    public LinkedList<MovableObject> currentEntities = new LinkedList<Object>();
+    public LinkedList<Projectile> currentProjectiles = new LinkedList<Projectile>();
     Player player = new Player();
     private boolean isMovingUp = false;
     private boolean isMovingDown = false;
@@ -156,6 +157,18 @@ public class Game extends JPanel implements Runnable {
         setActionMap(MOVE_RIGHT,new MoveRightAction());
         setInputMap(moveRightKey,true,MOVE_RIGHT_STOP);
         setActionMap(MOVE_RIGHT_STOP,new MoveRightRelease());
+        //Shoot Up
+        setInputMap(shootUpKey,false,SHOOT_UP);
+        setActionMap(SHOOT_UP,new ShootUpAction());
+        //Shoot Down
+        setInputMap(shootDownKey,false,SHOOT_DOWN);
+        setActionMap(SHOOT_DOWN,new ShootDownAction());
+        //Shoot Left
+        setInputMap(shootLeftKey,false,SHOOT_LEFT);
+        setActionMap(SHOOT_LEFT,new ShootLeftAction());
+        //Shoot Right
+        setInputMap(shootRightKey,false,SHOOT_RIGHT);
+        setActionMap(SHOOT_RIGHT,new ShootRightAction());
         //Weapon 1
         setInputMap(weapon1Key,false,WEAPON_1);
         setActionMap(WEAPON_1,new SwapEquippedWeapon(0));
@@ -353,6 +366,11 @@ public class Game extends JPanel implements Runnable {
         player.setSpeedY(player.getInitialSpeedY());
         //Similar methods must be added for EVERY physics-related object; otherwise, the aforementioned problem will
         //occur.
+        Iterator<Projectile> i = this.currentProjectiles.iterator();
+        while(i.hasNext()){
+            Projectile temp = i.next();
+            double in
+        }
     }
     
     private void initGameBoard(){
@@ -457,12 +475,29 @@ public class Game extends JPanel implements Runnable {
         }
     }
 
-    private Projectile createProjectile(String weaponName){
+    private void createProjectilePlayer(String weaponName,int playerDY,int playerDX){
+        /*
+        The default constructor for a Projectile object is as follows:
+        
+        public Projectile(boolean isExplosive,double speedX,double speedY,double currentXPos,double currentYPos,int damage,double radius){
+            ...
+        }
+        
+        -------------------------------------------------------------------------------
+        
+        Alternatively, the following constructor can be used for non-explosive weapons:
+        
+        public Projectile(double speedX,double speedY,double currentXPos,double currentYPos,int damage){
+            [This constructor refers to the first constructor, setting isExplosive to false and radius to -1.0.]
+        }
+        */
         switch(weaponName){
             case "M1911":
-                return new Projectile(false,4.0,4.0,player.getCurrentXPos(),player.getCurrentYPos(),15,-1.0);
+                currentProjectiles.add(new Projectile(false,(4.0 * playerDX),(4.0 * playerDY),player.getCurrentXPos(),player.getCurrentYPos(),15,-1.0));
+                break;
+                //return new Projectile(false,speedX,speedY,player.getCurrentXPos(),player.getCurrentYPos(),15,-1.0);
             default:
-                return new Projectile(false,0.0,0.0,-10.0,-10.0,0,-1.0); //This should never happen.
+                break; //This should never happen.
         }
     }
 
@@ -521,7 +556,25 @@ public class Game extends JPanel implements Runnable {
 
     private class ShootUpAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
-
+            createProjectilePlayer(player.currentWeapons[player.equippedWeaponIndex],-1,0);
+        }
+    }
+    
+    private class ShootDownAction extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            createProjectilePlayer(player.currentWeapons[player.equippedWeaponIndex],1,0);
+        }
+    }
+    
+    private class ShootLeftAction extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            createProjectilePlayer(player.currentWeapons[player.equippedWeaponIndex],0,-1);
+        }
+    }
+    
+    private class ShootRightAction extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            createProjectilePlayer(player.currentWeapons[player.equippedWeaponIndex],0,1);
         }
     }
 
