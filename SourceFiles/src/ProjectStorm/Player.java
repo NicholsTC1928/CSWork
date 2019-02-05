@@ -80,6 +80,10 @@ public class Player extends MovableObject{
         this.currentWeapons[2] = null;
     }
 
+    public String getEquippedWeapon(){
+        return this.currentWeapons[this.equippedWeaponIndex];
+    }
+
     private void initializeAvailablePerksList(){
         availablePerks.addAll(Arrays.asList(PERKS_LIST));
     }

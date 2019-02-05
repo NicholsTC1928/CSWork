@@ -10,6 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import ProjectStorm.InitializeWindow;
 import java.lang.reflect.*;
+import java.util.Iterator;
 
 /*
 The following PC port necessities HAVE BEEN properly implemented:
@@ -49,7 +50,7 @@ public class Game extends JPanel implements Runnable {
     private final double OPTIMAL_TIME_FOR_PHYSICS = (1000000000.0 / 60.0); //This means that the base physics should
     //be programmed with 60 FPS in mind, although testing with varying frame rates will be required.
     private boolean gameIsRunning = true;
-    public LinkedList<MovableObject> currentEntities = new LinkedList<Object>();
+    public LinkedList<MovableObject> currentEntities = new LinkedList<MovableObject>();
     public LinkedList<Projectile> currentProjectiles = new LinkedList<Projectile>();
     Player player = new Player();
     private boolean isMovingUp = false;
@@ -135,7 +136,7 @@ public class Game extends JPanel implements Runnable {
             }
         };
         consistencyCheck.start();
-        
+
         //The following is a list of inputs that are assigned as the game starts.
         //Move Up
         setInputMap(moveUpKey,false,MOVE_UP); //input.getInputMap(IFW).put(moveUpKey,MOVE_UP);
@@ -238,6 +239,7 @@ public class Game extends JPanel implements Runnable {
         }
         if(this.isInGame){
             drawPlayer(g);
+            drawProjectiles(g);
         }
 
     }
@@ -249,6 +251,17 @@ public class Game extends JPanel implements Runnable {
         g.setColor(Color.WHITE);
         g.fillRect(scaleWorldToPixelsX(player.getCurrentXPos()),scaleWorldToPixelsY(player.getCurrentYPos()),50,70);
         Toolkit.getDefaultToolkit().sync();
+    }
+
+    private void drawProjectiles(Graphics g){
+        //Replace the rectangle with the image of the respective projectile.
+        g.setColor(Color.BLUE);
+        Iterator<Projectile> i = this.currentProjectiles.iterator();
+        while(i.hasNext()){
+            Projectile temp = i.next();
+            g.fillRect(scaleWorldToPixelsX(temp.getCurrentXPos()),scaleWorldToPixelsY(temp.getCurrentYPos()),20,20);
+            Toolkit.getDefaultToolkit().sync();
+        }
     }
     
     private void drawFPSRect(Graphics g){
@@ -367,10 +380,20 @@ public class Game extends JPanel implements Runnable {
         //Similar methods must be added for EVERY physics-related object; otherwise, the aforementioned problem will
         //occur.
         Iterator<Projectile> i = this.currentProjectiles.iterator();
+        //LinkedList<Projectile> toRemove = new LinkedList<Projectile>();
         while(i.hasNext()){
             Projectile temp = i.next();
-            double in
+            double initialSpeedX = temp.getSpeedX();
+            double initialSpeedY = temp.getSpeedY();
+            temp.setSpeedX(temp.getSpeedX() * dt);
+            temp.setSpeedY(temp.getSpeedY() * dt);
+            temp.changeCurrentXPosBy(temp.getSpeedX());
+            temp.changeCurrentYPosBy(temp.getSpeedY());
+            temp.setSpeedX(initialSpeedX);
+            temp.setSpeedY(initialSpeedY);
+            if(temp.getCurrentXPos() <= -10.0 || temp.getCurrentXPos() >= 410.0 || temp.getCurrentYPos() <= -10.0 || temp.getCurrentYPos() > 410.0) temp = null;
         }
+        //this.currentProjectiles.removeAll(toRemove);
     }
     
     private void initGameBoard(){
@@ -556,25 +579,25 @@ public class Game extends JPanel implements Runnable {
 
     private class ShootUpAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
-            createProjectilePlayer(player.currentWeapons[player.equippedWeaponIndex],-1,0);
+            createProjectilePlayer(player.getEquippedWeapon(),-1,0);
         }
     }
     
     private class ShootDownAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
-            createProjectilePlayer(player.currentWeapons[player.equippedWeaponIndex],1,0);
+            createProjectilePlayer(player.getEquippedWeapon(),1,0);
         }
     }
     
     private class ShootLeftAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
-            createProjectilePlayer(player.currentWeapons[player.equippedWeaponIndex],0,-1);
+            createProjectilePlayer(player.getEquippedWeapon(),0,-1);
         }
     }
     
     private class ShootRightAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
-            createProjectilePlayer(player.currentWeapons[player.equippedWeaponIndex],0,1);
+            createProjectilePlayer(player.getEquippedWeapon(),0,1);
         }
     }
 
