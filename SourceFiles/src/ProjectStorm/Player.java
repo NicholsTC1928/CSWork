@@ -57,6 +57,12 @@ public class Player extends MovableObject{
     public ArrayList<String> availablePerks = new ArrayList<String>();
     private String[] currentWeapons = new String[3];
     private int equippedWeaponIndex = 0;
+    //For the following arrays, the element at index 0 is the ammo in the magazine, while the element at index 1 is the total reserve ammo.
+    //The element at index 2 is the initial magazine size, which is used for reloading the weapon.
+    //The element at index 3 is the initial reserves size, which is used for Max Ammo powerups.
+    private int[] ammoForWeapon1 = new int[4];
+    private int[] ammoForWeapon2 = new int[4];
+    private int[] ammoForWeaponMuleKick = new int[4];
     
     public Player(){
         this.setHealth(100);
@@ -66,6 +72,10 @@ public class Player extends MovableObject{
         this.goToXPos(200.0);
         this.goToYPos(200.0);
         this.currentWeapons[0] = "M1911";
+        this.ammoForWeapon1[0] = 8;
+        this.ammoForWeapon1[1] = 32;
+        this.ammoForWeapon1[2] = this.ammoForWeapon1[0];
+        this.ammoForWeapon1[3] = this.ammoForWeapon1[1];
         this.currentWeapons[1] = null;
         this.currentWeapons[2] = null;
     }
@@ -242,5 +252,51 @@ public class Player extends MovableObject{
         if((newIndex == 2 && !this.hasMuleKick) || this.currentWeapons[newIndex] == null || newIndex == this.equippedWeaponIndex) return;
         this.equippedWeaponIndex = newIndex;
         System.out.println("Equipped Weapon: " + this.currentWeapons[this.equippedWeaponIndex]);
+    }
+    
+    public void reloadEquippedWeapon(){
+        switch(this.equippedWeaponIndex){
+            case 0:
+                if(this.ammoForWeapon1[1] == 0){
+                    break;
+                }
+                if(this.ammoForWeapon1[1] >= (this.ammoForWeapon1[2] - this.ammoForWeapon1[0])){
+                    this.ammoForWeapon1[1] -= (this.ammoForWeapon1[2] - this.ammoForWeapon1[0]);
+                    this.ammoForWeapon1[0] = this.ammoForWeapon1[2];
+                }
+                else{
+                    this.ammoForWeapon1[0] += this.ammoForWeapon1[1];
+                    this.ammoForWeapon1[1] = 0;
+                }
+                break;
+            case 1:
+                if(this.ammoForWeapon2[1] == 0){
+                    break;
+                }
+                if(this.ammoForWeapon2[1] >= (this.ammoForWeapon2[2] - this.ammoForWeapon2[0])){
+                    this.ammoForWeapon2[1] -= (this.ammoForWeapon2[2] - this.ammoForWeapon2[0]);
+                    this.ammoForWeapon2[0] = this.ammoForWeapon2[2];
+                }
+                else{
+                    this.ammoForWeapon2[0] += this.ammoForWeapon2[1];
+                    this.ammoForWeapon2[1] = 0;
+                }
+                break;
+            case 2:
+                if(this.ammoForWeaponMuleKick[1] == 0){
+                    break;
+                }
+                if(this.ammoForWeaponMuleKick[1] >= (this.ammoForWeaponMuleKick[2] - this.ammoForWeaponMuleKick[0])){
+                    this.ammoForWeaponMuleKick[1] -= (this.ammoForWeaponMuleKick[2] - this.ammoForWeaponMuleKick[0]);
+                    this.ammoForWeaponMuleKick[0] = this.ammoForWeaponMuleKick[2];
+                }
+                else{
+                    this.ammoForWeaponMuleKick[0] += this.ammoForWeaponMuleKick[1];
+                    this.ammoForWeaponMuleKick[1] = 0;
+                }
+                break;
+            default:
+                break;
+        }
     }
 }
