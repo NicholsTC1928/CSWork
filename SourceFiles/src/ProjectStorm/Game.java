@@ -592,8 +592,9 @@ public class Game extends JPanel implements Runnable {
     }
 
     private class ShootUpAction extends AbstractAction{
+        boolean hasShotEquippedWeapon = false;
+
         @Override public void actionPerformed(ActionEvent e){
-            boolean hasShotEquippedWeapon = false;
             try {
                 Field equippedWeaponShotCheck = Game.class.getDeclaredField("hasShotWeapon" + (player.getEquippedWeaponIndex() + 1));
                 hasShotEquippedWeapon = equippedWeaponShotCheck.getBoolean(this);

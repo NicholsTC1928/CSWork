@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Player.java" afterDir="false" />
     </list>
     <ignored path="CompiledPrograms/production/SourceFiles/argumentSimulator/Back-up/branches.java.bak" />
     <ignored path="CompiledPrograms/production/SourceFiles/argumentSimulator/Back-up/game.java.bak" />
@@ -81,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="608" column="76" lean-forward="true" selection-start-line="608" selection-start-column="76" selection-end-line="608" selection-end-column="76" />
+            <state relative-caret-position="164">
+              <caret line="596" column="61" selection-start-line="596" selection-start-column="61" selection-end-line="596" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2173#2188#0" expanded="true" />
@@ -359,8 +357,8 @@
         <option value="$PROJECT_DIR$/SourceFiles/src/polymorphismExample/Poly.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/polymorphismExample/D.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/polymorphismExample/Main.java" />
-        <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Player.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" />
       </list>
     </option>
   </component>
@@ -718,7 +716,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549465631345" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549465757337" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -791,14 +789,7 @@
       <workItem from="1544111193532" duration="4564000" />
       <workItem from="1544457251099" duration="18693000" />
       <workItem from="1546960354381" duration="5938000" />
-      <workItem from="1547134321591" duration="54055000" />
-    </task>
-    <task id="LOCAL-00040" summary="Updated the Ti-Tac-Toe game. (11/2)">
-      <created>1541174812030</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1541174812030</updated>
+      <workItem from="1547134321591" duration="54187000" />
     </task>
     <task id="LOCAL-00041" summary="Updated the Tic-Tac-Toe game. (11/6)">
       <created>1541434745524</created>
@@ -1136,11 +1127,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549382722769</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Updated Project Storm. (2/6)">
+      <created>1549465649835</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1549465649835</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225426000" />
+    <option name="totallyTimeSpent" value="225558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="363" y="96" width="1467" height="898" extended-state="0" />
@@ -1161,9 +1159,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49612948" weight="0.33159947" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49612948" visible="true" weight="0.33159947" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5038705" side_tool="true" weight="0.33159947" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="10" sideWeight="0.498893" visible="true" weight="0.32769832" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.498893" weight="0.32769832" />
       <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.32904884" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32899868" />
@@ -1225,7 +1223,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added the Array Lists notes and updated the Argument Simulator. (12/12)" />
     <MESSAGE value="Reformatted the .git folder and updated the Argument Simulator. (12/13)" />
     <MESSAGE value="Added the Christmas Gift. (12/17)" />
     <MESSAGE value="Updated the Christmas Gift. (12/18)" />
@@ -1250,7 +1247,8 @@
     <MESSAGE value="Updated Project Storm. (2/1)" />
     <MESSAGE value="Updated Project Storm. (2/4)" />
     <MESSAGE value="Updated Project Storm. (2/5)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Project Storm. (2/5)" />
+    <MESSAGE value="Updated Project Storm. (2/6)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Project Storm. (2/6)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/christmasGift/intros.java">
@@ -1790,8 +1788,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="608" column="76" lean-forward="true" selection-start-line="608" selection-start-column="76" selection-end-line="608" selection-end-column="76" />
+        <state relative-caret-position="164">
+          <caret line="596" column="61" selection-start-line="596" selection-start-column="61" selection-end-line="596" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2173#2188#0" expanded="true" />
