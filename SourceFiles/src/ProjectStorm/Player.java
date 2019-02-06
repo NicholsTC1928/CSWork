@@ -63,6 +63,7 @@ public class Player extends MovableObject{
     private int[] ammoForWeapon1 = new int[4];
     private int[] ammoForWeapon2 = new int[4];
     private int[] ammoForWeaponMuleKick = new int[4];
+    private boolean isEquippedWeaponAutomatic = false;
     
     public Player(){
         this.setHealth(100);
@@ -191,6 +192,10 @@ public class Player extends MovableObject{
         this.perkLimit++;
     }
     
+    public int getEquippedWeaponIndex(){
+        return this.equippedWeaponIndex;
+    }
+    
     public void checkIfDead(){
         //Who's Who needs to override Quick Revive.
         if(hasWhosWho){
@@ -255,7 +260,18 @@ public class Player extends MovableObject{
     public void swapEquippedWeapon(int newIndex){
         if((newIndex == 2 && !this.hasMuleKick) || this.currentWeapons[newIndex] == null || newIndex == this.equippedWeaponIndex) return;
         this.equippedWeaponIndex = newIndex;
+        switch(this.currentWeapons[this.equippedWeaponIndex]){
+            case "M1911":
+                this.isEquippedWeaponAutomatic = false;
+                break;
+            default:
+                break;
+        }
         System.out.println("Equipped Weapon: " + this.currentWeapons[this.equippedWeaponIndex]);
+    }
+    
+    public boolean getIsEquippedWeaponAutomatic(){
+        return this.isEquippedWeaponAutomatic;
     }
     
     public void reloadEquippedWeapon(){
