@@ -22,6 +22,7 @@ The following PC port necessities HAVE BEEN properly implemented:
 The following PC port necessities NEED TO BE properly implemented:
     -Key Bindings
     -Resolution Scaling
+    -V-Sync Toggle
 */
 
 public class Game extends JPanel implements Runnable {
@@ -61,6 +62,9 @@ public class Game extends JPanel implements Runnable {
     private boolean isFacingDown = true;
     private boolean isFacingLeft = false;
     private boolean isFacingRight = false;
+    private boolean hasShotWeapon1 = false;
+    private boolean hasShotWeapon2 = false;
+    private boolean hasShotWeapon3 = false;
     
     //The following consists of key binding variables. The non-final variables could be changed by reading a 
     //configuration value.
@@ -579,7 +583,23 @@ public class Game extends JPanel implements Runnable {
 
     private class ShootUpAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
-            createProjectilePlayer(player.getEquippedWeapon(),-1,0);
+            Field equippedWeaponShotCheck = Game.class.getDeclaredField("hasShotWeapon" + (player.getEquippedWeaponIndex + 1));
+            boolean hasShotEquippedWeapon = equippedWeaponShotCheck.getBoolean(this);
+            if(!player.getIsEquippedWeaponAutomatic){
+                if(!hasShotEquippedWeapon){
+                    createProjectilePlayer(player.getEquippedWeapon(),-1,0);
+                }
+                
+            }
+            else{
+                
+            }
+        }
+    }
+    
+    private class ShootUpRelease extends AbstractAction{
+        @Override public void actionPerformed(ActionEvent e){
+            
         }
     }
     
