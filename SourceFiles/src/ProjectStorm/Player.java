@@ -64,6 +64,9 @@ public class Player extends MovableObject{
     private int[] ammoForWeapon2 = new int[4];
     private int[] ammoForWeaponMuleKick = new int[4];
     private boolean isEquippedWeaponAutomatic = false;
+    private int weapon1CooldownTimer = 0;
+    private int weapon2CooldownTimer = 0;
+    private int weapon3CooldownTimer = 0;
     
     public Player(){
         this.setHealth(100);
@@ -257,12 +260,53 @@ public class Player extends MovableObject{
         else this.currentWeapons[slotIndex] = newWeapon;
     }
 
+    public void setCooldownTimerInMs(int timer){
+        switch(this.equippedWeaponIndex){
+            case 0:
+                this.weapon1CooldownTimer = timer;
+                break;
+            case 1:
+                this.weapon2CooldownTimer = timer;
+                break;
+            case 2:
+                this.weapon3CooldownTimer = timer;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public int getWeapon1CooldownTimerInMs(){
+        return this.weapon1CooldownTimer;
+    }
+
+    public int getWeapon1CooldownTimerInS(){
+        return (this.weapon1CooldownTimer / 1000);
+    }
+
+    public int getWeapon2CooldownTimerInMs(){
+        return this.weapon2CooldownTimer;
+    }
+
+    public int getWeapon2CooldownTimerInS(){
+        return (this.weapon2CooldownTimer / 1000);
+    }
+
+    public int getWeapon3CooldownTimerInMs(){
+        return this.weapon3CooldownTimer;
+    }
+
+    public int getWeapon3CooldownTimerInS(){
+        return (this.weapon3CooldownTimer / 1000);
+    }
+
     public void swapEquippedWeapon(int newIndex){
         if((newIndex == 2 && !this.hasMuleKick) || this.currentWeapons[newIndex] == null || newIndex == this.equippedWeaponIndex) return;
         this.equippedWeaponIndex = newIndex;
         switch(this.currentWeapons[this.equippedWeaponIndex]){
             case "M1911":
                 this.isEquippedWeaponAutomatic = false;
+                setCooldownTimerInMs(100);
                 break;
             default:
                 break;

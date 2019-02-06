@@ -65,6 +65,9 @@ public class Game extends JPanel implements Runnable {
     private boolean hasShotWeapon1 = false;
     private boolean hasShotWeapon2 = false;
     private boolean hasShotWeapon3 = false;
+    private boolean weapon1Cooldown = false;
+    private boolean weapon2Cooldown = false;
+    private boolean weapon3Cooldown = false;
     
     //The following consists of key binding variables. The non-final variables could be changed by reading a 
     //configuration value.
@@ -528,6 +531,13 @@ public class Game extends JPanel implements Runnable {
         }
     }
 
+    private void setWeaponShotState(){
+        switch(player.getEquippedWeaponIndex()){
+            case 0:
+                this.hasShotWeapon1 = true;
+        }
+    }
+
     private class MoveUpAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
             Game.this.isMovingUp = true;
@@ -583,9 +593,18 @@ public class Game extends JPanel implements Runnable {
 
     private class ShootUpAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
-            Field equippedWeaponShotCheck = Game.class.getDeclaredField("hasShotWeapon" + (player.getEquippedWeaponIndex + 1));
-            boolean hasShotEquippedWeapon = equippedWeaponShotCheck.getBoolean(this);
-            if(!player.getIsEquippedWeaponAutomatic){
+            boolean hasShotEquippedWeapon = false;
+            try {
+                Field equippedWeaponShotCheck = Game.class.getDeclaredField("hasShotWeapon" + (player.getEquippedWeaponIndex() + 1));
+                hasShotEquippedWeapon = equippedWeaponShotCheck.getBoolean(this);
+            }
+            catch(NoSuchFieldException ex){
+                System.out.println("The specified field does not exist. (Is there a typo in the equippedWeaponShotCheck declaration?)");
+            }
+            catch(IllegalAccessException ex){
+                System.out.println("Access to the hasShotWeaponX field has been denied. The program will likely crash now.");
+            }
+            if(!player.getIsEquippedWeaponAutomatic()){
                 if(!hasShotEquippedWeapon){
                     createProjectilePlayer(player.getEquippedWeapon(),-1,0);
                 }
