@@ -591,8 +591,15 @@ public class Game extends JPanel implements Runnable {
         }
     }
 
-    private class ShootUpAction extends AbstractAction{
+    private class ShootAction extends AbstractAction{
+        int dx;
+        int dy;
         boolean hasShotEquippedWeapon = false;
+        
+        public ShootAction(int dy,int dx){
+            this.dy = dy; //-1 for Up / 1 for Down / 0 for Neither
+            this.dx = dx; //-1 for Left / 1 for Right / 0 for Neither
+        }
 
         @Override public void actionPerformed(ActionEvent e){
             try {
@@ -607,7 +614,20 @@ public class Game extends JPanel implements Runnable {
             }
             if(!player.getIsEquippedWeaponAutomatic()){
                 if(!hasShotEquippedWeapon){
-                    createProjectilePlayer(player.getEquippedWeapon(),-1,0);
+                    createProjectilePlayer(player.getEquippedWeapon(),this.dy,this.dx);
+                    switch(player.getEquippedWeaponIndex()){
+                        case 0:
+                            Game.this.hasShotWeapon1 = true;
+                            break;
+                        case 1:
+                            Game.this.hasShotWeapon2 = true;
+                            break;
+                        case 2:
+                            Game.this.hasShotWeapon3 = true;
+                            break;
+                        default:
+                            break;
+                    }
                 }
                 
             }
@@ -617,7 +637,7 @@ public class Game extends JPanel implements Runnable {
         }
     }
     
-    private class ShootUpRelease extends AbstractAction{
+    private class ShootRelease extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
             
         }
