@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.lang.reflect.*;
 
 public class Player extends MovableObject{
     private int armor;
     private int perkLimit;
     private int currentPerkCount;
+    private boolean hasShotWeapon1 = false;
+    private boolean hasShotWeapon2 = false;
+    private boolean hasShotWeapon3 = false;
     
     //Stats Affected by Quick Revive
     private boolean hasQuickRevive = false;
@@ -278,28 +282,30 @@ public class Player extends MovableObject{
         }
     }
 
-    public int getWeapon1CooldownTimerInMs(){
-        return this.weapon1CooldownTimer;
+    public int getWeaponCooldownTimerInMs(int weaponIndex){
+        switch(weaponIndex){
+            case 0:
+                return this.weapon1CooldownTimer;
+            case 1:
+                return this.weapon2CooldownTimer;
+            case 2:
+                return this.weapon3CooldownTimer;
+            default: //This should never happen.
+                return 0;
+        }
     }
 
-    public int getWeapon1CooldownTimerInS(){
-        return (this.weapon1CooldownTimer / 1000);
-    }
-
-    public int getWeapon2CooldownTimerInMs(){
-        return this.weapon2CooldownTimer;
-    }
-
-    public int getWeapon2CooldownTimerInS(){
-        return (this.weapon2CooldownTimer / 1000);
-    }
-
-    public int getWeapon3CooldownTimerInMs(){
-        return this.weapon3CooldownTimer;
-    }
-
-    public int getWeapon3CooldownTimerInS(){
-        return (this.weapon3CooldownTimer / 1000);
+    public int getWeaponCooldownTimerInS(int weaponIndex){
+        switch(weaponIndex){
+            case 0:
+                return (this.weapon1CooldownTimer / 1000);
+            case 1:
+                return (this.weapon2CooldownTimer / 1000);
+            case 2:
+                return (this.weapon3CooldownTimer / 1000);
+            default: //This also should never happen.
+                return 0;
+        }
     }
 
     public void swapEquippedWeapon(int newIndex){
@@ -308,7 +314,7 @@ public class Player extends MovableObject{
         switch(this.currentWeapons[this.equippedWeaponIndex]){
             case "M1911":
                 this.isEquippedWeaponAutomatic = false;
-                setCooldownTimerInMs(100);
+                setCooldownTimerInMs(1000);
                 break;
             default:
                 break;
@@ -316,13 +322,30 @@ public class Player extends MovableObject{
         System.out.println("Equipped Weapon: " + this.currentWeapons[this.equippedWeaponIndex]);
     }
     
-    public void activateEquippedWeaponOnCooldown(){
+    public void activateWeaponCooldownTimer(int weaponIndex){
         Timer cooldown = new Timer();
         TimerTask cooldownTask = new TimerTask(){
             @Override public void run(){
-                a
+                Player.this.setWeaponShotState(weaponIndex,false);
             }
         };
+        cooldown.schedule(cooldownTask,getWeaponCooldownTimerInMs(weaponIndex));
+    }
+
+    public void setWeaponShotState(int weaponIndex,boolean newState){
+        switch(weaponIndex){
+            case 0:
+                this.hasShotWeapon1 = newState;
+                break;
+            case 1:
+                this.hasShotWeapon2 = newState;
+                break;
+            case 2:
+                this.hasShotWeapon3 = newState;
+                break;
+            default:
+                break;
+        }
     }
     
     public boolean getIsEquippedWeaponAutomatic(){

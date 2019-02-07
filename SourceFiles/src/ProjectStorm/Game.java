@@ -62,9 +62,7 @@ public class Game extends JPanel implements Runnable {
     private boolean isFacingDown = true;
     private boolean isFacingLeft = false;
     private boolean isFacingRight = false;
-    private boolean hasShotWeapon1 = false;
-    private boolean hasShotWeapon2 = false;
-    private boolean hasShotWeapon3 = false;
+    private boolean isShooting = false;
     private boolean weapon1Cooldown = false;
     private boolean weapon2Cooldown = false;
     private boolean weapon3Cooldown = false;
@@ -80,9 +78,13 @@ public class Game extends JPanel implements Runnable {
     private final String MOVE_RIGHT = "Move Right";
     private final String MOVE_RIGHT_STOP = "Stop Move Right";
     private final String SHOOT_UP = "Shoot Up";
+    private final String SHOOT_UP_STOP= "Stop Shoot Up";
     private final String SHOOT_DOWN = "Shoot Down";
+    private final String SHOOT_DOWN_STOP = "Stop Shoot Down";
     private final String SHOOT_LEFT = "Shoot Left";
+    private final String SHOOT_LEFT_STOP = "Stop Shoot Left";
     private final String SHOOT_RIGHT = "Shoot Right";
+    private final String SHOOT_RIGHT_STOP = "Stop Shoot Right";
     private final String SLIDE = "Slide";
     private final String DOLPHIN_DIVE = "Dolphin Dive (Ph.D. Flopper)";
     private final String INTERACT = "Interact/Use";
@@ -167,16 +169,24 @@ public class Game extends JPanel implements Runnable {
         setActionMap(MOVE_RIGHT_STOP,new MoveRightRelease());
         //Shoot Up
         setInputMap(shootUpKey,false,SHOOT_UP);
-        setActionMap(SHOOT_UP,new ShootUpAction());
+        setActionMap(SHOOT_UP,new ShootAction(-1,0));
+        setInputMap(shootUpKey,true,SHOOT_UP_STOP);
+        setActionMap(SHOOT_UP_STOP,new ShootRelease());
         //Shoot Down
         setInputMap(shootDownKey,false,SHOOT_DOWN);
-        setActionMap(SHOOT_DOWN,new ShootDownAction());
+        setActionMap(SHOOT_DOWN,new ShootAction(1,0));
+        setInputMap(shootDownKey,true,SHOOT_DOWN_STOP);
+        setActionMap(SHOOT_DOWN_STOP,new ShootRelease());
         //Shoot Left
         setInputMap(shootLeftKey,false,SHOOT_LEFT);
-        setActionMap(SHOOT_LEFT,new ShootLeftAction());
+        setActionMap(SHOOT_LEFT,new ShootAction(0,-1));
+        setInputMap(shootLeftKey,true,SHOOT_LEFT_STOP);
+        setActionMap(SHOOT_LEFT_STOP,new ShootRelease());
         //Shoot Right
         setInputMap(shootRightKey,false,SHOOT_RIGHT);
-        setActionMap(SHOOT_RIGHT,new ShootRightAction());
+        setActionMap(SHOOT_RIGHT,new ShootAction(0,1));
+        setInputMap(shootRightKey,true,SHOOT_RIGHT_STOP);
+        setActionMap(SHOOT_RIGHT_STOP,new ShootRelease());
         //Weapon 1
         setInputMap(weapon1Key,false,WEAPON_1);
         setActionMap(WEAPON_1,new SwapEquippedWeapon(0));
@@ -531,12 +541,7 @@ public class Game extends JPanel implements Runnable {
         }
     }
 
-    private void setWeaponShotState(){
-        switch(player.getEquippedWeaponIndex()){
-            case 0:
-                this.hasShotWeapon1 = true;
-        }
-    }
+
 
     private class MoveUpAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
@@ -603,7 +608,7 @@ public class Game extends JPanel implements Runnable {
 
         @Override public void actionPerformed(ActionEvent e){
             try {
-                Field equippedWeaponShotCheck = Game.class.getDeclaredField("hasShotWeapon" + (player.getEquippedWeaponIndex() + 1));
+                Field equippedWeaponShotCheck = Player.class.getDeclaredField("hasShotWeapon" + (player.getEquippedWeaponIndex() + 1));
                 hasShotEquippedWeapon = equippedWeaponShotCheck.getBoolean(this);
             }
             catch(NoSuchFieldException ex){
@@ -613,33 +618,22 @@ public class Game extends JPanel implements Runnable {
                 System.out.println("Access to the hasShotWeaponX field has been denied. The program will likely crash now.");
             }
             if(!player.getIsEquippedWeaponAutomatic()){
-                if(!hasShotEquippedWeapon){
+                if(!hasShotEquippedWeapon && !Game.this.isShooting){
                     createProjectilePlayer(player.getEquippedWeapon(),this.dy,this.dx);
-                    switch(player.getEquippedWeaponIndex()){
-                        case 0:
-                            Game.this.hasShotWeapon1 = true;
-                            break;
-                        case 1:
-                            Game.this.hasShotWeapon2 = true;
-                            break;
-                        case 2:
-                            Game.this.hasShotWeapon3 = true;
-                            break;
-                        default:
-                            break;
-                    }
+                    player.setWeaponShotState(player.getEquippedWeaponIndex(),true);
+                    Game.this.isShooting = true;
+                    player.activateWeaponCooldownTimer(player.getEquippedWeaponIndex());
                 }
-                
             }
             else{
-                
+                //Add in the automatic weapon implementation here.
             }
         }
     }
     
     private class ShootRelease extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
-            
+            Game.this.isShooting = false;
         }
     }
     
