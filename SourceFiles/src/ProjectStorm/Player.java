@@ -2,6 +2,8 @@ package ProjectStorm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Player extends MovableObject{
     private int armor;
@@ -312,6 +314,15 @@ public class Player extends MovableObject{
                 break;
         }
         System.out.println("Equipped Weapon: " + this.currentWeapons[this.equippedWeaponIndex]);
+    }
+    
+    public void activateEquippedWeaponOnCooldown(){
+        Timer cooldown = new Timer();
+        TimerTask cooldownTask = new TimerTask(){
+            @Override public void run(){
+                a
+            }
+        };
     }
     
     public boolean getIsEquippedWeaponAutomatic(){
