@@ -86,7 +86,12 @@ public class Player extends MovableObject{
         this.ammoForWeapon1[1] = 32;
         this.ammoForWeapon1[2] = this.ammoForWeapon1[0];
         this.ammoForWeapon1[3] = this.ammoForWeapon1[1];
-        this.currentWeapons[1] = null;
+        this.currentWeapons[1] = "Thompson";
+        this.ammoForWeapon2[0] = 20;
+        this.ammoForWeapon2[1] = 200;
+        this.ammoForWeapon2[2] = this.ammoForWeapon2[0];
+        this.ammoForWeapon2[3] = this.ammoForWeapon2[1];
+        //this.currentWeapons[1] = null;
         this.currentWeapons[2] = null;
     }
 
@@ -316,22 +321,16 @@ public class Player extends MovableObject{
                 this.isEquippedWeaponAutomatic = false;
                 setCooldownTimerInMs(1000);
                 break;
+            case "Thompson":
+                this.isEquippedWeaponAutomatic = true;
+                setCooldownTimerInMs(1000);
+                break;
             default:
                 break;
         }
         System.out.println("Equipped Weapon: " + this.currentWeapons[this.equippedWeaponIndex]);
     }
     
-    public void activateWeaponCooldownTimer(int weaponIndex){
-        Timer cooldown = new Timer();
-        TimerTask cooldownTask = new TimerTask(){
-            @Override public void run(){
-                Player.this.setWeaponShotState(weaponIndex,false);
-            }
-        };
-        cooldown.schedule(cooldownTask,getWeaponCooldownTimerInMs(weaponIndex));
-    }
-
     public void setWeaponShotState(int weaponIndex,boolean newState){
         switch(weaponIndex){
             case 0:
@@ -350,6 +349,35 @@ public class Player extends MovableObject{
     
     public boolean getIsEquippedWeaponAutomatic(){
         return this.isEquippedWeaponAutomatic;
+    }
+    
+    public void decrementAmmoOfEquippedWeapon(){
+        switch(this.equippedWeaponIndex){
+            case 0:
+                this.ammoForWeapon1[0]--;
+                break;
+            case 1:
+                this.ammoForWeapon2[0]--;
+                break;
+            case 2:
+                this.ammoForWeapon3[0]--;
+                break;
+            default:
+                break;
+        }
+    }
+    
+    public boolean hasAmmoInMagazineOfEquippedWeapon(){
+        switch(this.equippedWeaponIndex){
+            case 0:
+                return (this.ammoForWeapon1[0] > 0);
+            case 1:
+                return (this.ammoForWeapon2[0] > 0);
+            case 2:
+                return (this.ammoForWeapon3[0] > 0);
+            default:
+                return false;
+        }
     }
     
     public void reloadEquippedWeapon(){
