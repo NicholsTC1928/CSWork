@@ -617,12 +617,7 @@ public class Game extends JPanel implements Runnable {
                 //player.decrementAmmoOfEquippedWeapon();
             }
         };
-        Timer semiFireCooldownTimer = new Timer();
-        TimerTask semiFireCooldownTask = new TimerTask(){
-            @Override public void run(){
-                Game.this.isAbleToShoot = true;
-            }
-        };
+        
 
 
         
@@ -649,6 +644,12 @@ public class Game extends JPanel implements Runnable {
                     //Game.this.isShooting = true;
                     fireTask.run();
                     Game.this.isAbleToShoot = false;
+                    Timer semiFireCooldownTimer = new Timer();
+                    TimerTask semiFireCooldownTask = new TimerTask(){
+                        @Override public void run(){
+                            Game.this.isAbleToShoot = true;
+                        }
+                    };
                     //Game.this.isAbleToShootCheck = false;
                     semiFireCooldownTimer.schedule(semiFireCooldownTask,(int)(player.getWeaponCooldownTimerInMs(player.getEquippedWeaponIndex()) / player.getFireRateMultiplier()));
                     //fireTimer.schedule(fireTask,0);
