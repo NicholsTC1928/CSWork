@@ -63,6 +63,8 @@ public class Game extends JPanel implements Runnable {
     private boolean isFacingLeft = false;
     private boolean isFacingRight = false;
     private boolean isShooting = false;
+    private boolean isAbleToShoot = true;
+    private boolean isAbleToShootCheck = true;
     private boolean weapon1Cooldown = false;
     private boolean weapon2Cooldown = false;
     private boolean weapon3Cooldown = false;
@@ -608,13 +610,21 @@ public class Game extends JPanel implements Runnable {
         int dx;
         int dy;
         boolean hasShotEquippedWeapon = false;
-        Timer automaticFireTimer = new Timer();
-        TimerTask automaticFireTask = new TimerTask(){
+        Timer fireTimer = new Timer();
+        TimerTask fireTask = new TimerTask(){
             @Override public void run(){
-                if(player.hasAmmoInMagazineOfEquippedWeapon()) createProjectilePlayer(player.getEquippedWeapon(),this.dy,this.dx);
-                player.decrementAmmoOfEquippedWeapon();
+                if(player.hasAmmoInMagazineOfEquippedWeapon()) createProjectilePlayer(player.getEquippedWeapon(),dy,dx);
+                //player.decrementAmmoOfEquippedWeapon();
             }
         };
+        Timer semiFireCooldownTimer = new Timer();
+        TimerTask semiFireCooldownTask = new TimerTask(){
+            @Override public void run(){
+                Game.this.isAbleToShoot = true;
+            }
+        };
+
+
         
         public ShootAction(int dy,int dx){
             this.dy = dy; //-1 for Up / 1 for Down / 0 for Neither
@@ -622,6 +632,7 @@ public class Game extends JPanel implements Runnable {
         }
 
         @Override public void actionPerformed(ActionEvent e){
+            /*
             try {
                 Field equippedWeaponShotCheck = Player.class.getDeclaredField("hasShotWeapon" + (player.getEquippedWeaponIndex() + 1));
                 hasShotEquippedWeapon = equippedWeaponShotCheck.getBoolean(this);
@@ -632,25 +643,35 @@ public class Game extends JPanel implements Runnable {
             catch(IllegalAccessException ex){
                 System.out.println("Access to the hasShotWeaponX field has been denied. The program will likely crash now.");
             }
+            */
             if(!player.getIsEquippedWeaponAutomatic()){
-                if(!hasShotEquippedWeapon && !Game.this.isShooting){
+                if(Game.this.isAbleToShoot){
+                    //Game.this.isShooting = true;
+                    fireTask.run();
+                    Game.this.isAbleToShoot = false;
+                    //Game.this.isAbleToShootCheck = false;
+                    semiFireCooldownTimer.schedule(semiFireCooldownTask,(int)(player.getWeaponCooldownTimerInMs(player.getEquippedWeaponIndex()) / player.getFireRateMultiplier()));
+                    //fireTimer.schedule(fireTask,0);
+                    /*
                     createProjectilePlayer(player.getEquippedWeapon(),this.dy,this.dx);
                     player.decrementAmmoOfEquippedWeapon();
                     player.setWeaponShotState(player.getEquippedWeaponIndex(),true);
-                    Game.this.isShooting = true;
+                    //Game.this.isShooting = true;
                     player.activateWeaponCooldownTimer(player.getEquippedWeaponIndex());
+                    */
                 }
             }
             else{
-                automaticFireTimer.scheduleAtFixedRate(automaticFireTask,0,(player.getWeaponCooldownTimerInMs(player.getEquippedWeaponIndex()) / player.getFireRateMultiplier()));
+                if(Game.this.isShooting) fireTimer.scheduleAtFixedRate(fireTask,0,(int)(player.getWeaponCooldownTimerInMs(player.getEquippedWeaponIndex()) / player.getFireRateMultiplier()));
+                else fireTimer.cancel();
             }
         }
     }
     
     private class ShootRelease extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
+            //if(!player.getIsEquippedWeaponAutomatic() && Game.this.isAbleToShootCheck) Game.this.isAbleToShoot = true;
             Game.this.isShooting = false;
-            ShootAction.this.automaticFireTimer.cancel();
         }
     }
     

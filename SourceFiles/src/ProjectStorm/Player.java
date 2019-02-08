@@ -360,7 +360,7 @@ public class Player extends MovableObject{
                 this.ammoForWeapon2[0]--;
                 break;
             case 2:
-                this.ammoForWeapon3[0]--;
+                this.ammoForWeaponMuleKick[0]--;
                 break;
             default:
                 break;
@@ -374,7 +374,7 @@ public class Player extends MovableObject{
             case 1:
                 return (this.ammoForWeapon2[0] > 0);
             case 2:
-                return (this.ammoForWeapon3[0] > 0);
+                return (this.ammoForWeaponMuleKick[0] > 0);
             default:
                 return false;
         }
