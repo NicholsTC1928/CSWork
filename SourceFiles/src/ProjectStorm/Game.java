@@ -541,7 +541,15 @@ public class Game extends JPanel implements Runnable {
         }
     }
 
-
+    public void activateWeaponCooldownTimer(int weaponIndex){
+        Timer cooldown = new Timer();
+        TimerTask cooldownTask = new TimerTask(){
+            @Override public void run(){
+                player.setWeaponShotState(weaponIndex,false);
+            }
+        };
+        cooldown.schedule(cooldownTask,player.getWeaponCooldownTimerInMs(weaponIndex));
+    }
 
     private class MoveUpAction extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
@@ -600,6 +608,13 @@ public class Game extends JPanel implements Runnable {
         int dx;
         int dy;
         boolean hasShotEquippedWeapon = false;
+        Timer automaticFireTimer = new Timer();
+        TimerTask automaticFireTask = new TimerTask(){
+            @Override public void run(){
+                if(player.hasAmmoInMagazineOfEquippedWeapon()) createProjectilePlayer(player.getEquippedWeapon(),this.dy,this.dx);
+                player.decrementAmmoOfEquippedWeapon();
+            }
+        };
         
         public ShootAction(int dy,int dx){
             this.dy = dy; //-1 for Up / 1 for Down / 0 for Neither
@@ -620,13 +635,14 @@ public class Game extends JPanel implements Runnable {
             if(!player.getIsEquippedWeaponAutomatic()){
                 if(!hasShotEquippedWeapon && !Game.this.isShooting){
                     createProjectilePlayer(player.getEquippedWeapon(),this.dy,this.dx);
+                    player.decrementAmmoOfEquippedWeapon();
                     player.setWeaponShotState(player.getEquippedWeaponIndex(),true);
                     Game.this.isShooting = true;
                     player.activateWeaponCooldownTimer(player.getEquippedWeaponIndex());
                 }
             }
             else{
-                //Add in the automatic weapon implementation here.
+                automaticFireTimer.scheduleAtFixedRate(automaticFireTask,0,(player.getWeaponCooldownTimerInMs(player.getEquippedWeaponIndex()) / player.getFireRateMultiplier()));
             }
         }
     }
@@ -634,6 +650,7 @@ public class Game extends JPanel implements Runnable {
     private class ShootRelease extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
             Game.this.isShooting = false;
+            ShootAction.this.automaticFireTimer.cancel();
         }
     }
     
