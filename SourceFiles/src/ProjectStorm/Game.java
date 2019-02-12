@@ -50,6 +50,7 @@ public class Game extends JPanel implements Runnable {
     //the game at the specified frame rate cap.
     private final double OPTIMAL_TIME_FOR_PHYSICS = (1000000000.0 / 60.0); //This means that the base physics should
     //be programmed with 60 FPS in mind, although testing with varying frame rates will be required.
+    private double dt;
     private boolean gameIsRunning = true;
     public LinkedList<MovableObject> currentEntities = new LinkedList<MovableObject>();
     public LinkedList<Projectile> currentProjectiles = new LinkedList<Projectile>();
@@ -65,9 +66,12 @@ public class Game extends JPanel implements Runnable {
     private boolean isShooting = false;
     private boolean isAbleToShoot = true;
     private boolean isAbleToShootCheck = true;
+    private boolean isWeaponOnCooldown = false;
     private boolean weapon1Cooldown = false;
     private boolean weapon2Cooldown = false;
     private boolean weapon3Cooldown = false;
+    Timer autoFireTimer = new Timer();
+
     
     //The following consists of key binding variables. The non-final variables could be changed by reading a 
     //configuration value.
@@ -334,6 +338,7 @@ public class Game extends JPanel implements Runnable {
             //System.out.println(updateLength);
             beforeTime = now;
             double dt = (updateLength / OPTIMAL_TIME_FOR_PHYSICS);
+            setNewDT(dt);
             if(dt == 0) dt = (60.0 / FPS_CAP); //This line prevents the physics from stalling if the game is running too fast (i.e.,
             //now - beforeTime ~= 0). In order for this to happen, the frame rate must be the same as the cap (hence
             //the calculation of FPS_CAP / 60).
@@ -371,7 +376,7 @@ public class Game extends JPanel implements Runnable {
         player.setSpeedX(player.getSpeedX() * player.getSpeedMultiplier() * dt);
         player.setSpeedY(player.getSpeedY() * player.getSpeedMultiplier() * dt);
         if(this.isDebugModeOn){
-            System.out.println("dt: " + dt);
+            //System.out.println("dt: " + dt);
             //System.out.println(player.getSpeedX() + " / " + player.getSpeedY());
         }
         if(this.isMovingUp && !this.isMovingDown){
@@ -413,6 +418,14 @@ public class Game extends JPanel implements Runnable {
             if(temp.getCurrentXPos() <= -10.0 || temp.getCurrentXPos() >= 410.0 || temp.getCurrentYPos() <= -10.0 || temp.getCurrentYPos() > 410.0) temp = null;
         }
         //this.currentProjectiles.removeAll(toRemove);
+    }
+
+    public void setNewDT(double dt){
+        this.dt = dt;
+    }
+
+    public double getDT(){
+        return this.dt;
     }
     
     private void initGameBoard(){
@@ -543,14 +556,15 @@ public class Game extends JPanel implements Runnable {
         }
     }
 
-    public void activateWeaponCooldownTimer(int weaponIndex){
+    public void activateWeaponCooldownTimer(){
         Timer cooldown = new Timer();
         TimerTask cooldownTask = new TimerTask(){
             @Override public void run(){
-                player.setWeaponShotState(weaponIndex,false);
+                isWeaponOnCooldown = false;
             }
         };
-        cooldown.schedule(cooldownTask,player.getWeaponCooldownTimerInMs(weaponIndex));
+        System.out.println((player.getWeaponCooldownTimerInMs(player.getEquippedWeaponIndex()) / player.getFireRateMultiplier()));
+        cooldown.schedule(cooldownTask,(int)(player.getWeaponCooldownTimerInMs(player.getEquippedWeaponIndex()) / player.getFireRateMultiplier() * getDT()));
     }
 
     private class MoveUpAction extends AbstractAction{
@@ -610,15 +624,18 @@ public class Game extends JPanel implements Runnable {
         int dx;
         int dy;
         boolean hasShotEquippedWeapon = false;
-        Timer fireTimer = new Timer();
-        TimerTask fireTask = new TimerTask(){
+        TimerTask autoFireTask = new TimerTask(){
             @Override public void run(){
-                if(player.hasAmmoInMagazineOfEquippedWeapon()) createProjectilePlayer(player.getEquippedWeapon(),dy,dx);
+                fireProjectile();
                 //player.decrementAmmoOfEquippedWeapon();
             }
         };
-        
 
+
+        
+        private void fireProjectile(){
+            if(player.hasAmmoInMagazineOfEquippedWeapon()) createProjectilePlayer(player.getEquippedWeapon(),dy,dx);
+        }
 
         
         public ShootAction(int dy,int dx){
@@ -640,18 +657,22 @@ public class Game extends JPanel implements Runnable {
             }
             */
             if(!player.getIsEquippedWeaponAutomatic()){
-                if(Game.this.isAbleToShoot){
+                if(!isWeaponOnCooldown && isAbleToShoot){
                     //Game.this.isShooting = true;
-                    fireTask.run();
-                    Game.this.isAbleToShoot = false;
+                    fireProjectile();
+                    isAbleToShoot = false;
+                    isWeaponOnCooldown = true;
+                    activateWeaponCooldownTimer();
+                    /*
                     Timer semiFireCooldownTimer = new Timer();
                     TimerTask semiFireCooldownTask = new TimerTask(){
                         @Override public void run(){
                             Game.this.isAbleToShoot = true;
+                            semiFireCooldownTimer.cancel();
                         }
                     };
                     //Game.this.isAbleToShootCheck = false;
-                    semiFireCooldownTimer.schedule(semiFireCooldownTask,(int)(player.getWeaponCooldownTimerInMs(player.getEquippedWeaponIndex()) / player.getFireRateMultiplier()));
+                    semiFireCooldownTimer.schedule(semiFireCooldownTask,(int)(player.getWeaponCooldownTimerInMs(player.getEquippedWeaponIndex()) / player.getFireRateMultiplier() * getDT()));
                     //fireTimer.schedule(fireTask,0);
                     /*
                     createProjectilePlayer(player.getEquippedWeapon(),this.dy,this.dx);
@@ -663,16 +684,18 @@ public class Game extends JPanel implements Runnable {
                 }
             }
             else{
-                if(Game.this.isShooting) fireTimer.scheduleAtFixedRate(fireTask,0,(int)(player.getWeaponCooldownTimerInMs(player.getEquippedWeaponIndex()) / player.getFireRateMultiplier()));
-                else fireTimer.cancel();
+                //Perhaps I could reuse the old cooldown method for semi-automatic firing, but schedule a shooting
+                //and cooldown method at a fixed rate? If I did that, then how would I stop firing the weapon?
+
             }
         }
     }
-    
+
     private class ShootRelease extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
             //if(!player.getIsEquippedWeaponAutomatic() && Game.this.isAbleToShootCheck) Game.this.isAbleToShoot = true;
             Game.this.isShooting = false;
+            isAbleToShoot = true;
         }
     }
     

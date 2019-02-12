@@ -86,6 +86,7 @@ public class Player extends MovableObject{
         this.ammoForWeapon1[1] = 32;
         this.ammoForWeapon1[2] = this.ammoForWeapon1[0];
         this.ammoForWeapon1[3] = this.ammoForWeapon1[1];
+        this.weapon1CooldownTimer = 100;
         this.currentWeapons[1] = "Thompson";
         this.ammoForWeapon2[0] = 20;
         this.ammoForWeapon2[1] = 200;
@@ -319,7 +320,7 @@ public class Player extends MovableObject{
         switch(this.currentWeapons[this.equippedWeaponIndex]){
             case "M1911":
                 this.isEquippedWeaponAutomatic = false;
-                setCooldownTimerInMs(1000);
+                setCooldownTimerInMs(100);
                 break;
             case "Thompson":
                 this.isEquippedWeaponAutomatic = true;
