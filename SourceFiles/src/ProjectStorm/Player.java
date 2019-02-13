@@ -324,7 +324,7 @@ public class Player extends MovableObject{
                 break;
             case "Thompson":
                 this.isEquippedWeaponAutomatic = true;
-                setCooldownTimerInMs(1000);
+                setCooldownTimerInMs(50);
                 break;
             default:
                 break;
