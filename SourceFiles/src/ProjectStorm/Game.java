@@ -63,7 +63,7 @@ public class Game extends JPanel implements Runnable {
     private boolean isFacingDown = true;
     private boolean isFacingLeft = false;
     private boolean isFacingRight = false;
-    private boolean isShooting = false;
+    //private boolean isShooting = false;
     private boolean isAbleToShoot = true;
     private boolean isAbleToShootCheck = true;
     private boolean isWeaponOnCooldown = false;
@@ -546,11 +546,16 @@ public class Game extends JPanel implements Runnable {
             [This constructor refers to the first constructor, setting isExplosive to false and radius to -1.0.]
         }
         */
+        
+        //Changing the damage of each weapon will be vital to balancing the overall game itself.
         switch(weaponName){
             case "M1911":
                 currentProjectiles.add(new Projectile(false,(4.0 * playerDX),(4.0 * playerDY),player.getCurrentXPos(),player.getCurrentYPos(),15,-1.0));
                 break;
                 //return new Projectile(false,speedX,speedY,player.getCurrentXPos(),player.getCurrentYPos(),15,-1.0);
+            case "Thompson":
+                currentProjectiles.add(new Projectile(false,(4.0 * playerDX),(4.0 * playerDY),player.getCurrentXPos(),player.getCurrentYPos(),5,-1.0));
+                break;
             default:
                 break; //This should never happen.
         }
@@ -624,19 +629,26 @@ public class Game extends JPanel implements Runnable {
         int dx;
         int dy;
         boolean hasShotEquippedWeapon = false;
-        TimerTask autoFireTask = new TimerTask(){
-            @Override public void run(){
-                fireProjectile();
-                //player.decrementAmmoOfEquippedWeapon();
-            }
-        };
+        boolean stopShootingAutomaticWeapon = false;
+        
 
 
         
         private void fireProjectile(){
             if(player.hasAmmoInMagazineOfEquippedWeapon()) createProjectilePlayer(player.getEquippedWeapon(),dy,dx);
+            //player.decrementAmmoOfEquippedWeapon();
         }
-
+        /*
+        private void fireProjectileAutomatic(boolean stopTimer){
+            Timer autoFireTimer = new Timer();
+            TimerTask autoFireTask = new TimerTask(){
+                @Override public void run(){
+                    fireProjectile();
+                }
+            };
+            if(
+        }
+        */
         
         public ShootAction(int dy,int dx){
             this.dy = dy; //-1 for Up / 1 for Down / 0 for Neither
@@ -686,7 +698,15 @@ public class Game extends JPanel implements Runnable {
             else{
                 //Perhaps I could reuse the old cooldown method for semi-automatic firing, but schedule a shooting
                 //and cooldown method at a fixed rate? If I did that, then how would I stop firing the weapon?
-
+                while(!stopShootingAutomaticWeapon){
+                    if(!isWeaponOnCooldown){
+                        fireProjectile();
+                        isWeaponOnCooldown = true;
+                        activateWeaponCooldownTimer();
+                    }
+                }
+                stopShootingAutomaticWeapon = false; //This should only activate after the while loop is finished, which
+                //in turn should only occur when the key to shoot is released.
             }
         }
     }
@@ -694,7 +714,7 @@ public class Game extends JPanel implements Runnable {
     private class ShootRelease extends AbstractAction{
         @Override public void actionPerformed(ActionEvent e){
             //if(!player.getIsEquippedWeaponAutomatic() && Game.this.isAbleToShootCheck) Game.this.isAbleToShoot = true;
-            Game.this.isShooting = false;
+            stopShootingAutomaticWeapon = true;
             isAbleToShoot = true;
         }
     }
