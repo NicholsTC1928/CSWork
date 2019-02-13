@@ -424,7 +424,7 @@ public class Game extends JPanel implements Runnable {
             temp.changeCurrentYPosBy(temp.getSpeedY());
             temp.setSpeedX(initialSpeedX);
             temp.setSpeedY(initialSpeedY);
-            if(temp.getCurrentXPos() <= -10.0 || temp.getCurrentXPos() >= 410.0 || temp.getCurrentYPos() <= -10.0 || temp.getCurrentYPos() > 410.0) temp = null;
+            if(temp.getCurrentXPos() <= -10.0 || temp.getCurrentXPos() >= 410.0 || temp.getCurrentYPos() <= -10.0 || temp.getCurrentYPos() > 410.0) i.remove();
         }
         //this.currentProjectiles.removeAll(toRemove);
     }
