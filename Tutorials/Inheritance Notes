@@ -11,3 +11,18 @@
     -notify()
     -notifyAll()
     -wait()
+
+-Interface - type that consists of a set of method declarations; when classes promise to implement an interface, you
+can treat those classes similarly in your code
+
+-Abstract Method - method that is declared (as in an interface), but is not implemented; these methods represent the
+behavior that a class promises to implement when it implements an interface
+
+-Object-Oriented Design (OOD) - modeling a program or system as a collection of cooperating objects, implemented as a
+set of classes using class hierarchies
+
+-Refactoring - changing a program's internal structure without modifying its external behavior to improve simplicity,
+readability, maintainability, extensibility, performance, etc.
+
+-Abstract Class - Java class that cannot be instantiated (the "new" keyword), but instead serves as a superclass to hold
+common code and declare abstract behavior

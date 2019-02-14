@@ -347,18 +347,21 @@ public class Game extends JPanel implements Runnable {
             //the calculation of FPS_CAP / 60).
             //Update the game logic here, using dt to determine the change in time.
             if(!gameIsPaused && isMultithreadingOn){
-                Thread updateLogicThread = new Thread(){
-                    public void run(){
-                        updateGameLogic(Game.this.dt);
-                        repaint();
-                    }
-                };
+                Thread updateLogicThread = new Thread(() -> {
+                    updateGameLogic(getDT());
+                    repaint();
+                });
                 updateLogicThread.start();
             }
             else if(!gameIsPaused && !isMultithreadingOn){
-                updateGameLogic(Game.this.dt);
+                updateGameLogic(dt);
                 repaint();
             }
+            else if(isMultithreadingOn){
+                Thread repaintThread = new Thread(this::repaint);
+                repaintThread.start();
+            }
+            else repaint();
             totalFramesCount++;
             
             //timeDiff = System.currentTimeMillis() - beforeTime;
