@@ -31,6 +31,7 @@ public class Game extends JPanel implements Runnable {
     private static JLabel input = new JLabel();
     private boolean isInGame = false;
     private boolean isDebugModeOn;
+    private boolean isMultithreadingOn = true;
     private boolean displayFPSCount;
     private boolean gameIsPaused;
     private final double SCALE_X;
@@ -345,15 +346,19 @@ public class Game extends JPanel implements Runnable {
             //now - beforeTime ~= 0). In order for this to happen, the frame rate must be the same as the cap (hence
             //the calculation of FPS_CAP / 60).
             //Update the game logic here, using dt to determine the change in time.
-            if(!gameIsPaused){
+            if(!gameIsPaused && isMultithreadingOn){
                 Thread updateLogicThread = new Thread(){
                     public void run(){
                         updateGameLogic(Game.this.dt);
+                        repaint();
                     }
                 };
                 updateLogicThread.start();
             }
-            repaint();
+            else if(!gameIsPaused && !isMultithreadingOn){
+                updateGameLogic(Game.this.dt);
+                repaint();
+            }
             totalFramesCount++;
             
             //timeDiff = System.currentTimeMillis() - beforeTime;
