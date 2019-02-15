@@ -7,8 +7,7 @@ public class Serpent extends MovableObject{
     private int damage;
     private boolean isAIActivated;
     private boolean isCurrentlyInWorld;
-    private double desiredXPos = -1.0;
-    private double desiredYPos = -1.0;
+    private boolean hasDesiredPath = false;
     private final double actualFullSpeed;
     private double initialSpeedX;
     private double initialSpeedY;
@@ -45,6 +44,18 @@ public class Serpent extends MovableObject{
         return this.initialSpeedY;
     }
     
+    public double getLevel(){
+        return this.level;
+    }
+    
+    public void setLevel(int newLevel){
+        this.level = newLevel;
+    }
+    
+    public boolean getIsCurrentlyInWorld(){
+        return this.isCurrentlyInWorld;
+    }
+    
     public void activateEnemy(double playerCurrentYPos,double playerCurrentXPos){
         this.isAIActivated = true;
         Random r = new Random();
@@ -73,7 +84,7 @@ public class Serpent extends MovableObject{
                 }
                 this.isCurrentlyInWorld = true;
             }
-            if(desiredXPos == -1.0 && desiredYPos == -1.0){
+            if(!this.hasDesiredPath){
                 double neededChangeInX = playerCurrentXPos - this.getCurrentXPos();
                 double neededChangeInY = playerCurrentYPos - this.getCurrentYPos();
                 //The total speed of the enemy should be 2.5 units/second (3.5 units/second if the type is Omega).
@@ -82,13 +93,13 @@ public class Serpent extends MovableObject{
                 this.initialSpeedX = this.getSpeedX();
                 this.setSpeedY(this.actualFullSpeed * Math.sin(angle));
                 this.initialSpeedY = this.getSpeedY();
+                this.hasDesiredPath = true;
             }
             else{
                 if(this.getCurrentXPos() <= 0.0 || this.getCurrentXPos() >= 400.0 || this.getCurrentYPos() <= 0.0
                         || this.getCurrentYPos() >= 400.0){
                     this.isCurrentlyInWorld = false;
-                    this.desiredXPos = -1.0;
-                    this.desiredYPos = -1.0;
+                    this.hasDesiredPath = false;
                 }
             }
         }
