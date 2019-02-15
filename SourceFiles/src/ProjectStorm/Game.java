@@ -11,6 +11,7 @@ import java.util.TimerTask;
 import ProjectStorm.InitializeWindow;
 import java.lang.reflect.*;
 import java.util.Iterator;
+import java.util.Random;
 
 /*
 The following PC port necessities HAVE BEEN properly implemented:
@@ -138,6 +139,14 @@ public class Game extends JPanel implements Runnable {
             totalFramesCount = 0;
         }
     };
+    Timer spawnEnemiesTimer;
+    TimerTask spawnEnemiesTask;
+    Timer checkSecondsElapsedForSpawnEnemiesTimer;
+    TimerTask checkSecondsElapsedForSpawnEnemiesTask;
+    private int spawnEnemiesTimerElapsed;
+    private boolean spawnEnemiesTimerIsStopped;
+    private int remainingSpawnEnemiesTimeForDelay;
+        
    
 
 
@@ -242,6 +251,9 @@ public class Game extends JPanel implements Runnable {
             //End Method 1
         }
         timerForFPS.scheduleAtFixedRate(updateFPS,1000,1000);
+        if(this.isInGame){
+            startSpawnEnemiesTimer(2500);
+        }
     }
 
     @Override public void addNotify(){
@@ -268,6 +280,50 @@ public class Game extends JPanel implements Runnable {
             drawProjectiles(g);
         }
 
+    }
+    
+    private void startSpawnEnemiesTimer(int timeRemaining){
+        spawnEnemiesTimer = new Timer();
+        spawnEnemiesTask = new TimerTask(){
+            @Override public void run(){
+                if(currentEntities.size() < 5){
+                    Random r = new Random();
+                    int enemySpawnChoice = r.nextInt(1); //Change the 1 when other enemies are implemented.
+                    int levelPercentChance = (int)(100.0 * (r.nextDouble()));
+                    switch(enemySpawnChoice){ //Add more to the switch when new enemies are created.
+                        case 0:
+                            /*
+                            Percentage Chance for Each Level:
+                            -Level 0 - 50%
+                            -Level 1 - 35%
+                            -Level 2 - 15%
+                            */
+                            if(levelPercentChance < 50) currentEntities.add(new Serpent(0));
+                            else if(levelPercentChance >= 50 && levelPercentChance < 85) currentEntities.add(new Serpent(1));
+                            else currentEntities.add(new Serpent(2));
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        };
+        checkSecondsElapsedForSpawnEnemiesTimer = new Timer();
+        checkSecondsElapsedForSpawnEnemiesTask = new TimerTask(){
+            @Override public void run(){
+                if(this.spawnEnemiesTimerElapsed == 5000) this.spawnEnemiesTimerElapsed = 0;
+                else this.spawnEnemiesTimerElapsed++;
+            }
+        };
+        spawnEnemiesTimer.scheduleAtFixedRate(spawnEnemiesTask,timeRemaining,5000);
+        checkSecondsElapsedForSpawnEnemiesTimer.scheduleAtFixedRate(checkSecondsElapsedForSpawnEnemiesTask,0,0);
+        this.spawnEnemiesTimerIsStopped = false;
+    }
+    
+    private void stopSpawnEnemiesTimer(){
+        checkSecondsElapsedForSpawnEnemiesTimer.cancel();
+        spawnEnemiesTimer.cancel();
+        this.spawnEnemiesTimerIsStopped = true;
     }
 
     private void drawPlayer(Graphics g){
@@ -433,6 +489,19 @@ public class Game extends JPanel implements Runnable {
             temp.setSpeedX(initialSpeedX);
             temp.setSpeedY(initialSpeedY);
             if(temp.getCurrentXPos() <= -10.0 || temp.getCurrentXPos() >= 410.0 || temp.getCurrentYPos() <= -10.0 || temp.getCurrentYPos() > 410.0) i.remove();
+        }
+        Iterator<MovableObject> iEnemies = this.currentEntities.iterator();
+        while(iEnemies.hasNext()){
+            MovableObject temp = iEnemies.next();
+            double initialSpeedX = temp.getSpeedX();
+            double initialSpeedY = temp.getSpeedY();
+            temp.setSpeedX(temp.getSpeedX() * dt);
+            temp.setSpeedY(temp.getSpeedY() * dt);
+            temp.changeCurrentXPosBy(temp.getSpeedX());
+            temp.changeCurrentYPosBy(temp.getSpeedY());
+            temp.setSpeedX(initialSpeedX);
+            temp.setSpeedY(initialSpeedY);
+            if(temp.getHealth() <= 0) iEnemies.remove(); //There might be other checks that should be performed.
         }
         //this.currentProjectiles.removeAll(toRemove);
     }
