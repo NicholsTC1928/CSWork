@@ -278,6 +278,7 @@ public class Game extends JPanel implements Runnable {
         if(this.isInGame){
             drawPlayer(g);
             drawProjectiles(g);
+            drawEnemies(g);
         }
 
     }
@@ -299,7 +300,7 @@ public class Game extends JPanel implements Runnable {
                             -Level 2 - 15%
                             */
                             if(levelPercentChance < 50) currentEntities.add(new Serpent(0));
-                            else if(levelPercentChance >= 50 && levelPercentChance < 85) currentEntities.add(new Serpent(1));
+                            else if(levelPercentChance < 85) currentEntities.add(new Serpent(1));
                             else currentEntities.add(new Serpent(2));
                             break;
                         default:
@@ -311,8 +312,8 @@ public class Game extends JPanel implements Runnable {
         checkSecondsElapsedForSpawnEnemiesTimer = new Timer();
         checkSecondsElapsedForSpawnEnemiesTask = new TimerTask(){
             @Override public void run(){
-                if(this.spawnEnemiesTimerElapsed == 5000) this.spawnEnemiesTimerElapsed = 0;
-                else this.spawnEnemiesTimerElapsed++;
+                if(spawnEnemiesTimerElapsed == 5000) spawnEnemiesTimerElapsed = 0;
+                else spawnEnemiesTimerElapsed++;
             }
         };
         spawnEnemiesTimer.scheduleAtFixedRate(spawnEnemiesTask,timeRemaining,5000);
@@ -343,6 +344,24 @@ public class Game extends JPanel implements Runnable {
             Projectile temp = i.next();
             g.fillRect(scaleWorldToPixelsX(temp.getCurrentXPos()),scaleWorldToPixelsY(temp.getCurrentYPos()),20,20);
             Toolkit.getDefaultToolkit().sync();
+        }
+    }
+
+    private void drawEnemies(Graphics g){
+        //Replace the rectangle with the image of the respective projectile.
+        Graphics2D g2 = (Graphics2D) g;
+        Iterator<MovableObject> i = this.currentEntities.iterator();
+        while(i.hasNext()){
+            MovableObject temp = i.next();
+            if(temp instanceof Serpent){
+                g2.rotate(((Serpent) temp).getAngleForOrientation());
+                Rectangle rect = new Rectangle(scaleWorldToPixelsX(temp.getCurrentXPos()),scaleWorldToPixelsY(temp.getCurrentYPos()),70,70);
+                if(((Serpent) temp).getLevel() == 0) g2.setColor(Color.GREEN);
+                else if(((Serpent) temp).getLevel() == 1) g2.setColor(Color.YELLOW);
+                else g2.setColor(Color.RED);
+                g2.draw(rect);
+                g2.fill(rect);
+            }
         }
     }
     

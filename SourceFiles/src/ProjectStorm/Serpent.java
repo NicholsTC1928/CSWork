@@ -11,6 +11,7 @@ public class Serpent extends MovableObject{
     private final double actualFullSpeed;
     private double initialSpeedX;
     private double initialSpeedY;
+    private double angleForOrientation;
     
     public Serpent(int level){
         super((2.5 + (0.5 * level)),(2.5 + (0.5 * level)),(60 + (30 * level)),false);
@@ -42,6 +43,10 @@ public class Serpent extends MovableObject{
 
     public double getInitialSpeedY(){
         return this.initialSpeedY;
+    }
+
+    public double getAngleForOrientation(){
+        return this.angleForOrientation;
     }
     
     public double getLevel(){
@@ -89,6 +94,7 @@ public class Serpent extends MovableObject{
                 double neededChangeInY = playerCurrentYPos - this.getCurrentYPos();
                 //The total speed of the enemy should be 2.5 units/second (3.5 units/second if the type is Omega).
                 double angle = Math.atan(neededChangeInY / neededChangeInX);
+                this.angleForOrientation = angle;
                 this.setSpeedX(this.actualFullSpeed * Math.cos(angle));
                 this.initialSpeedX = this.getSpeedX();
                 this.setSpeedY(this.actualFullSpeed * Math.sin(angle));
