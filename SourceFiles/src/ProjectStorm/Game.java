@@ -292,7 +292,7 @@ public class Game extends JPanel implements Runnable {
                     int enemySpawnChoice = r.nextInt(1); //Change the 1 when other enemies are implemented.
                     int levelPercentChance = (int)(100.0 * (r.nextDouble()));
                     switch(enemySpawnChoice){ //Add more to the switch when new enemies are created.
-                        case 0:
+                        case 0: //Serpent
                             /*
                             Percentage Chance for Each Level:
                             -Level 0 - 50%
@@ -317,7 +317,7 @@ public class Game extends JPanel implements Runnable {
             }
         };
         spawnEnemiesTimer.scheduleAtFixedRate(spawnEnemiesTask,timeRemaining,5000);
-        checkSecondsElapsedForSpawnEnemiesTimer.scheduleAtFixedRate(checkSecondsElapsedForSpawnEnemiesTask,0,0);
+        checkSecondsElapsedForSpawnEnemiesTimer.scheduleAtFixedRate(checkSecondsElapsedForSpawnEnemiesTask,0,1);
         this.spawnEnemiesTimerIsStopped = false;
     }
     
@@ -348,7 +348,7 @@ public class Game extends JPanel implements Runnable {
     }
 
     private void drawEnemies(Graphics g){
-        //Replace the rectangle with the image of the respective projectile.
+        //Replace the rectangle with the image of the respective enemy.
         Graphics2D g2 = (Graphics2D) g;
         Iterator<MovableObject> i = this.currentEntities.iterator();
         while(i.hasNext()){
@@ -359,8 +359,12 @@ public class Game extends JPanel implements Runnable {
                 if(((Serpent) temp).getLevel() == 0) g2.setColor(Color.GREEN);
                 else if(((Serpent) temp).getLevel() == 1) g2.setColor(Color.YELLOW);
                 else g2.setColor(Color.RED);
+                if(isDebugModeOn){
+                    System.out.println("Number of Activated Enemies: " + currentEntities.size());
+                }
                 g2.draw(rect);
                 g2.fill(rect);
+                Toolkit.getDefaultToolkit().sync();
             }
         }
     }
@@ -512,6 +516,7 @@ public class Game extends JPanel implements Runnable {
         Iterator<MovableObject> iEnemies = this.currentEntities.iterator();
         while(iEnemies.hasNext()){
             MovableObject temp = iEnemies.next();
+            if(!temp.getIsAIActivated() && temp instanceof AI) ((AI) temp).activateEnemy(player.getCurrentXPos(),player.getCurrentYPos());
             double initialSpeedX = temp.getSpeedX();
             double initialSpeedY = temp.getSpeedY();
             temp.setSpeedX(temp.getSpeedX() * dt);

@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="">
+    <list default="true" id="8547c2d5-7b84-4e81-942e-2c3aa70c271c" name="Default Changelist" comment="Updated Project Storm. (2/19)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SourceFiles/src/InterfaceExample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/InterfaceExample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/MovableObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/MovableObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm.jar" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveDownAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveDownAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveDownRelease.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveDownRelease.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveLeftAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveLeftAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveLeftRelease.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveLeftRelease.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveRightAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveRightAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveRightRelease.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveRightRelease.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveUpAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveUpAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveUpRelease.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$MoveUpRelease.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$ShootAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$ShootAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$ShootDownAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$ShootDownAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$ShootLeftAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$ShootLeftAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$ShootRelease.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$ShootRelease.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$ShootRightAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$ShootRightAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$SwapEquippedWeapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game$SwapEquippedWeapon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/MovableObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/MovableObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Serpent.class" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/ProjectStorm/Serpent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Serpent.java" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Serpent.java" afterDir="false" />
     </list>
     <ignored path="CompiledPrograms/production/SourceFiles/argumentSimulator/Back-up/branches.java.bak" />
@@ -21,11 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="362" column="30" selection-start-line="362" selection-start-column="30" selection-end-line="362" selection-end-column="30" />
+            <state relative-caret-position="278">
+              <caret line="362" column="97" selection-start-line="362" selection-start-column="97" selection-end-line="362" selection-end-column="97" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2268#2283#0" expanded="true" />
@@ -79,20 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceFiles/src/InterfaceExample/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Serpent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2001">
-              <caret line="96" column="49" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
+            <state relative-caret-position="161">
+              <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
               <folding>
                 <element signature="e#1129#1130#0" expanded="true" />
                 <element signature="e#1170#1171#0" expanded="true" />
@@ -112,14 +127,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceFiles/src/InterfaceExample/Triangle.java">
+        <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
-              <folding>
-                <element signature="e#342#343#0" expanded="true" />
-                <element signature="e#366#367#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="69">
+              <caret line="3" column="79" selection-start-line="3" selection-start-column="79" selection-end-line="3" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -127,8 +138,46 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/MovableObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="72" column="34" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
+            <state relative-caret-position="278">
+              <caret line="112" column="5" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
+              <folding>
+                <element signature="e#963#964#0" expanded="true" />
+                <element signature="e#1002#1003#0" expanded="true" />
+                <element signature="e#1059#1060#0" expanded="true" />
+                <element signature="e#1101#1102#0" expanded="true" />
+                <element signature="e#1145#1146#0" expanded="true" />
+                <element signature="e#1184#1185#0" expanded="true" />
+                <element signature="e#1225#1226#0" expanded="true" />
+                <element signature="e#1264#1265#0" expanded="true" />
+                <element signature="e#1321#1322#0" expanded="true" />
+                <element signature="e#1363#1364#0" expanded="true" />
+                <element signature="e#1407#1408#0" expanded="true" />
+                <element signature="e#1446#1447#0" expanded="true" />
+                <element signature="e#1482#1483#0" expanded="true" />
+                <element signature="e#1516#1517#0" expanded="true" />
+                <element signature="e#1555#1556#0" expanded="true" />
+                <element signature="e#1596#1597#0" expanded="true" />
+                <element signature="e#1646#1647#0" expanded="true" />
+                <element signature="e#1685#1686#0" expanded="true" />
+                <element signature="e#1721#1722#0" expanded="true" />
+                <element signature="e#1755#1756#0" expanded="true" />
+                <element signature="e#1794#1795#0" expanded="true" />
+                <element signature="e#1835#1836#0" expanded="true" />
+                <element signature="e#1885#1886#0" expanded="true" />
+                <element signature="e#1924#1925#0" expanded="true" />
+                <element signature="e#1957#1958#0" expanded="true" />
+                <element signature="e#1991#1992#0" expanded="true" />
+                <element signature="e#2038#2039#0" expanded="true" />
+                <element signature="e#2077#2078#0" expanded="true" />
+                <element signature="e#2130#2131#0" expanded="true" />
+                <element signature="e#2173#2174#0" expanded="true" />
+                <element signature="e#2213#2214#0" expanded="true" />
+                <element signature="e#2254#2255#0" expanded="true" />
+                <element signature="e#2304#2305#0" expanded="true" />
+                <element signature="e#2346#2347#0" expanded="true" />
+                <element signature="e#2529#2530#0" expanded="true" />
+                <element signature="e#2569#2570#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -274,7 +323,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SourceFiles/src/Point.java" />
         <option value="$PROJECT_DIR$/Tutorials/Classes" />
         <option value="$PROJECT_DIR$/Tutorials/Instance Variables" />
         <option value="$PROJECT_DIR$/SourceFiles/src/pointExample/Manifest.mf" />
@@ -304,7 +352,6 @@
         <option value="$PROJECT_DIR$/SourceFiles/src/PolymorphismExample/LegalSecretary.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/PolymorphismExample/Main.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Perks.java" />
-        <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/MovableObject.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Projectile.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/polymorphismExample/poly.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/polymorphismExample/A.java" />
@@ -321,16 +368,18 @@
         <option value="$PROJECT_DIR$/SourceFiles/src/InterfaceExample/Shape.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/InterfaceExample/Rectangle.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/InterfaceExample/Circle.java" />
-        <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Serpent.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/InterfaceExample/Triangle.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/InterfaceExample/Main.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/MovableObject.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/AI.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Serpent.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="315" />
-    <option name="y" value="69" />
+    <option name="x" value="91" />
+    <option name="y" value="66" />
     <option name="width" value="1467" />
     <option name="height" value="898" />
   </component>
@@ -689,7 +738,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550246904451" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550765186649" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -762,14 +811,7 @@
       <workItem from="1544111193532" duration="4564000" />
       <workItem from="1544457251099" duration="18693000" />
       <workItem from="1546960354381" duration="5938000" />
-      <workItem from="1547134321591" duration="72463000" />
-    </task>
-    <task id="LOCAL-00047" summary="Added the Snake program. (11/16)">
-      <created>1542384417384</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1542384417384</updated>
+      <workItem from="1547134321591" duration="76126000" />
     </task>
     <task id="LOCAL-00048" summary="Updated the Snake program. (11/20)">
       <created>1542726488913</created>
@@ -1107,17 +1149,23 @@
       <option name="project" value="LOCAL" />
       <updated>1550160405866</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="Updated Project Storm. (2/19)">
+      <created>1550246916560</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1550246916560</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243834000" />
+    <option name="totallyTimeSpent" value="247497000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="315" y="69" width="1467" height="898" extended-state="0" />
-    <editor active="true" />
+    <frame x="91" y="66" width="1467" height="898" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2716397" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2716397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1132,9 +1180,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49612948" weight="0.33159947" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5038705" side_tool="true" weight="0.33159947" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.498893" visible="true" weight="0.32769832" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49542576" visible="true" weight="0.33159947" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50457424" side_tool="true" weight="0.33159947" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.4968332" weight="0.32769832" />
       <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.32904884" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32899868" />
@@ -1196,7 +1244,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added the Classes notes. (1/8)" />
     <MESSAGE value="Added the Instance Variables notes. (1/8)" />
     <MESSAGE value="Updated the Snake program. (1/10)" />
     <MESSAGE value="Updated the Point program and Added &quot;Project Storm&quot;. (1/11)" />
@@ -1221,10 +1268,10 @@
     <MESSAGE value="Updated Project Storm. (2/12)" />
     <MESSAGE value="Updated Project Storm. (2/13)" />
     <MESSAGE value="Updated Project Storm. (2/14)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Project Storm. (2/14)" />
+    <MESSAGE value="Updated Project Storm. (2/19)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Project Storm. (2/19)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/snake/snake.java" />
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/pointExample/Manifest.mf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -1368,13 +1415,6 @@
             <element signature="e#466#467#0" expanded="true" />
             <element signature="e#500#501#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Manifest.mf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
@@ -1743,13 +1783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/MovableObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="72" column="34" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/InterfaceExample/Circle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -1762,6 +1795,13 @@
             <element signature="e#288#289#0" expanded="true" />
             <element signature="e#312#313#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Manifest.mf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
@@ -1783,31 +1823,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Serpent.java">
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/MovableObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2001">
-          <caret line="96" column="49" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
+        <state relative-caret-position="278">
+          <caret line="112" column="5" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
           <folding>
-            <element signature="e#1129#1130#0" expanded="true" />
-            <element signature="e#1170#1171#0" expanded="true" />
-            <element signature="e#1209#1210#0" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
-            <element signature="e#1339#1340#0" expanded="true" />
-            <element signature="e#1385#1386#0" expanded="true" />
-            <element signature="e#1285#1286#0" expanded="true" />
-            <element signature="e#1318#1319#0" expanded="true" />
+            <element signature="e#963#964#0" expanded="true" />
+            <element signature="e#1002#1003#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1101#1102#0" expanded="true" />
+            <element signature="e#1145#1146#0" expanded="true" />
+            <element signature="e#1184#1185#0" expanded="true" />
+            <element signature="e#1225#1226#0" expanded="true" />
+            <element signature="e#1264#1265#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
             <element signature="e#1363#1364#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1449#1450#0" expanded="true" />
-            <element signature="e#1495#1496#0" expanded="true" />
+            <element signature="e#1407#1408#0" expanded="true" />
+            <element signature="e#1446#1447#0" expanded="true" />
+            <element signature="e#1482#1483#0" expanded="true" />
+            <element signature="e#1516#1517#0" expanded="true" />
+            <element signature="e#1555#1556#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
+            <element signature="e#1646#1647#0" expanded="true" />
+            <element signature="e#1685#1686#0" expanded="true" />
+            <element signature="e#1721#1722#0" expanded="true" />
+            <element signature="e#1755#1756#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1885#1886#0" expanded="true" />
+            <element signature="e#1924#1925#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
+            <element signature="e#1991#1992#0" expanded="true" />
+            <element signature="e#2038#2039#0" expanded="true" />
+            <element signature="e#2077#2078#0" expanded="true" />
+            <element signature="e#2130#2131#0" expanded="true" />
+            <element signature="e#2173#2174#0" expanded="true" />
+            <element signature="e#2213#2214#0" expanded="true" />
+            <element signature="e#2254#2255#0" expanded="true" />
+            <element signature="e#2304#2305#0" expanded="true" />
+            <element signature="e#2346#2347#0" expanded="true" />
+            <element signature="e#2529#2530#0" expanded="true" />
+            <element signature="e#2569#2570#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="79" selection-start-line="3" selection-start-column="79" selection-end-line="3" selection-end-column="79" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="362" column="30" selection-start-line="362" selection-start-column="30" selection-end-line="362" selection-end-column="30" />
+        <state relative-caret-position="278">
+          <caret line="362" column="97" selection-start-line="362" selection-start-column="97" selection-end-line="362" selection-end-column="97" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2268#2283#0" expanded="true" />
@@ -1856,6 +1927,27 @@
             <element signature="e#31802#31803#0" expanded="true" />
             <element signature="e#31865#31866#0" expanded="true" />
             <element signature="e#31924#31925#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Serpent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
+          <folding>
+            <element signature="e#1129#1130#0" expanded="true" />
+            <element signature="e#1170#1171#0" expanded="true" />
+            <element signature="e#1209#1210#0" expanded="true" />
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1385#1386#0" expanded="true" />
+            <element signature="e#1285#1286#0" expanded="true" />
+            <element signature="e#1318#1319#0" expanded="true" />
+            <element signature="e#1363#1364#0" expanded="true" />
+            <element signature="e#1400#1401#0" expanded="true" />
+            <element signature="e#1449#1450#0" expanded="true" />
+            <element signature="e#1495#1496#0" expanded="true" />
           </folding>
         </state>
       </provider>

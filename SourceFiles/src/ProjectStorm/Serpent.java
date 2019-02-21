@@ -2,10 +2,9 @@ package ProjectStorm;
 
 import java.util.Random;
 
-public class Serpent extends MovableObject{
+public class Serpent extends MovableObject implements AI{
     private int level;
     private int damage;
-    private boolean isAIActivated;
     private boolean isCurrentlyInWorld;
     private boolean hasDesiredPath = false;
     private final double actualFullSpeed;
@@ -14,7 +13,8 @@ public class Serpent extends MovableObject{
     private double angleForOrientation;
     
     public Serpent(int level){
-        super((2.5 + (0.5 * level)),(2.5 + (0.5 * level)),(60 + (30 * level)),false);
+        super(2.5,2.5,(60 + (30 * level)),false);
+        //super((2.5 + (0.5 * level)),(2.5 + (0.5 * level)),(60 + (30 * level)),false);
         switch(level){
             case 0:
                 this.damage = 30;
@@ -22,11 +22,11 @@ public class Serpent extends MovableObject{
                 break;
             case 1:
                 this.damage = 60;
-                this.actualFullSpeed = 3.0;
+                this.actualFullSpeed = 2.5; //Was 3.0
                 break;
             case 2:
                 this.damage = 90;
-                this.actualFullSpeed = 3.5;
+                this.actualFullSpeed = 2.5; //Was 3.5
                 break;
             default:
                 this.damage = 30;
@@ -34,7 +34,7 @@ public class Serpent extends MovableObject{
                 break;
         }
         this.isCurrentlyInWorld = false;
-        this.isAIActivated = false;
+        this.setIsAIActivated(false);
     }
 
     public double getInitialSpeedX(){
@@ -61,8 +61,8 @@ public class Serpent extends MovableObject{
         return this.isCurrentlyInWorld;
     }
     
-    public void activateEnemy(double playerCurrentYPos,double playerCurrentXPos){
-        this.isAIActivated = true;
+    public void activateEnemy(double playerCurrentXPos,double playerCurrentYPos){
+        this.setIsAIActivated(true);
         Random r = new Random();
         while(this.getHealth() > 0){
             int sideChoice = r.nextInt(4) + 1;

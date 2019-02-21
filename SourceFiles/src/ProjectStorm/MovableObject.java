@@ -9,6 +9,7 @@ public class MovableObject{
     private final double initialSpeedY;
     private int health;
     private boolean isInvincible;
+    private boolean isAIActivated;
     
     public MovableObject(double speedX,double speedY,int health,boolean isInvincible){
         this.speedX = speedX;
@@ -87,6 +88,14 @@ public class MovableObject{
     
     public void healByAmount(int healthGained){
         this.health += healthGained;
+    }
+
+    public boolean getIsAIActivated(){
+        return this.isAIActivated;
+    }
+
+    public void setIsAIActivated(boolean value){
+        this.isAIActivated = value;
     }
     
     public void damageByAmount(int damageTaken){
