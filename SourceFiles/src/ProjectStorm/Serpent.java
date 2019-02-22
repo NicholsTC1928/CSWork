@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class Serpent extends MovableObject implements AI{
     private int level;
-    private int damage;
     private boolean isCurrentlyInWorld;
     private boolean hasDesiredPath = false;
     private final double actualFullSpeed;
@@ -17,19 +16,19 @@ public class Serpent extends MovableObject implements AI{
         //super((2.5 + (0.5 * level)),(2.5 + (0.5 * level)),(60 + (30 * level)),false);
         switch(level){
             case 0:
-                this.damage = 30;
+                this.setDamage(30);
                 this.actualFullSpeed = 2.5;
                 break;
             case 1:
-                this.damage = 60;
+                this.setDamage(60);
                 this.actualFullSpeed = 2.5; //Was 3.0
                 break;
             case 2:
-                this.damage = 90;
+                this.setDamage(90);
                 this.actualFullSpeed = 2.5; //Was 3.5
                 break;
             default:
-                this.damage = 30;
+                this.setDamage(30);
                 this.actualFullSpeed = 2.5;
                 break;
         }
