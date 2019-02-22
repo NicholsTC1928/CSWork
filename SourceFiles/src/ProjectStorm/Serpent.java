@@ -107,61 +107,14 @@ public class Serpent extends MovableObject implements AI{
                         break;
                 }
                 this.isCurrentlyInWorld = true;
-                
-                //This is going to take a LOT of geometry... good luck.
-                boolean negativeX = false;
-                boolean negativeY = false;
-                double neededChangeInY = (playerCurrentYPos - this.getCurrentYPos());
-                if(neededChangeInY < 0) negativeY = true;
-                double neededChangeInX = (playerCurrentXPos - this.getCurrentXPos());
-                if(neededChangeInX < 0) negativeX = true;
-                double slope = (neededChangeInY / neededChangeInX);
-                
-            }
-            else if(this.getCurrentXPos() < 0.0 || this.getCurrentXPos() > 400.0 || this.getCurrentYPos() < 0.0
-                    || this.getCurrentYPos() > 400.0){
-                this.isCurrentlyInWorld = false;
-                this.hasDesiredPath = false;
-            }
-        }
-    }
-    
-    /*
-    public void activateEnemy(double playerCurrentXPos,double playerCurrentYPos){
-        this.setIsAIActivated(true);
-        Random r = new Random();
-        while(this.getHealth() > 0){
-            int sideChoice = r.nextInt(4) + 1;
-            if(!this.isCurrentlyInWorld){
-                switch(sideChoice){
-                    case 1: //Top Border
-                        this.goToYPos(0.0);
-                        this.goToXPos(400.0 * (r.nextDouble()));
-                        break;
-                    case 2: //Bottom Border
-                        this.goToYPos(400.0);
-                        this.goToXPos(400.0 * (r.nextDouble()));
-                        break;
-                    case 3: //Left Border
-                        this.goToXPos(0.0);
-                        this.goToYPos(400.0 * (r.nextDouble()));
-                        break;
-                    case 4: //Right Border
-                        this.goToXPos(400.0);
-                        this.goToYPos(400.0 * (r.nextDouble()));
-                        break;
-                    default:
-                        break;
-                }
-                this.isCurrentlyInWorld = true;
             }
             if(!this.hasDesiredPath){
                 double neededChangeInX = playerCurrentXPos - this.getCurrentXPos();
                 double neededChangeInY = playerCurrentYPos - this.getCurrentYPos();
                 //The total speed of the enemy should be 2.5 units/second (3.5 units/second if the type is Omega).
-                double angle = Math.atan(Math.abs(neededChangeInY) / Math.abs(neededChangeInX));
-                if(neededChangeInX > 0 && neededChangeInY > 0) this.angleForOrientation = ((3.0 * Math.PI / 2.0) - angle);
-                else if(neededChangeInX < 0 && neededChangeInY < 0) this.angleForOrientation = ((Math.PI / 2.0) - angle);
+                double angle = Math.atan2(neededChangeInY / neededChangeInX);
+                if(neededChangeInX > 0 && neededChangeInY > 0) this.angleForOrientation = (angle * -1.0);
+                else if(neededChangeInX < 0 && neededChangeInY < 0) this.angleForOrientation = (Math.PI- angle);
                 else if(neededChangeInX > 0 && neededChangeInY < 0) this.angleForOrientation = ((3.0 * Math.PI / 2.0) + angle);
                 else this.angleForOrientation = ((Math.PI / 2.0) + angle);
                 this.setSpeedX(this.actualFullSpeed * Math.cos(angle));
@@ -184,5 +137,4 @@ public class Serpent extends MovableObject implements AI{
             }
         }
     }
-    */
 }
