@@ -503,31 +503,44 @@ public class Game extends JPanel implements Runnable {
         //LinkedList<Projectile> toRemove = new LinkedList<Projectile>();
         while(i.hasNext()){
             Projectile temp = i.next();
-            double initialSpeedX = temp.getSpeedX();
-            double initialSpeedY = temp.getSpeedY();
-            temp.setSpeedX(temp.getSpeedX() * dt);
-            temp.setSpeedY(temp.getSpeedY() * dt);
-            temp.changeCurrentXPosBy(temp.getSpeedX());
-            temp.changeCurrentYPosBy(temp.getSpeedY());
-            temp.setSpeedX(initialSpeedX);
-            temp.setSpeedY(initialSpeedY);
+            //double initialSpeedX = temp.getSpeedX();
+            //double initialSpeedY = temp.getSpeedY();
+            //temp.setSpeedX(temp.getSpeedX() * dt);
+            //temp.setSpeedY(temp.getSpeedY() * dt);
+            temp.changeCurrentXPosBy(temp.getSpeedX() * dt);
+            temp.changeCurrentYPosBy(temp.getSpeedY() * dt);
+            //temp.setSpeedX(initialSpeedX);
+            //temp.setSpeedY(initialSpeedY);
+            
+            //The following assumes that the projectile will always have the same size as that of the default.
+            
             if(temp.getCurrentXPos() <= -10.0 || temp.getCurrentXPos() >= 410.0 || temp.getCurrentYPos() <= -10.0 || temp.getCurrentYPos() > 410.0) i.remove();
         }
         Iterator<MovableObject> iEnemies = this.currentEntities.iterator();
         while(iEnemies.hasNext()){
             MovableObject temp = iEnemies.next();
             if(!temp.getIsAIActivated() && temp instanceof AI) ((AI) temp).activateEnemy(player.getCurrentXPos(),player.getCurrentYPos());
-            double initialSpeedX = temp.getSpeedX();
-            double initialSpeedY = temp.getSpeedY();
-            temp.setSpeedX(temp.getSpeedX() * dt);
-            temp.setSpeedY(temp.getSpeedY() * dt);
-            temp.changeCurrentXPosBy(temp.getSpeedX());
-            temp.changeCurrentYPosBy(temp.getSpeedY());
-            temp.setSpeedX(initialSpeedX);
-            temp.setSpeedY(initialSpeedY);
+            //double initialSpeedX = temp.getSpeedX();
+            //double initialSpeedY = temp.getSpeedY();
+            //temp.setSpeedX(temp.getSpeedX() * dt);
+            //temp.setSpeedY(temp.getSpeedY() * dt);
+            temp.changeCurrentXPosBy(temp.getSpeedX() * dt);
+            temp.changeCurrentYPosBy(temp.getSpeedY() * dt);
+            //temp.setSpeedX(initialSpeedX);
+            //temp.setSpeedY(initialSpeedY);
             if(temp.getHealth() <= 0) iEnemies.remove(); //There might be other checks that should be performed.
         }
         //this.currentProjectiles.removeAll(toRemove);
+        
+        /*
+        The next thing to do would be to check for collisions. Here are some possible methods for doing so:
+        -Check every projectile and enemy in the iterators to see if their x- and y-positions are within the hitbox of the player.
+        
+        The hitbox for the player can be found as follows:
+        -Start X: player.getCurrentXPos(); / End X: (player.getCurrentXPos() + scalePixelsToWorldX(50));
+        -Start Y: player.getCurrentYPos(); / End Y: (player.getCurrentYPos() + scalePixelsToWorldY(70));
+        */
+        
     }
 
     public void setNewDT(double dt){
@@ -555,12 +568,12 @@ public class Game extends JPanel implements Runnable {
         return (int)(worldValue * SCALE_WORLD_Y_TO_PIXELS);
     }
 
-    private double scalePixelsToWorldX(double pixelValue){
-        return (pixelValue * SCALE_X);
+    private double scalePixelsToWorldX(int pixelValue){
+        return ((double) pixelValue * SCALE_X);
     }
 
-    private double scalePixelsToWorldY(double pixelValue){
-        return (pixelValue * SCALE_Y);
+    private double scalePixelsToWorldY(int pixelValue){
+        return ((double) pixelValue * SCALE_Y);
     }
 
     private void initializeGameSpawn(){
