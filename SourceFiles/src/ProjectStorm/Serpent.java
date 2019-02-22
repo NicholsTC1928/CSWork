@@ -10,6 +10,8 @@ public class Serpent extends MovableObject implements AI{
     private double initialSpeedX;
     private double initialSpeedY;
     private double angleForOrientation;
+    private double desiredXPos;
+    private double desiredYPos;
     
     public Serpent(int level){
         super(2.5,2.5,(60 + (30 * level)),false);
@@ -43,6 +45,22 @@ public class Serpent extends MovableObject implements AI{
     public double getInitialSpeedY(){
         return this.initialSpeedY;
     }
+    
+    public double getDesiredXPos(){
+        return this.desiredXPos;
+    }
+    
+    public void setDesiredXPos(double newX){
+        this.desiredXPos = newX;
+    }
+    
+    public double getDesiredYPos(){
+        return this.desiredYPos;
+    }
+    
+    public void setDesiredYPos(double newY){
+        this.desiredYPos = newY;
+    }
 
     public double getAngleForOrientation(){
         return this.angleForOrientation;
@@ -60,6 +78,55 @@ public class Serpent extends MovableObject implements AI{
         return this.isCurrentlyInWorld;
     }
     
+    //It seems probable that the Serpent AI will need an entire overhaul in its implementation.
+    
+    public void activateEnemy(double playerCurrentXPos,double playerCurrentYPos){
+        this.setIsAIActivated(true);
+        Random r = new Random();
+        while(this.getHealth() > 0){
+            int sideChoice = r.nextInt(4) + 1;
+            if(!this.isCurrentlyInWorld){
+                switch(sideChoice){
+                    case 1: //Top Border
+                        this.goToYPos(0.0);
+                        this.goToXPos(400.0 * (r.nextDouble()));
+                        break;
+                    case 2: //Bottom Border
+                        this.goToYPos(400.0);
+                        this.goToXPos(400.0 * (r.nextDouble()));
+                        break;
+                    case 3: //Left Border
+                        this.goToXPos(0.0);
+                        this.goToYPos(400.0 * (r.nextDouble()));
+                        break;
+                    case 4: //Right Border
+                        this.goToXPos(400.0);
+                        this.goToYPos(400.0 * (r.nextDouble()));
+                        break;
+                    default:
+                        break;
+                }
+                this.isCurrentlyInWorld = true;
+                
+                //This is going to take a LOT of geometry... good luck.
+                boolean negativeX = false;
+                boolean negativeY = false;
+                double neededChangeInY = (playerCurrentYPos - this.getCurrentYPos());
+                if(neededChangeInY < 0) negativeY = true;
+                double neededChangeInX = (playerCurrentXPos - this.getCurrentXPos());
+                if(neededChangeInX < 0) negativeX = true;
+                double slope = (neededChangeInY / neededChangeInX);
+                
+            }
+            else if(this.getCurrentXPos() < 0.0 || this.getCurrentXPos() > 400.0 || this.getCurrentYPos() < 0.0
+                    || this.getCurrentYPos() > 400.0){
+                this.isCurrentlyInWorld = false;
+                this.hasDesiredPath = false;
+            }
+        }
+    }
+    
+    /*
     public void activateEnemy(double playerCurrentXPos,double playerCurrentYPos){
         this.setIsAIActivated(true);
         Random r = new Random();
@@ -117,4 +184,5 @@ public class Serpent extends MovableObject implements AI{
             }
         }
     }
+    */
 }
