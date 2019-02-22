@@ -40,11 +40,11 @@ public class Projectile{
         this(false,speedX,speedY,currentXPos,currentYPos,damage,-1.0,pixelXSize,pixelYSize);
     }
     
-    public double getPixelXSize(){
+    public int getPixelXSize(){
         return this.pixelXSize;
     }
     
-    public double getPixelYSize(){
+    public int getPixelYSize(){
         return this.pixelYSize;
     }
     

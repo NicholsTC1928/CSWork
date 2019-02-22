@@ -99,15 +99,18 @@ public class Serpent extends MovableObject implements AI{
                 else this.angleForOrientation = ((Math.PI / 2.0) + angle);
                 this.setSpeedX(this.actualFullSpeed * Math.cos(angle));
                 if(neededChangeInX < 0) this.setSpeedX(this.getSpeedX() * -1.0);
+                System.out.println("X Speed: " + this.getSpeedX());
                 this.initialSpeedX = this.getSpeedX();
-                this.setSpeedY(this.actualFullSpeed * Math.sin(angle));
+                this.setSpeedY(Math.sqrt((this.actualFullSpeed * this.actualFullSpeed) - (this.getSpeedX() * this.getSpeedX())));
+                //this.setSpeedY(this.actualFullSpeed * Math.sin(this.angleForOrientation));
                 if(neededChangeInY < 0) this.setSpeedY(this.getSpeedY() * -1.0);
+                System.out.println("Y Speed: " + this.getSpeedY());
                 this.initialSpeedY = this.getSpeedY();
                 this.hasDesiredPath = true;
             }
             else{
-                if(this.getCurrentXPos() <= 0.0 || this.getCurrentXPos() >= 400.0 || this.getCurrentYPos() <= 0.0
-                        || this.getCurrentYPos() >= 400.0){
+                if(this.getCurrentXPos() < 0.0 || this.getCurrentXPos() > 400.0 || this.getCurrentYPos() < 0.0
+                        || this.getCurrentYPos() > 400.0){
                     this.isCurrentlyInWorld = false;
                     this.hasDesiredPath = false;
                 }

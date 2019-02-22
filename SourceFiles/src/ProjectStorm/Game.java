@@ -5,6 +5,7 @@ import java.awt.*; //Used for Dimension value type and Toolkit (Screen Resolutio
 import javax.swing.*;
 import java.awt.event.*;
 //import java.lang.Math;
+import java.awt.geom.AffineTransform;
 import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -342,7 +343,7 @@ public class Game extends JPanel implements Runnable {
         Iterator<Projectile> i = this.currentProjectiles.iterator();
         while(i.hasNext()){
             Projectile temp = i.next();
-            g.fillRect(scaleWorldToPixelsX(temp.getCurrentXPos()),scaleWorldToPixelsY(temp.getCurrentYPos()),20,20);
+            g.fillRect(scaleWorldToPixelsX(temp.getCurrentXPos()),scaleWorldToPixelsY(temp.getCurrentYPos()),temp.getPixelXSize(),temp.getPixelYSize());
             Toolkit.getDefaultToolkit().sync();
         }
     }
@@ -354,16 +355,19 @@ public class Game extends JPanel implements Runnable {
         while(i.hasNext()){
             MovableObject temp = i.next();
             if(temp instanceof Serpent){
+                if(!((Serpent) temp).getIsCurrentlyInWorld()) continue;
+                AffineTransform old = g2.getTransform();
                 g2.rotate(((Serpent) temp).getAngleForOrientation());
-                Rectangle rect = new Rectangle(scaleWorldToPixelsX(temp.getCurrentXPos()),scaleWorldToPixelsY(temp.getCurrentYPos()),70,70);
+                Rectangle rect = new Rectangle(scaleWorldToPixelsX(temp.getCurrentXPos()),scaleWorldToPixelsY(temp.getCurrentYPos()),50,70);
                 if(((Serpent) temp).getLevel() == 0) g2.setColor(Color.GREEN);
                 else if(((Serpent) temp).getLevel() == 1) g2.setColor(Color.YELLOW);
                 else g2.setColor(Color.RED);
                 if(isDebugModeOn){
-                    System.out.println("Number of Activated Enemies: " + currentEntities.size());
+                    //System.out.println("Number of Activated Enemies: " + currentEntities.size());
                 }
                 g2.draw(rect);
                 g2.fill(rect);
+                g2.setTransform(old);
                 Toolkit.getDefaultToolkit().sync();
             }
         }
