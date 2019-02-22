@@ -11,8 +11,10 @@ public class Projectile{
     private final boolean initialIsExplosive;
     private int damage;
     private double explosiveDamageRadius;
+    private int pixelXSize;
+    private int pixelYSize;
     
-    public Projectile(boolean isExplosive,double speedX,double speedY,double currentXPos,double currentYPos,int damage,double radius){
+    public Projectile(boolean isExplosive,double speedX,double speedY,double currentXPos,double currentYPos,int damage,double radius,int pixelXSize,int pixelYSize){
         this.isExplosive = isExplosive;
         this.initialIsExplosive = isExplosive;
         this.explosiveDamageRadius = radius;
@@ -22,10 +24,28 @@ public class Projectile{
         this.initialSpeedY = speedY;
         this.currentXPos = currentXPos;
         this.currentYPos = currentYPos;
+        this.pixelXSize = pixelXSize;
+        this.pixelYSize = pixelYSize;
     }
     
     public Projectile(double speedX,double speedY,double currentXPos,double currentYPos,int damage){
         this(false,speedX,speedY,currentXPos,currentYPos,damage,-1.0);
+    }
+    
+    public Projectile(boolean isExplosive,double speedX,double speedY,double currentXPos,double currentYPos,int damage,double radius){
+        this(isExplosive,speedX,speedY,currentXPos,currentYPos,damage,radius,20,20);
+    }
+    
+    public Projectile(double speedX,double speedY,double currentXPos,double currentYPos,int damage,int pixelXSize,int pixelYSize){
+        this(false,speedX,speedY,currentXPos,currentYPos,damage,-1.0,pixelXSize,pixelYSize);
+    }
+    
+    public double getPixelXSize(){
+        return this.pixelXSize;
+    }
+    
+    public double getPixelYSize(){
+        return this.pixelYSize;
     }
     
     public double getSpeedX(){
