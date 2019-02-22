@@ -114,9 +114,9 @@ public class Serpent extends MovableObject implements AI{
                 //The total speed of the enemy should be 2.5 units/second (3.5 units/second if the type is Omega).
                 double angle = Math.atan2(neededChangeInY / neededChangeInX);
                 if(neededChangeInX > 0 && neededChangeInY > 0) this.angleForOrientation = (angle * -1.0);
-                else if(neededChangeInX < 0 && neededChangeInY < 0) this.angleForOrientation = (Math.PI- angle);
-                else if(neededChangeInX > 0 && neededChangeInY < 0) this.angleForOrientation = ((3.0 * Math.PI / 2.0) + angle);
-                else this.angleForOrientation = ((Math.PI / 2.0) + angle);
+                else if(neededChangeInX < 0 && neededChangeInY < 0) this.angleForOrientation = (Math.PI - angle);
+                else if(neededChangeInX > 0 && neededChangeInY < 0) this.angleForOrientation = angle;
+                else this.angleForOrientation = (Math.PI + angle);
                 this.setSpeedX(this.actualFullSpeed * Math.cos(angle));
                 if(neededChangeInX < 0) this.setSpeedX(this.getSpeedX() * -1.0);
                 System.out.println("X Speed: " + this.getSpeedX());
