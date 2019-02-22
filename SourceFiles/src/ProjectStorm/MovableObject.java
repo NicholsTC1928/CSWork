@@ -10,6 +10,7 @@ public class MovableObject{
     private int health;
     private boolean isInvincible;
     private boolean isAIActivated;
+    private int damage;
     
     public MovableObject(double speedX,double speedY,int health,boolean isInvincible){
         this.speedX = speedX;
@@ -28,6 +29,14 @@ public class MovableObject{
         - 100 HP
         - No invincibility
         */
+    }
+    
+    public int getDamage(){
+        return this.damage;
+    }
+    
+    public void setDamage(int newDamage){
+        this.damage = newDamage;
     }
     
     public double getCurrentXPos(){
