@@ -11,6 +11,7 @@ public class MovableObject{
     private boolean isInvincible;
     private boolean isAIActivated;
     private int damage;
+    private boolean hasDesiredPath = false;
     
     public MovableObject(double speedX,double speedY,int health,boolean isInvincible){
         this.speedX = speedX;
@@ -41,6 +42,14 @@ public class MovableObject{
     
     public double getCurrentXPos(){
         return this.currentXPos;
+    }
+    
+    public double getHasDesiredPath(){
+        return this.hasDesiredPath;
+    }
+    
+    public void setHasDesiredPath(boolean value){
+        this.hasDesiredPath = value;
     }
     
     public void changeCurrentXPosBy(double speedX){
