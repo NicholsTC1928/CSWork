@@ -1,0 +1,12 @@
+-Iteration (Iterative) - programming technique in which you describe actions to be repeated using a loop
+
+-Recursion (Recursive) - programming technique in which you describe actions to be repeated using a method that calls
+itself
+
+-Base Case - case within a recursive solution that is so simple that it can be solved directly without a recursive call;
+it is required to prevent an infinite recursion (recursive equivalent of an infinite loop)
+
+-Recursive Case - case within a recursive solution that involves reducing the overall problem to a simpler problem of the
+same kind that can be solved by a recursive call
+
+-Call Stack - internal structure that keeps track of the sequence of methods that have been called

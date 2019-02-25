@@ -147,7 +147,7 @@ public class Game extends JPanel implements Runnable {
     private int spawnEnemiesTimerElapsed;
     private boolean spawnEnemiesTimerIsStopped;
     private int remainingSpawnEnemiesTimeForDelay;
-        
+    private int numEnemies;
    
 
 
@@ -303,6 +303,8 @@ public class Game extends JPanel implements Runnable {
                             if(levelPercentChance < 50) currentEntities.add(new Serpent(0));
                             else if(levelPercentChance < 85) currentEntities.add(new Serpent(1));
                             else currentEntities.add(new Serpent(2));
+                            numEnemies++;
+                            System.out.println(numEnemies);
                             break;
                         default:
                             break;
