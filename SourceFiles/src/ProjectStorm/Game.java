@@ -525,7 +525,7 @@ public class Game extends JPanel implements Runnable {
         Iterator<MovableObject> iEnemies = this.currentEntities.iterator();
         while(iEnemies.hasNext()){
             MovableObject temp = iEnemies.next();
-            if(!temp.getIsAIActivated() && temp instanceof AI) ((AI) temp).activateEnemy(player.getCurrentXPos(),player.getCurrentYPos());
+            if(!temp.getHasDesiredPath() && temp instanceof AI) ((AI) temp).activateEnemy(player.getCurrentXPos(),player.getCurrentYPos());
             //double initialSpeedX = temp.getSpeedX();
             //double initialSpeedY = temp.getSpeedY();
             //temp.setSpeedX(temp.getSpeedX() * dt);
