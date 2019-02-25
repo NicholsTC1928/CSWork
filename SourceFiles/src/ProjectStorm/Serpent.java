@@ -5,7 +5,6 @@ import java.util.Random;
 public class Serpent extends MovableObject implements AI{
     private int level;
     private boolean isCurrentlyInWorld;
-    private boolean hasDesiredPath = false;
     private final double actualFullSpeed;
     private double initialSpeedX;
     private double initialSpeedY;
@@ -108,15 +107,17 @@ public class Serpent extends MovableObject implements AI{
                 }
                 this.isCurrentlyInWorld = true;
             }
-            if(!this.hasDesiredPath){
+            if(!this.getHasDesiredPath()){
                 chooseActivePath(playerCurrentXPos,playerCurrentYPos);
             }
             else{
                 if(this.getCurrentXPos() < 0.0 || this.getCurrentXPos() > 400.0 || this.getCurrentYPos() < 0.0
                         || this.getCurrentYPos() > 400.0){
                     this.isCurrentlyInWorld = false;
-                    this.hasDesiredPath = false;
+                    this.setHasDesiredPath(false);
                     this.setIsAIActivated(false);
+                    this.setSpeedX(0.0);
+                    this.setSpeedY(0.0);
                 }
             }
         }
@@ -126,21 +127,20 @@ public class Serpent extends MovableObject implements AI{
         double neededChangeInX = playerCurrentXPos - this.getCurrentXPos();
         double neededChangeInY = playerCurrentYPos - this.getCurrentYPos();
         //The total speed of the enemy should be 2.5 units/second (3.5 units/second if the type is Omega).
-        double angle = Math.atan(neededChangeInY / neededChangeInX)
-        if(neededChangeInX > 0 && neededChangeInY > 0) this.angleForOrientation = (angle * -1.0);
-        else if(neededChangeInX < 0 && neededChangeInY < 0) this.angleForOrientation = (Math.PI - angle);
-        else if(neededChangeInX > 0 && neededChangeInY < 0) this.angleForOrientation = angle;
-        else this.angleForOrientation = (Math.PI + angle);
+        double angle = Math.atan2(neededChangeInY, neededChangeInX)
+        //if(neededChangeInX > 0 && neededChangeInY > 0) this.angleForOrientation = (angle * -1.0);
+        //else if(neededChangeInX < 0 && neededChangeInY < 0) this.angleForOrientation = (Math.PI - angle);
+        //else if(neededChangeInX > 0 && neededChangeInY < 0) this.angleForOrientation = angle;
+        //else this.angleForOrientation = (Math.PI + angle);
         this.angleForOrientation = angle;
         this.setSpeedX(this.actualFullSpeed * Math.cos(angle));
         //if(neededChangeInX < 0) this.setSpeedX(this.getSpeedX() * -1.0);
         //System.out.println("X Speed: " + this.getSpeedX());
         this.initialSpeedX = this.getSpeedX();
-        this.setSpeedY(Math.sqrt((this.actualFullSpeed * this.actualFullSpeed) - (this.getSpeedX() * this.getSpeedX())));
-        //this.setSpeedY(this.actualFullSpeed * Math.sin(this.angleForOrientation));
+        this.setSpeedY(this.actualFullSpeed * Math.sin(angle));
         //if(neededChangeInY < 0) this.setSpeedY(this.getSpeedY() * -1.0);
         //System.out.println("Y Speed: " + this.getSpeedY());
         this.initialSpeedY = this.getSpeedY();
-        this.hasDesiredPath = true;
+        this.setHasDesiredPath(true);
     }
 }
