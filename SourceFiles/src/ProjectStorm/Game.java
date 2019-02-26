@@ -29,6 +29,7 @@ The following PC port necessities NEED TO BE properly implemented:
 
 public class Game extends JPanel implements Runnable {
     //The following two variables are used for key bindings.
+    private final int maxNumberOfEnemies = 1;
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
     private static JLabel input = new JLabel();
     private boolean isInGame = false;
@@ -288,7 +289,7 @@ public class Game extends JPanel implements Runnable {
         spawnEnemiesTimer = new Timer();
         spawnEnemiesTask = new TimerTask(){
             @Override public void run(){
-                if(currentEntities.size() < 5){
+                if(currentEntities.size() < maxNumberOfEnemies){
                     Random r = new Random();
                     int enemySpawnChoice = r.nextInt(1); //Change the 1 when other enemies are implemented.
                     int levelPercentChance = (int)(100.0 * (r.nextDouble()));
@@ -525,13 +526,17 @@ public class Game extends JPanel implements Runnable {
         Iterator<MovableObject> iEnemies = this.currentEntities.iterator();
         while(iEnemies.hasNext()){
             MovableObject temp = iEnemies.next();
-            if(!temp.getHasDesiredPath() && temp instanceof AI) ((AI) temp).activateEnemy(player.getCurrentXPos(),player.getCurrentYPos());
+            if(!temp.getHasDesiredPath() && temp instanceof AI){
+                if(!temp.getIsAIActivated())((AI) temp).activateEnemy(player.getCurrentXPos(),player.getCurrentYPos());
+                //else ((AI) temp).chooseActivePath(player.getCurrentXPos(),player.getCurrentYPos());
+            }
             //double initialSpeedX = temp.getSpeedX();
             //double initialSpeedY = temp.getSpeedY();
             //temp.setSpeedX(temp.getSpeedX() * dt);
             //temp.setSpeedY(temp.getSpeedY() * dt);
             temp.changeCurrentXPosBy(temp.getSpeedX() * dt);
             temp.changeCurrentYPosBy(temp.getSpeedY() * dt);
+            //System.out.println("Position: (" + temp.getCurrentXPos() + ", " + temp.getCurrentYPos() + ")");
             //temp.setSpeedX(initialSpeedX);
             //temp.setSpeedY(initialSpeedY);
             if(temp.getHealth() <= 0) iEnemies.remove(); //There might be other checks that should be performed.

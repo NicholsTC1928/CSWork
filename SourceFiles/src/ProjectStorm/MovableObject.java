@@ -44,7 +44,7 @@ public class MovableObject{
         return this.currentXPos;
     }
     
-    public double getHasDesiredPath(){
+    public boolean getHasDesiredPath(){
         return this.hasDesiredPath;
     }
     
