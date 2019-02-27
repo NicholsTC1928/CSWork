@@ -360,6 +360,14 @@ public class Game extends JPanel implements Runnable {
             if(temp instanceof Serpent){
                 if(!((Serpent) temp).getIsCurrentlyInWorld()) continue;
                 AffineTransform old = g2.getTransform();
+                AffineTransform t = new AffineTransform();
+                t.rotate(((Serpent) temp).getAngleForOrientation(),temp.getCurrentXPos(),temp.getCurrentYPos());
+                g2.transform(t);
+                Rectangle rect = new Rectangle(scaleWorldToPixelsX(temp.getCurrentXPos()),scaleWorldToPixelsY(temp.getCurrentYPos()),50,70);
+                g2.draw(rect);
+                g2.fill(rect);
+                g2.setTransform(old);
+                /*
                 //I can confirm that the reason as to why the Serpent is not appearing to target the player is
                 //due to the following rotate method.
                 g2.rotate(((Serpent) temp).getAngleForOrientation(),temp.getCurrentXPos(),temp.getCurrentYPos());
@@ -373,6 +381,7 @@ public class Game extends JPanel implements Runnable {
                 g2.draw(rect);
                 g2.fill(rect);
                 g2.setTransform(old);
+                */
                 Toolkit.getDefaultToolkit().sync();
             }
         }
