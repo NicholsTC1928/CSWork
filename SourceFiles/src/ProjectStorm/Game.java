@@ -360,7 +360,9 @@ public class Game extends JPanel implements Runnable {
             if(temp instanceof Serpent){
                 if(!((Serpent) temp).getIsCurrentlyInWorld()) continue;
                 AffineTransform old = g2.getTransform();
-                g2.rotate(((Serpent) temp).getAngleForOrientation());
+                //Supposedly, the x- and y-position below for the rotate method are used to determine the anchor point.
+                //I honestly cannot see why this would not work now.
+                g2.rotate(((Serpent) temp).getAngleForOrientation(),temp.getCurrentXPos(),temp.getCurrentYPos());
                 Rectangle rect = new Rectangle(scaleWorldToPixelsX(temp.getCurrentXPos()),scaleWorldToPixelsY(temp.getCurrentYPos()),50,70);
                 if(((Serpent) temp).getLevel() == 0) g2.setColor(Color.GREEN);
                 else if(((Serpent) temp).getLevel() == 1) g2.setColor(Color.YELLOW);
