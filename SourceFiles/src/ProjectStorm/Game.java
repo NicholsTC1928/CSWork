@@ -526,6 +526,7 @@ public class Game extends JPanel implements Runnable {
             if(temp.getCurrentXPos() <= -10.0 || temp.getCurrentXPos() >= 410.0 || temp.getCurrentYPos() <= -10.0 || temp.getCurrentYPos() > 410.0) i.remove();
         }
         Iterator<MovableObject> iEnemies = this.currentEntities.iterator();
+        LinkedList<MovableObject> enemiesForCollisionCheck = new LinkedList<MovableObject>();
         while(iEnemies.hasNext()){
             MovableObject temp = iEnemies.next();
             if(!temp.getHasDesiredPath() && temp instanceof AI){
@@ -538,10 +539,15 @@ public class Game extends JPanel implements Runnable {
             //temp.setSpeedY(temp.getSpeedY() * dt);
             temp.changeCurrentXPosBy(temp.getSpeedX() * dt);
             temp.changeCurrentYPosBy(temp.getSpeedY() * dt);
+            if(isEligibleForCollisionCheck(temp.getCurrentXPos(),temp.getCurrentYPos())) enemiesForCollisionCheck.add(temp);
             //System.out.println("Position: (" + temp.getCurrentXPos() + ", " + temp.getCurrentYPos() + ")");
             //temp.setSpeedX(initialSpeedX);
             //temp.setSpeedY(initialSpeedY);
             if(temp.getHealth() <= 0) iEnemies.remove(); //There might be other checks that should be performed.
+        }
+        Iterator<MovableObject> iCollisionCheck = enemiesForCollisionCheck.iterator();
+        while(iCollisionCheck.hasNext()){
+            MovableObject temp = iCollisionCheck.next();
         }
         //this.currentProjectiles.removeAll(toRemove);
         
@@ -554,6 +560,37 @@ public class Game extends JPanel implements Runnable {
         -Start Y: player.getCurrentYPos(); / End Y: (player.getCurrentYPos() + scalePixelsToWorldY(70));
         */
         
+    }
+    
+    public boolean isEligibleForPlayerCollisionCheck(double objectX,double objectY){
+        /*
+        Collision Detection - Stage 1
+        
+        NOTE: This is an experimental method for checking for collisions, and as such, it may not be accurate.
+        
+        The goal is to create a 70 units X 90 units "checkbox" around the player, and to see if the position of an eligible
+        object is within this box. (In situations that the top-left pixel of the object is not intersecting the player and
+        a collision should have occurred, it is assumed that the object must have passed through the checkbox to get to this
+        position.) If the object's top-left pixel is within the checkbox, then the object is considered eligible for Collision
+        Detection - Stage 2.
+        */
+        if(objectX >= (player.getCurrentXPos() - 10) && objectX <= (player.getCurrentXPos() + 10) && objectY
+          >= (player.getCurrentYPos() - 10) && objectY <= (player.getCurrentYPos() + 10)) return true;
+        else return false;
+    }
+    
+    public boolean isCollidingWithPlayer(double objectX,double objectY){
+        /*
+        Collision Detection - Stage 2
+        
+        NOTE: If the player is invincible, then this can safely be skipped to reduce performance cost.
+        
+        The goal is to see if any part of an object's hitbox is intersecting with the hitbox of the player.
+        */
+        if(player.getInvincibilityState()) return false;
+        else{
+            
+        }
     }
 
     public void setNewDT(double dt){
