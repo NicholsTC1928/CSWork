@@ -114,6 +114,7 @@ public class Serpent extends MovableObject implements AI{
             else{
                 if(this.getCurrentXPos() < 0.0 || this.getCurrentXPos() > 400.0 || this.getCurrentYPos() < 0.0
                         || this.getCurrentYPos() > 400.0){
+                    System.out.println("End: (" + this.getCurrentXPos() + ", " + this.getCurrentYPos() + ")");
                     this.isCurrentlyInWorld = false;
                     this.setHasDesiredPath(false);
                     this.setIsAIActivated(false);

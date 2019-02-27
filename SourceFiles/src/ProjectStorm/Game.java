@@ -360,8 +360,8 @@ public class Game extends JPanel implements Runnable {
             if(temp instanceof Serpent){
                 if(!((Serpent) temp).getIsCurrentlyInWorld()) continue;
                 AffineTransform old = g2.getTransform();
-                //Supposedly, the x- and y-position below for the rotate method are used to determine the anchor point.
-                //I honestly cannot see why this would not work now.
+                //I can confirm that the reason as to why the Serpent is not appearing to target the player is
+                //due to the following rotate method.
                 g2.rotate(((Serpent) temp).getAngleForOrientation(),temp.getCurrentXPos(),temp.getCurrentYPos());
                 Rectangle rect = new Rectangle(scaleWorldToPixelsX(temp.getCurrentXPos()),scaleWorldToPixelsY(temp.getCurrentYPos()),50,70);
                 if(((Serpent) temp).getLevel() == 0) g2.setColor(Color.GREEN);
@@ -539,7 +539,7 @@ public class Game extends JPanel implements Runnable {
             //temp.setSpeedY(temp.getSpeedY() * dt);
             temp.changeCurrentXPosBy(temp.getSpeedX() * dt);
             temp.changeCurrentYPosBy(temp.getSpeedY() * dt);
-            if(isEligibleForCollisionCheck(temp.getCurrentXPos(),temp.getCurrentYPos())) enemiesForCollisionCheck.add(temp);
+            if(isEligibleForPlayerCollisionCheck(temp.getCurrentXPos(),temp.getCurrentYPos())) enemiesForCollisionCheck.add(temp);
             //System.out.println("Position: (" + temp.getCurrentXPos() + ", " + temp.getCurrentYPos() + ")");
             //temp.setSpeedX(initialSpeedX);
             //temp.setSpeedY(initialSpeedY);
@@ -578,7 +578,7 @@ public class Game extends JPanel implements Runnable {
           >= (player.getCurrentYPos() - 10) && objectY <= (player.getCurrentYPos() + 10)) return true;
         else return false;
     }
-    
+    /*
     public boolean isCollidingWithPlayer(double objectX,double objectY){
         /*
         Collision Detection - Stage 2
@@ -586,13 +586,13 @@ public class Game extends JPanel implements Runnable {
         NOTE: If the player is invincible, then this can safely be skipped to reduce performance cost.
         
         The goal is to see if any part of an object's hitbox is intersecting with the hitbox of the player.
-        */
+
         if(player.getInvincibilityState()) return false;
         else{
             
         }
     }
-
+    */
     public void setNewDT(double dt){
         this.dt = dt;
     }
