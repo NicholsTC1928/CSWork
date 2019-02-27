@@ -134,7 +134,7 @@ public class Serpent extends MovableObject implements AI{
         //else if(neededChangeInX < 0 && neededChangeInY < 0) this.angleForOrientation = (Math.PI - angle);
         //else if(neededChangeInX > 0 && neededChangeInY < 0) this.angleForOrientation = angle;
         //else this.angleForOrientation = (Math.PI + angle);
-        this.angleForOrientation = angle;
+        this.angleForOrientation = ((-1.0 * Math.PI / 2) + angle);
         this.setSpeedX(this.actualFullSpeed * Math.cos(angle));
         //if(neededChangeInX < 0) this.setSpeedX(this.getSpeedX() * -1.0);
         //System.out.println("X Speed: " + this.getSpeedX());
