@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Main {
+public class mergeSortAssignment {
     public static void main(String[] args){
         int[] input = new int[]{7,91,32,54,-356,1,98,76,5};
         System.out.println("Input Array: " + Arrays.toString(input));
