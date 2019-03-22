@@ -70,11 +70,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceFiles/src/mergeSortAssignment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="23" column="68" lean-forward="true" selection-start-line="23" selection-start-column="68" selection-end-line="23" selection-end-column="68" />
+            <state relative-caret-position="1495">
+              <caret line="65" column="5" lean-forward="true" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SourceFiles/src/searchingAlgorithmsProblem4.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="40" column="127" selection-start-line="40" selection-start-column="127" selection-end-line="40" selection-end-column="127" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,7 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SourceFiles/src/snake/initialize.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/snake/startGraphics.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/StartGraphics.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Window.java" />
@@ -215,6 +226,7 @@
         <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Serpent.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/ProjectStorm/Game.java" />
         <option value="$PROJECT_DIR$/SourceFiles/src/mergeSortAssignment.java" />
+        <option value="$PROJECT_DIR$/SourceFiles/src/searchingAlgorithmsProblem4.java" />
       </list>
     </option>
   </component>
@@ -586,7 +598,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553184370754" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553270789314" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -661,14 +673,7 @@
       <workItem from="1546960354381" duration="5938000" />
       <workItem from="1547134321591" duration="88462000" />
       <workItem from="1551800041083" duration="97000" />
-      <workItem from="1551892551267" duration="1980000" />
-    </task>
-    <task id="LOCAL-00053" summary="Added notes for shifting arrays. (11/27)">
-      <created>1543333388362</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1543333388363</updated>
+      <workItem from="1551892551267" duration="5130000" />
     </task>
     <task id="LOCAL-00054" summary="Updated the Argument Simulator. (11/28)">
       <created>1543424961784</created>
@@ -1006,11 +1011,18 @@
       <option name="project" value="LOCAL" />
       <updated>1551287419070</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Added the Merge Sort Assignment. (3/21)">
+      <created>1553184391866</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1553184391866</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261910000" />
+    <option name="totallyTimeSpent" value="265060000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="423" y="77" width="1467" height="898" extended-state="0" />
@@ -1095,7 +1107,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Updated Project Storm. (1/17)" />
     <MESSAGE value="Added Chapter 8 Project. (1/17)" />
     <MESSAGE value="Updated Project Storm. (1/18)" />
     <MESSAGE value="Updated Project Storm. (1/22)" />
@@ -1120,16 +1131,10 @@
     <MESSAGE value="Added Recursion notes. (2/25)" />
     <MESSAGE value="Added Recursion notes. (2/26)" />
     <MESSAGE value="Updated Project Storm. (2/27)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Project Storm. (2/27)" />
+    <MESSAGE value="Added the Merge Sort Assignment. (3/21)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the Merge Sort Assignment. (3/21)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SourceFiles/src/snake/Manifest.mf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tutorials/Classes">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -1604,8 +1609,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceFiles/src/mergeSortAssignment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="23" column="68" lean-forward="true" selection-start-line="23" selection-start-column="68" selection-end-line="23" selection-end-column="68" />
+        <state relative-caret-position="1495">
+          <caret line="65" column="5" lean-forward="true" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFiles/src/searchingAlgorithmsProblem4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="40" column="127" selection-start-line="40" selection-start-column="127" selection-end-line="40" selection-end-column="127" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
