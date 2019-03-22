@@ -7,16 +7,19 @@ public class searchingAlgorithmsProblem4 {
     //This assignment will use the Binary Search method. (Link: www.geeksforgeeks.org/binary-search/)
 
     public static void main(String[] args){
-        int[] input = new int[]{7,91,32,54,-356,1,98,76,5};
+        int[] input = new int[]{7,91,32,54,-356,-1,98,76,5};
         //The goal is to find the two elements with a sum closest to zero. The program should print the sum of the
         //elements, and not the elements themselves.
         System.out.println("Input Array: " + Arrays.toString(input));
         //The Merge Sort algorithm will be reused from the last assignment.
         mergeSort(input,0,(input.length - 1));
         System.out.println("Sorted Array: " + Arrays.toString(input));
-        System.out.println("Test: Searching Index for 32...");
+        System.out.println("Test: Searching array for index of 32...");
         int num = binarySearch(32,input,0,(input.length - 1));
-        System.out.println("Number Found: " + num + " (Element Number: " + (num + 1) + ")");
+        System.out.println("Index Found: " + num + " (Element Number: " + (num + 1) + ")");
+        System.out.println("Binary Search is successful.");
+        System.out.println();
+        System.out.println("Sum Closest to Zero: " + sumClosestToZero(input));
     }
 
     public static int sumClosestToZero(int[] arr){
@@ -37,9 +40,27 @@ public class searchingAlgorithmsProblem4 {
             }
         }
         if(needsSorting) mergeSort(arrAbs,0,(arrAbs.length - 1));
+        //A binary search will be performed on the original array for the first two values of the
+        //absolute value array. A try-catch block will be used to determine if the values are
+        //present or need to be multiplied by -1.
         try{
-            return (arr[binarySearch(arrAbs[0],arr,0,(arr.length - 1))] + arr[binarySearch(arrAbs[1],arr,0,(arr.length - 1))]);
+            int numCheck = binarySearch(arrAbs[0],arr,0,(arr.length - 1));
         }
+        catch(IllegalArgumentException e){
+            //System.out.println("Value Not Found");
+            arrAbs[0] *= -1;
+        }
+        try{
+            int numCheck = binarySearch(arrAbs[1],arr,0,(arr.length - 1));
+        }
+        catch(IllegalArgumentException e){
+            //System.out.println("Value Not Found");
+            arrAbs[1] *= -1;
+        }
+        //Finally, we can add the first two values of the absolute values array (which
+        //may or may not only contain absolute values at this point).
+        //System.out.println(Arrays.toString(arrAbs));
+        return (arrAbs[0] + arrAbs[1]);
     }
 
     public static int binarySearch(int num,int[] arr,int start,int end){
@@ -57,7 +78,8 @@ public class searchingAlgorithmsProblem4 {
         }
         else{
             if(arr[start] == num) return start;
-            else return end;
+            else if(arr[end] == num) return end;
+            else throw new IllegalArgumentException();
         }
     }
 
