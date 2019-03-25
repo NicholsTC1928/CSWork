@@ -1,0 +1,32 @@
+Searching in the Java Class Libraries:
+-indexOf Method:
+    -Used with ArrayList or LinkedList
+    -Returns the first index at which the target value occurs in the list, or -1 if it is not in the list
+    -Performs a sequential search starting at index 0, working its way sequentially through the array
+
+-Binary Search:
+    -An algorithm that searches for a value in a SORTED list by repeatedly dividing the search space in half
+    -Example:
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+
+    Binary search for 13:
+    -Checks 8, target is higher - Check upper half
+    -Checks 12, target is higher - Check upper half
+    -Checks 14, target is lower - Check lower half (which is just 13)
+    -13 is found
+
+    -binarySearch is part of the Arrays class (for arrays) and part of the Collections class (for lists)
+        -To use the binarySearch, the data must be in sorted order; otherwise, the results will be undefined
+
+Sorting in the Java Class Libraries:
+-Arrays can be used to sort an array
+-Arrays.parallelSort does the same thing, but it uses multiple CPU threads to do it faster
+-For lists, use Collections.sort
+-Arrays.sort uses quicksort for primitive data
+-Arrays.sort and Collections.sort use merge sort for object data
+
+Shuffling:
+-Collections.shuffle rearranges the elements in a list randomly
+-Comparator Interface:
+    -Can change the way Arrays and Lists are sorted
+    -A custom method can be created to sort the objects in a unique way by implementing the Comparator interface
