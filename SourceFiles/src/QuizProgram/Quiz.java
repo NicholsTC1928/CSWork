@@ -21,8 +21,9 @@ public class Quiz {
                 System.out.print("Enter your desired choice here: ");
                 choice = input.nextInt();
                 if(choice < 1 || choice > 4) throw new InputMismatchException();
+                System.out.println();
                 choiceMade = true;
-                input.close();
+                //input.close();
             }
             catch(InputMismatchException e){
                 System.out.println();
@@ -49,8 +50,12 @@ public class Quiz {
                 quizList = quiz4();
                 break;
             default:
+                System.out.println("There was an unknown error that occurred. Starting the 1st quiz...");
+                System.out.println();
+                quizList = quiz1();
                 break;
         }
+        takeQuiz(quizList);
     }
 
     public static void takeQuiz(List<Question> qList){
@@ -59,8 +64,56 @@ public class Quiz {
         int currentQuestion = 1;
         Collections.shuffle(qList);
         while(currentQuestion <= qList.size()){
-            
+            System.out.println(currentQuestion + ". " + qList.get(currentQuestion - 1).getQuestion());
+            String[] ans = qList.get(currentQuestion - 1).getAnswers();
+            System.out.println("A. " + ans[0]);
+            System.out.println("B. " + ans[1]);
+            System.out.println("C. " + ans[2]);
+            System.out.println("D. " + ans[3]);
+            System.out.println();
+            System.out.print("Enter your desired choice here: ");
+            Scanner input = new Scanner(System.in);
+            String choice = input.next().toUpperCase();
+            if(!choice.equals("A") && !choice.equals("B") && !choice.equals("C") && !choice.equals("D")){
+                System.out.println();
+                System.out.println("ERROR: This value is invalid.");
+                System.out.println();
+            }
+            else{
+                boolean correct = false;
+                switch(choice){
+                    case "A":
+                        correct = qList.get(currentQuestion - 1).isChosenAnswerCorrect(ans[0]);
+                        break;
+                    case "B":
+                        correct = qList.get(currentQuestion - 1).isChosenAnswerCorrect(ans[1]);
+                        break;
+                    case "C":
+                        correct = qList.get(currentQuestion - 1).isChosenAnswerCorrect(ans[2]);
+                        break;
+                    case "D":
+                        correct = qList.get(currentQuestion - 1).isChosenAnswerCorrect(ans[3]);
+                        break;
+                    default:
+                        break;
+                }
+                if(correct){
+                    currentScore++;
+                    System.out.println();
+                    System.out.println("This answer is correct! Your current score is " + currentScore + ".");
+                    System.out.println();
+                }
+                else{
+                    System.out.println();
+                    System.out.println("This answer is wrong! Your score is still " + currentScore + ".");
+                    System.out.println("(The correct answer is " + qList.get(currentQuestion - 1).getCorrectAnswer() + ".)");
+                    System.out.println();
+                }
+                currentQuestion++;
+            }
         }
+        System.out.println("The quiz has concluded. Your final score is " + currentScore + " / " + possibleScore + ".");
+        System.out.println();
     }
 
     public static String[] createQArray(String q,String c,String d1,String d2,String d3){
@@ -191,7 +244,7 @@ public class Quiz {
         )));
         return quiz;
     }
-
+/*
     public static List<Question> quiz2(){
         //Standards 4-6
         List<Question> quiz = new ArrayList<Question>();
@@ -206,4 +259,6 @@ public class Quiz {
         //Standards 12, 16, 18, and 19
         List<Question> quiz = new ArrayList<Question>();
     }
+
+ */
 }

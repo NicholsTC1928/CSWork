@@ -35,6 +35,10 @@ public class Question {
         return this.answers;
     }
 
+    public String getCorrectAnswer(){
+        return this.c;
+    }
+
     public boolean isChosenAnswerCorrect(String a){
         return (a.equals(c));
     }
